@@ -32,17 +32,39 @@ public:
 
     [[nodiscard]] std::string compile() const override {
         if (const auto &immediate = INSTANCEOF_SHARED(right, Immediate)) {
+            i32 v = static_cast<i32>(immediate->getValue());
             if (const auto &result = INSTANCEOF_SHARED(left, Register)) {
-                return fmt::format("scoreboard players remove {} vm_regs {}",
-                                   result->getName(), static_cast<i32>(immediate->getValue()));
+                if (v >= 0) {
+                    return fmt::format("scoreboard players remove {} vm_regs {}",
+                                       result->getName(), v);
+                } else if (v != INT32_MIN) {
+                    return fmt::format("scoreboard players add {} vm_regs {}",
+                                       result->getName(), -v);
+                } else {
+                    return fmt::format("scoreboard players add {} vm_regs 2147483647\n"
+                                       "scoreboard players add {} vm_regs 1",
+                                       result->getName(), result->getName());
+                }
             } else {
                 assert(INSTANCEOF_SHARED(left, Ptr));
 
                 // 与x86不同，mc不支持直接对storage（内存）中的值做计算
-                return fmt::format("{}\nscoreboard players remove s1 vm_regs {}\n{}",
-                                   CAST_FAST(left, Ptr)->loadTo(*Registers::S1),
-                                   static_cast<i32>(immediate->getValue()),
-                                   CAST_FAST(left, Ptr)->storeFrom(*Registers::S1));
+                if (v >= 0) {
+                    return fmt::format("{}\nscoreboard players remove s1 vm_regs {}\n{}",
+                                       CAST_FAST(left, Ptr)->loadTo(*Registers::S1),
+                                       v,
+                                       CAST_FAST(left, Ptr)->storeFrom(*Registers::S1));
+                } else if (v != INT32_MIN) {
+                    return fmt::format("{}\nscoreboard players add s1 vm_regs {}\n{}",
+                                       CAST_FAST(left, Ptr)->loadTo(*Registers::S1),
+                                       -v,
+                                       CAST_FAST(left, Ptr)->storeFrom(*Registers::S1));
+                } else {
+                    return fmt::format("{}\nscoreboard players add s1 vm_regs 2147483647\n"
+                                       "scoreboard players add s1 vm_regs 1\n{}",
+                                       CAST_FAST(left, Ptr)->loadTo(*Registers::S1),
+                                       CAST_FAST(left, Ptr)->storeFrom(*Registers::S1));
+                }
             }
         } else if (const auto &reg = INSTANCEOF_SHARED(right, Register)) {
             if (const auto &result = INSTANCEOF_SHARED(left, Register)) {

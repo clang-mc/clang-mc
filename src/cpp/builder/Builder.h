@@ -8,13 +8,16 @@
 
 #include "ir/IRCommon.h"
 #include "config/Config.h"
+#include "BuildContext.h"
 
 class Builder {
 private:
     const Config &config;
     std::vector<McFunctions> mcFunctions;
+    BuildContext context;
 public:
-    explicit Builder(const Config &config, std::vector<McFunctions> &&mcFunctions) : config(config), mcFunctions(std::move(mcFunctions)) {
+    explicit Builder(const Config &config, std::vector<McFunctions> &&mcFunctions, BuildContext context) :
+        config(config), mcFunctions(std::move(mcFunctions)), context(context) {
     }
 
     void build();

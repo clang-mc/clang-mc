@@ -13,6 +13,7 @@
 #include "objects/NameGenerator.h"
 #include "extern/ResourceManager.h"
 #include "State.h"
+#include "builder/BuildContext.h"
 
 class ParseManager;
 
@@ -31,15 +32,18 @@ private:
     std::vector<i32> staticData = std::vector<i32>();
     HashMap<Hash, u32> staticDataMap = HashMap<Hash, u32>();
 
+    BuildContext &context;
+
     std::string createForCall(const Label *labelOp);
 
     void initLabels(LabelMap &labelMap);
 
     friend class ParseManager;
 public:
-    explicit IR(const Logger &logger, const Config &config, Path &&file, HashMap<std::string, std::string> &&defines) :
+    explicit IR(const Logger &logger, const Config &config, Path &&file,
+                HashMap<std::string, std::string> &&defines, BuildContext &context) :
         logger(logger), config(config), file(std::move(file)),
-        fileDisplay(string::getPrettyPath(this->file)), defines(defines) {
+        fileDisplay(string::getPrettyPath(this->file)), defines(defines), context(context) {
     }
 
     [[nodiscard]] FORCEINLINE std::string_view getFileDisplay() const {

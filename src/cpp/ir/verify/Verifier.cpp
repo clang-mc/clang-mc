@@ -12,6 +12,12 @@
 #include "ir/values/Symbol.h"
 
 void Verifier::verify() {
+    currentIR = nullptr;
+    currentOp = nullptr;
+    errors = 0;
+    startFuncIR = nullptr;
+    startFuncLabel = nullptr;
+
     for (auto& ir : irs) {
         [[maybe_unused]] auto _ = handleSingle(ir);  // 如果是C风格include，就不需要考虑这个
     }
@@ -136,6 +142,19 @@ VerifyResult Verifier::handleSingle(IR &ir) {
             const auto opHash = labelOp->getLabelHash();
             inLabelBlock = true;
             currentLabel = opHash;
+
+            if (opHash == hash("_start")) {
+                assert(!labelOp->getExport());
+                assert(!labelOp->getExtern());
+                if (startFuncLabel != nullptr) {
+                    error(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
+                    note(i18n("ir.verify.previous_definition"), startFuncIR, startFuncLabel);
+                } else {
+                    startFuncIR = &ir;
+                    startFuncLabel = labelOp;
+                }
+            }
+
             if (definedLabels.contains(opHash)) {
                 error(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
                 note(i18n("ir.verify.previous_definition"), &ir, definedLabels[opHash]);
@@ -244,9 +263,15 @@ VerifyResult Verifier::handleSingle(IR &ir) {
 
         auto keepLabels = HashSet<Hash>();
         for (const auto &entry: definedLabels.values()) {
-            if (entry.second->getExport()) {
+            if (entry.second->getExport() || entry.second->getLabelHash() == hash("_start")) {
                 keepLabels.emplace(entry.first);
             }
+        }
+        // TODO: Remove this once static-data initialization is migrated to the new pipeline.
+        // IR::preCompile() currently injects a call to malloc() after verification has finished,
+        // so malloc must survive reachability pruning for now.
+        if (definedLabels.contains(hash("malloc"))) {
+            keepLabels.emplace(hash("malloc"));
         }
 
         auto worklist = std::vector<Hash>(keepLabels.begin(), keepLabels.end());
@@ -283,31 +308,19 @@ VerifyResult Verifier::handleSingle(IR &ir) {
     }
 
     if (!unusedLabels.empty()) {
-        auto newOps = std::vector<OpPtr>();
-        newOps.reserve(ops.size());
-
         bool removeCurrentLabelBlock = false;
-        bool hasAnyLabel = false;
-        for (auto &op: ops) {
+        for (auto &op : ops) {
             if (const auto labelOp = INSTANCEOF(op, Label)) {
                 removeCurrentLabelBlock = unusedLabels.contains(labelOp->getLabelHash());
-                if (!removeCurrentLabelBlock) {
-                    hasAnyLabel = true;
-                    newOps.emplace_back(std::move(op));
-                }
+            }
+            if (INSTANCEOF(op, Static)) {
+                removeCurrentLabelBlock = false;
                 continue;
             }
 
             if (removeCurrentLabelBlock) {
-                continue;
+                op = std::make_unique<Nop>(INT_MIN);
             }
-            newOps.emplace_back(std::move(op));
-        }
-
-        if (!hasAnyLabel) {
-            ops.clear();
-        } else {
-            ops = std::move(newOps);
         }
     }
 

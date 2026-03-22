@@ -25,11 +25,9 @@
 #include "ir/ops/Jne.h"
 #include "ir/ops/Static.h"
 #include "ir/ops/Syscall.h"
-
-template<typename T>
-[[maybe_unused]] static OpPtr createWith1Arg(const std::string_view &args) {
-    return std::make_unique<T>(INT_MIN, std::string(args));
-}
+#include "ir/ops/Movd.h"
+#include "ir/ops/Calld.h"
+#include "ir/ops/Rem.h"
 
 template<typename T>
 static OpPtr createWith2Arg(const LineState &line, const std::string_view &args) {
@@ -172,6 +170,28 @@ static OpPtr createStatic(const LineState &line, const std::string_view &args) {
     return std::make_unique<Static>(INT_MIN, fixSymbol(line, name), std::move(data));
 }
 
+static OpPtr createMovd(const LineState &line, const std::string_view &args) {
+    auto parts = string::split(args, ',');
+    if (UNLIKELY(parts.size() != 2)) {
+        throw ParseException(i18nFormat("ir.invalid_op", args));
+    }
+
+    auto leftStr = std::string(string::trim(parts[0]));
+    auto rightStr = std::string(string::trim(parts[1]));
+
+    return std::make_unique<Movd>(INT_MIN, createValue(line, leftStr), rightStr);
+}
+
+static OpPtr createCalld(const LineState &line, const std::string_view &args) {
+    auto parts = string::split(args, ',');
+    if (UNLIKELY(parts.size() != 1)) {
+        throw ParseException(i18nFormat("ir.invalid_op", args));
+    }
+
+    auto id = std::string(string::trim(parts[0]));
+    return std::make_unique<Calld>(INT_MIN, createValue(line, id));
+}
+
 PURE OpPtr createOp(const LineState &line, const std::string_view &string) {
     assert(!string.empty());
     if (string[string.length() - 1] == ':') {
@@ -195,6 +215,8 @@ PURE OpPtr createOp(const LineState &line, const std::string_view &string) {
             return createWith2Arg<Mul>(line, args);
         CASE_STR("div"):
             return createWith2Arg<Div>(line, args);
+        CASE_STR("rem"):
+            return createWith2Arg<Rem>(line, args);
         CASE_STR("ret"):
             return std::make_unique<Ret>(INT_MIN);
         CASE_STR("jmp"):
@@ -247,6 +269,10 @@ PURE OpPtr createOp(const LineState &line, const std::string_view &string) {
             return createStatic(line, args);
         CASE_STR("syscall"):
             return std::make_unique<Syscall>(INT_MIN);
+        CASE_STR("movd"):
+            return createMovd(line, args);
+        CASE_STR("calld"):
+            return createCalld(line, args);
         default: [[unlikely]]
             throw ParseException(i18nFormat("ir.unknown_op", op));
     }

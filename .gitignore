@@ -59,9 +59,11 @@ bin/
 Cargo.lock
 __pycache__
 /CLAUDE.md
+/AGENTS.md
 /package.json
 /package-lock.json
 
 # xmake
 .xmake/
 compile_commands.json
+CMakeLists.txt

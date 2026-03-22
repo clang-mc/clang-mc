@@ -157,8 +157,7 @@ FORCEINLINE std::string IR::createForCall(const Label *labelOp) {
         return labelOp->getLabel();
     }
 
-    const auto name = generateName();
-    return fmt::format("{}{}", config.getNameSpace(), name);
+    return config.getNameSpace() + generateName();
 }
 
 static inline Path toPath(const std::string &mcPath) {
@@ -174,21 +173,23 @@ static inline Path toPath(const std::string &mcPath) {
 }
 
 FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
-    auto labelOp = CAST_FAST(this->values[0], Label);
-    Hash label = labelOp->getLabelHash();
-    labelMap.emplace(label, createForCall(labelOp));
-
-    for (size_t i = 1; i < this->values.size(); ++i) {
-        const auto &op = this->values[i];
+    for (const auto &op : this->values) {
         if (!INSTANCEOF(op, Label)) {
             continue;
         }
 
-        labelOp = CAST_FAST(op, Label);
-        label = labelOp->getLabelHash();
+        auto labelOp = CAST_FAST(op, Label);
+        Hash label = labelOp->getLabelHash();
 
         assert(!labelMap.contains(label));
-        labelMap.emplace(label, createForCall(labelOp));
+
+        auto labelNameForCall = createForCall(labelOp);
+        labelMap.emplace(label, labelNameForCall);
+
+        if (label == hash("_start")) {
+            assert(context.getStartFunc().empty());
+            context.setStartFunc(labelNameForCall);
+        }
     }
 }
 
@@ -261,11 +262,11 @@ void IR::preCompile() {
                 "    ret\n"
                 "#pop line\n",
                 hasMalloc ? "" : "#include <memory>",
-                id, uid, staticData.size() + 1, uid, builder.toString(), id, id
+                id, uid, (staticData.size() + 1) * sizeof(i32), uid, builder.toString(), id, id
         );
     }
 
-    auto tmpIR = IR(logger, config, Path(), HashMap<std::string, std::string>());
+    auto tmpIR = IR(logger, config, Path(), HashMap<std::string, std::string>(), context);
     {
         PreProcessor pp;
         pp.addIncludeDir(absolute(INCLUDE_PATH));
@@ -304,6 +305,15 @@ void IR::preCompile() {
 
 static inline constexpr std::string_view DEBUG_MSG_TEMPLATE = "#\n# file: \"{}\"\n# label: \"{}\"\n#\n\n";
 
+static size_t findFirstLabelIndex(const std::vector<OpPtr>& values) {
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (INSTANCEOF(values[i], Label)) {
+            return i;
+        }
+    }
+    return values.size();
+}
+
 [[nodiscard]] McFunctions IR::compile() {
     preCompile();
 
@@ -311,7 +321,11 @@ static inline constexpr std::string_view DEBUG_MSG_TEMPLATE = "#\n# file: \"{}\"
     if (UNLIKELY(this->values.empty())) {
         return result;
     }
-    assert(INSTANCEOF(this->values[0], Label));
+
+    const auto firstLabelIndex = findFirstLabelIndex(this->values);
+    if (UNLIKELY(firstLabelIndex == this->values.size())) {
+        return result;
+    }
 
     auto labelMap = LabelMap();
     initLabels(labelMap);
@@ -323,13 +337,14 @@ static inline constexpr std::string_view DEBUG_MSG_TEMPLATE = "#\n# file: \"{}\"
     std::string debugMessage;
 
     if (config.getDebugInfo()) {
-        debugMessage = fmt::format(DEBUG_MSG_TEMPLATE, getFileDisplay(), CAST_FAST(this->values[0], Label)->getLabel());
+        debugMessage = fmt::format(DEBUG_MSG_TEMPLATE, getFileDisplay(),
+                                   CAST_FAST(this->values[firstLabelIndex], Label)->getLabel());
     }
 
-    Label *labelOp = CAST_FAST(this->values[0], Label);
+    Label *labelOp = CAST_FAST(this->values[firstLabelIndex], Label);
     Hash label = labelOp->getLabelHash();
     bool unreachable = false;
-    for (size_t i = 1; i < this->values.size(); ++i) {
+    for (size_t i = firstLabelIndex + 1; i < this->values.size(); ++i) {
         const auto &op = this->values[i];
         if (INSTANCEOF(op, Nop) || INSTANCEOF(op, Special)) {
             continue;

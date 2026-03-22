@@ -37,27 +37,34 @@ public:
     void withIR(IR *context) override {
         Op::withIR(context);
         auto prefixBuilder = StringBuilder();
+        const auto requireStaticOffset = [&](const Hash symbolHash, const std::string& symbolName) -> u32 {
+            const auto& map = context->getStaticDataMap();
+            if (!map.contains(symbolHash)) {
+                throw ParseException(i18nFormat("ir.verify.undeclared_symbol", symbolName));
+            }
+            return map.at(symbolHash);
+        };
 
         if (const auto &symbol = INSTANCEOF_SHARED(left, Symbol)) {
             left = Registers::S3;
             prefixBuilder.appendLine("scoreboard players operation s3 vm_regs = sbp vm_regs");
             prefixBuilder.appendLine(fmt::format("scoreboard players add s3 vm_regs {}",
-                                     context->getStaticDataMap().at(symbol->getNameHash())));
+                                     requireStaticOffset(symbol->getNameHash(), symbol->getName())));
         } else if (const auto &symbolPtr = INSTANCEOF_SHARED(left, SymbolPtr)) {
             left = std::make_shared<Ptr>(
                     Registers::SBP.get(), nullptr, 1,
-                    context->getStaticDataMap().at(symbolPtr->getNameHash()));
+                    requireStaticOffset(symbolPtr->getNameHash(), symbolPtr->getName()));
         }
 
         if (const auto &symbol = INSTANCEOF_SHARED(right, Symbol)) {
             right = Registers::S4;
             prefixBuilder.appendLine("scoreboard players operation s4 vm_regs = sbp vm_regs");
             prefixBuilder.appendLine(fmt::format("scoreboard players add s4 vm_regs {}",
-                                                 context->getStaticDataMap().at(symbol->getNameHash())));
+                                                 requireStaticOffset(symbol->getNameHash(), symbol->getName())));
         } else if (const auto &symbolPtr = INSTANCEOF_SHARED(right, SymbolPtr)) {
             right = std::make_shared<Ptr>(
                     Registers::SBP.get(), nullptr, 1,
-                    context->getStaticDataMap().at(symbolPtr->getNameHash()));
+                    requireStaticOffset(symbolPtr->getNameHash(), symbolPtr->getName()));
 
         }
 

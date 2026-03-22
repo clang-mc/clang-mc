@@ -57,6 +57,8 @@ Without these projects, `clang-mc` would not exist:
 
 - [Minecraft](https://www.minecraft.net) - Minecraft, developed by Mojang Studios, `clang-mc` complies with the [Minecraft EULA](https://www.minecraft.net/en-us/eula) and related terms of use.
 - [LLVM](https://llvm.org) - A powerful compiler infrastructure, open-sourced under the Apache License 2.0.
+- [picolibc](https://github.com/picolibc/picolibc) - A C library for resource-constrained embedded systems, formed by blending code from Newlib and AVR Libc, with mostly BSD-like licensing.
+- [StringLib](https://github.com/CMDred/StringLib) - A Minecraft datapack string utility library offering optimized operations such as `concat`, `find`, and `replace`, licensed under the MIT License.
 - [ankerl::unordered_dense](https://github.com/martinus/unordered_dense): A modern, high-performance, low-memory hash table implementation in C++, licensed under the [MIT License](https://github.com/martinus/unordered_dense/blob/main/LICENSE).
 - [fmt](https://fmt.dev/) - A fast and safe formatting library for C++, licensed under the [MIT License](https://github.com/fmtlib/fmt/blob/master/LICENSE.rst).
 - [spdlog](https://github.com/gabime/spdlog) - A fast C++ logging library, licensed under the [MIT License](https://github.com/gabime/spdlog/blob/v1.x/LICENSE).

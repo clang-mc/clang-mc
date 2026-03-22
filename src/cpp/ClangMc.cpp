@@ -45,11 +45,12 @@ void ClangMc::start() {
         ensureValidConfig();
         ensureBuildDir();
 
+        auto context = BuildContext();
 #ifndef NDEBUG
         logger->debug("pre parse");
 #endif
         // parse
-        auto parseManager = ParseManager(config, logger);
+        auto parseManager = ParseManager(config, logger, context);
         parseManager.loadSource();
         parseManager.loadIR();
         auto &irs = parseManager.getIRs();
@@ -102,7 +103,7 @@ void ClangMc::start() {
 #ifndef NDEBUG
         logger->debug("pre build");
 #endif
-        auto builder = Builder(config, std::move(mcFunctions));
+        auto builder = Builder(config, std::move(mcFunctions), context);
         // building
 #ifndef NDEBUG
         logger->debug("pre call build");

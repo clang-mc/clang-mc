@@ -13,7 +13,7 @@ class Config {
 private:
     std::vector<Path> input = std::vector<Path>();
     std::vector<Path> includes = std::vector<Path>();
-    Path output = Path("output");
+    Path output = Path("a");
     Path buildDir = Path("build");
     Path dataDir = Path("");
     std::string nameSpace;

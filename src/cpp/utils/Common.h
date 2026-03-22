@@ -138,4 +138,12 @@ static FORCEINLINE constexpr T *requireNonNull(T *object) {
     return object;
 }
 
+template<class T>
+static FORCEINLINE constexpr T *requireNonNullElse(T *object, T *orElse) {
+    if (UNLIKELY(object == nullptr)) {
+        return orElse;
+    }
+    return object;
+}
+
 #endif //CLANG_MC_COMMON_H

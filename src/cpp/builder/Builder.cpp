@@ -5,6 +5,7 @@
 #include "Builder.h"
 #include "extern/ResourceManager.h"
 #include "PostOptimizer.h"
+#include "ir/IR.h"
 
 static inline constexpr auto PACK_MCMETA = \
 "{\n"
@@ -12,6 +13,13 @@ static inline constexpr auto PACK_MCMETA = \
 "        \"description\": \"\",\n"
 "        \"pack_format\": 61\n"
 "    }\n"
+"}";
+
+static inline constexpr auto LOAD_JSON = \
+"{\n"
+"    \"values\": [\n"
+"        \"%FUNCTION_ON_LOAD%\"\n"
+"    ]\n"
 "}";
 
 void Builder::build() {
@@ -24,6 +32,23 @@ void Builder::build() {
             writeFile(path, data);
         }
         McFunctions().swap(mcFunction);
+    }
+
+    // make load.json
+    {
+        std::string funcName = config.getNameSpace() + IR::generateName();
+        std::string funcContent = "function std:init_vm";
+        if (!context.getStartFunc().empty()) {
+            funcContent += fmt::format("\nschedule function {} 1t", context.getStartFunc());
+        }
+        auto splits = string::split(funcName, ':');
+        auto onLoadPath = config.getBuildDir() / fmt::format("data/{}/function/{}.mcfunction", splits[0], splits[1]);
+        ensureParentDir(onLoadPath);
+        writeFile(onLoadPath, funcContent);
+
+        auto loadJsonPath = config.getBuildDir() / "data" / "minecraft" / "tags" / "function" / "load.json";
+        ensureParentDir(loadJsonPath);
+        writeFile(loadJsonPath, string::replace(LOAD_JSON, "%FUNCTION_ON_LOAD%", funcName));
     }
 }
 

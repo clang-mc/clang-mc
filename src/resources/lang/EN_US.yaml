@@ -23,6 +23,7 @@ cli.arg.empty_input_file: input file path cannot be empty
 cli.arg.missing_arg: "missing argument for option '{}'"
 cli.arg.invalid_namespace: invalid namespace
 ir.op.immediate_left: the left operand cannot be an immediate value
+ir.op.immediate_operand: the operand cannot be an immediate value
 ir.op.memory_operands: "the operation cannot have both operands as memory locations"
 ir.op.empty_value: operand cannot be empty
 ir.op.out_of_range: immediate value out of range
@@ -57,6 +58,7 @@ ir.verify.never_return_inner: entry point is here
 file.no_such_file_or_directory: "no such file or directory: '{}'"
 file.failed_to_open: "failed to open file: '{}'"
 file.failed_to_create: "failed to create file or directory: '{}'"
+file.failed_to_close: "failed to close file: '{}'"
 file.file_not_found: "'{}' file not found"
 oom.oom: "\033[31mfatal error:\033[97m out of memory"
 general.no_input_files: no input files

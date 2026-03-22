@@ -91,7 +91,7 @@ target("clang-mc")
             if is_plat("windows") then
                 add_cxflags("/O2", { force = true })
             else
-                add_cxflags("-O3", { force = true })
+                add_cxflags("-O3", "-fvisibility=hidden", { force = true })
             end
 
             if not is_config("toolchain", "msvc") then

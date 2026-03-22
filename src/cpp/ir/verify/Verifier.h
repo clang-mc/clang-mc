@@ -21,6 +21,8 @@ private:
     const IR *currentIR = nullptr;
     const Op *currentOp = nullptr;
     u32 errors = 0;
+    const IR *startFuncIR = nullptr;
+    const Label *startFuncLabel = nullptr;
 
     VerifyResult handleSingle(IR &ir);
 

@@ -34,7 +34,8 @@ void ParseManager::loadIR() {
     for (auto &[path, code]: sources) {
         auto iter = defines.find(path);
         auto defines_ = iter == defines.end() ? HashMap<std::string, std::string>() : iter->second;
-        irs.emplace_back(logger, config, std::move(path), std::move(defines_)).parse(std::move(code));
+        irs.emplace_back(logger, config, std::move(path), std::move(defines_), context)
+            .parse(std::move(code));
     }
     HashMap<Path, std::string>().swap(sources);
     HashMap<Path, HashMap<std::string, std::string>>().swap(defines);

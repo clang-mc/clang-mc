@@ -1,42 +1,39 @@
 #once
 
-#include "stdlib"
-#include "stdio"
+// Builtins
+#include "compiler_rt/math"
+#include "compiler_rt/bits"
 
-export std:_internal/declen:
-    inline execute if score r0 vm_regs matches -9.. run return 1
-    inline execute if score r0 vm_regs matches -99.. run return 2
-    inline execute if score r0 vm_regs matches -999.. run return 3
-    inline execute if score r0 vm_regs matches -9999.. run return 4
-    inline execute if score r0 vm_regs matches -99999.. run return 5
-    inline execute if score r0 vm_regs matches -999999.. run return 6
-    inline execute if score r0 vm_regs matches -9999999.. run return 7
-    inline execute if score r0 vm_regs matches -99999999.. run return 8
-    inline return 9
+// Compiler RT
+#include "compiler_rt/adddf3.mch"
+#include "compiler_rt/adddi3.mch"
+#include "compiler_rt/addsf3.mch"
+#include "compiler_rt/ashldi3.mch"
+#include "compiler_rt/ashrdi3.mch"
+#include "compiler_rt/bits.mch"
+#include "compiler_rt/comparedf2.mch"
+#include "compiler_rt/divdf3.mch"
+#include "compiler_rt/divsf3.mch"
+#include "compiler_rt/extendsfdf2.mch"
+#include "compiler_rt/fixdfsi.mch"
+#include "compiler_rt/fixsfsi.mch"
+#include "compiler_rt/floatsidf.mch"
+#include "compiler_rt/floatsisf.mch"
+#include "compiler_rt/fp_mode.mch"
+#include "compiler_rt/lshrdi3.mch"
+#include "compiler_rt/math.mch"
+#include "compiler_rt/muldf3.mch"
+#include "compiler_rt/muldi3.mch"
+#include "compiler_rt/mulsf3.mch"
+#include "compiler_rt/subdf3.mch"
+#include "compiler_rt/subdi3.mch"
+#include "compiler_rt/subsf3.mch"
+#include "compiler_rt/truncdfsf2.mch"
+#include "compiler_rt/udivdi3.mch"
+#include "compiler_rt/udivsi3.mch"
+#include "compiler_rt/umoddi3.mch"
+#include "compiler_rt/umodsi3.mch"
 
-
-// int __builtin_declen(int value)
-__builtin_declen:
-    mov t0, r0
-    jl r0, 0, .begin
-    mul r0, -1
-.begin:
-    inline execute store result score rax vm_regs run function std:_internal/declen
-    rge t0, 0
-    add rax, 1
+abort:
+    inline tellraw @a "[DataPack] Aborted! Program has crashed, run /reload to reset."
     ret
-
-
-#define __builtin_Event_Unreg_TICK(labelName) inline schedule clear std:_internal/_wrapper_labelName
-
-#define __builtin_Event_Reg_TICK(labelName) \
-    #push line \
-    #push label \
-    inline schedule function std:_internal/_wrapper_labelName 1t \
-    jmp after \
-export std:_internal/_wrapper_labelName: \
-    inline schedule function std:_internal/_wrapper_labelName 1t \
-    jmp labelName \
-after: \
-    #pop label \
-    #pop line
