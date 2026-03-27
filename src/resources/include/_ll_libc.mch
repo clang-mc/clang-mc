@@ -17,21 +17,21 @@ putchar:                                // @putchar
 	mov	r1, 255
 	mov	r3, r0
 	call	__bit_and
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	r0, [r0]
 	mov	r1, 10
 	mov	r2, rax
 	jne	r2, r1, .LBB1_5
 	jmp	.LBB1_1
 .LBB1_1:
-	mov	r3, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r3, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, r3
 	mov	[r0], 0
 	mov	r0, [r3]
 	inline data modify storage std:vm s0 set value {a: -1}
 	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
 	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, 1
 	mov	r0, [r0]
 	mov	r1, 255
@@ -52,7 +52,7 @@ putchar:                                // @putchar
 	jmp	.LBB1_4
 .LBB1_4:                                // %puts.exit.i
 	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	[r0], 0
 	jmp	.LBB1_11
 .LBB1_5:
@@ -62,14 +62,14 @@ putchar:                                // @putchar
 	jl	rax, r1, .LBB1_10
 	jmp	.LBB1_6
 .LBB1_6:
-	mov	r4, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r4, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, r4
 	mov	[r0], 0
 	mov	r0, [r4]
 	inline data modify storage std:vm s0 set value {a: -1}
 	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
 	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, 1
 	mov	r0, [r0]
 	mov	r1, 255
@@ -94,9 +94,9 @@ putchar:                                // @putchar
 .LBB1_10:
 	mov	r1, r0
 	add	r1, 1
-	mov	r4, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r4, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	[r4], r1
-	mov	r4, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r4, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	mov	r1, 255
 	add	r4, r0
 	mov	r0, r3
@@ -166,19 +166,19 @@ sprintf:                                // @sprintf
 // -- Begin function __stdout_linebuf_flush
 __stdout_linebuf_flush:                 // @__stdout_linebuf_flush
 // %bb.0:
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	r0, [r0]
 	jz	r0, .LBB5_5
 	jmp	.LBB5_1
 .LBB5_1:
-	mov	r2, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r2, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, r2
 	mov	[r0], 0
 	mov	r0, [r2]
 	inline data modify storage std:vm s0 set value {a: -1}
 	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
 	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, 1
 	mov	r0, [r0]
 	mov	r1, 255
@@ -199,7 +199,7 @@ __stdout_linebuf_flush:                 // @__stdout_linebuf_flush
 	jmp	.LBB5_4
 .LBB5_4:                                // %puts.exit
 	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	[r0], 0
 .LBB5_5:
 	mov	rax, 0
@@ -211,21 +211,21 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 	mov	r1, 255
 	mov	r3, r0
 	call	__bit_and
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	r0, [r0]
 	mov	r1, 10
 	mov	r2, rax
 	jne	r2, r1, .LBB6_5
 	jmp	.LBB6_1
 .LBB6_1:
-	mov	r3, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r3, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, r3
 	mov	[r0], 0
 	mov	r0, [r3]
 	inline data modify storage std:vm s0 set value {a: -1}
 	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
 	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, 1
 	mov	r0, [r0]
 	mov	r1, 255
@@ -246,7 +246,7 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 	jmp	.LBB6_4
 .LBB6_4:                                // %puts.exit
 	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r0, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	[r0], 0
 	jmp	.LBB6_11
 .LBB6_5:
@@ -256,14 +256,14 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 	jl	rax, r1, .LBB6_10
 	jmp	.LBB6_6
 .LBB6_6:
-	mov	r4, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r4, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, r4
 	mov	[r0], 0
 	mov	r0, [r4]
 	inline data modify storage std:vm s0 set value {a: -1}
 	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
 	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, 1
 	mov	r0, [r0]
 	mov	r1, 255
@@ -288,9 +288,9 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 .LBB6_10:
 	mov	r1, r0
 	add	r1, 1
-	mov	r4, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
+	mov	r4, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
 	mov	[r4], r1
-	mov	r4, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r4, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	mov	r1, 255
 	add	r4, r0
 	mov	r0, r3
@@ -326,11 +326,11 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	mov	t7, 10
 	mov	x0, -2139062144
 	mov	x1, -2147483645
-	mov	x2, mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5
-	mov	x3, mcasm_static_120360ef34487e8c71315170e55a9280
-	mov	x4, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	x2, mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96
+	mov	x3, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
+	mov	x4, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	x4, 1
-	mov	x5, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	x5, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	x5, 8
 	mov	x6, -2147483632
 	mov	x7, -2147482625
@@ -467,7 +467,7 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	call	__bit_and
 	mov	r4, rax
 	add	r4, r6
-	mov	x11, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	x11, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	mov	r1, -2147483648
 	add	x11, r5
 	mov	r0, r4
@@ -711,7 +711,7 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	jmp	.LBB7_35
 .LBB7_35:                               // %.preheader.i6.preheader
                                         //   in Loop: Header=BB7_18 Depth=2
-	mov	r5, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r5, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r5, 8
 .LBB7_36:                               // %.preheader.i6
                                         //   Parent Loop BB7_2 Depth=1
@@ -742,7 +742,7 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	jz	x9, .LBB7_44
 	jmp	.LBB7_40
 .LBB7_40:                               //   in Loop: Header=BB7_2 Depth=1
-	mov	r0, mcasm_static_120360ef34487e8c71315170e55a9280
+	mov	r0, mcasm_static_b41cae49a55b19bab9f2e9a3331ff272
 	add	r0, [x2]
 	mov	[r0], 0
 	mov	r0, [x3]
@@ -827,7 +827,7 @@ vprintf:                                // @vprintf
 	jnz	r4, .LBB8_5
 	jmp	.LBB8_4
 .LBB8_4:
-	mov	r0, mcasm_static_5c63489e54ec887af4b4f111740ffb34
+	mov	r0, mcasm_static_deb21523fdc4b8b14c990504ee578426
 	mov	[r0], 12
 	jmp	.LBB8_41
 .LBB8_5:
@@ -2456,7 +2456,7 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_xor
 	mov	r0, rax
 	call	__bit_not
-	mov	r1, mcasm_static_85b4ab734597d3737c690b05ac7caa7d
+	mov	r1, mcasm_static_3469fdb79a7892d5306cfc55689cb345
 	sub	r1, r3
 	add	rax, 1
 	mov	r0, rax
@@ -3253,8 +3253,8 @@ format_integer:                         // @format_integer
 	call	__bit_xor
 	mov	r0, rax
 	call	__bit_not
-	mov	x3, mcasm_static_067109f202df94d33292f33a22bdb1e2
-	mov	r1, mcasm_static_297ce85d1d6061ce7e975a0742e97867
+	mov	x3, mcasm_static_4a119a450e304584076ce4f5f39426bc
+	mov	r1, mcasm_static_68b714b7b37d1cc7bbef61e15f53e213
 	sub	r1, x3
 	add	rax, 1
 	mov	r0, rax
@@ -3982,7 +3982,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t4, 0
-	mov	t7, mcasm_static_85f5982e2bd1a4d205f1ac51ed6294b3
+	mov	t7, mcasm_static_927db01a8092a19b0fac62c051deb1d3
 	jz	rax, .LBB15_16
 	jmp	.LBB15_12
 .LBB15_12:                              // %.preheader.i.preheader
@@ -4028,7 +4028,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t4, 0
-	mov	t7, mcasm_static_8da01a94af81936d9fd310472be1e764
+	mov	t7, mcasm_static_e3e2773e3024ce1f7bbb664306c51382
 	jz	rax, .LBB15_24
 	jmp	.LBB15_20
 .LBB15_20:                              // %.preheader.i4.preheader
@@ -4197,7 +4197,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t4, 0
-	mov	t7, mcasm_static_182f086555dd68bfb237d591fe2273c9
+	mov	t7, mcasm_static_f9e49c831f2e22dd8908170b93019332
 	jz	rax, .LBB15_50
 	jmp	.LBB15_46
 .LBB15_46:                              // %.preheader.i8.preheader
@@ -4243,7 +4243,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t4, 0
-	mov	t7, mcasm_static_ccfcec774c0173bfea25317fcbd7a74b
+	mov	t7, mcasm_static_c757499a05c17e455ca6fb7deb06a21d
 	jz	rax, .LBB15_58
 	jmp	.LBB15_54
 .LBB15_54:                              // %.preheader.i12.preheader
@@ -4412,7 +4412,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t4, 0
-	mov	t7, mcasm_static_2d61138acd3f842e66affc15dc4b4acc
+	mov	t7, mcasm_static_3e79a3b861325244b443993244aafedc
 	jz	rax, .LBB15_84
 	jmp	.LBB15_80
 .LBB15_80:                              // %.preheader.i21.preheader
@@ -4458,7 +4458,7 @@ gcvt:                                   // @gcvt
 	mov	r0, t2
 	call	__bit_and
 	mov	t3, 0
-	mov	t4, mcasm_static_2a332ce1019f7d241215866e128eca51
+	mov	t4, mcasm_static_8e02f7c117b2a71c851e6320bec9b7ff
 	jz	rax, .LBB15_92
 	jmp	.LBB15_88
 .LBB15_88:                              // %.preheader.i25.preheader
@@ -6144,7 +6144,7 @@ itoa:                                   // @itoa
 .LBB19_6:                               // %.preheader7.preheader
 	mov	r7, 0
 	mov	t1, -1
-	mov	t2, mcasm_static_297ce85d1d6061ce7e975a0742e97867
+	mov	t2, mcasm_static_68b714b7b37d1cc7bbef61e15f53e213
 	jmp	.LBB19_16
 .LBB19_7:
 	mov	r7, rsp
@@ -6156,7 +6156,7 @@ itoa:                                   // @itoa
 	jl	rax, r0, .LBB19_10
 	jmp	.LBB19_8
 .LBB19_8:                               // %.preheader.preheader
-	mov	t1, mcasm_static_a5283b90efaa9cce44f90fcd4e2ba4be
+	mov	t1, mcasm_static_e7d8e401075a4ab9617e16d4144cb479
 	mov	t2, -2147473649
 	mov	r5, r3
 	mov	t3, r7
@@ -6210,7 +6210,7 @@ itoa:                                   // @itoa
 	add	r5, -1
 	mov	r0, r3
 	call	__bit_shl
-	mov	r3, mcasm_static_a5283b90efaa9cce44f90fcd4e2ba4be
+	mov	r3, mcasm_static_e7d8e401075a4ab9617e16d4144cb479
 	add	r3, rax
 	mov	r0, r3
 	add	r0, 1
@@ -7805,7 +7805,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	x5, -8
 	mov	t7, 0
 	mov	x6, 100
-	mov	x7, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	x7, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	mov	x8, 2
 	mov	x9, -1147483648
 	mov	x10, 99999999
@@ -8440,7 +8440,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[rsp-27], t3
 	add	t7, 65
 	mov	[rsp-28], t7
-	mov	t3, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	t3, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	jmp	.LBB25_110
 .LBB25_94:                              // %.loopexit83.loopexit
 	mov	t2, 0
@@ -9158,7 +9158,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	jz	r5, .LBB25_131
 	jmp	.LBB25_129
 .LBB25_129:
-	mov	t2, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	t2, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	mov	t3, t1
 	mov	r0, r6
 .LBB25_130:                             // %memcpy.exit66
@@ -14758,7 +14758,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	t4, 99999999
 	mov	t5, 10000
 	mov	x5, 100
-	mov	x6, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	x6, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	mov	x7, 10
 	mov	x8, 9999999
 	mov	x9, 999999
@@ -15617,7 +15617,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t0
 	call	__bit_shl
 	mov	x2, rax
-	mov	x7, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	x7, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	add	x2, x7
 	mov	r0, [x2]
 	mov	r1, 255
@@ -15823,7 +15823,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	x3, 0
 	mov	x7, 99999999
 	mov	r0, 10000
-	mov	x8, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	x8, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	jl	t6, r0, .LBB33_102
 	jmp	.LBB33_100
 .LBB33_100:                             //   in Loop: Header=BB33_72 Depth=1
@@ -16370,7 +16370,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	div	t2, 4
 	add	t2, r4
 	mov	t1, 0
-	mov	t4, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	t4, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	mov	r0, t6
 .LBB33_150:                             // %memcpy.exit90
                                         // =>This Inner Loop Header: Depth=1
@@ -16456,7 +16456,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	r3, -16
 	div	r3, 4
 	add	r3, r4
-	mov	t4, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	t4, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	mov	t7, -2047483649
 	mov	r7, t6
 .LBB33_156:                             // %memcpy.exit91
@@ -16546,7 +16546,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	div	rax, 4
-	mov	t3, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	t3, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	add	t3, rax
 	mov	r0, [t3]
 	mov	r1, 255
@@ -16565,7 +16565,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, 1
 	mov	r0, t6
 	call	__bit_shl
-	mov	r3, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	r3, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	add	r3, rax
 	mov	r0, r3
 	add	r0, 1
@@ -16726,7 +16726,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	r4, r7
 	mov	r0, r2
 	call	__bit_shl
-	mov	r7, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	r7, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	add	r7, rax
 	mov	r0, [r7]
 	mov	r1, 255
@@ -16754,7 +16754,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	r4, r7
 	mov	r0, r6
 	call	__bit_shl
-	mov	r2, mcasm_static_de0ca07a3ba831a25dedc7210c66af9c
+	mov	r2, mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef
 	add	r2, rax
 	mov	r0, [r2]
 	mov	r1, 255
@@ -16832,7 +16832,7 @@ strtol:                                 // @strtol
 	mov	t2, 32
 	jmp	.LBB36_5
 .LBB36_3:
-	mov	r0, mcasm_static_5c63489e54ec887af4b4f111740ffb34
+	mov	r0, mcasm_static_deb21523fdc4b8b14c990504ee578426
 	mov	[r0], 22
 	mov	r7, 0
 	jz	r3, .LBB36_40
@@ -17061,7 +17061,7 @@ strtol:                                 // @strtol
 	jz	rax, .LBB36_40
 	jmp	.LBB36_39
 .LBB36_39:
-	mov	r0, mcasm_static_5c63489e54ec887af4b4f111740ffb34
+	mov	r0, mcasm_static_deb21523fdc4b8b14c990504ee578426
 	mov	[r0], 34
 	mov	r7, r5
 .LBB36_40:
@@ -17091,7 +17091,7 @@ strtoul:                                // @strtoul
 	mov	r7, 32
 	jmp	.LBB37_5
 .LBB37_3:
-	mov	r0, mcasm_static_5c63489e54ec887af4b4f111740ffb34
+	mov	r0, mcasm_static_deb21523fdc4b8b14c990504ee578426
 	mov	[r0], 22
 	mov	r6, 0
 	jz	r3, .LBB37_40
@@ -17318,7 +17318,7 @@ strtoul:                                // @strtoul
 	jz	rax, .LBB37_40
 	jmp	.LBB37_39
 .LBB37_39:
-	mov	r0, mcasm_static_5c63489e54ec887af4b4f111740ffb34
+	mov	r0, mcasm_static_deb21523fdc4b8b14c990504ee578426
 	mov	[r0], 34
 	mov	r6, -1
 .LBB37_40:
@@ -24498,7 +24498,7 @@ strtok:                                 // @strtok
 	jnz	r2, .LBB76_2
 	jmp	.LBB76_1
 .LBB76_1:
-	mov	r0, mcasm_static_286ac00b45418210f5e73c40c057dca4
+	mov	r0, mcasm_static_325f3e3ac7c713a4ed561e9269305c51
 	mov	r2, [r0]
 	mov	rax, 0
 	jz	r2, .LBB76_14
@@ -24570,7 +24570,7 @@ strtok:                                 // @strtok
 	jz	rax, .LBB76_8
 	jmp	.LBB76_9
 .LBB76_13:                              // %__strtok_r.exit.sink.split
-	mov	r0, mcasm_static_286ac00b45418210f5e73c40c057dca4
+	mov	r0, mcasm_static_325f3e3ac7c713a4ed561e9269305c51
 	mov	[r0], r7
 .LBB76_14:                              // %__strtok_r.exit
 	ret
@@ -24770,22 +24770,22 @@ strtok_r:                               // @strtok_r
 .LBB78_14:
 	ret
 // -- End function
-static mcasm_static_3da3d5d57e159b8de744dd0ffa9d06c5 [0]
-static mcasm_static_120360ef34487e8c71315170e55a9280 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-static mcasm_static_85b4ab734597d3737c690b05ac7caa7d [40, 110, 117, 108, 108, 41, 0]
-static mcasm_static_067109f202df94d33292f33a22bdb1e2 [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 0]
-static mcasm_static_85f5982e2bd1a4d205f1ac51ed6294b3 [78, 97, 78, 0]
-static mcasm_static_8da01a94af81936d9fd310472be1e764 [110, 97, 110, 0]
-static mcasm_static_182f086555dd68bfb237d591fe2273c9 [73, 110, 102, 105, 110, 105, 116, 121, 0]
-static mcasm_static_ccfcec774c0173bfea25317fcbd7a74b [105, 110, 102, 0]
-static mcasm_static_2d61138acd3f842e66affc15dc4b4acc [45, 73, 110, 102, 105, 110, 105, 116, 121, 0]
-static mcasm_static_2a332ce1019f7d241215866e128eca51 [45, 105, 110, 102, 0]
-static mcasm_static_a5283b90efaa9cce44f90fcd4e2ba4be [48, 48, 48, 49, 48, 50, 48, 51, 48, 52, 48, 53, 48, 54, 48, 55, 48, 56, 48, 57, 49, 48, 49, 49, 49, 50, 49, 51, 49, 52, 49, 53, 49, 54, 49, 55, 49, 56, 49, 57, 50, 48, 50, 49, 50, 50, 50, 51, 50, 52, 50, 53, 50, 54, 50, 55, 50, 56, 50, 57, 51, 48, 51, 49, 51, 50, 51, 51, 51, 52, 51, 53, 51, 54, 51, 55, 51, 56, 51, 57, 52, 48, 52, 49, 52, 50, 52, 51, 52, 52, 52, 53, 52, 54, 52, 55, 52, 56, 52, 57, 53, 48, 53, 49, 53, 50, 53, 51, 53, 52, 53, 53, 53, 54, 53, 55, 53, 56, 53, 57, 54, 48, 54, 49, 54, 50, 54, 51, 54, 52, 54, 53, 54, 54, 54, 55, 54, 56, 54, 57, 55, 48, 55, 49, 55, 50, 55, 51, 55, 52, 55, 53, 55, 54, 55, 55, 55, 56, 55, 57, 56, 48, 56, 49, 56, 50, 56, 51, 56, 52, 56, 53, 56, 54, 56, 55, 56, 56, 56, 57, 57, 48, 57, 49, 57, 50, 57, 51, 57, 52, 57, 53, 57, 54, 57, 55, 57, 56, 57, 57, 0]
-static mcasm_static_297ce85d1d6061ce7e975a0742e97867 [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 0]
-static mcasm_static_de0ca07a3ba831a25dedc7210c66af9c [48, 48, 48, 49, 48, 50, 48, 51, 48, 52, 48, 53, 48, 54, 48, 55, 48, 56, 48, 57, 49, 48, 49, 49, 49, 50, 49, 51, 49, 52, 49, 53, 49, 54, 49, 55, 49, 56, 49, 57, 50, 48, 50, 49, 50, 50, 50, 51, 50, 52, 50, 53, 50, 54, 50, 55, 50, 56, 50, 57, 51, 48, 51, 49, 51, 50, 51, 51, 51, 52, 51, 53, 51, 54, 51, 55, 51, 56, 51, 57, 52, 48, 52, 49, 52, 50, 52, 51, 52, 52, 52, 53, 52, 54, 52, 55, 52, 56, 52, 57, 53, 48, 53, 49, 53, 50, 53, 51, 53, 52, 53, 53, 53, 54, 53, 55, 53, 56, 53, 57, 54, 48, 54, 49, 54, 50, 54, 51, 54, 52, 54, 53, 54, 54, 54, 55, 54, 56, 54, 57, 55, 48, 55, 49, 55, 50, 55, 51, 55, 52, 55, 53, 55, 54, 55, 55, 55, 56, 55, 57, 56, 48, 56, 49, 56, 50, 56, 51, 56, 52, 56, 53, 56, 54, 56, 55, 56, 56, 56, 57, 57, 48, 57, 49, 57, 50, 57, 51, 57, 52, 57, 53, 57, 54, 57, 55, 57, 56, 57, 57]
-static mcasm_static_5c63489e54ec887af4b4f111740ffb34 [0]
-static mcasm_static_286ac00b45418210f5e73c40c057dca4 [0]
-static mcasm_static_d4d301f7c5b4ccd206168478e318f423 [0, 0]
+static mcasm_static_06d80ac5f61f4a42f77fb43ffbcb2f96 [0]
+static mcasm_static_b41cae49a55b19bab9f2e9a3331ff272 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+static mcasm_static_3469fdb79a7892d5306cfc55689cb345 [40, 110, 117, 108, 108, 41, 0]
+static mcasm_static_4a119a450e304584076ce4f5f39426bc [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 0]
+static mcasm_static_927db01a8092a19b0fac62c051deb1d3 [78, 97, 78, 0]
+static mcasm_static_e3e2773e3024ce1f7bbb664306c51382 [110, 97, 110, 0]
+static mcasm_static_f9e49c831f2e22dd8908170b93019332 [73, 110, 102, 105, 110, 105, 116, 121, 0]
+static mcasm_static_c757499a05c17e455ca6fb7deb06a21d [105, 110, 102, 0]
+static mcasm_static_3e79a3b861325244b443993244aafedc [45, 73, 110, 102, 105, 110, 105, 116, 121, 0]
+static mcasm_static_8e02f7c117b2a71c851e6320bec9b7ff [45, 105, 110, 102, 0]
+static mcasm_static_e7d8e401075a4ab9617e16d4144cb479 [48, 48, 48, 49, 48, 50, 48, 51, 48, 52, 48, 53, 48, 54, 48, 55, 48, 56, 48, 57, 49, 48, 49, 49, 49, 50, 49, 51, 49, 52, 49, 53, 49, 54, 49, 55, 49, 56, 49, 57, 50, 48, 50, 49, 50, 50, 50, 51, 50, 52, 50, 53, 50, 54, 50, 55, 50, 56, 50, 57, 51, 48, 51, 49, 51, 50, 51, 51, 51, 52, 51, 53, 51, 54, 51, 55, 51, 56, 51, 57, 52, 48, 52, 49, 52, 50, 52, 51, 52, 52, 52, 53, 52, 54, 52, 55, 52, 56, 52, 57, 53, 48, 53, 49, 53, 50, 53, 51, 53, 52, 53, 53, 53, 54, 53, 55, 53, 56, 53, 57, 54, 48, 54, 49, 54, 50, 54, 51, 54, 52, 54, 53, 54, 54, 54, 55, 54, 56, 54, 57, 55, 48, 55, 49, 55, 50, 55, 51, 55, 52, 55, 53, 55, 54, 55, 55, 55, 56, 55, 57, 56, 48, 56, 49, 56, 50, 56, 51, 56, 52, 56, 53, 56, 54, 56, 55, 56, 56, 56, 57, 57, 48, 57, 49, 57, 50, 57, 51, 57, 52, 57, 53, 57, 54, 57, 55, 57, 56, 57, 57, 0]
+static mcasm_static_68b714b7b37d1cc7bbef61e15f53e213 [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 0]
+static mcasm_static_91527dacc13b2d2b2f8974a4c5b8ddef [48, 48, 48, 49, 48, 50, 48, 51, 48, 52, 48, 53, 48, 54, 48, 55, 48, 56, 48, 57, 49, 48, 49, 49, 49, 50, 49, 51, 49, 52, 49, 53, 49, 54, 49, 55, 49, 56, 49, 57, 50, 48, 50, 49, 50, 50, 50, 51, 50, 52, 50, 53, 50, 54, 50, 55, 50, 56, 50, 57, 51, 48, 51, 49, 51, 50, 51, 51, 51, 52, 51, 53, 51, 54, 51, 55, 51, 56, 51, 57, 52, 48, 52, 49, 52, 50, 52, 51, 52, 52, 52, 53, 52, 54, 52, 55, 52, 56, 52, 57, 53, 48, 53, 49, 53, 50, 53, 51, 53, 52, 53, 53, 53, 54, 53, 55, 53, 56, 53, 57, 54, 48, 54, 49, 54, 50, 54, 51, 54, 52, 54, 53, 54, 54, 54, 55, 54, 56, 54, 57, 55, 48, 55, 49, 55, 50, 55, 51, 55, 52, 55, 53, 55, 54, 55, 55, 55, 56, 55, 57, 56, 48, 56, 49, 56, 50, 56, 51, 56, 52, 56, 53, 56, 54, 56, 55, 56, 56, 56, 57, 57, 48, 57, 49, 57, 50, 57, 51, 57, 52, 57, 53, 57, 54, 57, 55, 57, 56, 57, 57]
+static mcasm_static_deb21523fdc4b8b14c990504ee578426 [0]
+static mcasm_static_325f3e3ac7c713a4ed561e9269305c51 [0]
+static mcasm_static_dc8e8c2564192621f39db7fafce94083 [0, 0]
 
 export _ll_shared:z/putchar_0:
     inline data modify storage std:vm s1 set value {str: "", next: ""}
