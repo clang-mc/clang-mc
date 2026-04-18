@@ -190,6 +190,7 @@ __bit_and:
 	mov [rsp-3], x2
 	mov [rsp-4], x3
 	mov [rsp-5], x4
+	mov [rsp-6], x5
 
 	mov x0, r0
 	mov x1, r1
@@ -211,7 +212,7 @@ __bit_and:
 	div r5, 256
 	mov x1, r5
 	call __bit_and8_u8
-	inline scoreboard players operation __bit_and_b0 vm_regs = rax vm_regs
+	mov [rsp-7], rax
 
 	mov r0, x0
 	rem r0, 256
@@ -230,7 +231,7 @@ __bit_and:
 	div r5, 256
 	mov x1, r5
 	call __bit_and8_u8
-	inline scoreboard players operation __bit_and_b1 vm_regs = rax vm_regs
+	mov [rsp-8], rax
 
 	mov r0, x0
 	rem r0, 256
@@ -249,7 +250,7 @@ __bit_and:
 	div r5, 256
 	mov x1, r5
 	call __bit_and8_u8
-	inline scoreboard players operation __bit_and_b2 vm_regs = rax vm_regs
+	mov [rsp-9], rax
 
 	mov r0, x0
 	rem r0, 256
@@ -267,11 +268,12 @@ __bit_and:
 	mul r5, 256
 	sub rax, r5
 	mul rax, 256
-	inline scoreboard players operation rax vm_regs += __bit_and_b2 vm_regs
+	add rax, [rsp-9]
 	mul rax, 256
-	inline scoreboard players operation rax vm_regs += __bit_and_b1 vm_regs
+	add rax, [rsp-8]
 	mul rax, 256
-	inline scoreboard players operation rax vm_regs += __bit_and_b0 vm_regs
+	add rax, [rsp-7]
+	mov x5, [rsp-6]
 	mov x4, [rsp-5]
 	mov x3, [rsp-4]
 	mov x2, [rsp-3]
@@ -283,13 +285,136 @@ __bit_and:
 __bit_or:
 	mov [rsp-1], x0
 	mov [rsp-2], x1
+	mov [rsp-3], x2
+	mov [rsp-4], x3
+	mov [rsp-5], x4
+	mov [rsp-6], x5
+	mov [rsp-7], x6
+	mov [rsp-8], x7
+
 	mov x0, r0
 	mov x1, r1
-	call	__bit_and
-	mov	r0, x0
-	add	r0, x1
-	sub	r0, rax
-	mov	rax, r0
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	sub r2, rax
+	mov [rsp-9], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	sub r2, rax
+	mov [rsp-10], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	sub r2, rax
+	mov [rsp-11], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov [rsp-12], r0
+	mov [rsp-13], r1
+	call __bit_and8_u8
+	mov r0, [rsp-12]
+	add r0, [rsp-13]
+	sub r0, rax
+	mov r5, r0
+	add r5, 128
+	div r5, 256
+	mul r5, 256
+	sub r0, r5
+	mov rax, r0
+	mul rax, 256
+	add rax, [rsp-11]
+	mul rax, 256
+	add rax, [rsp-10]
+	mul rax, 256
+	add rax, [rsp-9]
+
+	mov x7, [rsp-8]
+	mov x6, [rsp-7]
+	mov x5, [rsp-6]
+	mov x4, [rsp-5]
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
 	mov x1, [rsp-2]
 	mov x0, [rsp-1]
 	ret
@@ -298,14 +423,144 @@ __bit_or:
 __bit_xor:
 	mov [rsp-1], x0
 	mov [rsp-2], x1
+	mov [rsp-3], x2
+	mov [rsp-4], x3
+	mov [rsp-5], x4
+	mov [rsp-6], x5
+	mov [rsp-7], x6
+	mov [rsp-8], x7
+
 	mov x0, r0
 	mov x1, r1
-	call	__bit_and
-	add	rax, rax
-	mov	r0, x0
-	add	r0, x1
-	sub	r0, rax
-	mov	rax, r0
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	mov r3, rax
+	add r3, rax
+	sub r2, r3
+	mov [rsp-9], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	mov r3, rax
+	add r3, rax
+	sub r2, r3
+	mov [rsp-10], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r5, x0
+	sub r5, r0
+	div r5, 256
+	mov x0, r5
+	mov x2, r0
+
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov r5, x1
+	sub r5, r1
+	div r5, 256
+	mov x1, r5
+	mov x3, r1
+	mov [rsp-12], x2
+	mov [rsp-13], x3
+	mov r0, x2
+	mov r1, x3
+	call __bit_and8_u8
+	mov r2, [rsp-12]
+	add r2, [rsp-13]
+	mov r3, rax
+	add r3, rax
+	sub r2, r3
+	mov [rsp-11], r2
+
+	mov r0, x0
+	rem r0, 256
+	add r0, 256
+	rem r0, 256
+	mov r1, x1
+	rem r1, 256
+	add r1, 256
+	rem r1, 256
+	mov [rsp-12], r0
+	mov [rsp-13], r1
+	call __bit_and8_u8
+	mov r0, [rsp-12]
+	add r0, [rsp-13]
+	mov r2, rax
+	add r2, rax
+	sub r0, r2
+	mov r5, r0
+	add r5, 128
+	div r5, 256
+	mul r5, 256
+	sub r0, r5
+	mov rax, r0
+	mul rax, 256
+	add rax, [rsp-11]
+	mul rax, 256
+	add rax, [rsp-10]
+	mul rax, 256
+	add rax, [rsp-9]
+
+	mov x7, [rsp-8]
+	mov x6, [rsp-7]
+	mov x5, [rsp-6]
+	mov x4, [rsp-5]
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
 	mov x1, [rsp-2]
 	mov x0, [rsp-1]
 	ret
