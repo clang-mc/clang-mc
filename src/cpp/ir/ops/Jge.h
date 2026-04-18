@@ -38,14 +38,14 @@ private:
                            right->loadTo(*Registers::S1), left->getValue() - 1, command);
     }
 
-    template<class T>
+    template<typename T>
     static inline std::string cmp(const std::string_view &command, Ptr *left, T *right) {
         return fmt::format("{}\n{}",
                            left->loadTo(*Registers::S1),
                            cmp(command, Registers::S1.get(), right));
     }
 
-    template<class T, class U>
+    template<typename T, typename U>
     inline std::string cmp(const JmpMap &jmpMap, T *left, U *right) const {
         return CmpLike::cmp(this, jmpMap.at(labelHash), left, right);
     }

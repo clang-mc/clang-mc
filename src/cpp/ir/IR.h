@@ -29,7 +29,6 @@ private:
     HashMap<std::string, std::string> defines;
     std::vector<OpPtr> values = std::vector<OpPtr>();
 
-    std::vector<i32> staticData = std::vector<i32>();
     HashMap<Hash, u32> staticDataMap = HashMap<Hash, u32>();
 
     BuildContext &context;
@@ -54,9 +53,9 @@ public:
 
     GETTER(Values, values);
 
-    GETTER(StaticData, staticData);
-
     GETTER(StaticDataMap, staticDataMap);
+
+    GETTER(Context, context);
 
     void parse(std::string &&code);
 

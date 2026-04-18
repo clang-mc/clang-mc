@@ -198,6 +198,7 @@ static std::uniform_int_distribution<> distrib(INT32_MIN, INT32_MAX);
 
 void IR::preCompile() {
     staticDataMap.clear();
+    auto &staticData = context.getStaticData();
     staticData.clear();
     staticData.reserve(256);
 
@@ -210,96 +211,6 @@ void IR::preCompile() {
             staticDataMap.emplace(staticOp->getNameHash(), staticData.size());
             staticData.insert(staticData.end(), data.begin(), data.end());
         }
-    }
-
-    if (staticData.empty()) {
-        return;
-    }
-
-    // ensure initialized
-    std::string code;
-    {
-        bool hasMalloc = false;
-        for (const auto &item: values) {
-            if (auto *ptr = INSTANCEOF(item, Label)) {
-                if (ptr->getLabelHash() == hash("malloc")) {
-                    hasMalloc = true;
-                    break;
-                }
-            }
-        }
-        static uuids::basic_uuid_random_generator generator = uuids::basic_uuid_random_generator(rng);
-        i32 uid = distrib(rng);
-        auto id = to_string(generator());
-        auto builder = StringBuilder();
-        for (const auto &item: staticData) {
-            builder.appendLine(fmt::format("mov [rax], {}", item));
-            builder.appendLine("add rax, 1");
-        }
-        code = fmt::format(
-                "#push line\n"
-                "{}\n"
-                "\n"
-                "__internal_tryInit:\n"
-                "    inline return run scoreboard players operation sbp vm_regs = sbp vm_static_{}\n"
-                "    ret\n"
-                "\n"
-                "__internal_ensureInit:\n"
-                "    mov sbp, 0\n"
-                "    call __internal_tryInit\n"
-                "    je sbp, 0, .init\n"
-                "    re [sbp - 1], {}\n"  // 优化: 代替jne [sbp - 1], {}, .init; ret
-                "\n"
-                ".init:\n"
-                "    mov r0, {}\n"
-                "    call malloc\n"
-                "    mov [rax], {}\n"
-                "    add rax, 1\n"
-                "    mov sbp, rax\n"
-                "    {}\n"
-                "    inline scoreboard objectives add vm_static_{} dummy\n"
-                "    inline return run scoreboard players operation sbp vm_static_{} = sbp vm_regs\n"
-                "    ret\n"
-                "#pop line\n",
-                hasMalloc ? "" : "#include <memory>",
-                id, uid, (staticData.size() + 1) * sizeof(i32), uid, builder.toString(), id, id
-        );
-    }
-
-    auto tmpIR = IR(logger, config, Path(), HashMap<std::string, std::string>(), context);
-    {
-        PreProcessor pp;
-        pp.addIncludeDir(absolute(INCLUDE_PATH));
-        pp.addTargetString(code);
-        pp.process();
-        tmpIR.parse(std::string(pp.getTargets()[0].code));
-    }
-
-    for (u32 i = 0; i < values.size(); ++i) {
-        if (auto *ptr = INSTANCEOF(values[i], Label)) {
-            if (!ptr->getExport()) continue;
-            assert(i != values.size());
-            assert(INSTANCEOF(values[i + 1], Nop));
-
-            values[i + 1] = std::make_unique<Call>(INT_MIN, "__internal_ensureInit");
-        }
-    }
-
-    for (auto &item: tmpIR.getValues()) {
-        values.emplace_back(std::move(item));
-    }
-
-    i32 errors = 0;
-    for (const auto &op: this->values) {
-        try {
-            op->withIR(this);
-        } catch (const ParseException &e) {
-            logger->error(createIRMessage(getLine(op.get()), getSource(op.get()), e.what()));
-            errors++;
-        }
-    }
-    if (errors != 0) {
-        throw ParseException(i18nFormat("ir.errors_generated", errors));
     }
 }
 
@@ -392,6 +303,7 @@ static size_t findFirstLabelIndex(const std::vector<OpPtr>& values) {
             }
         }
 
+        op->withIR(this);
         std::string compiled = op->compilePrefix();
         if (!compiled.empty()) {
             builder.appendLine(compiled);

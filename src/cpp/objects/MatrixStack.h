@@ -8,7 +8,7 @@
 
 #include <stack>
 
-template<class T>
+template<typename T>
 class MatrixStack {
 private:
     std::stack<T> stack = std::stack<T>();

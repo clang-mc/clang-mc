@@ -151,7 +151,11 @@ static OpPtr createStatic(const LineState &line, const std::string_view &args) {
         throw ParseException(i18nFormat("ir.invalid_op", args));
     }
     auto name = parts[0];
-    auto dataStr = parts[1];
+    // Support "static foo, value" syntax: strip trailing comma from name
+    if (!name.empty() && name.back() == ',') {
+        name = name.substr(0, name.size() - 1);
+    }
+    auto dataStr = string::trim(parts[1]);
 
     std::vector<i32> data;
     if (dataStr.size() > 2 && dataStr.front() == '[' && dataStr.back() == ']') {

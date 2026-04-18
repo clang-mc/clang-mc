@@ -267,13 +267,6 @@ VerifyResult Verifier::handleSingle(IR &ir) {
                 keepLabels.emplace(entry.first);
             }
         }
-        // TODO: Remove this once static-data initialization is migrated to the new pipeline.
-        // IR::preCompile() currently injects a call to malloc() after verification has finished,
-        // so malloc must survive reachability pruning for now.
-        if (definedLabels.contains(hash("malloc"))) {
-            keepLabels.emplace(hash("malloc"));
-        }
-
         auto worklist = std::vector<Hash>(keepLabels.begin(), keepLabels.end());
         for (size_t i = 0; i < worklist.size(); ++i) {
             const auto label = worklist[i];

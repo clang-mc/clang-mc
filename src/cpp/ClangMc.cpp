@@ -10,6 +10,7 @@
 #include "builder/PostOptimizer.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
+#include "uuidWrapper.h"
 #include <spdlog/sinks/ansicolor_sink.h>
 #include <spdlog/sinks/basic_file_sink.h>
 #include <execution>
@@ -46,6 +47,10 @@ void ClangMc::start() {
         ensureBuildDir();
 
         auto context = BuildContext();
+        auto uuidEngine = std::mt19937(std::random_device{}());
+        auto staticBaseUuid = uuids::to_string(uuids::uuid_random_generator(uuidEngine)());
+        staticBaseUuid.erase(std::remove(staticBaseUuid.begin(), staticBaseUuid.end(), '-'), staticBaseUuid.end());
+        context.setStaticBaseReg(Registers::createCustom(fmt::format("sb_{}", staticBaseUuid), false));
 #ifndef NDEBUG
         logger->debug("pre parse");
 #endif

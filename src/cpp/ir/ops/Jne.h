@@ -44,7 +44,7 @@ private:
                            right->loadTo(*Registers::S1), cmp(command, Registers::S1.get(), left));
     }
 
-    template<class T, class U>
+    template<typename T, typename U>
     inline std::string cmp(const JmpMap &jmpMap, T *left, U *right) const {
         return CmpLike::cmp(this, jmpMap.at(labelHash), left, right);
     }

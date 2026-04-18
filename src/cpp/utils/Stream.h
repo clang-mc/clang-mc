@@ -9,7 +9,7 @@
 #include "utils/Common.h"
 
 namespace stream {
-    template<class T, class F>
+    template<typename T, typename F>
     auto map(const std::vector<T>& vector, F&& mapper) -> std::vector<decltype(mapper(std::declval<T>()))> {
         using R = decltype(mapper(std::declval<T>()));
         std::vector<R> result(vector.size());

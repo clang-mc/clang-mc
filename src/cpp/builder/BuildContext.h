@@ -6,14 +6,21 @@
 #define CLANG_MC_BUILDCONTEXT_H
 
 #include "utils/Common.h"
+#include "ir/values/Register.h"
 
 class BuildContext {
 private:
     std::string startFunc;
+    std::vector<i32> staticData;
+    std::shared_ptr<Register> staticBaseReg;
 public:
     explicit BuildContext() noexcept = default;
 
     DATA(StartFunc, startFunc);
+
+    DATA(StaticData, staticData);
+
+    DATA(StaticBaseReg, staticBaseReg);
 };
 
 #endif //CLANG_MC_BUILDCONTEXT_H

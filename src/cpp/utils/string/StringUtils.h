@@ -14,7 +14,35 @@
 #include "StringBuilder.h"
 
 namespace string {
-    template<class Str = std::string_view, class Collection = std::vector<Str>>
+    PURE static inline std::string toString(const std::string &value) {
+        return value;
+    }
+
+    PURE static inline std::string toString(const std::string_view &value) {
+        return std::string(value);
+    }
+
+    PURE static inline std::string toString(const char *value) {
+        return std::string(value);
+    }
+
+    PURE static inline std::string toString(const char value) {
+        return std::string(1, value);
+    }
+
+    template<typename T>
+    requires std::is_arithmetic_v<std::remove_cvref_t<T>>
+    PURE static inline std::string toString(T value) {
+        return std::to_string(value);
+    }
+
+    template<typename T>
+    requires requires(const T &value) { value.toString(); }
+    PURE static inline std::string toString(const T &value) {
+        return value.toString();
+    }
+
+    template<typename Str = std::string_view, typename Collection = std::vector<Str>>
     PURE static inline constexpr Collection split(const std::string_view &str, const char delimiter,
                                                                      size_t maxCount = SIZE_MAX) noexcept {
         if (UNLIKELY(str.empty())) {
@@ -238,21 +266,20 @@ namespace string {
         return toLowerCase(std::string(str));
     }
 
-    template<class VectorLike, class StrLike>
-    PURE static inline std::string join(const VectorLike &parts,
-                                        const StrLike &delimiter) {
+    template<typename VectorLike, typename StrLike>
+    PURE static inline std::string join(const VectorLike &parts, const StrLike &delimiter) {
         if (parts.empty()) {
             return "";
         }
         if (parts.size() == 1) {
-            return std::string(parts.front());
+            return toString(parts.front());
         }
 
         auto iter = parts.begin();
-        auto result = StringBuilder(*iter++);
+        auto result = StringBuilder(toString(*iter++));
         for (; iter != parts.end(); ++iter) {
-            result.append(delimiter);
-            result.append(*iter);
+            result.append(toString(delimiter));
+            result.append(toString(*iter));
         }
         return result.toString();
     }

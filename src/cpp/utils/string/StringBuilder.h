@@ -16,7 +16,7 @@ private:
 public:
     explicit StringBuilder() = default;
 
-    template<class StrLike>
+    template<typename StrLike>
     explicit StringBuilder(const StrLike &string) {
         append(string);
     }
@@ -43,13 +43,18 @@ public:
         return buffer.str().length();
     }
 
-    template<class StrLike>
+    template<typename StrLike> requires (!std::is_integral_v<StrLike>)
     FORCEINLINE void append(const StrLike &string) noexcept {
         try {
             buffer.sputn(string.data(), (i64) string.length());
         } catch (const std::bad_alloc &) {
             onOOM();
         }
+    }
+
+    template<typename NativeValue> requires std::is_integral_v<NativeValue>
+    FORCEINLINE void append(const NativeValue value) noexcept {
+        append(std::to_string(value));
     }
 
     FORCEINLINE void append(const char * __restrict const string) noexcept {
@@ -72,7 +77,7 @@ public:
         }
     }
 
-    template<class StrLike>
+    template<typename StrLike>
     FORCEINLINE void appendLine(const StrLike &string) noexcept {
         append(string);
         append('\n');

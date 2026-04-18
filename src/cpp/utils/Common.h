@@ -15,7 +15,7 @@
 
 using Path = std::filesystem::path;
 using Logger = std::shared_ptr<spdlog::logger>;
-template <typename K, typename V, class Hash = ankerl::unordered_dense::hash<K>>
+template <typename K, typename V, typename Hash = ankerl::unordered_dense::hash<K>>
 using HashMap = ankerl::unordered_dense::map<K, V, Hash>;
 template <typename T>
 using HashSet = ankerl::unordered_dense::set<T>;
@@ -130,7 +130,7 @@ PURE static inline constexpr Hash hash(const std::string_view &str) noexcept {
 #define DEBUG_PRINT(message) UNUSED(message)
 #endif
 
-template<class T>
+template<typename T>
 static FORCEINLINE constexpr T *requireNonNull(T *object) {
     if (UNLIKELY(object == nullptr)) {
         throw NullPointerException("null");
@@ -138,7 +138,7 @@ static FORCEINLINE constexpr T *requireNonNull(T *object) {
     return object;
 }
 
-template<class T>
+template<typename T>
 static FORCEINLINE constexpr T *requireNonNullElse(T *object, T *orElse) {
     if (UNLIKELY(object == nullptr)) {
         return orElse;

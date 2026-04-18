@@ -45,8 +45,6 @@ scoreboard players set x15 vm_regs 0
 scoreboard players set rsp vm_regs 0
 # 堆大小
 scoreboard players set shp vm_regs 0
-# 静态数据区指针
-scoreboard players set sbp vm_regs 0
 # 编译器保留
 scoreboard players set s0 vm_regs 0
 scoreboard players set s1 vm_regs 0
