@@ -25,8 +25,24 @@ done < <(find libc -name "*.c")
 
 "$LLC" -O3 -mtriple=mcasm -filetype=asm libc.opt.bc -o include/_ll_libc.mch
 sed -i '1i #once\n' include/_ll_libc.mch
+python - <<'PY'
+from pathlib import Path
+import re
+
+path = Path("include/_ll_libc.mch")
+text = path.read_text(encoding="utf-8")
+text = re.sub(
+    r'(?m)^([ \t]*)mov[ \t]+(r[0-9]+),[ \t]+\$\(([^)]+)\)$',
+    r'\1inline $scoreboard players set \2 vm_regs $(\3)',
+    text,
+)
+path.write_text(text, encoding="utf-8")
+
+build_include = Path("../../build/include/_ll_libc.mch")
+if build_include.parent.exists():
+    build_include.write_text(text, encoding="utf-8")
+PY
 
 rm -rf out_lto_bc
 rm -rf libc.merged.bc
 rm -rf libc.opt.bc
-

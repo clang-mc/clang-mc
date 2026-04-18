@@ -56,15 +56,46 @@ __bit_and4_u4:
 	mul r4, 4
 	mov t1, r1
 	sub t1, r4
-	mov r0, t0
-	mov r1, t1
-	call __bit_and2_u2
-	mov r4, rax
-	mov r0, r2
-	mov r1, r3
-	call __bit_and2_u2
+
+	mov r4, t0
+	div r4, 2
+	mov r5, t1
+	div r5, 2
+	mov r6, r4
+	mul r6, 2
+	mov t2, t0
+	sub t2, r6
+	mov r6, r5
+	mul r6, 2
+	mov t3, t1
+	sub t3, r6
+	mul t2, t3
+	mov r6, r4
+	mul r6, r5
+	mul r6, 2
+	add t2, r6
+
+	mov r4, r2
+	div r4, 2
+	mov r5, r3
+	div r5, 2
+	mov r6, r4
+	mul r6, 2
+	mov t4, r2
+	sub t4, r6
+	mov r6, r5
+	mul r6, 2
+	mov t5, r3
+	sub t5, r6
+	mul t4, t5
+	mov r6, r4
+	mul r6, r5
+	mul r6, 2
+	add t4, r6
+
+	mov rax, t4
 	mul rax, 4
-	add rax, r4
+	add rax, t2
 	ret
 
 
@@ -76,27 +107,44 @@ __bit_and4_u4:
 //     return and4_u4(al, bl) + 16 * and4_u4(ah, bh);
 // }
 __bit_and8_u8:
-	mov r5, r0
-	div r5, 16
-	mov r6, r1
-	div r6, 16
-	mov r7, r5
-	mul r7, 16
-	mov t2, r0
-	sub t2, r7
-	mov r7, r6
-	mul r7, 16
-	mov t3, r1
-	sub t3, r7
-	mov r0, t2
-	mov r1, t3
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	mov [rsp-3], x2
+	mov [rsp-4], x3
+
+	mov x2, r0
+	mov x3, r1
+
+	mov r2, x2
+	div r2, 16
+	mov r3, x3
+	div r3, 16
+	mov x0, r2
+	mov x1, r3
+
+	mov r4, r2
+	mul r4, 16
+	mov r0, x2
+	sub r0, r4
+
+	mov r4, r3
+	mul r4, 16
+	mov r1, x3
+	sub r1, r4
+
 	call __bit_and4_u4
-	mov r7, rax
-	mov r0, r5
-	mov r1, r6
+	mov x2, rax
+
+	mov r0, x0
+	mov r1, x1
 	call __bit_and4_u4
 	mul rax, 16
-	add rax, r7
+	add rax, x2
+
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 
@@ -137,71 +185,77 @@ __bit_and8_u8:
 //     return (((top * 256 + r2) * 256 + r1) * 256 + r0);
 // }
 __bit_and:
-	mov t0, r0
-	mov t1, r1
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	mov [rsp-3], x2
+	mov [rsp-4], x3
+	mov [rsp-5], x4
 
-	mov r0, t0
+	mov x0, r0
+	mov x1, r1
+
+	mov r0, x0
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, t0
+	mov r5, x0
 	sub r5, r0
 	div r5, 256
-	mov t0, r5
-	mov r1, t1
+	mov x0, r5
+	mov r1, x1
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, t1
+	mov r5, x1
 	sub r5, r1
 	div r5, 256
-	mov t1, r5
+	mov x1, r5
 	call __bit_and8_u8
-	mov r2, rax
+	inline scoreboard players operation __bit_and_b0 vm_regs = rax vm_regs
 
-	mov r0, t0
+	mov r0, x0
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, t0
+	mov r5, x0
 	sub r5, r0
 	div r5, 256
-	mov t0, r5
-	mov r1, t1
+	mov x0, r5
+	mov r1, x1
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, t1
+	mov r5, x1
 	sub r5, r1
 	div r5, 256
-	mov t1, r5
+	mov x1, r5
 	call __bit_and8_u8
-	mov r3, rax
+	inline scoreboard players operation __bit_and_b1 vm_regs = rax vm_regs
 
-	mov r0, t0
+	mov r0, x0
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, t0
+	mov r5, x0
 	sub r5, r0
 	div r5, 256
-	mov t0, r5
-	mov r1, t1
+	mov x0, r5
+	mov r1, x1
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, t1
+	mov r5, x1
 	sub r5, r1
 	div r5, 256
-	mov t1, r5
+	mov x1, r5
 	call __bit_and8_u8
-	mov r4, rax
+	inline scoreboard players operation __bit_and_b2 vm_regs = rax vm_regs
 
-	mov r0, t0
+	mov r0, x0
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r1, t1
+	mov r1, x1
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
@@ -213,32 +267,52 @@ __bit_and:
 	mul r5, 256
 	sub rax, r5
 	mul rax, 256
-	add rax, r4
+	inline scoreboard players operation rax vm_regs += __bit_and_b2 vm_regs
 	mul rax, 256
-	add rax, r3
+	inline scoreboard players operation rax vm_regs += __bit_and_b1 vm_regs
 	mul rax, 256
-	add rax, r2
+	inline scoreboard players operation rax vm_regs += __bit_and_b0 vm_regs
+	mov x4, [rsp-5]
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 
 __bit_or:
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	mov x0, r0
+	mov x1, r1
 	call	__bit_and
-	add	r0, r1
+	mov	r0, x0
+	add	r0, x1
 	sub	r0, rax
 	mov	rax, r0
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 
 __bit_xor:
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	mov x0, r0
+	mov x1, r1
 	call	__bit_and
 	add	rax, rax
-	add	r0, r1
+	mov	r0, x0
+	add	r0, x1
 	sub	r0, rax
 	mov	rax, r0
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 
 __bit_shl:
+	mov [rsp-1], x0
 	mov	r2, 0
 	jl	r1, r2, .LBB6_3
 	jmp	.LBB6_1
@@ -247,14 +321,17 @@ __bit_shl:
 	jg	r1, r2, .LBB6_3
 	jmp	.LBB6_2
 .LBB6_2:
-	mov	r2, r0
+	mov	x0, r0
 	mov	r0, r1
 	call	__pow2u
+	mov	r2, x0
 	mul	r2, rax
 	mov	rax, r2
+	mov x0, [rsp-1]
 	ret
 .LBB6_3:
 	mov	rax, 0
+	mov x0, [rsp-1]
 	ret
 
 
@@ -270,37 +347,60 @@ __bit_shl:
 //         : (pow2u(31 - b) + (u32)((x - INT_MIN) / d));
 // }
 __bit_shr:
-	je r0, 0, .isB0
-	je r0, 31, .isB31
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	mov [rsp-3], x2
+	mov [rsp-4], x3
+	je r1, 0, .isB0
+	je r1, 31, .isB31
 
-	mov t0, r0
+	mov x0, r0
+	mov x1, r1
 	mov r0, r1
 	call __pow2u
-	mov t1, rax
-	jge t0, 0, .isXGE0
+	mov x2, rax
+	jge x0, 0, .isXGE0
+	jmp .isXL0
 
 .isXGE0:  // is x greater than 0
-	div t0, t1
-	mov rax, t0
+	mov rax, x0
+	div rax, x2
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isXL0:  // is x less than 0
-	sub t0, -2147483648
-	div t0, t1
+	mov rax, x0
+	sub rax, -2147483648
+	div rax, x2
+	mov x3, rax
 	mov r0, 31
-	sub r0, r1
+	sub r0, x1
 	call __pow2u
-	add rax, t0
+	add rax, x3
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isB0:
 	mov rax, r0
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isB31:
-	mov rax, 0
-	inline execute if score r0 vm_regs matches 0..2147483647 run return 1
+	inline execute if score r0 vm_regs matches 0..2147483647 run return 0
 	mov rax, 1
+	mov x3, [rsp-4]
+	mov x2, [rsp-3]
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 
@@ -312,34 +412,44 @@ __bit_shr:
 //     return (x >= 0) ? (x / d) : (-1 - ((-1 - x) / d));
 // }
 __bit_sar:
-	je r0, 0, .isS0
-	je r0, 31, .isS31
+	mov [rsp-1], x0
+	mov [rsp-2], x1
+	je r1, 0, .isS0
+	je r1, 31, .isS31
 
-	mov t0, r0
+	mov x0, r0
 	mov r0, r1
 	call __pow2u
-	mov t1, rax
-	mov rax, t0
+	mov x1, rax
+	mov rax, x0
 	jge rax, 0, .isXGE0
+	jmp .isXL0
 
 .isXGE0:  // is x greater than 0
-	div rax, t1
+	div rax, x1
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isXL0:  // is x less than 0
 	mul rax, -1
 	sub rax, 1
-	div rax, t1
+	div rax, x1
 	mul rax, -1
 	sub rax, 1
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isS0:
 	mov rax, r0
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret
 
 .isS31:
-	mov rax, 0
-	inline execute if score r0 vm_regs matches 0..2147483647 run return 1
+	inline execute if score r0 vm_regs matches 0..2147483647 run return 0
 	mov rax, -1
+	mov x1, [rsp-2]
+	mov x0, [rsp-1]
 	ret

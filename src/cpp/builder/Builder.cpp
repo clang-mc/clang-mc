@@ -52,61 +52,12 @@ struct FuncName {
 };  // 也许我应该用这种方式重写McFunctions对象，splits不优雅
 
 void buildStaticData(StringBuilder &builder, const std::vector<i32> &data) {
-    // In Minecraft 1.21.10, datapack .mcfunction commands are read as UTF-8 text and
-    // validated by net.minecraft.server.function.CommandFunction#validateCommandLength
-    // against a 2,000,000-character limit. Our generated commands are ASCII-only, so
-    // UTF-8 byte count matches character count here. Leave some headroom below the limit.
-    static constexpr size_t MAX_COMMAND_BYTES = 1999900;
-    static constexpr std::string_view VALUE_PREFIX = "data modify storage std:vm z set value [";
-    static constexpr std::string_view VALUE_SUFFIX = "]";
-    static constexpr std::string_view COPY_SET = "data modify storage std:vm heap set from storage std:vm z[]";
-    static constexpr std::string_view COPY_APPEND = "data modify storage std:vm heap append from storage std:vm z[]";
-    static constexpr std::string_view REMOVE_TEMP = "data remove storage std:vm z";
-
-    auto emitChunk = [&](const std::vector<i32> &chunk, const bool firstChunk) {
-        StringBuilder line;
-        line.append(VALUE_PREFIX);
-        for (size_t i = 0; i < chunk.size(); ++i) {
-            if (i != 0) {
-                line.append(',');
-            }
-            line.append(chunk[i]);
-        }
-        line.append(VALUE_SUFFIX);
-
-        const std::string valueCommand = line.toString();
-        assert(valueCommand.size() <= MAX_COMMAND_BYTES);
-        builder.appendLine(valueCommand);
-
-        const std::string_view copyCommand = firstChunk ? COPY_SET : COPY_APPEND;
-        assert(copyCommand.size() <= MAX_COMMAND_BYTES);
-        builder.appendLine(copyCommand);
-    };
-
-    const size_t fixedBytes = VALUE_PREFIX.size() + VALUE_SUFFIX.size();
-    std::vector<i32> chunk;
-    chunk.reserve(data.size());
-    size_t chunkBytes = fixedBytes;
-    bool firstChunk = true;
-
-    for (const auto value: data) {
-        const std::string valueStr = std::to_string(value);
-        const size_t deltaBytes = (chunk.empty() ? 0 : 1) + valueStr.size();
-        if (!chunk.empty() && chunkBytes + deltaBytes > MAX_COMMAND_BYTES) {
-            emitChunk(chunk, firstChunk);
-            firstChunk = false;
-            chunk.clear();
-            chunkBytes = fixedBytes;
-        }
-
-        chunk.push_back(value);
-        chunkBytes += deltaBytes;
+    for (size_t i = 0; i < data.size(); ++i) {
+        builder.appendLine(fmt::format("data modify storage std:vm heap[{}] set value {}", i, data[i]));
     }
-
-    if (!chunk.empty()) {
-        emitChunk(chunk, firstChunk);
+    if (!data.empty()) {
+        builder.appendLine(fmt::format("scoreboard players add shp vm_regs {}", data.size()));
     }
-    builder.appendLine(REMOVE_TEMP);
 }
 
 void Builder::build() {

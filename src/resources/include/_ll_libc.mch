@@ -17,356 +17,17 @@ putchar:                                // @putchar
 	mov	r1, 255
 	mov	r3, r0
 	call	__bit_and
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	r4, [r0]
+	mov	r6, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	r4, [r6]
 	mov	r0, 10
 	mov	r2, rax
-	jne	r2, r0, .LBB1_5
+	jne	r2, r0, .LBB1_2
 	jmp	.LBB1_1
 .LBB1_1:
-	mov	r3, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r4, r3
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r4, r0
 	mov	r1, 3
 	mov	r0, r4
-	call	__bit_and
-	mov	r1, -4
-	mov	r5, rax
-	call	__bit_and
-	mov	r4, rax
-	mov	r6, [r4]
-	mov	r1, 3
-	mov	r0, r5
-	call	__bit_shl
-	mov	r0, 255
-	mov	r5, rax
-	mov	r1, r5
-	call	__bit_shl
-	mov	r1, -1
-	mov	r0, rax
-	call	__bit_xor
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_and
-	mov	r0, 0
-	mov	r6, rax
-	mov	r1, r5
-	call	__bit_shl
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
-	mov	[r4], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB1_4
-	jmp	.LBB1_2
-.LBB1_2:                                // %.preheader.i.i.preheader
-	add	r3, 2
-.LBB1_3:                                // %.preheader.i.i
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r3
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r3, 1
-	jnz	rax, .LBB1_3
-	jmp	.LBB1_4
-.LBB1_4:                                // %puts.exit.i
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	[r0], 0
-	jmp	.LBB1_11
-.LBB1_5:
-	mov	r1, -2147483648
-	mov	r0, r4
-	call	__bit_xor
-	mov	r0, -2147482625
-	jl	rax, r0, .LBB1_10
-	jmp	.LBB1_6
-.LBB1_6:
-	mov	r5, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r4, r5
-	mov	r1, 3
-	mov	r0, r4
-	call	__bit_and
-	mov	r1, -4
-	mov	r6, rax
-	call	__bit_and
-	mov	r7, rax
-	mov	r4, [r7]
-	mov	r1, 3
-	mov	r0, r6
-	call	__bit_shl
-	mov	r0, 255
-	mov	r6, rax
-	mov	r1, r6
-	call	__bit_shl
-	mov	r1, -1
-	mov	r0, rax
-	call	__bit_xor
-	mov	r0, r4
-	mov	r1, rax
-	call	__bit_and
-	mov	t1, rax
-	mov	r0, 0
-	mov	r4, 0
-	mov	r1, r6
-	call	__bit_shl
-	mov	r0, t1
-	mov	r1, rax
-	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
-	mov	[r7], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB1_9
-	jmp	.LBB1_7
-.LBB1_7:                                // %.preheader.i2.i.preheader
-	add	r5, 2
-.LBB1_8:                                // %.preheader.i2.i
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r5
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r5, 1
-	jnz	rax, .LBB1_8
-	jmp	.LBB1_9
-.LBB1_9:                                // %puts.exit3.i
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-.LBB1_10:
-	mov	r5, r4
-	add	r5, 1
-	mov	r6, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, r4
-	mov	r1, 3
-	mov	[r6], r5
-	call	__bit_and
-	mov	r1, -4
-	mov	r4, rax
-	call	__bit_and
-	mov	r5, rax
-	mov	r6, [r5]
-	mov	r1, 3
-	mov	r0, r4
-	call	__bit_shl
-	mov	r1, 255
-	mov	r4, rax
-	mov	r0, r3
-	call	__bit_and
-	mov	r0, 255
-	mov	r3, rax
-	mov	r1, r4
-	call	__bit_shl
-	mov	r1, -1
-	mov	r0, rax
-	call	__bit_xor
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_and
-	mov	r1, 255
-	mov	r6, rax
-	mov	r0, r3
-	call	__bit_and
-	mov	r0, rax
-	mov	r1, r4
-	call	__bit_shl
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_or
-	mov	[r5], rax
-.LBB1_11:                               // %__stdout_linebuf_putc.exit
-	mov	rax, r2
-	ret
-// -- End function
-// -- Begin function puts
-puts:                                   // @puts
-// %bb.0:
-	mov	r2, r0
-	jnz	r2, .LBB2_2
-	jmp	.LBB2_1
-.LBB2_1:
-	call	abort
-.LBB2_2:
-	mov	r1, 2
-	mov	r0, r2
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, r2
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB2_5
-	jmp	.LBB2_3
-.LBB2_3:                                // %.preheader.preheader
-	add	r2, 2
-.LBB2_4:                                // %.preheader
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r2
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r2, 1
-	jnz	rax, .LBB2_4
-	jmp	.LBB2_5
-.LBB2_5:                                // %.loopexit
-	mov	rax, 1
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	ret
-// -- End function
-// -- Begin function snprintf
-snprintf:                               // @snprintf
-// %bb.0:
-	mov	r3, rsp
-	add	r3, 12
-	mov	[rsp], r3
-	call	vsnprintf
-	ret
-// -- End function
-// -- Begin function sprintf
-sprintf:                                // @sprintf
-// %bb.0:
-	mov	r2, r1
-	mov	r3, rsp
-	add	r3, 8
-	mov	r1, -1
-	mov	[rsp], r3
-	call	vsnprintf
-	ret
-// -- End function
-// -- Begin function __stdout_linebuf_flush
-__stdout_linebuf_flush:                 // @__stdout_linebuf_flush
-// %bb.0:
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	r0, [r0]
-	jz	r0, .LBB5_5
-	jmp	.LBB5_1
-.LBB5_1:
-	mov	r2, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, r2
-	mov	r1, 3
 	call	__bit_and
 	mov	r1, -4
 	mov	r3, rax
@@ -393,204 +54,35 @@ __stdout_linebuf_flush:                 // @__stdout_linebuf_flush
 	mov	r0, r5
 	mov	r1, rax
 	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
 	mov	[r4], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB5_4
-	jmp	.LBB5_2
-.LBB5_2:                                // %.preheader.i.preheader
-	add	r2, 2
-.LBB5_3:                                // %.preheader.i
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r2
-	call	__bit_shr
-	mov	r1, 3
-	mov	r3, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r3]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r2, 1
-	jnz	rax, .LBB5_3
-	jmp	.LBB5_4
-.LBB5_4:                                // %puts.exit
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	[r0], 0
-.LBB5_5:
-	mov	rax, 0
-	ret
-// -- End function
-// -- Begin function __stdout_linebuf_putc
-__stdout_linebuf_putc:                  // @__stdout_linebuf_putc
-// %bb.0:
-	mov	r1, 255
-	mov	r3, r0
-	call	__bit_and
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	r4, [r0]
-	mov	r0, 10
-	mov	r2, rax
-	jne	r2, r0, .LBB6_5
-	jmp	.LBB6_1
-.LBB6_1:
-	mov	r3, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r4, r3
-	mov	r1, 3
-	mov	r0, r4
-	call	__bit_and
-	mov	r1, -4
-	mov	r5, rax
-	call	__bit_and
-	mov	r4, rax
-	mov	r6, [r4]
-	mov	r1, 3
-	mov	r0, r5
-	call	__bit_shl
-	mov	r0, 255
-	mov	r5, rax
-	mov	r1, r5
-	call	__bit_shl
-	mov	r1, -1
-	mov	r0, rax
-	call	__bit_xor
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_and
-	mov	r0, 0
-	mov	r6, rax
-	mov	r1, r5
-	call	__bit_shl
-	mov	r0, r6
-	mov	r1, rax
-	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
-	mov	[r4], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB6_4
-	jmp	.LBB6_2
-.LBB6_2:                                // %.preheader.i.preheader
-	add	r3, 2
-.LBB6_3:                                // %.preheader.i
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r3
-	call	__bit_shr
-	mov	r1, 3
-	mov	r4, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r4]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r3, 1
-	jnz	rax, .LBB6_3
-	jmp	.LBB6_4
-.LBB6_4:                                // %puts.exit
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	r0, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	[r0], 0
-	jmp	.LBB6_11
-.LBB6_5:
+	call	puts
+	mov	[r6], 0
+	jmp	.LBB1_5
+.LBB1_2:
 	mov	r1, -2147483648
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147482625
-	jl	rax, r0, .LBB6_10
-	jmp	.LBB6_6
-.LBB6_6:
-	mov	r5, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r4, r5
+	jl	rax, r0, .LBB1_4
+	jmp	.LBB1_3
+.LBB1_3:
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r4, r0
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, -4
-	mov	r6, rax
+	mov	r5, rax
 	call	__bit_and
-	mov	r7, rax
-	mov	r4, [r7]
+	mov	r6, rax
+	mov	r4, [r6]
 	mov	r1, 3
-	mov	r0, r6
+	mov	r0, r5
 	call	__bit_shl
 	mov	r0, 255
-	mov	r6, rax
-	mov	r1, r6
+	mov	r5, rax
+	mov	r1, r5
 	call	__bit_shl
 	mov	r1, -1
 	mov	r0, rax
@@ -598,80 +90,22 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 	mov	r0, r4
 	mov	r1, rax
 	call	__bit_and
-	mov	t1, rax
+	mov	r7, rax
 	mov	r0, 0
 	mov	r4, 0
-	mov	r1, r6
+	mov	r1, r5
 	call	__bit_shl
-	mov	r0, t1
+	mov	r0, r7
 	mov	r1, rax
 	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
-	mov	[r7], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, 1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB6_9
-	jmp	.LBB6_7
-.LBB6_7:                                // %.preheader.i2.preheader
-	add	r5, 2
-.LBB6_8:                                // %.preheader.i2
-                                        // =>This Inner Loop Header: Depth=1
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r5
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r5, 1
-	jnz	rax, .LBB6_8
-	jmp	.LBB6_9
-.LBB6_9:                                // %puts.exit3
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-.LBB6_10:
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	[r6], rax
+	call	puts
+.LBB1_4:
 	mov	r5, r4
 	add	r5, 1
-	mov	r6, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
+	mov	r6, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
 	add	r0, r4
 	mov	r1, 3
 	mov	[r6], r5
@@ -709,7 +143,238 @@ __stdout_linebuf_putc:                  // @__stdout_linebuf_putc
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-.LBB6_11:
+.LBB1_5:                                // %__stdout_linebuf_putc.exit
+	mov	rax, r2
+	ret
+// -- End function
+// -- Begin function __ll_puts_char0
+__ll_puts_char0:                        // @__ll_puts_char0
+// %bb.0:
+	inline data modify storage std:vm s0 set value {a: -1}
+	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
+	inline function _ll_shared:z/__ll_puts_char0_0 with storage std:vm s0
+	ret
+// -- End function
+// -- Begin function __ll_puts_char1
+__ll_puts_char1:                        // @__ll_puts_char1
+// %bb.0:
+	inline data modify storage std:vm s0 set value {a: -1}
+	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
+	inline function _ll_shared:z/__ll_puts_char1_0 with storage std:vm s0
+	ret
+// -- End function
+// -- Begin function puts
+puts:                                   // @puts
+// %bb.0:
+	jnz	r0, .LBB4_2
+	jmp	.LBB4_1
+.LBB4_1:
+	call	abort
+.LBB4_2:
+	mov	rax, 1
+	inline data modify storage std:vm s0 set value {a: -1}
+	inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
+	inline function _ll_shared:z/puts_0 with storage std:vm s0
+	ret
+// -- End function
+// -- Begin function snprintf
+snprintf:                               // @snprintf
+// %bb.0:
+	mov	r3, rsp
+	add	r3, 12
+	mov	[rsp], r3
+	call	vsnprintf
+	ret
+// -- End function
+// -- Begin function sprintf
+sprintf:                                // @sprintf
+// %bb.0:
+	mov	r2, r1
+	mov	r3, rsp
+	add	r3, 8
+	mov	r1, -1
+	mov	[rsp], r3
+	call	vsnprintf
+	ret
+// -- End function
+// -- Begin function __stdout_linebuf_flush
+__stdout_linebuf_flush:                 // @__stdout_linebuf_flush
+// %bb.0:
+	mov	r5, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	r0, [r5]
+	jz	r0, .LBB7_2
+	jmp	.LBB7_1
+.LBB7_1:
+	mov	r1, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r0, r1
+	mov	r1, 3
+	call	__bit_and
+	mov	r1, -4
+	mov	r2, rax
+	call	__bit_and
+	mov	r3, rax
+	mov	r4, [r3]
+	mov	r1, 3
+	mov	r0, r2
+	call	__bit_shl
+	mov	r0, 255
+	mov	r2, rax
+	mov	r1, r2
+	call	__bit_shl
+	mov	r1, -1
+	mov	r0, rax
+	call	__bit_xor
+	mov	r0, r4
+	mov	r1, rax
+	call	__bit_and
+	mov	r0, 0
+	mov	r4, rax
+	mov	r1, r2
+	call	__bit_shl
+	mov	r0, r4
+	mov	r1, rax
+	call	__bit_or
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	[r3], rax
+	call	puts
+	mov	[r5], 0
+.LBB7_2:
+	mov	rax, 0
+	ret
+// -- End function
+// -- Begin function __stdout_linebuf_putc
+__stdout_linebuf_putc:                  // @__stdout_linebuf_putc
+// %bb.0:
+	mov	r1, 255
+	mov	r3, r0
+	call	__bit_and
+	mov	r6, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	r4, [r6]
+	mov	r0, 10
+	mov	r2, rax
+	jne	r2, r0, .LBB8_2
+	jmp	.LBB8_1
+.LBB8_1:
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r4, r0
+	mov	r1, 3
+	mov	r0, r4
+	call	__bit_and
+	mov	r1, -4
+	mov	r3, rax
+	call	__bit_and
+	mov	r4, rax
+	mov	r5, [r4]
+	mov	r1, 3
+	mov	r0, r3
+	call	__bit_shl
+	mov	r0, 255
+	mov	r3, rax
+	mov	r1, r3
+	call	__bit_shl
+	mov	r1, -1
+	mov	r0, rax
+	call	__bit_xor
+	mov	r0, r5
+	mov	r1, rax
+	call	__bit_and
+	mov	r0, 0
+	mov	r5, rax
+	mov	r1, r3
+	call	__bit_shl
+	mov	r0, r5
+	mov	r1, rax
+	call	__bit_or
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	[r4], rax
+	call	puts
+	mov	[r6], 0
+	jmp	.LBB8_5
+.LBB8_2:
+	mov	r1, -2147483648
+	mov	r0, r4
+	call	__bit_xor
+	mov	r0, -2147482625
+	jl	rax, r0, .LBB8_4
+	jmp	.LBB8_3
+.LBB8_3:
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r4, r0
+	mov	r1, 3
+	mov	r0, r4
+	call	__bit_and
+	mov	r1, -4
+	mov	r5, rax
+	call	__bit_and
+	mov	r6, rax
+	mov	r4, [r6]
+	mov	r1, 3
+	mov	r0, r5
+	call	__bit_shl
+	mov	r0, 255
+	mov	r5, rax
+	mov	r1, r5
+	call	__bit_shl
+	mov	r1, -1
+	mov	r0, rax
+	call	__bit_xor
+	mov	r0, r4
+	mov	r1, rax
+	call	__bit_and
+	mov	r7, rax
+	mov	r0, 0
+	mov	r4, 0
+	mov	r1, r5
+	call	__bit_shl
+	mov	r0, r7
+	mov	r1, rax
+	call	__bit_or
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	[r6], rax
+	call	puts
+.LBB8_4:
+	mov	r5, r4
+	add	r5, 1
+	mov	r6, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r0, r4
+	mov	r1, 3
+	mov	[r6], r5
+	call	__bit_and
+	mov	r1, -4
+	mov	r4, rax
+	call	__bit_and
+	mov	r5, rax
+	mov	r6, [r5]
+	mov	r1, 3
+	mov	r0, r4
+	call	__bit_shl
+	mov	r1, 255
+	mov	r4, rax
+	mov	r0, r3
+	call	__bit_and
+	mov	r0, 255
+	mov	r3, rax
+	mov	r1, r4
+	call	__bit_shl
+	mov	r1, -1
+	mov	r0, rax
+	call	__bit_xor
+	mov	r0, r6
+	mov	r1, rax
+	call	__bit_and
+	mov	r1, 255
+	mov	r6, rax
+	mov	r0, r3
+	call	__bit_and
+	mov	r0, rax
+	mov	r1, r4
+	call	__bit_shl
+	mov	r0, r6
+	mov	r1, rax
+	call	__bit_or
+	mov	[r5], rax
+.LBB8_5:
 	mov	rax, r2
 	ret
 // -- End function
@@ -730,129 +395,54 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	mov	[rsp-12], x11
 	mov	[rsp-13], x12
 	mov	[rsp-14], x13
-	mov	[rsp-15], x14
-	mov	[rsp-16], x15
 	mov	r2, r1
 	mov	r3, r0
-	jz	r2, .LBB7_48
-	jmp	.LBB7_1
-.LBB7_1:                                // %.preheader11.preheader
-	mov	x0, 3
-	mov	x1, -2147483644
-	mov	x2, 10
-	mov	x3, -2139062144
-	mov	x4, -2147483645
-	mov	x5, mcasm_static_c46c05d349cce2c7896e2bfb38996f6d
-	mov	x6, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r4, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r4, 1
-	mov	x7, -2147483632
-	mov	x8, -2147482625
-	mov	x9, -2147483633
-.LBB7_2:                                // %.preheader11
+	jz	r2, .LBB9_42
+	jmp	.LBB9_1
+.LBB9_1:                                // %.preheader8.preheader
+	mov	t7, 3
+	mov	x0, -2147483644
+	mov	x1, 10
+	mov	x2, -2139062144
+	mov	x3, -2147483645
+	mov	x4, mcasm_static_f630eac0c7abfe5fc5d239ba48e65458
+	mov	x5, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	x6, -2147483632
+	mov	x7, -2147482625
+	mov	x8, -2147483633
+.LBB9_2:                                // %.preheader8
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB7_4 Depth 2
-                                        //     Child Loop BB7_9 Depth 2
-                                        //     Child Loop BB7_13 Depth 2
-                                        //     Child Loop BB7_19 Depth 2
-                                        //       Child Loop BB7_21 Depth 3
-                                        //       Child Loop BB7_30 Depth 3
-                                        //       Child Loop BB7_27 Depth 3
-                                        //       Child Loop BB7_28 Depth 3
-                                        //       Child Loop BB7_34 Depth 3
-                                        //       Child Loop BB7_39 Depth 3
-                                        //     Child Loop BB7_45 Depth 2
+                                        //     Child Loop BB9_4 Depth 2
+                                        //     Child Loop BB9_9 Depth 2
+                                        //     Child Loop BB9_13 Depth 2
+                                        //     Child Loop BB9_19 Depth 2
+                                        //       Child Loop BB9_21 Depth 3
+                                        //       Child Loop BB9_30 Depth 3
+                                        //       Child Loop BB9_27 Depth 3
+                                        //       Child Loop BB9_28 Depth 3
+                                        //       Child Loop BB9_34 Depth 3
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
-	mov	r5, r2
+	mov	r4, r2
+	mov	r5, r3
+	jz	rax, .LBB9_7
+	jmp	.LBB9_3
+.LBB9_3:                                // %.preheader5.preheader
+                                        //   in Loop: Header=BB9_2 Depth=1
 	mov	r6, r3
-	jz	rax, .LBB7_7
-	jmp	.LBB7_3
-.LBB7_3:                                // %.preheader8.preheader
-                                        //   in Loop: Header=BB7_2 Depth=1
-	mov	r7, r3
-	add	r7, 1
-	mov	r6, r3
-	mov	r5, r2
-.LBB7_4:                                // %.preheader8
-                                        //   Parent Loop BB7_2 Depth=1
-                                        // =>  This Inner Loop Header: Depth=2
-	mov	x10, 0
-	jz	r5, .LBB7_15
-	jmp	.LBB7_5
-.LBB7_5:                                //   in Loop: Header=BB7_4 Depth=2
-	mov	r1, 2
-	mov	r0, r6
-	call	__bit_shr
-	mov	r1, 3
-	mov	t1, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [t1]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	x10, r6
-	je	rax, x2, .LBB7_15
-	jmp	.LBB7_6
-.LBB7_6:                                //   in Loop: Header=BB7_4 Depth=2
-	mov	r1, 3
 	add	r6, 1
-	mov	r0, r7
-	call	__bit_and
-	add	r7, 1
-	add	r5, -1
-	jnz	rax, .LBB7_4
-	jmp	.LBB7_7
-.LBB7_7:                                // %.loopexit9.i
-                                        //   in Loop: Header=BB7_2 Depth=1
-	mov	r1, -2147483648
-	mov	r0, r5
-	call	__bit_xor
-	jl	rax, x1, .LBB7_11
-	jmp	.LBB7_8
-.LBB7_8:                                // %.preheader.preheader
-                                        //   in Loop: Header=BB7_2 Depth=1
-.LBB7_9:                                // %.preheader
-                                        //   Parent Loop BB7_2 Depth=1
+	mov	r5, r3
+	mov	r4, r2
+.LBB9_4:                                // %.preheader5
+                                        //   Parent Loop BB9_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
-	mov	r7, [r6]
-	mov	r1, 168430090
-	mov	r0, r7
-	call	__bit_xor
-	mov	r0, 16843008
-	sub	r0, rax
-	mov	r1, r7
-	call	__bit_or
-	mov	r1, -2139062144
-	mov	r0, rax
-	call	__bit_and
-	jne	rax, x3, .LBB7_12
-	jmp	.LBB7_10
-.LBB7_10:                               //   in Loop: Header=BB7_9 Depth=2
-	add	r5, -4
-	mov	r1, -2147483648
-	add	r6, 4
-	mov	r0, r5
-	call	__bit_xor
-	jg	rax, x4, .LBB7_9
-	jmp	.LBB7_11
-.LBB7_11:                               // %.loopexit6.i
-                                        //   in Loop: Header=BB7_2 Depth=1
-	mov	x10, 0
-	jz	r5, .LBB7_15
-	jmp	.LBB7_12
-.LBB7_12:                               // %.loopexit5.i.preheader
-                                        //   in Loop: Header=BB7_2 Depth=1
-.LBB7_13:                               // %.loopexit5.i
-                                        //   Parent Loop BB7_2 Depth=1
-                                        // =>  This Inner Loop Header: Depth=2
+	mov	x9, 0
+	jz	r4, .LBB9_15
+	jmp	.LBB9_5
+.LBB9_5:                                //   in Loop: Header=BB9_4 Depth=2
 	mov	r1, 2
-	mov	r0, r6
+	mov	r0, r5
 	call	__bit_shr
 	mov	r1, 3
 	mov	r7, rax
@@ -865,44 +455,110 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	mov	x10, r6
-	je	rax, x2, .LBB7_15
-	jmp	.LBB7_14
-.LBB7_14:                               //   in Loop: Header=BB7_13 Depth=2
-	add	r5, -1
+	mov	x9, r5
+	je	rax, x1, .LBB9_15
+	jmp	.LBB9_6
+.LBB9_6:                                //   in Loop: Header=BB9_4 Depth=2
+	mov	r1, 3
+	add	r5, 1
+	mov	r0, r6
+	call	__bit_and
 	add	r6, 1
-	mov	x10, 0
-	jnz	r5, .LBB7_13
-	jmp	.LBB7_15
-.LBB7_15:                               // %memchr.exit
-                                        //   in Loop: Header=BB7_2 Depth=1
-	mov	x11, r2
-	jz	x10, .LBB7_17
-	jmp	.LBB7_16
-.LBB7_16:                               //   in Loop: Header=BB7_2 Depth=1
-	mov	x11, x10
-	sub	x11, r3
-.LBB7_17:                               //   in Loop: Header=BB7_2 Depth=1
-	jz	x11, .LBB7_42
-	jmp	.LBB7_18
-.LBB7_18:                               //   in Loop: Header=BB7_2 Depth=1
-	mov	t1, [x5]
-	mov	x12, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	x12, 2
-.LBB7_19:                               //   Parent Loop BB7_2 Depth=1
-                                        // =>  This Loop Header: Depth=2
-                                        //       Child Loop BB7_21 Depth 3
-                                        //       Child Loop BB7_30 Depth 3
-                                        //       Child Loop BB7_27 Depth 3
-                                        //       Child Loop BB7_28 Depth 3
-                                        //       Child Loop BB7_34 Depth 3
-                                        //       Child Loop BB7_39 Depth 3
-	mov	r6, 1023
-	sub	r6, t1
-	mov	r5, x11
-	sub	r5, r6
-	mov	r1, 31
+	add	r4, -1
+	jnz	rax, .LBB9_4
+	jmp	.LBB9_7
+.LBB9_7:                                // %.loopexit9.i
+                                        //   in Loop: Header=BB9_2 Depth=1
+	mov	r1, -2147483648
+	mov	r0, r4
+	call	__bit_xor
+	jl	rax, x0, .LBB9_11
+	jmp	.LBB9_8
+.LBB9_8:                                // %.preheader.preheader
+                                        //   in Loop: Header=BB9_2 Depth=1
+.LBB9_9:                                // %.preheader
+                                        //   Parent Loop BB9_2 Depth=1
+                                        // =>  This Inner Loop Header: Depth=2
+	mov	r6, [r5]
+	mov	r1, 168430090
+	mov	r0, r6
+	call	__bit_xor
+	mov	r0, 16843008
+	sub	r0, rax
+	mov	r1, r6
+	call	__bit_or
+	mov	r1, -2139062144
+	mov	r0, rax
+	call	__bit_and
+	jne	rax, x2, .LBB9_12
+	jmp	.LBB9_10
+.LBB9_10:                               //   in Loop: Header=BB9_9 Depth=2
+	add	r4, -4
+	mov	r1, -2147483648
+	add	r5, 4
+	mov	r0, r4
+	call	__bit_xor
+	jg	rax, x3, .LBB9_9
+	jmp	.LBB9_11
+.LBB9_11:                               // %.loopexit6.i
+                                        //   in Loop: Header=BB9_2 Depth=1
+	mov	x9, 0
+	jz	r4, .LBB9_15
+	jmp	.LBB9_12
+.LBB9_12:                               // %.loopexit5.i.preheader
+                                        //   in Loop: Header=BB9_2 Depth=1
+.LBB9_13:                               // %.loopexit5.i
+                                        //   Parent Loop BB9_2 Depth=1
+                                        // =>  This Inner Loop Header: Depth=2
+	mov	r1, 2
 	mov	r0, r5
+	call	__bit_shr
+	mov	r1, 3
+	mov	r6, rax
+	call	__bit_and
+	mov	r0, rax
+	call	__bit_shl
+	mov	r0, [r6]
+	mov	r1, rax
+	call	__bit_shr
+	mov	r1, 255
+	mov	r0, rax
+	call	__bit_and
+	mov	x9, r5
+	je	rax, x1, .LBB9_15
+	jmp	.LBB9_14
+.LBB9_14:                               //   in Loop: Header=BB9_13 Depth=2
+	add	r4, -1
+	add	r5, 1
+	mov	x9, 0
+	jnz	r4, .LBB9_13
+	jmp	.LBB9_15
+.LBB9_15:                               // %memchr.exit
+                                        //   in Loop: Header=BB9_2 Depth=1
+	mov	x10, r2
+	jz	x9, .LBB9_17
+	jmp	.LBB9_16
+.LBB9_16:                               //   in Loop: Header=BB9_2 Depth=1
+	mov	x10, x9
+	sub	x10, r3
+.LBB9_17:                               //   in Loop: Header=BB9_2 Depth=1
+	jz	x10, .LBB9_39
+	jmp	.LBB9_18
+.LBB9_18:                               //   in Loop: Header=BB9_2 Depth=1
+	mov	r6, [x4]
+.LBB9_19:                               //   Parent Loop BB9_2 Depth=1
+                                        // =>  This Loop Header: Depth=2
+                                        //       Child Loop BB9_21 Depth 3
+                                        //       Child Loop BB9_30 Depth 3
+                                        //       Child Loop BB9_27 Depth 3
+                                        //       Child Loop BB9_28 Depth 3
+                                        //       Child Loop BB9_34 Depth 3
+	mov	r5, 1023
+	sub	r5, r6
+	mov	r4, x10
+	sub	r4, r5
+	mov	r1, 31
+	mov	r0, r4
 	call	__bit_shr
 	mov	r1, 1
 	mov	r0, rax
@@ -911,519 +567,395 @@ __stdout_linebuf_write:                 // @__stdout_linebuf_write
 	call	__bit_not
 	add	rax, 1
 	mov	r0, rax
-	mov	r1, r5
+	mov	r1, r4
 	call	__bit_and
-	mov	r5, rax
-	add	r5, r6
-	mov	r6, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
+	mov	r4, rax
+	add	r4, r5
+	mov	r5, mcasm_static_b6a660bbde72203e160a805153582f96
 	mov	r1, -2147483648
-	add	r6, t1
-	mov	r0, r5
+	add	r5, r6
+	mov	r0, r4
 	call	__bit_xor
-	mov	t2, r3
-	mov	r7, r5
-	jl	rax, x7, .LBB7_32
-	jmp	.LBB7_20
-.LBB7_20:                               //   in Loop: Header=BB7_19 Depth=2
+	mov	t1, r3
+	mov	r7, r4
+	jl	rax, x6, .LBB9_32
+	jmp	.LBB9_20
+.LBB9_20:                               //   in Loop: Header=BB9_19 Depth=2
 	mov	r1, 3
-	mov	r0, r6
+	mov	r0, r5
 	call	__bit_and
 	mov	r7, rax
-	mov	x14, 8
-	sub	x14, r7
-	mov	t7, 0
-	mov	x15, 1
-	mov	t3, r3
-.LBB7_21:                               //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
+	mov	x12, 8
+	sub	x12, r7
+	mov	t6, 0
+	mov	x13, 1
+	mov	t2, r3
+.LBB9_21:                               //   Parent Loop BB9_2 Depth=1
+                                        //     Parent Loop BB9_19 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
-	mov	x13, x15
-	mov	t2, r6
+	mov	x11, x13
+	mov	t1, r5
 	mov	r0, r3
-	add	r0, t7
+	add	r0, t6
 	mov	r1, 2
-	add	t2, t7
+	add	t1, t6
 	call	__bit_shr
 	mov	r1, 3
-	mov	t4, rax
+	mov	t3, rax
 	call	__bit_and
 	mov	r0, rax
 	call	__bit_shl
-	mov	r0, [t4]
+	mov	r0, [t3]
 	mov	r1, rax
 	call	__bit_shr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
 	mov	r1, 3
-	mov	t4, rax
-	mov	r0, t2
+	mov	t3, rax
+	mov	r0, t1
 	call	__bit_and
 	mov	r1, -4
-	mov	t5, rax
+	mov	t4, rax
 	call	__bit_and
-	mov	t2, rax
-	mov	t6, [t2]
+	mov	t1, rax
+	mov	t5, [t1]
 	mov	r1, 3
-	mov	r0, t5
+	mov	r0, t4
 	call	__bit_shl
 	mov	r0, 255
-	mov	t5, rax
-	mov	r1, t5
+	mov	t4, rax
+	mov	r1, t4
 	call	__bit_shl
 	mov	r1, -1
 	mov	r0, rax
 	call	__bit_xor
-	mov	r0, t6
+	mov	r0, t5
 	mov	r1, rax
 	call	__bit_and
 	mov	r1, 255
-	mov	t6, rax
-	mov	r0, t4
+	mov	t5, rax
+	mov	r0, t3
 	call	__bit_and
 	mov	r0, rax
-	mov	r1, t5
+	mov	r1, t4
 	call	__bit_shl
-	mov	r0, t6
+	mov	r0, t5
 	mov	r1, rax
 	call	__bit_or
-	mov	[t2], rax
-	add	t7, 1
-	add	t3, 1
-	add	x15, 1
-	jne	x14, t7, .LBB7_21
-	jmp	.LBB7_22
-.LBB7_22:                               //   in Loop: Header=BB7_19 Depth=2
+	mov	[t1], rax
+	add	t6, 1
+	add	t2, 1
+	add	x13, 1
+	jne	x12, t6, .LBB9_21
+	jmp	.LBB9_22
+.LBB9_22:                               //   in Loop: Header=BB9_19 Depth=2
 	mov	r1, -8
 	mov	r0, r7
 	call	__bit_or
 	mov	r7, rax
-	mov	t2, r3
-	add	t2, t7
+	mov	t1, r3
+	add	t1, t6
 	mov	r1, 3
-	add	r7, r5
-	mov	r0, t2
+	add	r7, r4
+	mov	r0, t1
 	call	__bit_and
 	mov	r0, rax
-	jnz	r0, .LBB7_29
-	jmp	.LBB7_23
-.LBB7_23:                               //   in Loop: Header=BB7_19 Depth=2
+	jnz	r0, .LBB9_29
+	jmp	.LBB9_23
+.LBB9_23:                               //   in Loop: Header=BB9_19 Depth=2
 	mov	r1, -2147483648
-	add	r6, t7
+	add	r5, t6
 	mov	r0, r7
 	call	__bit_xor
-	jl	rax, x7, .LBB7_25
-	jmp	.LBB7_24
-.LBB7_24:                               // %.preheader.i.preheader
-                                        //   in Loop: Header=BB7_19 Depth=2
-	jmp	.LBB7_27
-.LBB7_25:                               // %.preheader123
-                                        //   in Loop: Header=BB7_19 Depth=2
-	jmp	.LBB7_28
-.LBB7_26:                               //   in Loop: Header=BB7_19 Depth=2
-	jg	r7, x0, .LBB7_25
-	jmp	.LBB7_32
-.LBB7_27:                               // %.preheader.i
-                                        //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
+	jl	rax, x6, .LBB9_25
+	jmp	.LBB9_24
+.LBB9_24:                               // %.preheader.i.preheader
+                                        //   in Loop: Header=BB9_19 Depth=2
+	jmp	.LBB9_27
+.LBB9_25:                               // %.preheader118
+                                        //   in Loop: Header=BB9_19 Depth=2
+	jmp	.LBB9_28
+.LBB9_26:                               //   in Loop: Header=BB9_19 Depth=2
+	jg	r7, t7, .LBB9_25
+	jmp	.LBB9_32
+.LBB9_27:                               // %.preheader.i
+                                        //   Parent Loop BB9_2 Depth=1
+                                        //     Parent Loop BB9_19 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
-	mov	r0, [t2]
-	mov	r1, t2
+	mov	r0, [t1]
+	mov	r1, t1
 	add	r1, 4
-	mov	[r6], r0
+	mov	[r5], r0
 	mov	r0, [r1]
-	mov	r1, r6
+	mov	r1, r5
 	add	r1, 4
-	mov	t0, t2
+	mov	t0, t1
 	add	t0, 8
-	mov	t3, r6
+	mov	t2, r5
 	mov	[r1], r0
 	mov	r0, [t0]
-	add	t3, 8
-	mov	r1, t2
+	add	t2, 8
+	mov	r1, t1
 	add	r1, 12
-	mov	t0, r6
+	mov	t0, r5
 	add	t0, 12
-	mov	[t3], r0
-	add	t2, 16
+	mov	[t2], r0
+	add	t1, 16
 	mov	r0, [r1]
-	add	r6, 16
+	add	r5, 16
 	add	r7, -16
 	mov	r1, -2147483648
 	mov	[t0], r0
 	mov	r0, r7
 	call	__bit_xor
-	jg	rax, x9, .LBB7_27
-	jmp	.LBB7_26
-.LBB7_28:                               //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
+	jg	rax, x8, .LBB9_27
+	jmp	.LBB9_26
+.LBB9_28:                               //   Parent Loop BB9_2 Depth=1
+                                        //     Parent Loop BB9_19 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
-	mov	r0, [t2]
-	add	t2, 4
-	mov	[r6], r0
+	mov	r0, [t1]
+	add	t1, 4
+	mov	[r5], r0
 	add	r7, -4
 	mov	r1, -2147483648
-	add	r6, 4
+	add	r5, 4
 	mov	r0, r7
 	call	__bit_xor
-	jg	rax, x4, .LBB7_28
-	jmp	.LBB7_32
-.LBB7_29:                               //   in Loop: Header=BB7_19 Depth=2
+	jg	rax, x3, .LBB9_28
+	jmp	.LBB9_32
+.LBB9_29:                               //   in Loop: Header=BB9_19 Depth=2
 	call	__bit_shl
-	mov	t1, rax
-	mov	t4, 8
-	sub	t4, r0
-	mov	r0, t3
+	mov	r6, rax
+	mov	t3, 8
+	sub	t3, r0
+	mov	r0, t2
 	call	__bit_and
-	mov	x14, r3
-	sub	x14, rax
-	add	t7, x14
-	mov	t5, [t7]
-	add	x14, 4
-.LBB7_30:                               //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
+	mov	x12, r3
+	sub	x12, rax
+	add	t6, x12
+	mov	t4, [t6]
+	add	x12, 4
+.LBB9_30:                               //   Parent Loop BB9_2 Depth=1
+                                        //     Parent Loop BB9_19 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
-	mov	r0, x14
-	add	r0, x13
-	mov	t6, [r0]
-	mov	x15, r6
+	mov	r0, x12
+	add	r0, x11
+	mov	t5, [r0]
+	mov	x13, r5
 	mov	r1, 31
-	add	x15, x13
-	mov	r0, t1
+	add	x13, x11
+	mov	r0, r6
 	call	__bit_and
-	mov	r0, t5
+	mov	r0, t4
 	mov	r1, rax
 	call	__bit_shl
-	mov	t5, rax
-	mov	r0, t1
+	mov	t4, rax
+	mov	r0, r6
 	call	__bit_not
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_and
 	mov	r1, 1
-	mov	t7, rax
-	mov	r0, t6
+	mov	t6, rax
+	mov	r0, t5
 	call	__bit_shr
 	mov	r0, rax
-	mov	r1, t7
+	mov	r1, t6
 	call	__bit_shr
-	mov	r0, t5
+	mov	r0, t4
 	mov	r1, rax
 	call	__bit_or
-	mov	[x15], rax
+	mov	[x13], rax
 	add	r7, -4
 	mov	r1, -2147483648
-	add	x13, 4
-	mov	r0, t4
+	add	x11, 4
+	mov	r0, t3
 	call	__bit_xor
-	mov	t7, rax
+	mov	t6, rax
 	mov	r0, r7
 	call	__bit_xor
-	mov	t5, t6
-	jge	rax, t7, .LBB7_30
-	jmp	.LBB7_31
-.LBB7_31:                               //   in Loop: Header=BB7_19 Depth=2
+	mov	t4, t5
+	jge	rax, t6, .LBB9_30
+	jmp	.LBB9_31
+.LBB9_31:                               //   in Loop: Header=BB9_19 Depth=2
 	mov	r1, -4
-	mov	r0, t2
+	mov	r0, t1
 	call	__bit_or
 	mov	r1, 3
-	mov	t1, rax
-	mov	r0, t3
+	mov	r6, rax
+	mov	r0, t2
 	call	__bit_and
-	mov	t2, r3
-	sub	t2, rax
-	add	t2, t1
-	add	t2, x13
-	add	t2, 4
-	add	r6, x13
-	jmp	.LBB7_33
-.LBB7_32:                               // %.loopexit8.i
-                                        //   in Loop: Header=BB7_19 Depth=2
-	jz	r7, .LBB7_36
-	jmp	.LBB7_33
-.LBB7_33:                               // %.preheader120
-                                        //   in Loop: Header=BB7_19 Depth=2
-	mov	t4, t2
-	mov	t5, r6
-.LBB7_34:                               //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
+	mov	t1, r3
+	sub	t1, rax
+	add	t1, r6
+	add	t1, x11
+	add	t1, 4
+	add	r5, x11
+	jmp	.LBB9_33
+.LBB9_32:                               // %.loopexit8.i
+                                        //   in Loop: Header=BB9_19 Depth=2
+	jz	r7, .LBB9_36
+	jmp	.LBB9_33
+.LBB9_33:                               // %.preheader115
+                                        //   in Loop: Header=BB9_19 Depth=2
+	mov	t3, t1
+	mov	t4, r5
+.LBB9_34:                               //   Parent Loop BB9_2 Depth=1
+                                        //     Parent Loop BB9_19 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
 	add	r7, -1
 	mov	r1, 2
+	add	t3, 1
+	mov	r0, t1
+	call	__bit_shr
+	mov	r1, 3
+	mov	r6, rax
+	call	__bit_and
+	mov	r0, rax
+	call	__bit_shl
+	mov	r0, [r6]
+	mov	r1, rax
+	call	__bit_shr
+	mov	r1, 255
+	mov	r0, rax
+	call	__bit_and
+	mov	r6, rax
+	mov	r1, 3
 	add	t4, 1
-	mov	r0, t2
-	call	__bit_shr
-	mov	r1, 3
-	mov	t1, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [t1]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	t1, rax
-	mov	r1, 3
-	add	t5, 1
-	mov	r0, r6
+	mov	r0, r5
 	call	__bit_and
 	mov	r1, -4
-	mov	t2, rax
+	mov	t1, rax
 	call	__bit_and
-	mov	r6, rax
-	mov	t3, [r6]
+	mov	r5, rax
+	mov	t2, [r5]
 	mov	r1, 3
-	mov	r0, t2
+	mov	r0, t1
 	call	__bit_shl
 	mov	r0, 255
-	mov	t2, rax
-	mov	r1, t2
+	mov	t1, rax
+	mov	r1, t1
 	call	__bit_shl
 	mov	r1, -1
 	mov	r0, rax
 	call	__bit_xor
-	mov	r0, t3
+	mov	r0, t2
 	mov	r1, rax
 	call	__bit_and
 	mov	r1, 255
-	mov	t3, rax
-	mov	r0, t1
+	mov	t2, rax
+	mov	r0, r6
 	call	__bit_and
 	mov	r0, rax
-	mov	r1, t2
+	mov	r1, t1
 	call	__bit_shl
-	mov	r0, t3
+	mov	r0, t2
 	mov	r1, rax
 	call	__bit_or
-	mov	[r6], rax
-	mov	r6, t5
-	mov	t2, t4
-	jnz	r7, .LBB7_34
-	jmp	.LBB7_35
-.LBB7_35:                               // %memcpy.exit.loopexit
-                                        //   in Loop: Header=BB7_19 Depth=2
-	mov	t1, [x5]
-.LBB7_36:                               // %memcpy.exit
-                                        //   in Loop: Header=BB7_19 Depth=2
-	add	t1, r5
+	mov	[r5], rax
+	mov	r5, t4
+	mov	t1, t3
+	jnz	r7, .LBB9_34
+	jmp	.LBB9_35
+.LBB9_35:                               // %memcpy.exit.loopexit
+                                        //   in Loop: Header=BB9_19 Depth=2
+	mov	r6, [x4]
+.LBB9_36:                               // %memcpy.exit
+                                        //   in Loop: Header=BB9_19 Depth=2
+	add	r6, r4
 	mov	r1, -2147483648
-	mov	[x5], t1
-	mov	r0, t1
+	mov	[x4], r6
+	mov	r0, r6
 	call	__bit_xor
-	jl	rax, x8, .LBB7_41
-	jmp	.LBB7_37
-.LBB7_37:                               //   in Loop: Header=BB7_19 Depth=2
-	add	t1, x6
-	mov	r1, 3
-	mov	r0, t1
-	call	__bit_and
-	mov	r1, -4
-	mov	r6, rax
-	call	__bit_and
-	mov	r7, rax
-	mov	t1, [r7]
+	jl	rax, x7, .LBB9_38
+	jmp	.LBB9_37
+.LBB9_37:                               //   in Loop: Header=BB9_19 Depth=2
+	add	r6, x5
 	mov	r1, 3
 	mov	r0, r6
+	call	__bit_and
+	mov	r1, -4
+	mov	r5, rax
+	call	__bit_and
+	mov	r7, rax
+	mov	r6, [r7]
+	mov	r1, 3
+	mov	r0, r5
 	call	__bit_shl
 	mov	r0, 255
-	mov	r6, rax
-	mov	r1, r6
+	mov	r5, rax
+	mov	r1, r5
 	call	__bit_shl
 	mov	r1, -1
 	mov	r0, rax
 	call	__bit_xor
-	mov	r0, t1
+	mov	r0, r6
 	mov	r1, rax
 	call	__bit_and
-	mov	r0, 0
 	mov	t1, rax
-	mov	r1, r6
+	mov	r0, 0
+	mov	r6, 0
+	mov	r1, r5
 	call	__bit_shl
 	mov	r0, t1
 	mov	r1, rax
 	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
 	mov	[r7], rax
-	call	__bit_shr
+	call	puts
+	mov	[x4], 0
+.LBB9_38:                               //   in Loop: Header=BB9_19 Depth=2
+	add	r3, r4
+	sub	x10, r4
+	sub	r2, r4
+	jnz	x10, .LBB9_19
+	jmp	.LBB9_39
+.LBB9_39:                               // %.loopexit
+                                        //   in Loop: Header=BB9_2 Depth=1
+	jz	x9, .LBB9_41
+	jmp	.LBB9_40
+.LBB9_40:                               //   in Loop: Header=BB9_2 Depth=1
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	add	r0, [x4]
+	add	r3, 1
 	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, r4
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB7_40
-	jmp	.LBB7_38
-.LBB7_38:                               // %.preheader.i5.preheader
-                                        //   in Loop: Header=BB7_19 Depth=2
-	mov	r6, x12
-.LBB7_39:                               // %.preheader.i5
-                                        //   Parent Loop BB7_2 Depth=1
-                                        //     Parent Loop BB7_19 Depth=2
-                                        // =>    This Inner Loop Header: Depth=3
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r6
-	call	__bit_shr
-	mov	r1, 3
-	mov	r7, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r7]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r6, 1
-	jnz	rax, .LBB7_39
-	jmp	.LBB7_40
-.LBB7_40:                               // %puts.exit
-                                        //   in Loop: Header=BB7_19 Depth=2
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	[x5], 0
-	mov	t1, 0
-.LBB7_41:                               //   in Loop: Header=BB7_19 Depth=2
-	add	r3, r5
-	sub	x11, r5
-	sub	r2, r5
-	jnz	x11, .LBB7_19
-	jmp	.LBB7_42
-.LBB7_42:                               // %.loopexit
-                                        //   in Loop: Header=BB7_2 Depth=1
-	jz	x10, .LBB7_47
-	jmp	.LBB7_43
-.LBB7_43:                               //   in Loop: Header=BB7_2 Depth=1
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r0, [x5]
-	mov	r1, 3
+	add	r2, -1
 	call	__bit_and
 	mov	r1, -4
-	mov	r5, rax
+	mov	r4, rax
 	call	__bit_and
-	mov	r6, rax
-	mov	r7, [r6]
+	mov	r5, rax
+	mov	r6, [r5]
 	mov	r1, 3
-	mov	r0, r5
+	mov	r0, r4
 	call	__bit_shl
 	mov	r0, 255
-	mov	r5, rax
-	mov	r1, r5
+	mov	r4, rax
+	mov	r1, r4
 	call	__bit_shl
 	mov	r1, -1
 	mov	r0, rax
 	call	__bit_xor
-	mov	r0, r7
+	mov	r0, r6
 	mov	r1, rax
 	call	__bit_and
 	mov	r0, 0
-	mov	r7, rax
-	mov	r1, r5
+	mov	r6, rax
+	mov	r1, r4
 	call	__bit_shl
-	mov	r0, r7
+	mov	r0, r6
 	mov	r1, rax
 	call	__bit_or
-	mov	r0, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	mov	r1, 2
-	mov	[r6], rax
-	call	__bit_shr
-	mov	r1, 3
-	mov	r5, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r5]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_0 with storage std:vm s0
-	mov	r0, r4
-	call	__bit_shr
-	mov	r1, 3
-	mov	r5, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r5]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	jz	rax, .LBB7_46
-	jmp	.LBB7_44
-.LBB7_44:                               // %.preheader.i6.preheader
-                                        //   in Loop: Header=BB7_2 Depth=1
-	mov	r5, mcasm_static_7085fa36a0ce757711a01556f4ffcc66
-	add	r5, 2
-.LBB7_45:                               // %.preheader.i6
-                                        //   Parent Loop BB7_2 Depth=1
-                                        // =>  This Inner Loop Header: Depth=2
-	mov	r1, 2
-	inline data modify storage std:vm s0 set value {a: -1}
-	inline execute store result storage std:vm s0.a int 1 run scoreboard players get rax vm_regs
-	inline function _ll_shared:z/putchar_1 with storage std:vm s0
-	mov	r0, r5
-	call	__bit_shr
-	mov	r1, 3
-	mov	r6, rax
-	call	__bit_and
-	mov	r0, rax
-	call	__bit_shl
-	mov	r0, [r6]
-	mov	r1, rax
-	call	__bit_shr
-	mov	r1, 255
-	mov	r0, rax
-	call	__bit_and
-	add	r5, 1
-	jnz	rax, .LBB7_45
-	jmp	.LBB7_46
-.LBB7_46:                               // %puts.exit7
-                                        //   in Loop: Header=BB7_2 Depth=1
-	add	r3, 1
-	add	r2, -1
-	inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
-	mov	[x5], 0
-.LBB7_47:                               //   in Loop: Header=BB7_2 Depth=1
-	jnz	r2, .LBB7_2
-	jmp	.LBB7_48
-.LBB7_48:                               // %.loopexit12
+	mov	r0, mcasm_static_b6a660bbde72203e160a805153582f96
+	mov	[r5], rax
+	call	puts
+	mov	[x4], 0
+.LBB9_41:                               //   in Loop: Header=BB9_2 Depth=1
+	jnz	r2, .LBB9_2
+	jmp	.LBB9_42
+.LBB9_42:                               // %.loopexit9
 	mov	rax, 0
-	mov	x15, [rsp-16]
-	mov	x14, [rsp-15]
 	mov	x13, [rsp-14]
 	mov	x12, [rsp-13]
 	mov	x11, [rsp-12]
@@ -1453,44 +985,44 @@ vprintf:                                // @vprintf
 	mov	r1, rax
 	mov	r0, 0
 	mov	r5, -1
-	jl	r1, r0, .LBB8_41
-	jmp	.LBB8_1
-.LBB8_1:
+	jl	r1, r0, .LBB10_41
+	jmp	.LBB10_1
+.LBB10_1:
 	mov	r0, 511
-	jg	r1, r0, .LBB8_3
-	jmp	.LBB8_2
-.LBB8_2:                                // %.thread
+	jg	r1, r0, .LBB10_3
+	jmp	.LBB10_2
+.LBB10_2:                               // %.thread
 	mov	r0, rsp
 	call	__stdout_linebuf_write
 	mov	r5, r1
-	jmp	.LBB8_41
-.LBB8_3:
+	jmp	.LBB10_41
+.LBB10_3:
 	add	r1, 1
 	mov	r0, r1
 	call	malloc
 	mov	r4, rax
-	jnz	r4, .LBB8_5
-	jmp	.LBB8_4
-.LBB8_4:
-	mov	r0, mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2
+	jnz	r4, .LBB10_5
+	jmp	.LBB10_4
+.LBB10_4:
+	mov	r0, mcasm_static_719163f5f9eae4be69e01d67d1a83915
 	mov	[r0], 12
-	jmp	.LBB8_41
-.LBB8_5:
+	jmp	.LBB10_41
+.LBB10_5:
 	mov	r3, [rsp]
 	mov	[rsp], r3
 	mov	r0, r4
 	call	vsnprintf
 	mov	r0, -1
 	mov	r5, rax
-	jg	r5, r0, .LBB8_23
-	jmp	.LBB8_6
-.LBB8_6:
+	jg	r5, r0, .LBB10_23
+	jmp	.LBB10_6
+.LBB10_6:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r2, 1296125004
-	je	r1, r2, .LBB8_8
-	jmp	.LBB8_7
-.LBB8_7:
+	je	r1, r2, .LBB10_8
+	jmp	.LBB10_7
+.LBB10_7:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -1502,8 +1034,8 @@ vprintf:                                // @vprintf
 	mov	r6, 0
 	mov	r3, 0
 	mov	rax, 0
-	jmp	.LBB8_13
-.LBB8_8:
+	jmp	.LBB10_13
+.LBB10_8:
 	mov	r0, 16386
 	mov	r3, [r0]
 	mov	r2, r4
@@ -1518,13 +1050,13 @@ vprintf:                                // @vprintf
 	mov	r0, rax
 	call	__bit_shr
 	mov	r6, 0
-	jz	r3, .LBB8_13
-	jmp	.LBB8_9
-.LBB8_9:
-	jge	r3, r2, .LBB8_13
-	jmp	.LBB8_10
-.LBB8_10:                               // %.preheader.i.preheader
-.LBB8_11:                               // %.preheader.i
+	jz	r3, .LBB10_13
+	jmp	.LBB10_9
+.LBB10_9:
+	jge	r3, r2, .LBB10_13
+	jmp	.LBB10_10
+.LBB10_10:                              // %.preheader.i.preheader
+.LBB10_11:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r6, r3
 	mov	r0, r6
@@ -1538,72 +1070,72 @@ vprintf:                                // @vprintf
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r3, .LBB8_13
-	jmp	.LBB8_12
-.LBB8_12:                               // %.preheader.i
-                                        //   in Loop: Header=BB8_11 Depth=1
-	jl	r3, r2, .LBB8_11
-	jmp	.LBB8_13
-.LBB8_13:                               // %.loopexit.i
-	jne	r3, r2, .LBB8_15
-	jmp	.LBB8_14
-.LBB8_14:
+	jz	r3, .LBB10_13
+	jmp	.LBB10_12
+.LBB10_12:                              // %.preheader.i
+                                        //   in Loop: Header=BB10_11 Depth=1
+	jl	r3, r2, .LBB10_11
+	jmp	.LBB10_13
+.LBB10_13:                              // %.loopexit.i
+	jne	r3, r2, .LBB10_15
+	jmp	.LBB10_14
+.LBB10_14:
 	call	abort
-.LBB8_15:
+.LBB10_15:
 	mov	r0, 16386
-	jz	r6, .LBB8_19
-	jmp	.LBB8_16
-.LBB8_16:
+	jz	r6, .LBB10_19
+	jmp	.LBB10_16
+.LBB10_16:
 	mov	r0, [r6]
 	mov	r1, r0
 	add	r1, r6
-	jne	r1, r2, .LBB8_18
-	jmp	.LBB8_17
-.LBB8_17:
+	jne	r1, r2, .LBB10_18
+	jmp	.LBB10_17
+.LBB10_17:
 	add	r0, r5
 	mov	[r6], r0
 	mov	r2, r6
-	jmp	.LBB8_20
-.LBB8_18:
+	jmp	.LBB10_20
+.LBB10_18:
 	add	r6, 1
 	mov	r0, r6
-.LBB8_19:
+.LBB10_19:
 	mov	[r0], r2
 	mov	[r4], r3
-.LBB8_20:
+.LBB10_20:
 	mov	r1, 1
 	mov	r5, -1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB8_41
-	jmp	.LBB8_21
-.LBB8_21:
+	jz	rax, .LBB10_41
+	jmp	.LBB10_21
+.LBB10_21:
 	mov	r0, [r2]
 	mov	r1, r0
 	add	r1, r2
-	jne	r1, r3, .LBB8_41
-	jmp	.LBB8_22
-.LBB8_22:
+	jne	r1, r3, .LBB10_41
+	jmp	.LBB10_22
+.LBB10_22:
 	add	r0, [r3]
 	mov	[r2], r0
 	add	r3, 1
 	mov	r0, [r3]
 	add	r2, 1
 	mov	[r2], r0
-	jmp	.LBB8_41
-.LBB8_23:
+	jmp	.LBB10_41
+.LBB10_23:
 	mov	r0, r4
 	mov	r1, r5
 	call	__stdout_linebuf_write
-	je	r4, rsp, .LBB8_41
-	jmp	.LBB8_24
-.LBB8_24:
+	je	r4, rsp, .LBB10_41
+	jmp	.LBB10_24
+.LBB10_24:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r2, 1296125004
-	je	r1, r2, .LBB8_26
-	jmp	.LBB8_25
-.LBB8_25:
+	je	r1, r2, .LBB10_26
+	jmp	.LBB10_25
+.LBB10_25:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -1615,8 +1147,8 @@ vprintf:                                // @vprintf
 	mov	r7, 0
 	mov	r3, 0
 	mov	rax, 0
-	jmp	.LBB8_31
-.LBB8_26:
+	jmp	.LBB10_31
+.LBB10_26:
 	mov	r0, 16386
 	mov	r3, [r0]
 	mov	r2, r4
@@ -1631,13 +1163,13 @@ vprintf:                                // @vprintf
 	mov	r0, rax
 	call	__bit_shr
 	mov	r7, 0
-	jz	r3, .LBB8_31
-	jmp	.LBB8_27
-.LBB8_27:
-	jge	r3, r2, .LBB8_31
-	jmp	.LBB8_28
-.LBB8_28:                               // %.preheader.i5.preheader
-.LBB8_29:                               // %.preheader.i5
+	jz	r3, .LBB10_31
+	jmp	.LBB10_27
+.LBB10_27:
+	jge	r3, r2, .LBB10_31
+	jmp	.LBB10_28
+.LBB10_28:                              // %.preheader.i5.preheader
+.LBB10_29:                              // %.preheader.i5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, r3
 	mov	r0, r7
@@ -1651,58 +1183,58 @@ vprintf:                                // @vprintf
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r3, .LBB8_31
-	jmp	.LBB8_30
-.LBB8_30:                               // %.preheader.i5
-                                        //   in Loop: Header=BB8_29 Depth=1
-	jl	r3, r2, .LBB8_29
-	jmp	.LBB8_31
-.LBB8_31:                               // %.loopexit.i4
-	jne	r3, r2, .LBB8_33
-	jmp	.LBB8_32
-.LBB8_32:
+	jz	r3, .LBB10_31
+	jmp	.LBB10_30
+.LBB10_30:                              // %.preheader.i5
+                                        //   in Loop: Header=BB10_29 Depth=1
+	jl	r3, r2, .LBB10_29
+	jmp	.LBB10_31
+.LBB10_31:                              // %.loopexit.i4
+	jne	r3, r2, .LBB10_33
+	jmp	.LBB10_32
+.LBB10_32:
 	call	abort
-.LBB8_33:
+.LBB10_33:
 	mov	r0, 16386
-	jz	r7, .LBB8_37
-	jmp	.LBB8_34
-.LBB8_34:
+	jz	r7, .LBB10_37
+	jmp	.LBB10_34
+.LBB10_34:
 	mov	r0, [r7]
 	mov	r1, r0
 	add	r1, r7
-	jne	r1, r2, .LBB8_36
-	jmp	.LBB8_35
-.LBB8_35:
+	jne	r1, r2, .LBB10_36
+	jmp	.LBB10_35
+.LBB10_35:
 	add	r0, r6
 	mov	[r7], r0
 	mov	r2, r7
-	jmp	.LBB8_38
-.LBB8_36:
+	jmp	.LBB10_38
+.LBB10_36:
 	add	r7, 1
 	mov	r0, r7
-.LBB8_37:
+.LBB10_37:
 	mov	[r0], r2
 	mov	[r4], r3
-.LBB8_38:
+.LBB10_38:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB8_41
-	jmp	.LBB8_39
-.LBB8_39:
+	jz	rax, .LBB10_41
+	jmp	.LBB10_39
+.LBB10_39:
 	mov	r0, [r2]
 	mov	r1, r0
 	add	r1, r2
-	jne	r1, r3, .LBB8_41
-	jmp	.LBB8_40
-.LBB8_40:
+	jne	r1, r3, .LBB10_41
+	jmp	.LBB10_40
+.LBB10_40:
 	add	r0, [r3]
 	mov	[r2], r0
 	add	r3, 1
 	mov	r0, [r3]
 	add	r2, 1
 	mov	[r2], r0
-.LBB8_41:                               // %free.exit
+.LBB10_41:                              // %free.exit
 	mov	rax, r5
 	ret
 // -- End function
@@ -1749,25 +1281,25 @@ vsnprintf:                              // @vsnprintf
 	mov	x14, 43
 	mov	x13, 41
 	mov	x10, 45
-.LBB9_1:                                // =>This Loop Header: Depth=1
-                                        //     Child Loop BB9_44 Depth 2
-                                        //       Child Loop BB9_40 Depth 3
-                                        //         Child Loop BB9_36 Depth 4
-                                        //           Child Loop BB9_16 Depth 5
-                                        //             Child Loop BB9_24 Depth 6
-                                        //             Child Loop BB9_8 Depth 6
-                                        //     Child Loop BB9_58 Depth 2
-                                        //     Child Loop BB9_64 Depth 2
-                                        //     Child Loop BB9_183 Depth 2
-                                        //     Child Loop BB9_185 Depth 2
-                                        //     Child Loop BB9_187 Depth 2
-                                        //     Child Loop BB9_198 Depth 2
-                                        //     Child Loop BB9_209 Depth 2
-                                        //     Child Loop BB9_220 Depth 2
-                                        //     Child Loop BB9_176 Depth 2
-                                        //     Child Loop BB9_159 Depth 2
-                                        //     Child Loop BB9_246 Depth 2
-                                        //     Child Loop BB9_260 Depth 2
+.LBB11_1:                               // =>This Loop Header: Depth=1
+                                        //     Child Loop BB11_44 Depth 2
+                                        //       Child Loop BB11_40 Depth 3
+                                        //         Child Loop BB11_36 Depth 4
+                                        //           Child Loop BB11_16 Depth 5
+                                        //             Child Loop BB11_24 Depth 6
+                                        //             Child Loop BB11_8 Depth 6
+                                        //     Child Loop BB11_58 Depth 2
+                                        //     Child Loop BB11_64 Depth 2
+                                        //     Child Loop BB11_183 Depth 2
+                                        //     Child Loop BB11_185 Depth 2
+                                        //     Child Loop BB11_187 Depth 2
+                                        //     Child Loop BB11_198 Depth 2
+                                        //     Child Loop BB11_209 Depth 2
+                                        //     Child Loop BB11_220 Depth 2
+                                        //     Child Loop BB11_176 Depth 2
+                                        //     Child Loop BB11_159 Depth 2
+                                        //     Child Loop BB11_246 Depth 2
+                                        //     Child Loop BB11_260 Depth 2
 	mov	r1, 2
 	mov	r0, t1
 	call	__bit_shr
@@ -1782,13 +1314,13 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, x0, .LBB9_3
-	jmp	.LBB9_2
-.LBB9_2:                                //   in Loop: Header=BB9_1 Depth=1
-	jz	rax, .LBB9_273
-	jmp	.LBB9_4
-.LBB9_3:                                // %.preheader55.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	je	rax, x0, .LBB11_3
+	jmp	.LBB11_2
+.LBB11_2:                               //   in Loop: Header=BB11_1 Depth=1
+	jz	rax, .LBB11_273
+	jmp	.LBB11_4
+.LBB11_3:                               // %.preheader55.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r6, 0
 	mov	r2, 32
 	mov	r3, t1
@@ -1796,8 +1328,8 @@ vsnprintf:                              // @vsnprintf
 	mov	t5, 0
 	mov	x11, 0
 	mov	r7, 0
-	jmp	.LBB9_44
-.LBB9_4:                                //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_44
+.LBB11_4:                               //   in Loop: Header=BB11_1 Depth=1
 	mov	r3, rax
 	mov	r0, rsp
 	mov	r1, rsp
@@ -1807,17 +1339,17 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, [r0]
 	mov	r2, r4
 	add	r2, 1
-	jz	r0, .LBB9_7
-	jmp	.LBB9_5
-.LBB9_5:                                //   in Loop: Header=BB9_1 Depth=1
+	jz	r0, .LBB11_7
+	jmp	.LBB11_5
+.LBB11_5:                               //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r5, rax
 	mov	r0, r2
 	call	__bit_xor
-	jge	rax, r5, .LBB9_7
-	jmp	.LBB9_6
-.LBB9_6:                                //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r5, .LBB11_7
+	jmp	.LBB11_6
+.LBB11_6:                               //   in Loop: Header=BB11_1 Depth=1
 	add	r4, [rsp]
 	mov	r1, 3
 	mov	r0, r4
@@ -1855,18 +1387,18 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-.LBB9_7:                                //   in Loop: Header=BB9_1 Depth=1
+.LBB11_7:                               //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	t1, 1
 	add	r0, 8
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_8:                                // %.preheader
-                                        //   Parent Loop BB9_1 Depth=1
-                                        //     Parent Loop BB9_44 Depth=2
-                                        //       Parent Loop BB9_40 Depth=3
-                                        //         Parent Loop BB9_36 Depth=4
-                                        //           Parent Loop BB9_16 Depth=5
+	jmp	.LBB11_1
+.LBB11_8:                               // %.preheader
+                                        //   Parent Loop BB11_1 Depth=1
+                                        //     Parent Loop BB11_44 Depth=2
+                                        //       Parent Loop BB11_40 Depth=3
+                                        //         Parent Loop BB11_36 Depth=4
+                                        //           Parent Loop BB11_16 Depth=5
                                         // =>          This Inner Loop Header: Depth=6
 	add	r3, 1
 	mov	r1, 2
@@ -1884,45 +1416,45 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	t2, rax
-	je	t2, x10, .LBB9_8
-	jmp	.LBB9_9
-.LBB9_9:                                // %.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
-	jg	t2, x13, .LBB9_12
-	jmp	.LBB9_10
-.LBB9_10:                               // %.preheader
-                                        //   in Loop: Header=BB9_36 Depth=4
-	je	t2, x2, .LBB9_33
-	jmp	.LBB9_11
-.LBB9_11:                               // %.preheader
-                                        //   in Loop: Header=BB9_40 Depth=3
-	je	t2, x3, .LBB9_37
-	jmp	.LBB9_53
-.LBB9_12:                               // %.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
-	je	t2, x1, .LBB9_45
-	jmp	.LBB9_13
-.LBB9_13:                               // %.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
+	je	t2, x10, .LBB11_8
+	jmp	.LBB11_9
+.LBB11_9:                               // %.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
+	jg	t2, x13, .LBB11_12
+	jmp	.LBB11_10
+.LBB11_10:                              // %.preheader
+                                        //   in Loop: Header=BB11_36 Depth=4
+	je	t2, x2, .LBB11_33
+	jmp	.LBB11_11
+.LBB11_11:                              // %.preheader
+                                        //   in Loop: Header=BB11_40 Depth=3
+	je	t2, x3, .LBB11_37
+	jmp	.LBB11_53
+.LBB11_12:                              // %.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
+	je	t2, x1, .LBB11_45
+	jmp	.LBB11_13
+.LBB11_13:                              // %.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
 	mov	r0, 48
-	je	t2, r0, .LBB9_41
-	jmp	.LBB9_14
-.LBB9_14:                               // %.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
-	jne	t2, x14, .LBB9_53
-	jmp	.LBB9_15
-.LBB9_15:                               // %.loopexit27.outer.loopexit
-                                        //   in Loop: Header=BB9_16 Depth=5
+	je	t2, r0, .LBB11_41
+	jmp	.LBB11_14
+.LBB11_14:                              // %.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
+	jne	t2, x14, .LBB11_53
+	jmp	.LBB11_15
+.LBB11_15:                              // %.loopexit27.outer.loopexit
+                                        //   in Loop: Header=BB11_16 Depth=5
 	mov	x11, 1
 	mov	r7, 1
-.LBB9_16:                               // %.loopexit27.outer
-                                        //   Parent Loop BB9_1 Depth=1
-                                        //     Parent Loop BB9_44 Depth=2
-                                        //       Parent Loop BB9_40 Depth=3
-                                        //         Parent Loop BB9_36 Depth=4
+.LBB11_16:                              // %.loopexit27.outer
+                                        //   Parent Loop BB11_1 Depth=1
+                                        //     Parent Loop BB11_44 Depth=2
+                                        //       Parent Loop BB11_40 Depth=3
+                                        //         Parent Loop BB11_36 Depth=4
                                         // =>        This Loop Header: Depth=5
-                                        //             Child Loop BB9_24 Depth 6
-                                        //             Child Loop BB9_8 Depth 6
+                                        //             Child Loop BB11_24 Depth 6
+                                        //             Child Loop BB11_8 Depth 6
 	mov	r4, r3
 	add	r4, 1
 	mov	r1, 2
@@ -1940,41 +1472,41 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	t2, rax
-	jg	t2, x1, .LBB9_20
-	jmp	.LBB9_17
-.LBB9_17:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_36 Depth=4
-	je	t2, x2, .LBB9_35
-	jmp	.LBB9_18
-.LBB9_18:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_40 Depth=3
-	je	t2, x3, .LBB9_39
-	jmp	.LBB9_19
-.LBB9_19:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_1 Depth=1
-	je	t2, x1, .LBB9_47
-	jmp	.LBB9_55
-.LBB9_20:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_16 Depth=5
-	je	t2, x14, .LBB9_23
-	jmp	.LBB9_21
-.LBB9_21:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_16 Depth=5
-	je	t2, x10, .LBB9_32
-	jmp	.LBB9_22
-.LBB9_22:                               // %.loopexit27.outer
-                                        //   in Loop: Header=BB9_44 Depth=2
+	jg	t2, x1, .LBB11_20
+	jmp	.LBB11_17
+.LBB11_17:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_36 Depth=4
+	je	t2, x2, .LBB11_35
+	jmp	.LBB11_18
+.LBB11_18:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_40 Depth=3
+	je	t2, x3, .LBB11_39
+	jmp	.LBB11_19
+.LBB11_19:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_1 Depth=1
+	je	t2, x1, .LBB11_47
+	jmp	.LBB11_55
+.LBB11_20:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_16 Depth=5
+	je	t2, x14, .LBB11_23
+	jmp	.LBB11_21
+.LBB11_21:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_16 Depth=5
+	je	t2, x10, .LBB11_32
+	jmp	.LBB11_22
+.LBB11_22:                              // %.loopexit27.outer
+                                        //   in Loop: Header=BB11_44 Depth=2
 	mov	r0, 48
-	je	t2, r0, .LBB9_43
-	jmp	.LBB9_55
-.LBB9_23:                               // %.loopexit27.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
-.LBB9_24:                               // %.loopexit27
-                                        //   Parent Loop BB9_1 Depth=1
-                                        //     Parent Loop BB9_44 Depth=2
-                                        //       Parent Loop BB9_40 Depth=3
-                                        //         Parent Loop BB9_36 Depth=4
-                                        //           Parent Loop BB9_16 Depth=5
+	je	t2, r0, .LBB11_43
+	jmp	.LBB11_55
+.LBB11_23:                              // %.loopexit27.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
+.LBB11_24:                              // %.loopexit27
+                                        //   Parent Loop BB11_1 Depth=1
+                                        //     Parent Loop BB11_44 Depth=2
+                                        //       Parent Loop BB11_40 Depth=3
+                                        //         Parent Loop BB11_36 Depth=4
+                                        //           Parent Loop BB11_16 Depth=5
                                         // =>          This Inner Loop Header: Depth=6
 	add	r4, 1
 	mov	r1, 2
@@ -1992,149 +1524,149 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	t2, rax
-	je	t2, x14, .LBB9_24
-	jmp	.LBB9_25
-.LBB9_25:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_16 Depth=5
-	jg	t2, x13, .LBB9_28
-	jmp	.LBB9_26
-.LBB9_26:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_36 Depth=4
-	je	t2, x2, .LBB9_34
-	jmp	.LBB9_27
-.LBB9_27:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_40 Depth=3
-	je	t2, x3, .LBB9_38
-	jmp	.LBB9_54
-.LBB9_28:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_16 Depth=5
-	je	t2, x1, .LBB9_46
-	jmp	.LBB9_29
-.LBB9_29:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_16 Depth=5
+	je	t2, x14, .LBB11_24
+	jmp	.LBB11_25
+.LBB11_25:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_16 Depth=5
+	jg	t2, x13, .LBB11_28
+	jmp	.LBB11_26
+.LBB11_26:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_36 Depth=4
+	je	t2, x2, .LBB11_34
+	jmp	.LBB11_27
+.LBB11_27:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_40 Depth=3
+	je	t2, x3, .LBB11_38
+	jmp	.LBB11_54
+.LBB11_28:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_16 Depth=5
+	je	t2, x1, .LBB11_46
+	jmp	.LBB11_29
+.LBB11_29:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_16 Depth=5
 	mov	r0, 48
-	je	t2, r0, .LBB9_42
-	jmp	.LBB9_30
-.LBB9_30:                               // %.loopexit27
-                                        //   in Loop: Header=BB9_16 Depth=5
-	jne	t2, x10, .LBB9_54
-	jmp	.LBB9_31
-.LBB9_31:                               // %.preheader.preheader.loopexit
-                                        //   in Loop: Header=BB9_16 Depth=5
+	je	t2, r0, .LBB11_42
+	jmp	.LBB11_30
+.LBB11_30:                              // %.loopexit27
+                                        //   in Loop: Header=BB11_16 Depth=5
+	jne	t2, x10, .LBB11_54
+	jmp	.LBB11_31
+.LBB11_31:                              // %.preheader.preheader.loopexit
+                                        //   in Loop: Header=BB11_16 Depth=5
 	mov	x11, 1
-.LBB9_32:                               // %.preheader.preheader
-                                        //   in Loop: Header=BB9_16 Depth=5
+.LBB11_32:                              // %.preheader.preheader
+                                        //   in Loop: Header=BB11_16 Depth=5
 	mov	r3, r4
-	jmp	.LBB9_8
-.LBB9_33:                               // %.loopexit28.backedge.loopexit
-                                        //   in Loop: Header=BB9_36 Depth=4
+	jmp	.LBB11_8
+.LBB11_33:                              // %.loopexit28.backedge.loopexit
+                                        //   in Loop: Header=BB11_36 Depth=4
 	mov	t5, 1
 	mov	r7, 1
-	jmp	.LBB9_36
-.LBB9_34:                               // %.loopexit28.backedge.loopexit2
-                                        //   in Loop: Header=BB9_36 Depth=4
+	jmp	.LBB11_36
+.LBB11_34:                              // %.loopexit28.backedge.loopexit2
+                                        //   in Loop: Header=BB11_36 Depth=4
 	mov	t5, 1
 	mov	r3, r4
 	mov	x11, 1
-	jmp	.LBB9_36
-.LBB9_35:                               // %.loopexit28.backedge.loopexit7
-                                        //   in Loop: Header=BB9_36 Depth=4
+	jmp	.LBB11_36
+.LBB11_35:                              // %.loopexit28.backedge.loopexit7
+                                        //   in Loop: Header=BB11_36 Depth=4
 	mov	t5, 1
 	mov	r3, r4
-.LBB9_36:                               // %.loopexit28
-                                        //   Parent Loop BB9_1 Depth=1
-                                        //     Parent Loop BB9_44 Depth=2
-                                        //       Parent Loop BB9_40 Depth=3
+.LBB11_36:                              // %.loopexit28
+                                        //   Parent Loop BB11_1 Depth=1
+                                        //     Parent Loop BB11_44 Depth=2
+                                        //       Parent Loop BB11_40 Depth=3
                                         // =>      This Loop Header: Depth=4
-                                        //           Child Loop BB9_16 Depth 5
-                                        //             Child Loop BB9_24 Depth 6
-                                        //             Child Loop BB9_8 Depth 6
-	jmp	.LBB9_16
-.LBB9_37:                               // %.loopexit29.backedge.loopexit
-                                        //   in Loop: Header=BB9_40 Depth=3
+                                        //           Child Loop BB11_16 Depth 5
+                                        //             Child Loop BB11_24 Depth 6
+                                        //             Child Loop BB11_8 Depth 6
+	jmp	.LBB11_16
+.LBB11_37:                              // %.loopexit29.backedge.loopexit
+                                        //   in Loop: Header=BB11_40 Depth=3
 	mov	r6, 1
 	mov	r7, 1
-	jmp	.LBB9_40
-.LBB9_38:                               // %.loopexit29.backedge.loopexit3
-                                        //   in Loop: Header=BB9_40 Depth=3
+	jmp	.LBB11_40
+.LBB11_38:                              // %.loopexit29.backedge.loopexit3
+                                        //   in Loop: Header=BB11_40 Depth=3
 	mov	r6, 1
 	mov	r3, r4
 	mov	x11, 1
-	jmp	.LBB9_40
-.LBB9_39:                               // %.loopexit29.backedge.loopexit8
-                                        //   in Loop: Header=BB9_40 Depth=3
+	jmp	.LBB11_40
+.LBB11_39:                              // %.loopexit29.backedge.loopexit8
+                                        //   in Loop: Header=BB11_40 Depth=3
 	mov	r6, 1
 	mov	r3, r4
-.LBB9_40:                               // %.loopexit29
-                                        //   Parent Loop BB9_1 Depth=1
-                                        //     Parent Loop BB9_44 Depth=2
+.LBB11_40:                              // %.loopexit29
+                                        //   Parent Loop BB11_1 Depth=1
+                                        //     Parent Loop BB11_44 Depth=2
                                         // =>    This Loop Header: Depth=3
-                                        //         Child Loop BB9_36 Depth 4
-                                        //           Child Loop BB9_16 Depth 5
-                                        //             Child Loop BB9_24 Depth 6
-                                        //             Child Loop BB9_8 Depth 6
-	jmp	.LBB9_36
-.LBB9_41:                               // %.preheader55.backedge.loopexit
-                                        //   in Loop: Header=BB9_44 Depth=2
+                                        //         Child Loop BB11_36 Depth 4
+                                        //           Child Loop BB11_16 Depth 5
+                                        //             Child Loop BB11_24 Depth 6
+                                        //             Child Loop BB11_8 Depth 6
+	jmp	.LBB11_36
+.LBB11_41:                              // %.preheader55.backedge.loopexit
+                                        //   in Loop: Header=BB11_44 Depth=2
 	mov	t4, 1
 	mov	r2, t2
 	mov	r7, 1
-	jmp	.LBB9_44
-.LBB9_42:                               // %.preheader55.backedge.loopexit4
-                                        //   in Loop: Header=BB9_44 Depth=2
+	jmp	.LBB11_44
+.LBB11_42:                              // %.preheader55.backedge.loopexit4
+                                        //   in Loop: Header=BB11_44 Depth=2
 	mov	t4, 1
 	mov	r3, r4
 	mov	r2, t2
 	mov	x11, 1
-	jmp	.LBB9_44
-.LBB9_43:                               // %.preheader55.backedge.loopexit9
-                                        //   in Loop: Header=BB9_44 Depth=2
+	jmp	.LBB11_44
+.LBB11_43:                              // %.preheader55.backedge.loopexit9
+                                        //   in Loop: Header=BB11_44 Depth=2
 	mov	t4, 1
 	mov	r3, r4
 	mov	r2, t2
-.LBB9_44:                               // %.preheader55
-                                        //   Parent Loop BB9_1 Depth=1
+.LBB11_44:                              // %.preheader55
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Loop Header: Depth=2
-                                        //       Child Loop BB9_40 Depth 3
-                                        //         Child Loop BB9_36 Depth 4
-                                        //           Child Loop BB9_16 Depth 5
-                                        //             Child Loop BB9_24 Depth 6
-                                        //             Child Loop BB9_8 Depth 6
-	jmp	.LBB9_40
-.LBB9_45:                               // %.loopexit31.loopexit
-                                        //   in Loop: Header=BB9_1 Depth=1
+                                        //       Child Loop BB11_40 Depth 3
+                                        //         Child Loop BB11_36 Depth 4
+                                        //           Child Loop BB11_16 Depth 5
+                                        //             Child Loop BB11_24 Depth 6
+                                        //             Child Loop BB11_8 Depth 6
+	jmp	.LBB11_40
+.LBB11_45:                              // %.loopexit31.loopexit
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	r3, -1
 	mov	r7, 1
-	jmp	.LBB9_48
-.LBB9_46:                               // %.loopexit31.loopexit5
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_48
+.LBB11_46:                              // %.loopexit31.loopexit5
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	r4, -1
 	mov	x11, 1
 	mov	r3, r4
-	jmp	.LBB9_48
-.LBB9_47:                               // %.loopexit31.loopexit10
-                                        //   in Loop: Header=BB9_1 Depth=1
-.LBB9_48:                               // %.loopexit31
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_48
+.LBB11_47:                              // %.loopexit31.loopexit10
+                                        //   in Loop: Header=BB11_1 Depth=1
+.LBB11_48:                              // %.loopexit31
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r0, [r0]
 	mov	r4, r0
-	jg	r0, x4, .LBB9_50
-	jmp	.LBB9_49
-.LBB9_49:                               //   in Loop: Header=BB9_1 Depth=1
+	jg	r0, x4, .LBB11_50
+	jmp	.LBB11_49
+.LBB11_49:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r4, 0
 	sub	r4, r0
-.LBB9_50:                               //   in Loop: Header=BB9_1 Depth=1
+.LBB11_50:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, 1
 	mov	r1, 0
-	jl	r0, r1, .LBB9_52
-	jmp	.LBB9_51
-.LBB9_51:                               //   in Loop: Header=BB9_1 Depth=1
+	jl	r0, r1, .LBB11_52
+	jmp	.LBB11_51
+.LBB11_51:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r7
-.LBB9_52:                               //   in Loop: Header=BB9_1 Depth=1
+.LBB11_52:                              //   in Loop: Header=BB11_1 Depth=1
 	add	r3, 2
 	mov	r1, 2
 	mov	r0, r3
@@ -2152,21 +1684,21 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	t2, rax
 	mov	r7, t1
-	jmp	.LBB9_59
-.LBB9_53:                               // %.loopexit.loopexit
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_59
+.LBB11_53:                              // %.loopexit.loopexit
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r7, 1
-	jmp	.LBB9_56
-.LBB9_54:                               // %.loopexit.loopexit1
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_56
+.LBB11_54:                              // %.loopexit.loopexit1
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	x11, 1
 	mov	r3, r4
-	jmp	.LBB9_56
-.LBB9_55:                               // %.loopexit.loopexit6
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_56
+.LBB11_55:                              // %.loopexit.loopexit6
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r3, r4
-.LBB9_56:                               // %.loopexit
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_56:                              // %.loopexit
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, t2
 	add	r0, -48
 	call	__bit_and
@@ -2175,12 +1707,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_xor
 	mov	r0, -2147483639
-	jg	rax, r0, .LBB9_59
-	jmp	.LBB9_57
-.LBB9_57:                               // %.preheader53.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
-.LBB9_58:                               // %.preheader53
-                                        //   Parent Loop BB9_1 Depth=1
+	jg	rax, r0, .LBB11_59
+	jmp	.LBB11_57
+.LBB11_57:                              // %.preheader53.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
+.LBB11_58:                              // %.preheader53
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	t2, -48
 	mov	r1, 255
@@ -2210,17 +1742,17 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, -2147483648
 	mov	r0, rax
 	call	__bit_xor
-	jl	rax, x9, .LBB9_58
-	jmp	.LBB9_59
-.LBB9_59:                               // %.loopexit54
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jl	rax, x9, .LBB11_58
+	jmp	.LBB11_59
+.LBB11_59:                              // %.loopexit54
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
 	mov	r5, -1
-	jne	rax, x6, .LBB9_65
-	jmp	.LBB9_60
-.LBB9_60:                               //   in Loop: Header=BB9_1 Depth=1
+	jne	rax, x6, .LBB11_65
+	jmp	.LBB11_60
+.LBB11_60:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r3
 	add	t1, 1
 	mov	r1, 2
@@ -2238,9 +1770,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	t2, rax
-	jne	t2, x1, .LBB9_62
-	jmp	.LBB9_61
-.LBB9_61:                               //   in Loop: Header=BB9_1 Depth=1
+	jne	t2, x1, .LBB11_62
+	jmp	.LBB11_61
+.LBB11_61:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2283,8 +1815,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	t2, rax
-	jmp	.LBB9_65
-.LBB9_62:                               //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_65
+.LBB11_62:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, t2
 	add	r0, -48
 	call	__bit_and
@@ -2294,13 +1826,13 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_xor
 	mov	r3, t1
 	mov	r0, -2147483639
-	jg	rax, r0, .LBB9_65
-	jmp	.LBB9_63
-.LBB9_63:                               // %.preheader51.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jg	rax, r0, .LBB11_65
+	jmp	.LBB11_63
+.LBB11_63:                              // %.preheader51.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r3, t1
-.LBB9_64:                               // %.preheader51
-                                        //   Parent Loop BB9_1 Depth=1
+.LBB11_64:                              // %.preheader51
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	t2, -48
 	mov	r1, 255
@@ -2330,10 +1862,10 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, -2147483648
 	mov	r0, rax
 	call	__bit_xor
-	jl	rax, x9, .LBB9_64
-	jmp	.LBB9_65
-.LBB9_65:                               // %.loopexit52
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jl	rax, x9, .LBB11_64
+	jmp	.LBB11_65
+.LBB11_65:                              // %.loopexit52
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, t2
 	add	r0, -104
 	mov	r1, 254
@@ -2354,29 +1886,29 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	t3, 5
 	mov	x5, 0
-	jg	rax, t3, .LBB9_68
-	jmp	.LBB9_66
-.LBB9_66:                               // %.loopexit52
-                                        //   in Loop: Header=BB9_1 Depth=1
-	jz	rax, .LBB9_70
-	jmp	.LBB9_67
-.LBB9_67:                               // %.loopexit52
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jg	rax, t3, .LBB11_68
+	jmp	.LBB11_66
+.LBB11_66:                              // %.loopexit52
+                                        //   in Loop: Header=BB11_1 Depth=1
+	jz	rax, .LBB11_70
+	jmp	.LBB11_67
+.LBB11_67:                              // %.loopexit52
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r3
-	je	rax, t6, .LBB9_71
-	jmp	.LBB9_74
-.LBB9_68:                               // %.loopexit52
-                                        //   in Loop: Header=BB9_1 Depth=1
+	je	rax, t6, .LBB11_71
+	jmp	.LBB11_74
+.LBB11_68:                              // %.loopexit52
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	rax, r0, .LBB9_72
-	jmp	.LBB9_69
-.LBB9_69:                               // %.loopexit52
-                                        //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_72
+	jmp	.LBB11_69
+.LBB11_69:                              // %.loopexit52
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r3
 	mov	r0, 9
-	je	rax, r0, .LBB9_73
-	jmp	.LBB9_74
-.LBB9_70:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_73
+	jmp	.LBB11_74
+.LBB11_70:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r3
 	add	t1, 1
 	mov	r1, 2
@@ -2398,9 +1930,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t3, 1
 	mov	x5, 2
 	mov	r0, 104
-	je	t2, r0, .LBB9_73
-	jmp	.LBB9_74
-.LBB9_71:                               //   in Loop: Header=BB9_1 Depth=1
+	je	t2, r0, .LBB11_73
+	jmp	.LBB11_74
+.LBB11_71:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t1, r3
 	add	t1, 1
 	mov	r1, 2
@@ -2422,11 +1954,11 @@ vsnprintf:                              // @vsnprintf
 	mov	t2, rax
 	mov	t3, 4
 	mov	r0, 108
-	je	t2, r0, .LBB9_73
-	jmp	.LBB9_74
-.LBB9_72:                               //   in Loop: Header=BB9_1 Depth=1
+	je	t2, r0, .LBB11_73
+	jmp	.LBB11_74
+.LBB11_72:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	t3, 6
-.LBB9_73:                               //   in Loop: Header=BB9_1 Depth=1
+.LBB11_73:                              //   in Loop: Header=BB11_1 Depth=1
 	add	r3, x8
 	mov	r1, 2
 	mov	r0, r3
@@ -2445,95 +1977,95 @@ vsnprintf:                              // @vsnprintf
 	mov	t2, rax
 	mov	t1, r3
 	mov	x5, t3
-.LBB9_74:                               //   in Loop: Header=BB9_1 Depth=1
+.LBB11_74:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, t2
 	call	__bit_and
-	jz	rax, .LBB9_273
-	jmp	.LBB9_75
-.LBB9_75:                               //   in Loop: Header=BB9_1 Depth=1
+	jz	rax, .LBB11_273
+	jmp	.LBB11_75
+.LBB11_75:                              //   in Loop: Header=BB11_1 Depth=1
 	add	t1, 1
 	mov	r0, t2
 	call	__bit_and
-	jg	rax, x12, .LBB9_82
-	jmp	.LBB9_76
-.LBB9_76:                               //   in Loop: Header=BB9_1 Depth=1
+	jg	rax, x12, .LBB11_82
+	jmp	.LBB11_76
+.LBB11_76:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 98
-	jg	rax, r0, .LBB9_79
-	jmp	.LBB9_77
-.LBB9_77:                               //   in Loop: Header=BB9_1 Depth=1
-	je	rax, x0, .LBB9_238
-	jmp	.LBB9_78
-.LBB9_78:                               //   in Loop: Header=BB9_1 Depth=1
+	jg	rax, r0, .LBB11_79
+	jmp	.LBB11_77
+.LBB11_77:                              //   in Loop: Header=BB11_1 Depth=1
+	je	rax, x0, .LBB11_238
+	jmp	.LBB11_78
+.LBB11_78:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 88
-	je	rax, r0, .LBB9_121
-	jmp	.LBB9_263
-.LBB9_79:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_121
+	jmp	.LBB11_263
+.LBB11_79:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 99
-	je	rax, r0, .LBB9_151
-	jmp	.LBB9_80
-.LBB9_80:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_151
+	jmp	.LBB11_80
+.LBB11_80:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 100
-	je	rax, r0, .LBB9_89
-	jmp	.LBB9_81
-.LBB9_81:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_89
+	jmp	.LBB11_81
+.LBB11_81:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 105
-	je	rax, r0, .LBB9_89
-	jmp	.LBB9_263
-.LBB9_82:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_89
+	jmp	.LBB11_263
+.LBB11_82:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 114
-	jg	rax, r0, .LBB9_86
-	jmp	.LBB9_83
-.LBB9_83:                               //   in Loop: Header=BB9_1 Depth=1
+	jg	rax, r0, .LBB11_86
+	jmp	.LBB11_83
+.LBB11_83:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 110
-	je	rax, r0, .LBB9_224
-	jmp	.LBB9_84
-.LBB9_84:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_224
+	jmp	.LBB11_84
+.LBB11_84:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 111
-	je	rax, r0, .LBB9_136
-	jmp	.LBB9_85
-.LBB9_85:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_136
+	jmp	.LBB11_85
+.LBB11_85:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 112
-	je	rax, r0, .LBB9_223
-	jmp	.LBB9_263
-.LBB9_86:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_223
+	jmp	.LBB11_263
+.LBB11_86:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 115
-	je	rax, r0, .LBB9_179
-	jmp	.LBB9_87
-.LBB9_87:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_179
+	jmp	.LBB11_87
+.LBB11_87:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 117
-	je	rax, r0, .LBB9_106
-	jmp	.LBB9_88
-.LBB9_88:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_106
+	jmp	.LBB11_88
+.LBB11_88:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 120
-	je	rax, r0, .LBB9_121
-	jmp	.LBB9_263
-.LBB9_89:                               //   in Loop: Header=BB9_1 Depth=1
+	je	rax, r0, .LBB11_121
+	jmp	.LBB11_263
+.LBB11_89:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	[rsp], r0
-	jg	x5, t7, .LBB9_93
-	jmp	.LBB9_90
-.LBB9_90:                               //   in Loop: Header=BB9_1 Depth=1
-	je	x5, x7, .LBB9_96
-	jmp	.LBB9_91
-.LBB9_91:                               //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t6, .LBB9_97
-	jmp	.LBB9_92
-.LBB9_92:                               //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t7, .LBB9_98
-	jmp	.LBB9_102
-.LBB9_93:                               //   in Loop: Header=BB9_1 Depth=1
+	jg	x5, t7, .LBB11_93
+	jmp	.LBB11_90
+.LBB11_90:                              //   in Loop: Header=BB11_1 Depth=1
+	je	x5, x7, .LBB11_96
+	jmp	.LBB11_91
+.LBB11_91:                              //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t6, .LBB11_97
+	jmp	.LBB11_92
+.LBB11_92:                              //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t7, .LBB11_98
+	jmp	.LBB11_102
+.LBB11_93:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 4
-	je	x5, r0, .LBB9_99
-	jmp	.LBB9_94
-.LBB9_94:                               //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_99
+	jmp	.LBB11_94
+.LBB11_94:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 5
-	je	x5, r0, .LBB9_100
-	jmp	.LBB9_95
-.LBB9_95:                               //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_100
+	jmp	.LBB11_95
+.LBB11_95:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	x5, r0, .LBB9_101
-	jmp	.LBB9_102
-.LBB9_96:                               //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_101
+	jmp	.LBB11_102
+.LBB11_96:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2549,8 +2081,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-	jmp	.LBB9_103
-.LBB9_97:                               //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_97:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2566,8 +2098,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-	jmp	.LBB9_103
-.LBB9_98:                               //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_98:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2576,8 +2108,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-	jmp	.LBB9_103
-.LBB9_99:                               //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_99:                              //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2586,8 +2118,8 @@ vsnprintf:                              // @vsnprintf
 	add	r0, 8
 	mov	[rsp], r0
 	mov	rax, [r1]
-	jmp	.LBB9_103
-.LBB9_100:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_100:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2596,8 +2128,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-	jmp	.LBB9_103
-.LBB9_101:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_101:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2606,8 +2138,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-	jmp	.LBB9_103
-.LBB9_102:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_103
+.LBB11_102:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2616,10 +2148,10 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, 31
 	mov	r0, r2
 	call	__bit_sar
-.LBB9_103:                              //   in Loop: Header=BB9_1 Depth=1
-	jg	rax, x4, .LBB9_105
-	jmp	.LBB9_104
-.LBB9_104:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_103:                             //   in Loop: Header=BB11_1 Depth=1
+	jg	rax, x4, .LBB11_105
+	jmp	.LBB11_104
+.LBB11_104:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 0
 	mov	r1, 0
 	mov	r3, rax
@@ -2645,8 +2177,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rsp
 	mov	r1, rax
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_105:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_105:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	mov	r3, rsp
@@ -2668,34 +2200,34 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, r2
 	mov	r2, rax
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_106:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_106:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	[rsp], r0
-	jg	x5, t7, .LBB9_110
-	jmp	.LBB9_107
-.LBB9_107:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, x7, .LBB9_113
-	jmp	.LBB9_108
-.LBB9_108:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t6, .LBB9_114
-	jmp	.LBB9_109
-.LBB9_109:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t7, .LBB9_115
-	jmp	.LBB9_119
-.LBB9_110:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	x5, t7, .LBB11_110
+	jmp	.LBB11_107
+.LBB11_107:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, x7, .LBB11_113
+	jmp	.LBB11_108
+.LBB11_108:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t6, .LBB11_114
+	jmp	.LBB11_109
+.LBB11_109:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t7, .LBB11_115
+	jmp	.LBB11_119
+.LBB11_110:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 4
-	je	x5, r0, .LBB9_116
-	jmp	.LBB9_111
-.LBB9_111:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_116
+	jmp	.LBB11_111
+.LBB11_111:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 5
-	je	x5, r0, .LBB9_117
-	jmp	.LBB9_112
-.LBB9_112:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_117
+	jmp	.LBB11_112
+.LBB11_112:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	x5, r0, .LBB9_118
-	jmp	.LBB9_119
-.LBB9_113:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_118
+	jmp	.LBB11_119
+.LBB11_113:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2705,8 +2237,8 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	r1, rax
 	mov	r2, 0
-	jmp	.LBB9_120
-.LBB9_114:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_114:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2716,16 +2248,16 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	r1, rax
 	mov	r2, 0
-	jmp	.LBB9_120
-.LBB9_115:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_115:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-	jmp	.LBB9_120
-.LBB9_116:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_116:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r2, r0
 	add	r2, 4
@@ -2734,16 +2266,16 @@ vsnprintf:                              // @vsnprintf
 	add	r0, 8
 	mov	[rsp], r0
 	mov	r2, [r2]
-	jmp	.LBB9_120
-.LBB9_117:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_117:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-	jmp	.LBB9_120
-.LBB9_118:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_118:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2753,15 +2285,15 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_sar
 	mov	r1, r0
 	mov	r2, rax
-	jmp	.LBB9_120
-.LBB9_119:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_120
+.LBB11_119:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-.LBB9_120:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_120:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r3, rsp
 	mov	r6, rsp
@@ -2781,34 +2313,34 @@ vsnprintf:                              // @vsnprintf
 	mov	[rsp], 0
 	mov	r0, rsp
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_121:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_121:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	[rsp], r0
-	jg	x5, t7, .LBB9_125
-	jmp	.LBB9_122
-.LBB9_122:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, x7, .LBB9_128
-	jmp	.LBB9_123
-.LBB9_123:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t6, .LBB9_129
-	jmp	.LBB9_124
-.LBB9_124:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t7, .LBB9_130
-	jmp	.LBB9_134
-.LBB9_125:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	x5, t7, .LBB11_125
+	jmp	.LBB11_122
+.LBB11_122:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, x7, .LBB11_128
+	jmp	.LBB11_123
+.LBB11_123:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t6, .LBB11_129
+	jmp	.LBB11_124
+.LBB11_124:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t7, .LBB11_130
+	jmp	.LBB11_134
+.LBB11_125:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 4
-	je	x5, r0, .LBB9_131
-	jmp	.LBB9_126
-.LBB9_126:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_131
+	jmp	.LBB11_126
+.LBB11_126:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 5
-	je	x5, r0, .LBB9_132
-	jmp	.LBB9_127
-.LBB9_127:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_132
+	jmp	.LBB11_127
+.LBB11_127:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	x5, r0, .LBB9_133
-	jmp	.LBB9_134
-.LBB9_128:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_133
+	jmp	.LBB11_134
+.LBB11_128:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2818,8 +2350,8 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	t3, rax
 	mov	r2, 0
-	jmp	.LBB9_135
-.LBB9_129:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_129:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2829,16 +2361,16 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	t3, rax
 	mov	r2, 0
-	jmp	.LBB9_135
-.LBB9_130:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_130:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	t3, [r0]
 	mov	r2, 0
-	jmp	.LBB9_135
-.LBB9_131:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_131:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2847,16 +2379,16 @@ vsnprintf:                              // @vsnprintf
 	add	r0, 8
 	mov	[rsp], r0
 	mov	r2, [r1]
-	jmp	.LBB9_135
-.LBB9_132:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_132:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	t3, [r0]
 	mov	r2, 0
-	jmp	.LBB9_135
-.LBB9_133:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_133:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2866,15 +2398,15 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, t3
 	call	__bit_sar
 	mov	r2, rax
-	jmp	.LBB9_135
-.LBB9_134:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_135
+.LBB11_134:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	t3, [r0]
 	mov	r2, 0
-.LBB9_135:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_135:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
@@ -2913,34 +2445,34 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, t3
 	mov	r5, rax
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_136:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_136:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	[rsp], r0
-	jg	x5, t7, .LBB9_140
-	jmp	.LBB9_137
-.LBB9_137:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, x7, .LBB9_143
-	jmp	.LBB9_138
-.LBB9_138:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t6, .LBB9_144
-	jmp	.LBB9_139
-.LBB9_139:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t7, .LBB9_145
-	jmp	.LBB9_149
-.LBB9_140:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	x5, t7, .LBB11_140
+	jmp	.LBB11_137
+.LBB11_137:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, x7, .LBB11_143
+	jmp	.LBB11_138
+.LBB11_138:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t6, .LBB11_144
+	jmp	.LBB11_139
+.LBB11_139:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t7, .LBB11_145
+	jmp	.LBB11_149
+.LBB11_140:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 4
-	je	x5, r0, .LBB9_146
-	jmp	.LBB9_141
-.LBB9_141:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_146
+	jmp	.LBB11_141
+.LBB11_141:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 5
-	je	x5, r0, .LBB9_147
-	jmp	.LBB9_142
-.LBB9_142:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_147
+	jmp	.LBB11_142
+.LBB11_142:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	x5, r0, .LBB9_148
-	jmp	.LBB9_149
-.LBB9_143:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_148
+	jmp	.LBB11_149
+.LBB11_143:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2950,8 +2482,8 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	r1, rax
 	mov	r2, 0
-	jmp	.LBB9_150
-.LBB9_144:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_144:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2961,16 +2493,16 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	mov	r1, rax
 	mov	r2, 0
-	jmp	.LBB9_150
-.LBB9_145:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_145:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-	jmp	.LBB9_150
-.LBB9_146:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_146:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r2, r0
 	add	r2, 4
@@ -2979,16 +2511,16 @@ vsnprintf:                              // @vsnprintf
 	add	r0, 8
 	mov	[rsp], r0
 	mov	r2, [r2]
-	jmp	.LBB9_150
-.LBB9_147:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_147:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-	jmp	.LBB9_150
-.LBB9_148:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_148:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -2998,15 +2530,15 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_sar
 	mov	r1, r0
 	mov	r2, rax
-	jmp	.LBB9_150
-.LBB9_149:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_150
+.LBB11_149:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r1, [r0]
 	mov	r2, 0
-.LBB9_150:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_150:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r3, rsp
 	mov	t0, rsp
@@ -3025,8 +2557,8 @@ vsnprintf:                              // @vsnprintf
 	mov	[rsp], 0
 	mov	r0, rsp
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_151:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_151:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -3034,9 +2566,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r2, [r0]
 	mov	r6, r4
 	add	r6, -1
-	jnz	r7, .LBB9_166
-	jmp	.LBB9_152
-.LBB9_152:                              //   in Loop: Header=BB9_1 Depth=1
+	jnz	r7, .LBB11_166
+	jmp	.LBB11_152
+.LBB11_152:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r4
 	call	__bit_xor
@@ -3061,12 +2593,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r4, [r0]
 	mov	r5, rax
 	mov	r3, r6
-	jz	r5, .LBB9_162
-	jmp	.LBB9_153
-.LBB9_153:                              //   in Loop: Header=BB9_1 Depth=1
-	jz	r4, .LBB9_158
-	jmp	.LBB9_154
-.LBB9_154:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r5, .LBB11_162
+	jmp	.LBB11_153
+.LBB11_153:                             //   in Loop: Header=BB11_1 Depth=1
+	jz	r4, .LBB11_158
+	jmp	.LBB11_154
+.LBB11_154:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	t3, [rsp]
 	mov	r3, r6
 	mov	r1, -2147483648
@@ -3076,9 +2608,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r7, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r7, .LBB9_156
-	jmp	.LBB9_155
-.LBB9_155:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r7, .LBB11_156
+	jmp	.LBB11_155
+.LBB11_155:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r6, t3
 	mov	r1, 3
 	mov	r0, r6
@@ -3109,19 +2641,19 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_156:                              //   in Loop: Header=BB9_1 Depth=1
-	je	r5, x7, .LBB9_162
-	jmp	.LBB9_157
-.LBB9_157:                              // %.preheader41.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_156:                             //   in Loop: Header=BB11_1 Depth=1
+	je	r5, x7, .LBB11_162
+	jmp	.LBB11_157
+.LBB11_157:                             // %.preheader41.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r6, r3
-	jmp	.LBB9_159
-.LBB9_158:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_159
+.LBB11_158:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r5, 1
 	add	r6, r5
-	jmp	.LBB9_165
-.LBB9_159:                              // %.preheader41
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_165
+.LBB11_159:                             // %.preheader41
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -3130,9 +2662,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r7, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r7, .LBB9_161
-	jmp	.LBB9_160
-.LBB9_160:                              //   in Loop: Header=BB9_159 Depth=2
+	jge	rax, r7, .LBB11_161
+	jmp	.LBB11_160
+.LBB11_160:                             //   in Loop: Header=BB11_159 Depth=2
 	add	r6, t3
 	mov	r1, 3
 	mov	r0, r6
@@ -3163,28 +2695,28 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_161:                              //   in Loop: Header=BB9_159 Depth=2
+.LBB11_161:                             //   in Loop: Header=BB11_159 Depth=2
 	add	r5, -1
 	mov	r6, r3
-	jg	r5, x7, .LBB9_159
-	jmp	.LBB9_162
-.LBB9_162:                              // %.loopexit42
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jg	r5, x7, .LBB11_159
+	jmp	.LBB11_162
+.LBB11_162:                             // %.loopexit42
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r6, r3
 	add	r6, 1
-	jz	r4, .LBB9_165
-	jmp	.LBB9_163
-.LBB9_163:                              // %.loopexit42
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jz	r4, .LBB11_165
+	jmp	.LBB11_163
+.LBB11_163:                             // %.loopexit42
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r4
 	call	__bit_xor
 	mov	r4, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, r4, .LBB9_165
-	jmp	.LBB9_164
-.LBB9_164:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r4, .LBB11_165
+	jmp	.LBB11_164
+.LBB11_164:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r3, [rsp]
 	mov	r1, 3
 	mov	r0, r3
@@ -3222,12 +2754,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB9_165:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_165:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r6
-	jmp	.LBB9_1
-.LBB9_166:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_166:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	add	r0, 4
@@ -3236,18 +2768,18 @@ vsnprintf:                              // @vsnprintf
 	mov	r5, [r0]
 	mov	r7, r3
 	add	r7, 1
-	jz	r5, .LBB9_169
-	jmp	.LBB9_167
-.LBB9_167:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r5, .LBB11_169
+	jmp	.LBB11_167
+.LBB11_167:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r5
 	call	__bit_xor
 	mov	t2, rax
 	mov	r0, r7
 	call	__bit_xor
-	jge	rax, t2, .LBB9_169
-	jmp	.LBB9_168
-.LBB9_168:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, t2, .LBB11_169
+	jmp	.LBB11_168
+.LBB11_168:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, r3
 	add	r0, [rsp]
 	mov	r1, 3
@@ -3285,7 +2817,7 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[t3], rax
-.LBB9_169:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_169:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	r1, -2147483648
@@ -3306,12 +2838,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, r6
 	call	__bit_and
 	mov	r2, rax
-	jz	r2, .LBB9_1
-	jmp	.LBB9_170
-.LBB9_170:                              //   in Loop: Header=BB9_1 Depth=1
-	jz	r5, .LBB9_175
-	jmp	.LBB9_171
-.LBB9_171:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r2, .LBB11_1
+	jmp	.LBB11_170
+.LBB11_170:                             //   in Loop: Header=BB11_1 Depth=1
+	jz	r5, .LBB11_175
+	jmp	.LBB11_171
+.LBB11_171:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	t2, [rsp]
 	mov	r1, -2147483648
 	add	r3, 2
@@ -3320,9 +2852,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r4, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r4, .LBB9_173
-	jmp	.LBB9_172
-.LBB9_172:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r4, .LBB11_173
+	jmp	.LBB11_172
+.LBB11_172:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r7, t2
 	mov	r1, 3
 	mov	r0, r7
@@ -3353,22 +2885,22 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_173:                              //   in Loop: Header=BB9_1 Depth=1
-	je	r2, x7, .LBB9_271
-	jmp	.LBB9_174
-.LBB9_174:                              // %.preheader43.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_173:                             //   in Loop: Header=BB11_1 Depth=1
+	je	r2, x7, .LBB11_271
+	jmp	.LBB11_174
+.LBB11_174:                             // %.preheader43.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r4, r3
-	jmp	.LBB9_176
-.LBB9_175:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_176
+.LBB11_175:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r2, 1
 	add	r3, r2
 	add	r0, 8
 	mov	[r0], r3
-	jmp	.LBB9_1
-.LBB9_176:                              // %.preheader43
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_176:                             // %.preheader43
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -3377,9 +2909,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB9_178
-	jmp	.LBB9_177
-.LBB9_177:                              //   in Loop: Header=BB9_176 Depth=2
+	jge	rax, r6, .LBB11_178
+	jmp	.LBB11_177
+.LBB11_177:                             //   in Loop: Header=BB11_176 Depth=2
 	add	r4, t2
 	mov	r1, 3
 	mov	r0, r4
@@ -3410,12 +2942,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-.LBB9_178:                              //   in Loop: Header=BB9_176 Depth=2
+.LBB11_178:                             //   in Loop: Header=BB11_176 Depth=2
 	add	r2, -1
 	mov	r4, r3
-	jg	r2, x7, .LBB9_176
-	jmp	.LBB9_271
-.LBB9_179:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	r2, x7, .LBB11_176
+	jmp	.LBB11_271
+.LBB11_179:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -3434,7 +2966,7 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_xor
 	mov	r0, rax
 	call	__bit_not
-	mov	r1, mcasm_static_df8641fcbf151e7121b4f038994d6e19
+	mov	r1, mcasm_static_9c8edc6888262f14a502ca58f7ec2049
 	sub	r1, r3
 	add	rax, 1
 	mov	r0, rax
@@ -3445,9 +2977,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, r2
 	call	__bit_and
 	mov	r6, r2
-	jz	rax, .LBB9_184
-	jmp	.LBB9_180
-.LBB9_180:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	rax, .LBB11_184
+	jmp	.LBB11_180
+.LBB11_180:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -3463,15 +2995,15 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB9_188
-	jmp	.LBB9_181
-.LBB9_181:                              // %.preheader1.i.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jz	rax, .LBB11_188
+	jmp	.LBB11_181
+.LBB11_181:                             // %.preheader1.i.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r6, r2
 	add	r6, 1
 	mov	r3, r2
-	jmp	.LBB9_183
-.LBB9_182:                              //   in Loop: Header=BB9_183 Depth=2
+	jmp	.LBB11_183
+.LBB11_182:                             //   in Loop: Header=BB11_183 Depth=2
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -3487,24 +3019,24 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB9_188
-	jmp	.LBB9_183
-.LBB9_183:                              // %.preheader1.i
-                                        //   Parent Loop BB9_1 Depth=1
+	jz	rax, .LBB11_188
+	jmp	.LBB11_183
+.LBB11_183:                             // %.preheader1.i
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	r3, 1
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
-	jnz	rax, .LBB9_182
-	jmp	.LBB9_184
-.LBB9_184:                              // %.loopexit.i.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jnz	rax, .LBB11_182
+	jmp	.LBB11_184
+.LBB11_184:                             // %.loopexit.i.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	t2, r6
 	add	t2, -4
 	add	r6, -1
-.LBB9_185:                              // %.loopexit.i
-                                        //   Parent Loop BB9_1 Depth=1
+.LBB11_185:                             // %.loopexit.i
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	t2, 4
 	mov	r1, [t2]
@@ -3516,13 +3048,13 @@ vsnprintf:                              // @vsnprintf
 	mov	r0, rax
 	call	__bit_and
 	add	r6, 4
-	je	rax, x15, .LBB9_185
-	jmp	.LBB9_186
-.LBB9_186:                              // %.preheader.i.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	je	rax, x15, .LBB11_185
+	jmp	.LBB11_186
+.LBB11_186:                             // %.preheader.i.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	t3, 0
-.LBB9_187:                              // %.preheader.i
-                                        //   Parent Loop BB9_1 Depth=1
+.LBB11_187:                             // %.preheader.i
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, t2
 	add	r0, t3
@@ -3541,10 +3073,10 @@ vsnprintf:                              // @vsnprintf
 	call	__bit_and
 	add	r3, 1
 	add	t3, 1
-	jnz	rax, .LBB9_187
-	jmp	.LBB9_188
-.LBB9_188:                              // %strlen.exit
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jnz	rax, .LBB11_187
+	jmp	.LBB11_188
+.LBB11_188:                             // %strlen.exit
+                                        //   in Loop: Header=BB11_1 Depth=1
 	sub	r3, r2
 	mov	r6, r5
 	sub	r6, r3
@@ -3561,17 +3093,17 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, r6
 	call	__bit_and
 	mov	r0, 0
-	jl	r5, r0, .LBB9_190
-	jmp	.LBB9_189
-.LBB9_189:                              //   in Loop: Header=BB9_1 Depth=1
+	jl	r5, r0, .LBB11_190
+	jmp	.LBB11_189
+.LBB11_189:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r3, rax
-.LBB9_190:                              //   in Loop: Header=BB9_1 Depth=1
-	jnz	r7, .LBB9_202
-	jmp	.LBB9_191
-.LBB9_191:                              //   in Loop: Header=BB9_1 Depth=1
-	jle	r4, r3, .LBB9_202
-	jmp	.LBB9_192
-.LBB9_192:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_190:                             //   in Loop: Header=BB11_1 Depth=1
+	jnz	r7, .LBB11_202
+	jmp	.LBB11_191
+.LBB11_191:                             //   in Loop: Header=BB11_1 Depth=1
+	jle	r4, r3, .LBB11_202
+	jmp	.LBB11_192
+.LBB11_192:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	add	r0, 4
@@ -3580,9 +3112,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t2, [r1]
 	mov	t5, r4
 	sub	t5, r3
-	jz	r5, .LBB9_197
-	jmp	.LBB9_193
-.LBB9_193:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r5, .LBB11_197
+	jmp	.LBB11_193
+.LBB11_193:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	x11, [rsp]
 	mov	r6, t2
 	mov	r1, -2147483648
@@ -3592,9 +3124,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t3, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, t3, .LBB9_195
-	jmp	.LBB9_194
-.LBB9_194:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, t3, .LBB11_195
+	jmp	.LBB11_194
+.LBB11_194:                             //   in Loop: Header=BB11_1 Depth=1
 	add	t2, x11
 	mov	r1, 3
 	mov	r0, t2
@@ -3625,20 +3157,20 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[t2], rax
-.LBB9_195:                              //   in Loop: Header=BB9_1 Depth=1
-	jl	t5, t6, .LBB9_201
-	jmp	.LBB9_196
-.LBB9_196:                              // %.preheader49.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_195:                             //   in Loop: Header=BB11_1 Depth=1
+	jl	t5, t6, .LBB11_201
+	jmp	.LBB11_196
+.LBB11_196:                             // %.preheader49.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	t5, 1
 	mov	t2, r6
-	jmp	.LBB9_198
-.LBB9_197:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_198
+.LBB11_197:                             //   in Loop: Header=BB11_1 Depth=1
 	add	t2, t5
 	mov	r6, t2
-	jmp	.LBB9_201
-.LBB9_198:                              // %.preheader49
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_201
+.LBB11_198:                             // %.preheader49
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r6, 1
@@ -3647,9 +3179,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t3, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, t3, .LBB9_200
-	jmp	.LBB9_199
-.LBB9_199:                              //   in Loop: Header=BB9_198 Depth=2
+	jge	rax, t3, .LBB11_200
+	jmp	.LBB11_199
+.LBB11_199:                             //   in Loop: Header=BB11_198 Depth=2
 	add	t2, x11
 	mov	r1, 3
 	mov	r0, t2
@@ -3680,29 +3212,29 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[t2], rax
-.LBB9_200:                              //   in Loop: Header=BB9_198 Depth=2
+.LBB11_200:                             //   in Loop: Header=BB11_198 Depth=2
 	add	t5, -1
 	mov	t2, r6
-	jg	t5, t6, .LBB9_198
-	jmp	.LBB9_201
-.LBB9_201:                              // %.loopexit50
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jg	t5, t6, .LBB11_198
+	jmp	.LBB11_201
+.LBB11_201:                             // %.loopexit50
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r6
-.LBB9_202:                              //   in Loop: Header=BB9_1 Depth=1
-	jz	r3, .LBB9_212
-	jmp	.LBB9_203
-.LBB9_203:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_202:                             //   in Loop: Header=BB11_1 Depth=1
+	jz	r3, .LBB11_212
+	jmp	.LBB11_203
+.LBB11_203:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, rsp
 	mov	r0, rsp
 	add	r1, 4
 	mov	r5, [r1]
 	add	r0, 8
 	mov	t2, [r0]
-	jz	r5, .LBB9_208
-	jmp	.LBB9_204
-.LBB9_204:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r5, .LBB11_208
+	jmp	.LBB11_204
+.LBB11_204:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	x11, [rsp]
 	mov	r6, t2
 	mov	r1, -2147483648
@@ -3712,9 +3244,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t3, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, t3, .LBB9_206
-	jmp	.LBB9_205
-.LBB9_205:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, t3, .LBB11_206
+	jmp	.LBB11_205
+.LBB11_205:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -3763,25 +3295,25 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[t2], rax
-.LBB9_206:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_206:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r6
-	je	r3, x7, .LBB9_212
-	jmp	.LBB9_207
-.LBB9_207:                              // %.preheader47.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+	je	r3, x7, .LBB11_212
+	jmp	.LBB11_207
+.LBB11_207:                             // %.preheader47.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	x8, r3
 	add	x8, -1
 	add	r2, 1
 	mov	t2, r6
-	jmp	.LBB9_209
-.LBB9_208:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_209
+.LBB11_208:                             //   in Loop: Header=BB11_1 Depth=1
 	add	t2, r3
 	mov	[r0], t2
-	jmp	.LBB9_212
-.LBB9_209:                              // %.preheader47
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_212
+.LBB11_209:                             // %.preheader47
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	t2, 1
@@ -3790,9 +3322,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t3, .LBB9_211
-	jmp	.LBB9_210
-.LBB9_210:                              //   in Loop: Header=BB9_209 Depth=2
+	jge	rax, t3, .LBB11_211
+	jmp	.LBB11_210
+.LBB11_210:                             //   in Loop: Header=BB11_209 Depth=2
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -3841,24 +3373,24 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_211:                              //   in Loop: Header=BB9_209 Depth=2
+.LBB11_211:                             //   in Loop: Header=BB11_209 Depth=2
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], t2
 	add	x8, -1
 	add	r2, 1
 	mov	r6, t2
-	jnz	x8, .LBB9_209
-	jmp	.LBB9_212
-.LBB9_212:                              // %.loopexit48
-                                        //   in Loop: Header=BB9_1 Depth=1
-	jz	r7, .LBB9_1
-	jmp	.LBB9_213
-.LBB9_213:                              // %.loopexit48
-                                        //   in Loop: Header=BB9_1 Depth=1
-	jle	r4, r3, .LBB9_1
-	jmp	.LBB9_214
-.LBB9_214:                              //   in Loop: Header=BB9_1 Depth=1
+	jnz	x8, .LBB11_209
+	jmp	.LBB11_212
+.LBB11_212:                             // %.loopexit48
+                                        //   in Loop: Header=BB11_1 Depth=1
+	jz	r7, .LBB11_1
+	jmp	.LBB11_213
+.LBB11_213:                             // %.loopexit48
+                                        //   in Loop: Header=BB11_1 Depth=1
+	jle	r4, r3, .LBB11_1
+	jmp	.LBB11_214
+.LBB11_214:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, rsp
 	mov	r0, rsp
 	add	r1, 4
@@ -3866,9 +3398,9 @@ vsnprintf:                              // @vsnprintf
 	add	r0, 8
 	mov	r5, [r0]
 	sub	r4, r3
-	jz	r2, .LBB9_219
-	jmp	.LBB9_215
-.LBB9_215:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r2, .LBB11_219
+	jmp	.LBB11_215
+.LBB11_215:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	t2, [rsp]
 	mov	r3, r5
 	mov	r1, -2147483648
@@ -3878,9 +3410,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB9_217
-	jmp	.LBB9_216
-.LBB9_216:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r6, .LBB11_217
+	jmp	.LBB11_216
+.LBB11_216:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r5, t2
 	mov	r1, 3
 	mov	r0, r5
@@ -3911,20 +3443,20 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-.LBB9_217:                              //   in Loop: Header=BB9_1 Depth=1
-	jl	r4, t6, .LBB9_272
-	jmp	.LBB9_218
-.LBB9_218:                              // %.preheader45.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_217:                             //   in Loop: Header=BB11_1 Depth=1
+	jl	r4, t6, .LBB11_272
+	jmp	.LBB11_218
+.LBB11_218:                             // %.preheader45.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	r4, 1
 	mov	r5, r3
-	jmp	.LBB9_220
-.LBB9_219:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_220
+.LBB11_219:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r5, r4
 	mov	[r0], r5
-	jmp	.LBB9_1
-.LBB9_220:                              // %.preheader45
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_220:                             // %.preheader45
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -3933,9 +3465,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB9_222
-	jmp	.LBB9_221
-.LBB9_221:                              //   in Loop: Header=BB9_220 Depth=2
+	jge	rax, r6, .LBB11_222
+	jmp	.LBB11_221
+.LBB11_221:                             //   in Loop: Header=BB11_220 Depth=2
 	add	r5, t2
 	mov	r1, 3
 	mov	r0, r5
@@ -3966,12 +3498,12 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-.LBB9_222:                              //   in Loop: Header=BB9_220 Depth=2
+.LBB11_222:                             //   in Loop: Header=BB11_220 Depth=2
 	add	r4, -1
 	mov	r5, r3
-	jg	r4, t6, .LBB9_220
-	jmp	.LBB9_272
-.LBB9_223:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	r4, t6, .LBB11_220
+	jmp	.LBB11_272
+.LBB11_223:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -3997,35 +3529,35 @@ vsnprintf:                              // @vsnprintf
 	mov	[rsp], 0
 	mov	r0, rsp
 	call	format_integer
-	jmp	.LBB9_1
-.LBB9_224:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_224:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	r2, [r0]
-	jg	x5, t7, .LBB9_228
-	jmp	.LBB9_225
-.LBB9_225:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, x7, .LBB9_231
-	jmp	.LBB9_226
-.LBB9_226:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t6, .LBB9_232
-	jmp	.LBB9_227
-.LBB9_227:                              //   in Loop: Header=BB9_1 Depth=1
-	je	x5, t7, .LBB9_233
-	jmp	.LBB9_237
-.LBB9_228:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	x5, t7, .LBB11_228
+	jmp	.LBB11_225
+.LBB11_225:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, x7, .LBB11_231
+	jmp	.LBB11_226
+.LBB11_226:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t6, .LBB11_232
+	jmp	.LBB11_227
+.LBB11_227:                             //   in Loop: Header=BB11_1 Depth=1
+	je	x5, t7, .LBB11_233
+	jmp	.LBB11_237
+.LBB11_228:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 4
-	je	x5, r0, .LBB9_234
-	jmp	.LBB9_229
-.LBB9_229:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_234
+	jmp	.LBB11_229
+.LBB11_229:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 5
-	je	x5, r0, .LBB9_235
-	jmp	.LBB9_230
-.LBB9_230:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_235
+	jmp	.LBB11_230
+.LBB11_230:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, 6
-	je	x5, r0, .LBB9_236
-	jmp	.LBB9_237
-.LBB9_231:                              //   in Loop: Header=BB9_1 Depth=1
+	je	x5, r0, .LBB11_236
+	jmp	.LBB11_237
+.LBB11_231:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -4066,8 +3598,8 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-	jmp	.LBB9_1
-.LBB9_232:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_232:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -4108,16 +3640,16 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-	jmp	.LBB9_1
-.LBB9_233:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_233:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r0, [r0]
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_234:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_234:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
@@ -4126,32 +3658,32 @@ vsnprintf:                              // @vsnprintf
 	mov	[r0], r2
 	add	r0, 4
 	mov	[r0], 0
-	jmp	.LBB9_1
-.LBB9_235:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_235:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r0, [r0]
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_236:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_236:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r0, [r0]
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_237:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_237:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, [rsp]
 	mov	r1, r0
 	add	r1, 4
 	mov	[rsp], r1
 	mov	r0, [r0]
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_238:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_238:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	add	r0, 4
@@ -4159,16 +3691,16 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, [r1]
 	mov	r5, [r0]
 	mov	r3, r6
-	jnz	r7, .LBB9_249
-	jmp	.LBB9_239
-.LBB9_239:                              //   in Loop: Header=BB9_1 Depth=1
+	jnz	r7, .LBB11_249
+	jmp	.LBB11_239
+.LBB11_239:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r3, r6
-	jl	r4, t6, .LBB9_249
-	jmp	.LBB9_240
-.LBB9_240:                              //   in Loop: Header=BB9_1 Depth=1
-	jz	r5, .LBB9_245
-	jmp	.LBB9_241
-.LBB9_241:                              //   in Loop: Header=BB9_1 Depth=1
+	jl	r4, t6, .LBB11_249
+	jmp	.LBB11_240
+.LBB11_240:                             //   in Loop: Header=BB11_1 Depth=1
+	jz	r5, .LBB11_245
+	jmp	.LBB11_241
+.LBB11_241:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	t5, [rsp]
 	mov	r3, r6
 	mov	r1, -2147483648
@@ -4178,9 +3710,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t2, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, t2, .LBB9_243
-	jmp	.LBB9_242
-.LBB9_242:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, t2, .LBB11_243
+	jmp	.LBB11_242
+.LBB11_242:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r6, t5
 	mov	r1, 3
 	mov	r0, r6
@@ -4218,23 +3750,23 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_243:                              //   in Loop: Header=BB9_1 Depth=1
-	jl	r4, t7, .LBB9_249
-	jmp	.LBB9_244
-.LBB9_244:                              // %.preheader39.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_243:                             //   in Loop: Header=BB11_1 Depth=1
+	jl	r4, t7, .LBB11_249
+	jmp	.LBB11_244
+.LBB11_244:                             // %.preheader39.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	x8, r4
 	add	x8, 1
 	mov	r6, r3
-	jmp	.LBB9_246
-.LBB9_245:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_246
+.LBB11_245:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r6, r4
 	add	r0, 8
 	mov	[r0], r6
-	jmp	.LBB9_1
-.LBB9_246:                              // %.preheader39
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_246:                             // %.preheader39
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -4243,9 +3775,9 @@ vsnprintf:                              // @vsnprintf
 	mov	t2, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, t2, .LBB9_248
-	jmp	.LBB9_247
-.LBB9_247:                              //   in Loop: Header=BB9_246 Depth=2
+	jge	rax, t2, .LBB11_248
+	jmp	.LBB11_247
+.LBB11_247:                             //   in Loop: Header=BB11_246 Depth=2
 	add	r6, t5
 	mov	r1, 3
 	mov	r0, r6
@@ -4283,28 +3815,28 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_248:                              //   in Loop: Header=BB9_246 Depth=2
+.LBB11_248:                             //   in Loop: Header=BB11_246 Depth=2
 	add	x8, -1
 	mov	r6, r3
-	jg	x8, t7, .LBB9_246
-	jmp	.LBB9_249
-.LBB9_249:                              // %.loopexit40
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jg	x8, t7, .LBB11_246
+	jmp	.LBB11_249
+.LBB11_249:                             // %.loopexit40
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r2, r3
 	add	r2, 1
-	jz	r5, .LBB9_252
-	jmp	.LBB9_250
-.LBB9_250:                              // %.loopexit40
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jz	r5, .LBB11_252
+	jmp	.LBB11_250
+.LBB11_250:                             // %.loopexit40
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r5
 	call	__bit_xor
 	mov	r6, rax
 	mov	r0, r2
 	call	__bit_xor
-	jge	rax, r6, .LBB9_252
-	jmp	.LBB9_251
-.LBB9_251:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r6, .LBB11_252
+	jmp	.LBB11_251
+.LBB11_251:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, r3
 	add	r0, [rsp]
 	mov	r1, 3
@@ -4335,19 +3867,19 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[t2], rax
-.LBB9_252:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_252:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r2
-	jz	r7, .LBB9_1
-	jmp	.LBB9_253
-.LBB9_253:                              //   in Loop: Header=BB9_1 Depth=1
-	jl	r4, t6, .LBB9_1
-	jmp	.LBB9_254
-.LBB9_254:                              //   in Loop: Header=BB9_1 Depth=1
-	jz	r5, .LBB9_259
-	jmp	.LBB9_255
-.LBB9_255:                              //   in Loop: Header=BB9_1 Depth=1
+	jz	r7, .LBB11_1
+	jmp	.LBB11_253
+.LBB11_253:                             //   in Loop: Header=BB11_1 Depth=1
+	jl	r4, t6, .LBB11_1
+	jmp	.LBB11_254
+.LBB11_254:                             //   in Loop: Header=BB11_1 Depth=1
+	jz	r5, .LBB11_259
+	jmp	.LBB11_255
+.LBB11_255:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	t2, [rsp]
 	mov	r1, -2147483648
 	add	r3, 2
@@ -4356,9 +3888,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB9_257
-	jmp	.LBB9_256
-.LBB9_256:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r6, .LBB11_257
+	jmp	.LBB11_256
+.LBB11_256:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r2, t2
 	mov	r1, 3
 	mov	r0, r2
@@ -4389,22 +3921,22 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-.LBB9_257:                              //   in Loop: Header=BB9_1 Depth=1
-	jl	r4, t7, .LBB9_270
-	jmp	.LBB9_258
-.LBB9_258:                              // %.preheader37.preheader
-                                        //   in Loop: Header=BB9_1 Depth=1
+.LBB11_257:                             //   in Loop: Header=BB11_1 Depth=1
+	jl	r4, t7, .LBB11_270
+	jmp	.LBB11_258
+.LBB11_258:                             // %.preheader37.preheader
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	r4, 1
 	mov	r2, r3
-	jmp	.LBB9_260
-.LBB9_259:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_260
+.LBB11_259:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r3, r4
 	add	r0, 8
 	mov	[r0], r3
-	jmp	.LBB9_1
-.LBB9_260:                              // %.preheader37
-                                        //   Parent Loop BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_260:                             // %.preheader37
+                                        //   Parent Loop BB11_1 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -4413,9 +3945,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB9_262
-	jmp	.LBB9_261
-.LBB9_261:                              //   in Loop: Header=BB9_260 Depth=2
+	jge	rax, r6, .LBB11_262
+	jmp	.LBB11_261
+.LBB11_261:                             //   in Loop: Header=BB11_260 Depth=2
 	add	r2, t2
 	mov	r1, 3
 	mov	r0, r2
@@ -4446,25 +3978,25 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-.LBB9_262:                              //   in Loop: Header=BB9_260 Depth=2
+.LBB11_262:                             //   in Loop: Header=BB11_260 Depth=2
 	add	r4, -1
 	mov	r2, r3
-	jg	r4, t7, .LBB9_260
-	jmp	.LBB9_270
-.LBB9_263:                              //   in Loop: Header=BB9_1 Depth=1
+	jg	r4, t7, .LBB11_260
+	jmp	.LBB11_270
+.LBB11_263:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	add	r0, 4
 	mov	r4, [r0]
 	add	r1, 8
 	mov	r2, [r1]
-	jnz	r4, .LBB9_265
-	jmp	.LBB9_264
-.LBB9_264:                              // %._crit_edge
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jnz	r4, .LBB11_265
+	jmp	.LBB11_264
+.LBB11_264:                             // %._crit_edge
+                                        //   in Loop: Header=BB11_1 Depth=1
 	add	r2, 2
-	jmp	.LBB9_269
-.LBB9_265:                              //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_269
+.LBB11_265:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r3, r2
 	mov	r1, -2147483648
 	add	r3, 1
@@ -4473,9 +4005,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r5, .LBB9_267
-	jmp	.LBB9_266
-.LBB9_266:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r5, .LBB11_267
+	jmp	.LBB11_266
+.LBB11_266:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, r2
 	add	r0, [rsp]
 	mov	r1, 3
@@ -4506,7 +4038,7 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB9_267:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_267:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r1, -2147483648
 	add	r2, 2
 	mov	r0, r4
@@ -4514,9 +4046,9 @@ vsnprintf:                              // @vsnprintf
 	mov	r4, rax
 	mov	r0, r2
 	call	__bit_xor
-	jge	rax, r4, .LBB9_269
-	jmp	.LBB9_268
-.LBB9_268:                              //   in Loop: Header=BB9_1 Depth=1
+	jge	rax, r4, .LBB11_269
+	jmp	.LBB11_268
+.LBB11_268:                             //   in Loop: Header=BB11_1 Depth=1
 	add	r3, [rsp]
 	mov	r1, 3
 	mov	r0, r3
@@ -4554,39 +4086,39 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB9_269:                              //   in Loop: Header=BB9_1 Depth=1
+.LBB11_269:                             //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r2
-	jmp	.LBB9_1
-.LBB9_270:                              // %.loopexit38
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_270:                             // %.loopexit38
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r3
-	jmp	.LBB9_1
-.LBB9_271:                              // %.loopexit44
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_271:                             // %.loopexit44
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r3
-	jmp	.LBB9_1
-.LBB9_272:                              // %.loopexit46
-                                        //   in Loop: Header=BB9_1 Depth=1
+	jmp	.LBB11_1
+.LBB11_272:                             // %.loopexit46
+                                        //   in Loop: Header=BB11_1 Depth=1
 	mov	r0, rsp
 	add	r0, 8
 	mov	[r0], r3
-	jmp	.LBB9_1
-.LBB9_273:
+	jmp	.LBB11_1
+.LBB11_273:
 	mov	r0, rsp
 	mov	r1, rsp
 	add	r0, 4
 	mov	r3, [r0]
 	add	r1, 8
 	mov	r2, [r1]
-	jz	r3, .LBB9_275
-	jmp	.LBB9_274
-.LBB9_274:
+	jz	r3, .LBB11_275
+	jmp	.LBB11_274
+.LBB11_274:
 	add	r3, -1
 	mov	r4, r2
 	sub	r4, r3
@@ -4633,7 +4165,7 @@ vsnprintf:                              // @vsnprintf
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB9_275:
+.LBB11_275:
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
@@ -4707,13 +4239,13 @@ format_integer:                         // @format_integer
 	mov	r0, rax
 	call	__bit_xor
 	mov	r2, rax
-	jnz	r3, .LBB10_2
-	jmp	.LBB10_1
-.LBB10_1:
+	jnz	r3, .LBB12_2
+	jmp	.LBB12_1
+.LBB12_1:
 	mov	x3, 0
-	jz	x4, .LBB10_6
-	jmp	.LBB10_2
-.LBB10_2:
+	jz	x4, .LBB12_6
+	jmp	.LBB12_2
+.LBB12_2:
 	mov	r0, r5
 	call	__bit_not
 	add	rax, 1
@@ -4728,21 +4260,21 @@ format_integer:                         // @format_integer
 	call	__bit_xor
 	mov	r0, rax
 	call	__bit_not
-	mov	x5, mcasm_static_cca5ae94cd1f843a235050e439d1e8a5
-	mov	r1, mcasm_static_33a7899256dc59416c82d429680e7cfe
+	mov	x5, mcasm_static_5300d1bc602cebe9cc06f8a5dbd154ff
+	mov	r1, mcasm_static_81a1c06102d7a90b5192a628c3bc5112
 	sub	r1, x5
 	add	rax, 1
 	mov	r0, rax
 	call	__bit_and
-	jnz	r2, .LBB10_4
-	jmp	.LBB10_3
-.LBB10_3:
+	jnz	r2, .LBB12_4
+	jmp	.LBB12_3
+.LBB12_3:
 	add	x5, rax
 	mov	x3, 0
 	mov	t1, t3
 	mov	x0, t2
-	jmp	.LBB10_5
-.LBB10_4:
+	jmp	.LBB12_5
+.LBB12_4:
 	mov	r1, 3
 	mov	r0, rsp
 	call	__bit_and
@@ -4772,8 +4304,8 @@ format_integer:                         // @format_integer
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB10_6
-.LBB10_5:                               // =>This Inner Loop Header: Depth=1
+	jmp	.LBB12_6
+.LBB12_5:                               // =>This Inner Loop Header: Depth=1
 	mov	r3, 0
 	mov	r0, t1
 	mov	r1, x0
@@ -4870,20 +4402,20 @@ format_integer:                         // @format_integer
 	add	rax, 1
 	mov	t1, t5
 	mov	x0, t7
-	jnz	rax, .LBB10_5
-	jmp	.LBB10_6
-.LBB10_6:                               // %.loopexit22
+	jnz	rax, .LBB12_5
+	jmp	.LBB12_6
+.LBB12_6:                               // %.loopexit22
 	mov	t1, 45
 	mov	r2, 0
 	mov	t5, 0
-	jnz	t6, .LBB10_9
-	jmp	.LBB10_7
-.LBB10_7:
+	jnz	t6, .LBB12_9
+	jmp	.LBB12_7
+.LBB12_7:
 	mov	r0, [rsp]
 	mov	t1, 43
-	jnz	r0, .LBB10_9
-	jmp	.LBB10_8
-.LBB10_8:
+	jnz	r0, .LBB12_9
+	jmp	.LBB12_8
+.LBB12_8:
 	mov	r0, rsp
 	add	r0, 4
 	mov	r0, [r0]
@@ -4906,21 +4438,21 @@ format_integer:                         // @format_integer
 	call	__bit_and
 	mov	t1, rax
 	add	t1, 32
-.LBB10_9:
+.LBB12_9:
 	mov	x6, 0
 	mov	x5, 0
 	mov	t6, 0
 	mov	r3, 0
-	jz	r6, .LBB10_17
-	jmp	.LBB10_10
-.LBB10_10:
+	jz	r6, .LBB12_17
+	jmp	.LBB12_10
+.LBB12_10:
 	mov	r0, 8
-	jne	t4, r0, .LBB10_14
-	jmp	.LBB10_11
-.LBB10_11:
-	jz	x3, .LBB10_13
-	jmp	.LBB10_12
-.LBB10_12:
+	jne	t4, r0, .LBB12_14
+	jmp	.LBB12_11
+.LBB12_11:
+	jz	x3, .LBB12_13
+	jmp	.LBB12_12
+.LBB12_12:
 	mov	r0, rsp
 	add	r0, x3
 	add	r0, -1
@@ -4939,24 +4471,24 @@ format_integer:                         // @format_integer
 	call	__bit_and
 	mov	r0, 48
 	mov	r2, 0
-	je	rax, r0, .LBB10_17
-	jmp	.LBB10_13
-.LBB10_13:
+	je	rax, r0, .LBB12_17
+	jmp	.LBB12_13
+.LBB12_13:
 	mov	r2, 48
 	mov	x6, 1
 	mov	t6, 1
-	jmp	.LBB10_17
-.LBB10_14:
+	jmp	.LBB12_17
+.LBB12_14:
 	mov	r0, t3
 	mov	r1, t2
 	call	__bit_or
-	jz	rax, .LBB10_17
-	jmp	.LBB10_15
-.LBB10_15:
+	jz	rax, .LBB12_17
+	jmp	.LBB12_15
+.LBB12_15:
 	mov	r0, 16
-	jne	t4, r0, .LBB10_17
-	jmp	.LBB10_16
-.LBB10_16:
+	jne	t4, r0, .LBB12_17
+	jmp	.LBB12_16
+.LBB12_16:
 	mov	r0, r5
 	call	__bit_not
 	add	rax, 1
@@ -4980,32 +4512,32 @@ format_integer:                         // @format_integer
 	mov	r2, 48
 	mov	t6, 2
 	mov	x5, 1
-.LBB10_17:
+.LBB12_17:
 	mov	x1, x4
 	sub	x1, x3
-	jg	x4, x3, .LBB10_19
-	jmp	.LBB10_18
-.LBB10_18:
+	jg	x4, x3, .LBB12_19
+	jmp	.LBB12_18
+.LBB12_18:
 	mov	x1, 0
-.LBB10_19:
+.LBB12_19:
 	mov	r1, rsp
 	mov	r0, -1
 	add	r1, 12
 	mov	x2, x1
-	jg	x4, r0, .LBB10_21
-	jmp	.LBB10_20
-.LBB10_20:
+	jg	x4, r0, .LBB12_21
+	jmp	.LBB12_20
+.LBB12_20:
 	mov	x2, 0
-.LBB10_21:
+.LBB12_21:
 	mov	r6, [r1]
 	mov	r5, 0
-	jg	x4, r0, .LBB10_23
-	jmp	.LBB10_22
-.LBB10_22:
+	jg	x4, r0, .LBB12_23
+	jmp	.LBB12_22
+.LBB12_22:
 	mov	r0, rsp
 	add	r0, 8
 	mov	r5, [r0]
-.LBB10_23:
+.LBB12_23:
 	mov	t2, x2
 	add	t2, x3
 	mov	r0, t5
@@ -5018,11 +4550,11 @@ format_integer:                         // @format_integer
 	mov	t4, r6
 	sub	t4, rax
 	mov	x0, t4
-	jg	r6, rax, .LBB10_25
-	jmp	.LBB10_24
-.LBB10_24:
+	jg	r6, rax, .LBB12_25
+	jmp	.LBB12_24
+.LBB12_24:
 	mov	x0, 0
-.LBB10_25:
+.LBB12_25:
 	mov	r0, r5
 	mov	r1, r7
 	call	__bit_or
@@ -5030,45 +4562,45 @@ format_integer:                         // @format_integer
 	add	t7, 4
 	mov	t6, r4
 	add	t6, 8
-	jnz	rax, .LBB10_35
-	jmp	.LBB10_26
-.LBB10_26:
+	jnz	rax, .LBB12_35
+	jmp	.LBB12_26
+.LBB12_26:
 	mov	r0, 1
-	jl	x0, r0, .LBB10_35
-	jmp	.LBB10_27
-.LBB10_27:
+	jl	x0, r0, .LBB12_35
+	jmp	.LBB12_27
+.LBB12_27:
 	mov	r0, [t7]
 	mov	r6, [t6]
-	jz	r0, .LBB10_29
-	jmp	.LBB10_28
-.LBB10_28:                              // %.preheader20.preheader
+	jz	r0, .LBB12_29
+	jmp	.LBB12_28
+.LBB12_28:                              // %.preheader20.preheader
 	mov	x4, 1
 	mov	x7, t4
 	mov	t2, r6
-	jmp	.LBB10_31
-.LBB10_29:
+	jmp	.LBB12_31
+.LBB12_29:
 	add	r6, x0
 	mov	[t6], r6
-	jmp	.LBB10_35
-.LBB10_30:                              //   in Loop: Header=BB10_31 Depth=1
+	jmp	.LBB12_35
+.LBB12_30:                              //   in Loop: Header=BB12_31 Depth=1
 	mov	r0, [t7]
 	add	x7, -1
 	mov	r6, t2
-.LBB10_31:                              // %.preheader20
+.LBB12_31:                              // %.preheader20
                                         // =>This Inner Loop Header: Depth=1
 	add	t2, 1
-	jz	r0, .LBB10_34
-	jmp	.LBB10_32
-.LBB10_32:                              // %.preheader20
-                                        //   in Loop: Header=BB10_31 Depth=1
+	jz	r0, .LBB12_34
+	jmp	.LBB12_32
+.LBB12_32:                              // %.preheader20
+                                        //   in Loop: Header=BB12_31 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t3, .LBB10_34
-	jmp	.LBB10_33
-.LBB10_33:                              //   in Loop: Header=BB10_31 Depth=1
+	jge	rax, t3, .LBB12_34
+	jmp	.LBB12_33
+.LBB12_33:                              //   in Loop: Header=BB12_31 Depth=1
 	add	r6, [r4]
 	mov	r1, 3
 	mov	r0, r6
@@ -5101,18 +4633,18 @@ format_integer:                         // @format_integer
 	mov	[r6], rax
 	mov	t2, 1
 	add	t2, [t6]
-.LBB10_34:                              //   in Loop: Header=BB10_31 Depth=1
+.LBB12_34:                              //   in Loop: Header=BB12_31 Depth=1
 	mov	[t6], t2
-	jg	x7, x4, .LBB10_30
-	jmp	.LBB10_35
-.LBB10_35:                              // %.loopexit21
-	jnz	t5, .LBB10_40
-	jmp	.LBB10_36
-.LBB10_36:
+	jg	x7, x4, .LBB12_30
+	jmp	.LBB12_35
+.LBB12_35:                              // %.loopexit21
+	jnz	t5, .LBB12_40
+	jmp	.LBB12_36
+.LBB12_36:
 	mov	r0, [t7]
-	jz	r0, .LBB10_39
-	jmp	.LBB10_37
-.LBB10_37:
+	jz	r0, .LBB12_39
+	jmp	.LBB12_37
+.LBB12_37:
 	mov	r6, [t6]
 	mov	t2, r6
 	mov	r1, -2147483648
@@ -5121,9 +4653,9 @@ format_integer:                         // @format_integer
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t3, .LBB10_39
-	jmp	.LBB10_38
-.LBB10_38:
+	jge	rax, t3, .LBB12_39
+	jmp	.LBB12_38
+.LBB12_38:
 	add	r6, [r4]
 	mov	r1, 3
 	mov	r0, r6
@@ -5161,16 +4693,16 @@ format_integer:                         // @format_integer
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB10_39:
+.LBB12_39:
 	add	[t6], 1
-.LBB10_40:
-	jz	x6, .LBB10_45
-	jmp	.LBB10_41
-.LBB10_41:
+.LBB12_40:
+	jz	x6, .LBB12_45
+	jmp	.LBB12_41
+.LBB12_41:
 	mov	r0, [t7]
-	jz	r0, .LBB10_44
-	jmp	.LBB10_42
-.LBB10_42:
+	jz	r0, .LBB12_44
+	jmp	.LBB12_42
+.LBB12_42:
 	mov	r6, [t6]
 	mov	t1, r6
 	mov	r1, -2147483648
@@ -5179,9 +4711,9 @@ format_integer:                         // @format_integer
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_xor
-	jge	rax, t2, .LBB10_44
-	jmp	.LBB10_43
-.LBB10_43:
+	jge	rax, t2, .LBB12_44
+	jmp	.LBB12_43
+.LBB12_43:
 	add	r6, [r4]
 	mov	r1, 3
 	mov	r0, r6
@@ -5215,16 +4747,16 @@ format_integer:                         // @format_integer
 	mov	r1, rax
 	call	__bit_or
 	mov	[r6], rax
-.LBB10_44:
+.LBB12_44:
 	add	[t6], 1
-.LBB10_45:
-	jz	x5, .LBB10_50
-	jmp	.LBB10_46
-.LBB10_46:
+.LBB12_45:
+	jz	x5, .LBB12_50
+	jmp	.LBB12_46
+.LBB12_46:
 	mov	r0, [t7]
-	jz	r0, .LBB10_49
-	jmp	.LBB10_47
-.LBB10_47:
+	jz	r0, .LBB12_49
+	jmp	.LBB12_47
+.LBB12_47:
 	mov	r2, [t6]
 	mov	r6, r2
 	mov	r1, -2147483648
@@ -5233,9 +4765,9 @@ format_integer:                         // @format_integer
 	mov	t1, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, t1, .LBB10_49
-	jmp	.LBB10_48
-.LBB10_48:
+	jge	rax, t1, .LBB12_49
+	jmp	.LBB12_48
+.LBB12_48:
 	add	r2, [r4]
 	mov	r1, 3
 	mov	r0, r2
@@ -5273,51 +4805,51 @@ format_integer:                         // @format_integer
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-.LBB10_49:
+.LBB12_49:
 	add	[t6], 1
-.LBB10_50:
-	jnz	r7, .LBB10_61
-	jmp	.LBB10_51
-.LBB10_51:
-	jz	r5, .LBB10_61
-	jmp	.LBB10_52
-.LBB10_52:
+.LBB12_50:
+	jnz	r7, .LBB12_61
+	jmp	.LBB12_51
+.LBB12_51:
+	jz	r5, .LBB12_61
+	jmp	.LBB12_52
+.LBB12_52:
 	mov	r0, 1
-	jl	x0, r0, .LBB10_61
-	jmp	.LBB10_53
-.LBB10_53:
+	jl	x0, r0, .LBB12_61
+	jmp	.LBB12_53
+.LBB12_53:
 	mov	r0, [t7]
 	mov	r2, [t6]
-	jz	r0, .LBB10_55
-	jmp	.LBB10_54
-.LBB10_54:                              // %.preheader18.preheader
+	jz	r0, .LBB12_55
+	jmp	.LBB12_54
+.LBB12_54:                              // %.preheader18.preheader
 	mov	r6, 1
 	mov	t1, t4
 	mov	r3, r2
-	jmp	.LBB10_57
-.LBB10_55:
+	jmp	.LBB12_57
+.LBB12_55:
 	add	r2, x0
 	mov	[t6], r2
-	jmp	.LBB10_61
-.LBB10_56:                              //   in Loop: Header=BB10_57 Depth=1
+	jmp	.LBB12_61
+.LBB12_56:                              //   in Loop: Header=BB12_57 Depth=1
 	mov	r0, [t7]
 	add	t1, -1
 	mov	r2, r3
-.LBB10_57:                              // %.preheader18
+.LBB12_57:                              // %.preheader18
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
-	jz	r0, .LBB10_60
-	jmp	.LBB10_58
-.LBB10_58:                              // %.preheader18
-                                        //   in Loop: Header=BB10_57 Depth=1
+	jz	r0, .LBB12_60
+	jmp	.LBB12_58
+.LBB12_58:                              // %.preheader18
+                                        //   in Loop: Header=BB12_57 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r5, .LBB10_60
-	jmp	.LBB10_59
-.LBB10_59:                              //   in Loop: Header=BB10_57 Depth=1
+	jge	rax, r5, .LBB12_60
+	jmp	.LBB12_59
+.LBB12_59:                              //   in Loop: Header=BB12_57 Depth=1
 	add	r2, [r4]
 	mov	r1, 3
 	mov	r0, r2
@@ -5350,46 +4882,46 @@ format_integer:                         // @format_integer
 	mov	[r2], rax
 	mov	r3, 1
 	add	r3, [t6]
-.LBB10_60:                              //   in Loop: Header=BB10_57 Depth=1
+.LBB12_60:                              //   in Loop: Header=BB12_57 Depth=1
 	mov	[t6], r3
-	jg	t1, r6, .LBB10_56
-	jmp	.LBB10_61
-.LBB10_61:                              // %.loopexit19
+	jg	t1, r6, .LBB12_56
+	jmp	.LBB12_61
+.LBB12_61:                              // %.loopexit19
 	mov	r6, 1
-	jl	x2, r6, .LBB10_70
-	jmp	.LBB10_62
-.LBB10_62:
+	jl	x2, r6, .LBB12_70
+	jmp	.LBB12_62
+.LBB12_62:
 	mov	r0, [t7]
 	mov	r2, [t6]
-	jz	r0, .LBB10_64
-	jmp	.LBB10_63
-.LBB10_63:                              // %.preheader16.preheader
+	jz	r0, .LBB12_64
+	jmp	.LBB12_63
+.LBB12_63:                              // %.preheader16.preheader
 	mov	t1, 1
 	mov	r3, r2
-	jmp	.LBB10_66
-.LBB10_64:
+	jmp	.LBB12_66
+.LBB12_64:
 	add	r2, x2
 	mov	[t6], r2
-	jmp	.LBB10_70
-.LBB10_65:                              //   in Loop: Header=BB10_66 Depth=1
+	jmp	.LBB12_70
+.LBB12_65:                              //   in Loop: Header=BB12_66 Depth=1
 	mov	r0, [t7]
 	add	x1, -1
 	mov	r2, r3
-.LBB10_66:                              // %.preheader16
+.LBB12_66:                              // %.preheader16
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
-	jz	r0, .LBB10_69
-	jmp	.LBB10_67
-.LBB10_67:                              // %.preheader16
-                                        //   in Loop: Header=BB10_66 Depth=1
+	jz	r0, .LBB12_69
+	jmp	.LBB12_67
+.LBB12_67:                              // %.preheader16
+                                        //   in Loop: Header=BB12_66 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r5, .LBB10_69
-	jmp	.LBB10_68
-.LBB10_68:                              //   in Loop: Header=BB10_66 Depth=1
+	jge	rax, r5, .LBB12_69
+	jmp	.LBB12_68
+.LBB12_68:                              //   in Loop: Header=BB12_66 Depth=1
 	add	r2, [r4]
 	mov	r1, 3
 	mov	r0, r2
@@ -5422,47 +4954,47 @@ format_integer:                         // @format_integer
 	mov	[r2], rax
 	mov	r3, 1
 	add	r3, [t6]
-.LBB10_69:                              //   in Loop: Header=BB10_66 Depth=1
+.LBB12_69:                              //   in Loop: Header=BB12_66 Depth=1
 	mov	[t6], r3
-	jg	x1, t1, .LBB10_65
-	jmp	.LBB10_70
-.LBB10_70:                              // %.loopexit17
-	jl	x3, r6, .LBB10_79
-	jmp	.LBB10_71
-.LBB10_71:
+	jg	x1, t1, .LBB12_65
+	jmp	.LBB12_70
+.LBB12_70:                              // %.loopexit17
+	jl	x3, r6, .LBB12_79
+	jmp	.LBB12_71
+.LBB12_71:
 	mov	r0, [t7]
 	mov	r2, [t6]
-	jz	r0, .LBB10_73
-	jmp	.LBB10_72
-.LBB10_72:                              // %.preheader14.preheader
+	jz	r0, .LBB12_73
+	jmp	.LBB12_72
+.LBB12_72:                              // %.preheader14.preheader
 	mov	t1, rsp
 	add	t1, -1
 	mov	t2, 1
 	mov	r3, r2
-	jmp	.LBB10_75
-.LBB10_73:
+	jmp	.LBB12_75
+.LBB12_73:
 	add	r2, x3
 	mov	[t6], r2
-	jmp	.LBB10_79
-.LBB10_74:                              //   in Loop: Header=BB10_75 Depth=1
+	jmp	.LBB12_79
+.LBB12_74:                              //   in Loop: Header=BB12_75 Depth=1
 	mov	r0, [t7]
 	add	x3, -1
 	mov	r2, r3
-.LBB10_75:                              // %.preheader14
+.LBB12_75:                              // %.preheader14
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
-	jz	r0, .LBB10_78
-	jmp	.LBB10_76
-.LBB10_76:                              // %.preheader14
-                                        //   in Loop: Header=BB10_75 Depth=1
+	jz	r0, .LBB12_78
+	jmp	.LBB12_76
+.LBB12_76:                              // %.preheader14
+                                        //   in Loop: Header=BB12_75 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r5, .LBB10_78
-	jmp	.LBB10_77
-.LBB10_77:                              //   in Loop: Header=BB10_75 Depth=1
+	jge	rax, r5, .LBB12_78
+	jmp	.LBB12_77
+.LBB12_77:                              //   in Loop: Header=BB12_75 Depth=1
 	mov	r0, t1
 	add	r0, x3
 	mov	r1, 2
@@ -5514,49 +5046,49 @@ format_integer:                         // @format_integer
 	mov	[r2], rax
 	mov	r3, 1
 	add	r3, [t6]
-.LBB10_78:                              //   in Loop: Header=BB10_75 Depth=1
+.LBB12_78:                              //   in Loop: Header=BB12_75 Depth=1
 	mov	[t6], r3
-	jg	x3, t2, .LBB10_74
-	jmp	.LBB10_79
-.LBB10_79:                              // %.loopexit15
-	jz	r7, .LBB10_89
-	jmp	.LBB10_80
-.LBB10_80:                              // %.loopexit15
+	jg	x3, t2, .LBB12_74
+	jmp	.LBB12_79
+.LBB12_79:                              // %.loopexit15
+	jz	r7, .LBB12_89
+	jmp	.LBB12_80
+.LBB12_80:                              // %.loopexit15
 	mov	r0, 1
-	jl	x0, r0, .LBB10_89
-	jmp	.LBB10_81
-.LBB10_81:
+	jl	x0, r0, .LBB12_89
+	jmp	.LBB12_81
+.LBB12_81:
 	mov	r0, [t7]
 	mov	r2, [t6]
-	jz	r0, .LBB10_83
-	jmp	.LBB10_82
-.LBB10_82:                              // %.preheader.preheader
+	jz	r0, .LBB12_83
+	jmp	.LBB12_82
+.LBB12_82:                              // %.preheader.preheader
 	mov	r6, 1
 	mov	r3, r2
-	jmp	.LBB10_85
-.LBB10_83:
+	jmp	.LBB12_85
+.LBB12_83:
 	add	r2, x0
 	mov	[t6], r2
-	jmp	.LBB10_89
-.LBB10_84:                              //   in Loop: Header=BB10_85 Depth=1
+	jmp	.LBB12_89
+.LBB12_84:                              //   in Loop: Header=BB12_85 Depth=1
 	mov	r0, [t7]
 	add	t4, -1
 	mov	r2, r3
-.LBB10_85:                              // %.preheader
+.LBB12_85:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
-	jz	r0, .LBB10_88
-	jmp	.LBB10_86
-.LBB10_86:                              // %.preheader
-                                        //   in Loop: Header=BB10_85 Depth=1
+	jz	r0, .LBB12_88
+	jmp	.LBB12_86
+.LBB12_86:                              // %.preheader
+                                        //   in Loop: Header=BB12_85 Depth=1
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r5, .LBB10_88
-	jmp	.LBB10_87
-.LBB10_87:                              //   in Loop: Header=BB10_85 Depth=1
+	jge	rax, r5, .LBB12_88
+	jmp	.LBB12_87
+.LBB12_87:                              //   in Loop: Header=BB12_85 Depth=1
 	add	r2, [r4]
 	mov	r1, 3
 	mov	r0, r2
@@ -5589,11 +5121,11 @@ format_integer:                         // @format_integer
 	mov	[r2], rax
 	mov	r3, 1
 	add	r3, [t6]
-.LBB10_88:                              //   in Loop: Header=BB10_85 Depth=1
+.LBB12_88:                              //   in Loop: Header=BB12_85 Depth=1
 	mov	[t6], r3
-	jg	t4, r6, .LBB10_84
-	jmp	.LBB10_89
-.LBB10_89:                              // %.loopexit
+	jg	t4, r6, .LBB12_84
+	jmp	.LBB12_89
+.LBB12_89:                              // %.loopexit
 	mov	x7, [rsp-8]
 	mov	x6, [rsp-7]
 	mov	x5, [rsp-6]
@@ -5619,13 +5151,13 @@ abs:                                    // @abs
 // %bb.0:
 	mov	r1, -1
 	mov	rax, r0
-	jg	rax, r1, .LBB12_2
-	jmp	.LBB12_1
-.LBB12_1:
+	jg	rax, r1, .LBB14_2
+	jmp	.LBB14_1
+.LBB14_1:
 	mov	r0, 0
 	sub	r0, rax
 	mov	rax, r0
-.LBB12_2:
+.LBB14_2:
 	ret
 // -- End function
 // -- Begin function atoi
@@ -5649,13 +5181,13 @@ gcvt:                                   // @gcvt
 	mov	r4, r3
 	mov	r5, r1
 	mov	r6, r0
-	jz	r4, .LBB15_115
-	jmp	.LBB15_1
-.LBB15_1:
+	jz	r4, .LBB17_115
+	jmp	.LBB17_1
+.LBB17_1:
 	mov	r0, 0
-	jg	r2, r0, .LBB15_3
-	jmp	.LBB15_2
-.LBB15_2:
+	jg	r2, r0, .LBB17_3
+	jmp	.LBB17_2
+.LBB17_2:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -5685,8 +5217,8 @@ gcvt:                                   // @gcvt
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB15_115
-.LBB15_3:
+	jmp	.LBB17_115
+.LBB17_3:
 	mov	r0, 112
 	sub	r0, r2
 	mov	r1, 31
@@ -5720,21 +5252,21 @@ gcvt:                                   // @gcvt
 	mov	t1, r7
 	mov	r0, 625
 	add	t1, 1048576
-	jl	r2, r0, .LBB15_6
-	jmp	.LBB15_4
-.LBB15_4:
+	jl	r2, r0, .LBB17_6
+	jmp	.LBB17_4
+.LBB17_4:
 	mov	r0, t1
 	call	malloc
 	mov	r3, rax
-	jnz	r3, .LBB15_6
-	jmp	.LBB15_5
-.LBB15_5:
+	jnz	r3, .LBB17_6
+	jmp	.LBB17_5
+.LBB17_5:
 	mov	r0, r6
 	mov	r1, r5
 	mov	r3, r4
 	call	gcvt_fast
-	jmp	.LBB15_115
-.LBB15_6:
+	jmp	.LBB17_115
+.LBB17_6:
 	mov	x0, r2
 	add	r2, -1
 	add	r7, 1048176
@@ -5749,11 +5281,11 @@ gcvt:                                   // @gcvt
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_xor
-	jl	t2, rax, .LBB15_8
-	jmp	.LBB15_7
-.LBB15_7:
+	jl	t2, rax, .LBB17_8
+	jmp	.LBB17_7
+.LBB17_7:
 	mov	r2, r7
-.LBB15_8:
+.LBB17_8:
 	add	r2, r3
 	mov	r1, 3
 	mov	r0, r2
@@ -5788,9 +5320,9 @@ gcvt:                                   // @gcvt
 	mov	r0, r3
 	call	__bit_and
 	mov	t3, rax
-	jz	t3, .LBB15_10
-	jmp	.LBB15_9
-.LBB15_9:
+	jz	t3, .LBB17_10
+	jmp	.LBB17_9
+.LBB17_9:
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -5807,26 +5339,26 @@ gcvt:                                   // @gcvt
 	call	__bit_and
 	mov	t2, rax
 	mov	r2, x0
-	jmp	.LBB15_11
-.LBB15_10:
+	jmp	.LBB17_11
+.LBB17_10:
 	mov	t2, [r3]
 	mov	r0, 5136718
 	mov	r2, x0
-	je	t2, r0, .LBB15_25
-	jmp	.LBB15_11
-.LBB15_11:
+	je	t2, r0, .LBB17_25
+	jmp	.LBB17_11
+.LBB17_11:
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
 	mov	t5, 0
-	mov	t4, mcasm_static_2fd13c3a9e4491b11fa75f01d9c7bdb0
-	jz	rax, .LBB15_16
-	jmp	.LBB15_12
-.LBB15_12:                              // %.preheader.i.preheader
+	mov	t4, mcasm_static_2dcf2c52c9c4989eb1d1edcd66777ea0
+	jz	rax, .LBB17_16
+	jmp	.LBB17_12
+.LBB17_12:                              // %.preheader.i.preheader
 	mov	t5, r3
 	add	t5, 1
 	mov	t6, t2
-.LBB15_13:                              // %.preheader.i
+.LBB17_13:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -5845,9 +5377,9 @@ gcvt:                                   // @gcvt
 	mov	t7, rax
 	mov	r0, t6
 	call	__bit_and
-	jne	rax, t7, .LBB15_15
-	jmp	.LBB15_14
-.LBB15_14:                              //   in Loop: Header=BB15_13 Depth=1
+	jne	rax, t7, .LBB17_15
+	jmp	.LBB17_14
+.LBB17_14:                              //   in Loop: Header=BB17_13 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -5866,12 +5398,12 @@ gcvt:                                   // @gcvt
 	mov	t6, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t6, .LBB15_13
-	jmp	.LBB15_15
-.LBB15_15:
+	jnz	t6, .LBB17_13
+	jmp	.LBB17_15
+.LBB17_15:
 	call	__bit_and
 	mov	t5, rax
-.LBB15_16:                              // %strcmp.exit
+.LBB17_16:                              // %strcmp.exit
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -5886,28 +5418,28 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	t5, rax, .LBB15_25
-	jmp	.LBB15_17
-.LBB15_17:
-	jnz	t3, .LBB15_19
-	jmp	.LBB15_18
-.LBB15_18:
+	je	t5, rax, .LBB17_25
+	jmp	.LBB17_17
+.LBB17_17:
+	jnz	t3, .LBB17_19
+	jmp	.LBB17_18
+.LBB17_18:
 	mov	t2, [r3]
 	mov	r0, 7233902
-	je	t2, r0, .LBB15_25
-	jmp	.LBB15_19
-.LBB15_19:
+	je	t2, r0, .LBB17_25
+	jmp	.LBB17_19
+.LBB17_19:
 	mov	r0, t2
 	call	__bit_and
 	mov	t5, 0
-	mov	t4, mcasm_static_22bccf914533863f7a8c0c30be408c14
-	jz	rax, .LBB15_24
-	jmp	.LBB15_20
-.LBB15_20:                              // %.preheader.i4.preheader
+	mov	t4, mcasm_static_a576e628ccce7d9f3a7a751e8482252b
+	jz	rax, .LBB17_24
+	jmp	.LBB17_20
+.LBB17_20:                              // %.preheader.i4.preheader
 	mov	t5, r3
 	add	t5, 1
 	mov	t6, t2
-.LBB15_21:                              // %.preheader.i4
+.LBB17_21:                              // %.preheader.i4
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -5926,9 +5458,9 @@ gcvt:                                   // @gcvt
 	mov	t7, rax
 	mov	r0, t6
 	call	__bit_and
-	jne	rax, t7, .LBB15_23
-	jmp	.LBB15_22
-.LBB15_22:                              //   in Loop: Header=BB15_21 Depth=1
+	jne	rax, t7, .LBB17_23
+	jmp	.LBB17_22
+.LBB17_22:                              //   in Loop: Header=BB17_21 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -5947,12 +5479,12 @@ gcvt:                                   // @gcvt
 	mov	t6, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t6, .LBB15_21
-	jmp	.LBB15_23
-.LBB15_23:
+	jnz	t6, .LBB17_21
+	jmp	.LBB17_23
+.LBB17_23:
 	call	__bit_and
 	mov	t5, rax
-.LBB15_24:                              // %strcmp.exit6
+.LBB17_24:                              // %strcmp.exit6
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -5967,9 +5499,9 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t5, rax, .LBB15_43
-	jmp	.LBB15_25
-.LBB15_25:                              // %strcmp.exit.thread
+	jne	t5, rax, .LBB17_43
+	jmp	.LBB17_25
+.LBB17_25:                              // %strcmp.exit.thread
 	mov	r5, r4
 	mov	r1, 3
 	add	r5, 1
@@ -6096,15 +5628,15 @@ gcvt:                                   // @gcvt
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483023
-	jl	rax, r0, .LBB15_115
-	jmp	.LBB15_26
-.LBB15_26:
+	jl	rax, r0, .LBB17_115
+	jmp	.LBB17_26
+.LBB17_26:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r2, 1296125004
-	je	r1, r2, .LBB15_28
-	jmp	.LBB15_27
-.LBB15_27:
+	je	r1, r2, .LBB17_28
+	jmp	.LBB17_27
+.LBB17_27:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -6116,8 +5648,8 @@ gcvt:                                   // @gcvt
 	mov	r7, 0
 	mov	r2, 0
 	mov	rax, 0
-	jmp	.LBB15_33
-.LBB15_28:
+	jmp	.LBB17_33
+.LBB17_28:
 	mov	r0, 16386
 	mov	r2, [r0]
 	mov	r5, r3
@@ -6132,13 +5664,13 @@ gcvt:                                   // @gcvt
 	mov	r0, rax
 	call	__bit_shr
 	mov	r7, 0
-	jz	r2, .LBB15_33
-	jmp	.LBB15_29
-.LBB15_29:
-	jge	r2, r5, .LBB15_33
-	jmp	.LBB15_30
-.LBB15_30:                              // %.preheader.i7.preheader
-.LBB15_31:                              // %.preheader.i7
+	jz	r2, .LBB17_33
+	jmp	.LBB17_29
+.LBB17_29:
+	jge	r2, r5, .LBB17_33
+	jmp	.LBB17_30
+.LBB17_30:                              // %.preheader.i7.preheader
+.LBB17_31:                              // %.preheader.i7
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, r2
 	mov	r0, r7
@@ -6152,75 +5684,75 @@ gcvt:                                   // @gcvt
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r2, .LBB15_33
-	jmp	.LBB15_32
-.LBB15_32:                              // %.preheader.i7
-                                        //   in Loop: Header=BB15_31 Depth=1
-	jl	r2, r5, .LBB15_31
-	jmp	.LBB15_33
-.LBB15_33:                              // %.loopexit.i
-	jne	r2, r5, .LBB15_35
-	jmp	.LBB15_34
-.LBB15_34:
+	jz	r2, .LBB17_33
+	jmp	.LBB17_32
+.LBB17_32:                              // %.preheader.i7
+                                        //   in Loop: Header=BB17_31 Depth=1
+	jl	r2, r5, .LBB17_31
+	jmp	.LBB17_33
+.LBB17_33:                              // %.loopexit.i
+	jne	r2, r5, .LBB17_35
+	jmp	.LBB17_34
+.LBB17_34:
 	call	abort
-.LBB15_35:
+.LBB17_35:
 	mov	r0, 16386
-	jz	r7, .LBB15_39
-	jmp	.LBB15_36
-.LBB15_36:
+	jz	r7, .LBB17_39
+	jmp	.LBB17_36
+.LBB17_36:
 	mov	r0, [r7]
 	mov	r1, r0
 	add	r1, r7
-	jne	r1, r5, .LBB15_38
-	jmp	.LBB15_37
-.LBB15_37:
+	jne	r1, r5, .LBB17_38
+	jmp	.LBB17_37
+.LBB17_37:
 	add	r0, r6
 	mov	[r7], r0
 	mov	r5, r7
-	jmp	.LBB15_40
-.LBB15_38:
+	jmp	.LBB17_40
+.LBB17_38:
 	add	r7, 1
 	mov	r0, r7
-.LBB15_39:
+.LBB17_39:
 	mov	[r0], r5
 	mov	[r3], r2
-.LBB15_40:
+.LBB17_40:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB15_115
-	jmp	.LBB15_41
-.LBB15_41:
+	jz	rax, .LBB17_115
+	jmp	.LBB17_41
+.LBB17_41:
 	mov	r0, [r5]
 	mov	r1, r0
 	add	r1, r5
-	jne	r1, r2, .LBB15_115
-	jmp	.LBB15_42
-.LBB15_42:
+	jne	r1, r2, .LBB17_115
+	jmp	.LBB17_42
+.LBB17_42:
 	add	r0, [r2]
 	mov	[r5], r0
 	add	r2, 1
 	mov	r0, [r2]
 	add	r5, 1
 	mov	[r5], r0
-	jmp	.LBB15_115
-.LBB15_43:
-	mov	t4, mcasm_static_1a9c25e22170b3bda823ccd488a6cbf2
+	jmp	.LBB17_115
+.LBB17_43:
+	mov	t4, mcasm_static_33c0bc0aebd755f222c09aab13174b8a
 	mov	t6, t2
 	mov	t5, r3
-	jnz	t3, .LBB15_49
-	jmp	.LBB15_44
-.LBB15_44:
+	jnz	t3, .LBB17_49
+	jmp	.LBB17_44
+.LBB17_44:
 	mov	t2, [r3]
 	mov	r1, 1768320585
 	mov	t6, t2
 	mov	t5, r3
-	jne	t2, r1, .LBB15_49
-	jmp	.LBB15_45
-.LBB15_45:                              // %.preheader5.i10.preheader
+	jne	t2, r1, .LBB17_49
+	jmp	.LBB17_45
+.LBB17_45:                              // %.preheader5.i10.preheader
 	mov	t6, -2139062144
 	mov	t5, r3
-.LBB15_46:                              // %.preheader5.i10
+.LBB17_46:                              // %.preheader5.i10
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, 16843008
 	sub	r0, r1
@@ -6228,27 +5760,27 @@ gcvt:                                   // @gcvt
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t6, .LBB15_63
-	jmp	.LBB15_47
-.LBB15_47:                              //   in Loop: Header=BB15_46 Depth=1
+	jne	rax, t6, .LBB17_63
+	jmp	.LBB17_47
+.LBB17_47:                              //   in Loop: Header=BB17_46 Depth=1
 	add	t5, 4
 	add	t4, 4
 	mov	r1, [t5]
 	mov	r0, [t4]
-	je	r1, r0, .LBB15_46
-	jmp	.LBB15_48
-.LBB15_48:
+	je	r1, r0, .LBB17_46
+	jmp	.LBB17_48
+.LBB17_48:
 	mov	t6, r1
-.LBB15_49:
+.LBB17_49:
 	mov	r1, 255
 	mov	r0, t6
 	call	__bit_and
 	mov	t7, 0
-	jz	rax, .LBB15_54
-	jmp	.LBB15_50
-.LBB15_50:                              // %.preheader.i8.preheader
+	jz	rax, .LBB17_54
+	jmp	.LBB17_50
+.LBB17_50:                              // %.preheader.i8.preheader
 	add	t5, 1
-.LBB15_51:                              // %.preheader.i8
+.LBB17_51:                              // %.preheader.i8
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -6267,9 +5799,9 @@ gcvt:                                   // @gcvt
 	mov	t7, rax
 	mov	r0, t6
 	call	__bit_and
-	jne	rax, t7, .LBB15_53
-	jmp	.LBB15_52
-.LBB15_52:                              //   in Loop: Header=BB15_51 Depth=1
+	jne	rax, t7, .LBB17_53
+	jmp	.LBB17_52
+.LBB17_52:                              //   in Loop: Header=BB17_51 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -6288,12 +5820,12 @@ gcvt:                                   // @gcvt
 	mov	t6, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t6, .LBB15_51
-	jmp	.LBB15_53
-.LBB15_53:
+	jnz	t6, .LBB17_51
+	jmp	.LBB17_53
+.LBB17_53:
 	call	__bit_and
 	mov	t7, rax
-.LBB15_54:                              // %strcmp.exit11
+.LBB17_54:                              // %strcmp.exit11
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -6308,28 +5840,28 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	t7, rax, .LBB15_63
-	jmp	.LBB15_55
-.LBB15_55:
-	jnz	t3, .LBB15_57
-	jmp	.LBB15_56
-.LBB15_56:
+	je	t7, rax, .LBB17_63
+	jmp	.LBB17_55
+.LBB17_55:
+	jnz	t3, .LBB17_57
+	jmp	.LBB17_56
+.LBB17_56:
 	mov	t2, [r3]
 	mov	r0, 6712937
-	je	t2, r0, .LBB15_63
-	jmp	.LBB15_57
-.LBB15_57:
+	je	t2, r0, .LBB17_63
+	jmp	.LBB17_57
+.LBB17_57:
 	mov	r0, t2
 	call	__bit_and
 	mov	t5, 0
-	mov	t4, mcasm_static_c2a517646abb9f7f18defce2571178a7
-	jz	rax, .LBB15_62
-	jmp	.LBB15_58
-.LBB15_58:                              // %.preheader.i12.preheader
+	mov	t4, mcasm_static_aee5601175a1ec2ca6e3a4325b7c8241
+	jz	rax, .LBB17_62
+	jmp	.LBB17_58
+.LBB17_58:                              // %.preheader.i12.preheader
 	mov	t5, r3
 	add	t5, 1
 	mov	t6, t2
-.LBB15_59:                              // %.preheader.i12
+.LBB17_59:                              // %.preheader.i12
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -6348,9 +5880,9 @@ gcvt:                                   // @gcvt
 	mov	t7, rax
 	mov	r0, t6
 	call	__bit_and
-	jne	rax, t7, .LBB15_61
-	jmp	.LBB15_60
-.LBB15_60:                              //   in Loop: Header=BB15_59 Depth=1
+	jne	rax, t7, .LBB17_61
+	jmp	.LBB17_60
+.LBB17_60:                              //   in Loop: Header=BB17_59 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -6369,12 +5901,12 @@ gcvt:                                   // @gcvt
 	mov	t6, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t6, .LBB15_59
-	jmp	.LBB15_61
-.LBB15_61:
+	jnz	t6, .LBB17_59
+	jmp	.LBB17_61
+.LBB17_61:
 	call	__bit_and
 	mov	t5, rax
-.LBB15_62:                              // %strcmp.exit15
+.LBB17_62:                              // %strcmp.exit15
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -6389,9 +5921,9 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t5, rax, .LBB15_81
-	jmp	.LBB15_63
-.LBB15_63:                              // %strcmp.exit11.thread
+	jne	t5, rax, .LBB17_81
+	jmp	.LBB17_63
+.LBB17_63:                              // %strcmp.exit11.thread
 	mov	r5, r4
 	mov	r1, 3
 	add	r5, 1
@@ -6518,15 +6050,15 @@ gcvt:                                   // @gcvt
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483023
-	jl	rax, r0, .LBB15_115
-	jmp	.LBB15_64
-.LBB15_64:
+	jl	rax, r0, .LBB17_115
+	jmp	.LBB17_64
+.LBB17_64:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r2, 1296125004
-	je	r1, r2, .LBB15_66
-	jmp	.LBB15_65
-.LBB15_65:
+	je	r1, r2, .LBB17_66
+	jmp	.LBB17_65
+.LBB17_65:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -6538,8 +6070,8 @@ gcvt:                                   // @gcvt
 	mov	r7, 0
 	mov	r2, 0
 	mov	rax, 0
-	jmp	.LBB15_71
-.LBB15_66:
+	jmp	.LBB17_71
+.LBB17_66:
 	mov	r0, 16386
 	mov	r2, [r0]
 	mov	r5, r3
@@ -6554,13 +6086,13 @@ gcvt:                                   // @gcvt
 	mov	r0, rax
 	call	__bit_shr
 	mov	r7, 0
-	jz	r2, .LBB15_71
-	jmp	.LBB15_67
-.LBB15_67:
-	jge	r2, r5, .LBB15_71
-	jmp	.LBB15_68
-.LBB15_68:                              // %.preheader.i19.preheader
-.LBB15_69:                              // %.preheader.i19
+	jz	r2, .LBB17_71
+	jmp	.LBB17_67
+.LBB17_67:
+	jge	r2, r5, .LBB17_71
+	jmp	.LBB17_68
+.LBB17_68:                              // %.preheader.i19.preheader
+.LBB17_69:                              // %.preheader.i19
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, r2
 	mov	r0, r7
@@ -6574,75 +6106,75 @@ gcvt:                                   // @gcvt
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r2, .LBB15_71
-	jmp	.LBB15_70
-.LBB15_70:                              // %.preheader.i19
-                                        //   in Loop: Header=BB15_69 Depth=1
-	jl	r2, r5, .LBB15_69
-	jmp	.LBB15_71
-.LBB15_71:                              // %.loopexit.i18
-	jne	r2, r5, .LBB15_73
-	jmp	.LBB15_72
-.LBB15_72:
+	jz	r2, .LBB17_71
+	jmp	.LBB17_70
+.LBB17_70:                              // %.preheader.i19
+                                        //   in Loop: Header=BB17_69 Depth=1
+	jl	r2, r5, .LBB17_69
+	jmp	.LBB17_71
+.LBB17_71:                              // %.loopexit.i18
+	jne	r2, r5, .LBB17_73
+	jmp	.LBB17_72
+.LBB17_72:
 	call	abort
-.LBB15_73:
+.LBB17_73:
 	mov	r0, 16386
-	jz	r7, .LBB15_77
-	jmp	.LBB15_74
-.LBB15_74:
+	jz	r7, .LBB17_77
+	jmp	.LBB17_74
+.LBB17_74:
 	mov	r0, [r7]
 	mov	r1, r0
 	add	r1, r7
-	jne	r1, r5, .LBB15_76
-	jmp	.LBB15_75
-.LBB15_75:
+	jne	r1, r5, .LBB17_76
+	jmp	.LBB17_75
+.LBB17_75:
 	add	r0, r6
 	mov	[r7], r0
 	mov	r5, r7
-	jmp	.LBB15_78
-.LBB15_76:
+	jmp	.LBB17_78
+.LBB17_76:
 	add	r7, 1
 	mov	r0, r7
-.LBB15_77:
+.LBB17_77:
 	mov	[r0], r5
 	mov	[r3], r2
-.LBB15_78:
+.LBB17_78:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB15_115
-	jmp	.LBB15_79
-.LBB15_79:
+	jz	rax, .LBB17_115
+	jmp	.LBB17_79
+.LBB17_79:
 	mov	r0, [r5]
 	mov	r1, r0
 	add	r1, r5
-	jne	r1, r2, .LBB15_115
-	jmp	.LBB15_80
-.LBB15_80:
+	jne	r1, r2, .LBB17_115
+	jmp	.LBB17_80
+.LBB17_80:
 	add	r0, [r2]
 	mov	[r5], r0
 	add	r2, 1
 	mov	r0, [r2]
 	add	r5, 1
 	mov	[r5], r0
-	jmp	.LBB15_115
-.LBB15_81:
-	mov	t4, mcasm_static_99c702943d690b06928d14d3f094852f
+	jmp	.LBB17_115
+.LBB17_81:
+	mov	t4, mcasm_static_acced75c0450be778b18b0328f7269aa
 	mov	t6, t2
 	mov	t5, r3
-	jnz	t3, .LBB15_87
-	jmp	.LBB15_82
-.LBB15_82:
+	jnz	t3, .LBB17_87
+	jmp	.LBB17_82
+.LBB17_82:
 	mov	t2, [r3]
 	mov	r1, 1718503725
 	mov	t6, t2
 	mov	t5, r3
-	jne	t2, r1, .LBB15_87
-	jmp	.LBB15_83
-.LBB15_83:                              // %.preheader5.i23.preheader
+	jne	t2, r1, .LBB17_87
+	jmp	.LBB17_83
+.LBB17_83:                              // %.preheader5.i23.preheader
 	mov	t6, -2139062144
 	mov	t5, r3
-.LBB15_84:                              // %.preheader5.i23
+.LBB17_84:                              // %.preheader5.i23
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, 16843008
 	sub	r0, r1
@@ -6650,27 +6182,27 @@ gcvt:                                   // @gcvt
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t6, .LBB15_105
-	jmp	.LBB15_85
-.LBB15_85:                              //   in Loop: Header=BB15_84 Depth=1
+	jne	rax, t6, .LBB17_105
+	jmp	.LBB17_85
+.LBB17_85:                              //   in Loop: Header=BB17_84 Depth=1
 	add	t5, 4
 	add	t4, 4
 	mov	r1, [t5]
 	mov	r0, [t4]
-	je	r1, r0, .LBB15_84
-	jmp	.LBB15_86
-.LBB15_86:
+	je	r1, r0, .LBB17_84
+	jmp	.LBB17_86
+.LBB17_86:
 	mov	t6, r1
-.LBB15_87:
+.LBB17_87:
 	mov	r1, 255
 	mov	r0, t6
 	call	__bit_and
 	mov	t7, 0
-	jz	rax, .LBB15_92
-	jmp	.LBB15_88
-.LBB15_88:                              // %.preheader.i21.preheader
+	jz	rax, .LBB17_92
+	jmp	.LBB17_88
+.LBB17_88:                              // %.preheader.i21.preheader
 	add	t5, 1
-.LBB15_89:                              // %.preheader.i21
+.LBB17_89:                              // %.preheader.i21
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -6689,9 +6221,9 @@ gcvt:                                   // @gcvt
 	mov	t7, rax
 	mov	r0, t6
 	call	__bit_and
-	jne	rax, t7, .LBB15_91
-	jmp	.LBB15_90
-.LBB15_90:                              //   in Loop: Header=BB15_89 Depth=1
+	jne	rax, t7, .LBB17_91
+	jmp	.LBB17_90
+.LBB17_90:                              //   in Loop: Header=BB17_89 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -6710,12 +6242,12 @@ gcvt:                                   // @gcvt
 	mov	t6, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t6, .LBB15_89
-	jmp	.LBB15_91
-.LBB15_91:
+	jnz	t6, .LBB17_89
+	jmp	.LBB17_91
+.LBB17_91:
 	call	__bit_and
 	mov	t7, rax
-.LBB15_92:                              // %strcmp.exit24
+.LBB17_92:                              // %strcmp.exit24
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -6730,23 +6262,23 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	t7, rax, .LBB15_105
-	jmp	.LBB15_93
-.LBB15_93:
-	mov	t4, mcasm_static_e46774058807d332d626bf00148daf6e
+	je	t7, rax, .LBB17_105
+	jmp	.LBB17_93
+.LBB17_93:
+	mov	t4, mcasm_static_460954a9761fde43e9b55e9d5e91598a
 	mov	t5, r3
-	jnz	t3, .LBB15_99
-	jmp	.LBB15_94
-.LBB15_94:
+	jnz	t3, .LBB17_99
+	jmp	.LBB17_94
+.LBB17_94:
 	mov	t2, [r3]
 	mov	r1, 1718511917
 	mov	t5, r3
-	jne	t2, r1, .LBB15_99
-	jmp	.LBB15_95
-.LBB15_95:                              // %.preheader5.i27.preheader
+	jne	t2, r1, .LBB17_99
+	jmp	.LBB17_95
+.LBB17_95:                              // %.preheader5.i27.preheader
 	mov	t2, -2139062144
 	mov	t5, r3
-.LBB15_96:                              // %.preheader5.i27
+.LBB17_96:                              // %.preheader5.i27
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, 16843008
 	sub	r0, r1
@@ -6754,27 +6286,27 @@ gcvt:                                   // @gcvt
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB15_105
-	jmp	.LBB15_97
-.LBB15_97:                              //   in Loop: Header=BB15_96 Depth=1
+	jne	rax, t2, .LBB17_105
+	jmp	.LBB17_97
+.LBB17_97:                              //   in Loop: Header=BB17_96 Depth=1
 	add	t5, 4
 	add	t4, 4
 	mov	r1, [t5]
 	mov	r0, [t4]
-	je	r1, r0, .LBB15_96
-	jmp	.LBB15_98
-.LBB15_98:
+	je	r1, r0, .LBB17_96
+	jmp	.LBB17_98
+.LBB17_98:
 	mov	t2, r1
-.LBB15_99:
+.LBB17_99:
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
 	mov	t3, 0
-	jz	rax, .LBB15_104
-	jmp	.LBB15_100
-.LBB15_100:                             // %.preheader.i25.preheader
+	jz	rax, .LBB17_104
+	jmp	.LBB17_100
+.LBB17_100:                             // %.preheader.i25.preheader
 	add	t5, 1
-.LBB15_101:                             // %.preheader.i25
+.LBB17_101:                             // %.preheader.i25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t4
@@ -6793,9 +6325,9 @@ gcvt:                                   // @gcvt
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_and
-	jne	rax, t3, .LBB15_103
-	jmp	.LBB15_102
-.LBB15_102:                             //   in Loop: Header=BB15_101 Depth=1
+	jne	rax, t3, .LBB17_103
+	jmp	.LBB17_102
+.LBB17_102:                             //   in Loop: Header=BB17_101 Depth=1
 	mov	r1, 2
 	add	t4, 1
 	mov	r0, t5
@@ -6814,12 +6346,12 @@ gcvt:                                   // @gcvt
 	mov	t2, rax
 	add	t5, 1
 	mov	r0, 0
-	jnz	t2, .LBB15_101
-	jmp	.LBB15_103
-.LBB15_103:
+	jnz	t2, .LBB17_101
+	jmp	.LBB17_103
+.LBB17_103:
 	call	__bit_and
 	mov	t3, rax
-.LBB15_104:                             // %strcmp.exit28
+.LBB17_104:                             // %strcmp.exit28
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -6834,9 +6366,9 @@ gcvt:                                   // @gcvt
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t3, rax, .LBB15_107
-	jmp	.LBB15_105
-.LBB15_105:                             // %strcmp.exit24.thread
+	jne	t3, rax, .LBB17_107
+	jmp	.LBB17_105
+.LBB17_105:                             // %strcmp.exit24.thread
 	mov	r5, r4
 	mov	r1, 3
 	add	r5, 1
@@ -6994,27 +6526,27 @@ gcvt:                                   // @gcvt
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483023
-	jl	rax, r0, .LBB15_115
-	jmp	.LBB15_106
-.LBB15_106:
+	jl	rax, r0, .LBB17_115
+	jmp	.LBB17_106
+.LBB17_106:
 	mov	r0, r3
 	call	free
-	jmp	.LBB15_115
-.LBB15_107:
+	jmp	.LBB17_115
+.LBB17_107:
 	mov	r0, r3
 	mov	r1, rsp
 	call	parse_exp10
-	jnz	rax, .LBB15_113
-	jmp	.LBB15_108
-.LBB15_108:
+	jnz	rax, .LBB17_113
+	jmp	.LBB17_108
+.LBB17_108:
 	mov	r0, [rsp]
 	mov	r1, -4
-	jl	r0, r1, .LBB15_113
-	jmp	.LBB15_109
-.LBB15_109:
-	jge	r0, r2, .LBB15_113
-	jmp	.LBB15_110
-.LBB15_110:
+	jl	r0, r1, .LBB17_113
+	jmp	.LBB17_109
+.LBB17_109:
+	jge	r0, r2, .LBB17_113
+	jmp	.LBB17_110
+.LBB17_110:
 	call	__bit_not
 	mov	t2, rax
 	add	t2, r2
@@ -7046,11 +6578,11 @@ gcvt:                                   // @gcvt
 	mov	r5, rax
 	mov	r0, t1
 	call	__bit_xor
-	jl	r5, rax, .LBB15_112
-	jmp	.LBB15_111
-.LBB15_111:
+	jl	r5, rax, .LBB17_112
+	jmp	.LBB17_111
+.LBB17_111:
 	mov	r2, r7
-.LBB15_112:
+.LBB17_112:
 	add	r2, r3
 	mov	r1, 3
 	mov	r0, r2
@@ -7082,7 +6614,7 @@ gcvt:                                   // @gcvt
 	call	__bit_or
 	mov	[r2], rax
 	mov	r2, x0
-.LBB15_113:
+.LBB17_113:
 	mov	r0, r3
 	call	trim_trailing_zeros_g
 	call	strlen
@@ -7096,12 +6628,12 @@ gcvt:                                   // @gcvt
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483023
-	jl	rax, r0, .LBB15_115
-	jmp	.LBB15_114
-.LBB15_114:
+	jl	rax, r0, .LBB17_115
+	jmp	.LBB17_114
+.LBB17_114:
 	mov	r0, r3
 	call	free
-.LBB15_115:                             // %free.exit
+.LBB17_115:                             // %free.exit
 	mov	rax, r4
 	mov	x0, [rsp-1]
 	ret
@@ -7115,15 +6647,15 @@ parse_exp10:                            // @parse_exp10
 	call	__bit_and
 	mov	r4, rax
 	mov	r5, r3
-	jz	r4, .LBB16_2
-	jmp	.LBB16_1
-.LBB16_1:                               // %.preheader12.preheader
+	jz	r4, .LBB18_2
+	jmp	.LBB18_1
+.LBB18_1:                               // %.preheader12.preheader
 	mov	r6, r3
 	add	r6, 1
 	mov	t1, 101
 	mov	r5, r3
-	jmp	.LBB16_4
-.LBB16_2:                               // %.loopexit9.i
+	jmp	.LBB18_4
+.LBB18_2:                               // %.loopexit9.i
 	mov	r6, [r5]
 	mov	r0, 16843008
 	sub	r0, r6
@@ -7133,11 +6665,11 @@ parse_exp10:                            // @parse_exp10
 	mov	r7, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r7, .LBB16_9
-	jmp	.LBB16_3
-.LBB16_3:                               // %.preheader5.i.preheader
-	jmp	.LBB16_7
-.LBB16_4:                               // %.preheader12
+	jne	rax, r7, .LBB18_9
+	jmp	.LBB18_3
+.LBB18_3:                               // %.preheader5.i.preheader
+	jmp	.LBB18_7
+.LBB18_4:                               // %.preheader12
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r5
@@ -7153,21 +6685,21 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB16_12
-	jmp	.LBB16_5
-.LBB16_5:                               // %.preheader12
-                                        //   in Loop: Header=BB16_4 Depth=1
-	je	rax, t1, .LBB16_27
-	jmp	.LBB16_6
-.LBB16_6:                               //   in Loop: Header=BB16_4 Depth=1
+	jz	rax, .LBB18_12
+	jmp	.LBB18_5
+.LBB18_5:                               // %.preheader12
+                                        //   in Loop: Header=BB18_4 Depth=1
+	je	rax, t1, .LBB18_27
+	jmp	.LBB18_6
+.LBB18_6:                               //   in Loop: Header=BB18_4 Depth=1
 	mov	r1, 3
 	add	r5, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB16_2
-	jmp	.LBB16_4
-.LBB16_7:                               // %.preheader5.i
+	jz	rax, .LBB18_2
+	jmp	.LBB18_4
+.LBB18_7:                               // %.preheader5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 1701143909
 	mov	r0, r6
@@ -7179,9 +6711,9 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r7, .LBB16_9
-	jmp	.LBB16_8
-.LBB16_8:                               //   in Loop: Header=BB16_7 Depth=1
+	jne	rax, r7, .LBB18_9
+	jmp	.LBB18_8
+.LBB18_8:                               //   in Loop: Header=BB18_7 Depth=1
 	add	r5, 4
 	mov	r6, [r5]
 	mov	r0, 16843008
@@ -7191,12 +6723,12 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r7, .LBB16_7
-	jmp	.LBB16_9
-.LBB16_9:                               // %.loopexit6.i.preheader
+	je	rax, r7, .LBB18_7
+	jmp	.LBB18_9
+.LBB18_9:                               // %.loopexit6.i.preheader
 	add	r5, -1
 	mov	r7, 101
-.LBB16_10:                              // %.loopexit6.i
+.LBB18_10:                              // %.loopexit6.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, 1
 	mov	r1, 2
@@ -7213,21 +6745,21 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r7, .LBB16_26
-	jmp	.LBB16_11
-.LBB16_11:                              // %.loopexit6.i
-                                        //   in Loop: Header=BB16_10 Depth=1
-	jnz	rax, .LBB16_10
-	jmp	.LBB16_12
-.LBB16_12:                              // %.loopexit
-	jz	r4, .LBB16_14
-	jmp	.LBB16_13
-.LBB16_13:                              // %.preheader7.preheader
+	je	rax, r7, .LBB18_26
+	jmp	.LBB18_11
+.LBB18_11:                              // %.loopexit6.i
+                                        //   in Loop: Header=BB18_10 Depth=1
+	jnz	rax, .LBB18_10
+	jmp	.LBB18_12
+.LBB18_12:                              // %.loopexit
+	jz	r4, .LBB18_14
+	jmp	.LBB18_13
+.LBB18_13:                              // %.preheader7.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r6, 69
-	jmp	.LBB16_16
-.LBB16_14:                              // %.loopexit9.i2
+	jmp	.LBB18_16
+.LBB18_14:                              // %.loopexit9.i2
 	mov	r4, [r3]
 	mov	r0, 16843008
 	sub	r0, r4
@@ -7237,11 +6769,11 @@ parse_exp10:                            // @parse_exp10
 	mov	r5, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB16_21
-	jmp	.LBB16_15
-.LBB16_15:                              // %.preheader5.i4.preheader
-	jmp	.LBB16_19
-.LBB16_16:                              // %.preheader7
+	jne	rax, r5, .LBB18_21
+	jmp	.LBB18_15
+.LBB18_15:                              // %.preheader5.i4.preheader
+	jmp	.LBB18_19
+.LBB18_16:                              // %.preheader7
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r3
@@ -7257,21 +6789,21 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB16_37
-	jmp	.LBB16_17
-.LBB16_17:                              // %.preheader7
-                                        //   in Loop: Header=BB16_16 Depth=1
-	je	rax, r6, .LBB16_25
-	jmp	.LBB16_18
-.LBB16_18:                              //   in Loop: Header=BB16_16 Depth=1
+	jz	rax, .LBB18_37
+	jmp	.LBB18_17
+.LBB18_17:                              // %.preheader7
+                                        //   in Loop: Header=BB18_16 Depth=1
+	je	rax, r6, .LBB18_25
+	jmp	.LBB18_18
+.LBB18_18:                              //   in Loop: Header=BB18_16 Depth=1
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jz	rax, .LBB16_14
-	jmp	.LBB16_16
-.LBB16_19:                              // %.preheader5.i4
+	jz	rax, .LBB18_14
+	jmp	.LBB18_16
+.LBB18_19:                              // %.preheader5.i4
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 1162167621
 	mov	r0, r4
@@ -7283,9 +6815,9 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB16_21
-	jmp	.LBB16_20
-.LBB16_20:                              //   in Loop: Header=BB16_19 Depth=1
+	jne	rax, r5, .LBB18_21
+	jmp	.LBB18_20
+.LBB18_20:                              //   in Loop: Header=BB18_19 Depth=1
 	add	r3, 4
 	mov	r4, [r3]
 	mov	r0, 16843008
@@ -7295,12 +6827,12 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r5, .LBB16_19
-	jmp	.LBB16_21
-.LBB16_21:                              // %.loopexit6.i3.preheader
+	je	rax, r5, .LBB18_19
+	jmp	.LBB18_21
+.LBB18_21:                              // %.loopexit6.i3.preheader
 	add	r3, -1
 	mov	r5, 69
-.LBB16_22:                              // %.loopexit6.i3
+.LBB18_22:                              // %.loopexit6.i3
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
 	mov	r1, 2
@@ -7317,22 +6849,22 @@ parse_exp10:                            // @parse_exp10
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB16_36
-	jmp	.LBB16_23
-.LBB16_23:                              // %.loopexit6.i3
-                                        //   in Loop: Header=BB16_22 Depth=1
-	jne	rax, r5, .LBB16_22
-	jmp	.LBB16_24
-.LBB16_24:                              // %strchr.exit.loopexit
-	jmp	.LBB16_28
-.LBB16_25:                              // %strchr.exit.loopexit2
-	jmp	.LBB16_28
-.LBB16_26:                              // %strchr.exit.loopexit3
+	jz	rax, .LBB18_36
+	jmp	.LBB18_23
+.LBB18_23:                              // %.loopexit6.i3
+                                        //   in Loop: Header=BB18_22 Depth=1
+	jne	rax, r5, .LBB18_22
+	jmp	.LBB18_24
+.LBB18_24:                              // %strchr.exit.loopexit
+	jmp	.LBB18_28
+.LBB18_25:                              // %strchr.exit.loopexit2
+	jmp	.LBB18_28
+.LBB18_26:                              // %strchr.exit.loopexit3
 	mov	r3, r5
-	jmp	.LBB16_28
-.LBB16_27:                              // %strchr.exit.loopexit5
+	jmp	.LBB18_28
+.LBB18_27:                              // %strchr.exit.loopexit5
 	mov	r3, r5
-.LBB16_28:                              // %strchr.exit
+.LBB18_28:                              // %strchr.exit
 	mov	r4, r3
 	add	r4, 1
 	mov	r1, 2
@@ -7350,22 +6882,22 @@ parse_exp10:                            // @parse_exp10
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, 45
-	je	rax, r0, .LBB16_31
-	jmp	.LBB16_29
-.LBB16_29:                              // %strchr.exit
+	je	rax, r0, .LBB18_31
+	jmp	.LBB18_29
+.LBB18_29:                              // %strchr.exit
 	mov	r0, 43
 	mov	r6, 1
-	jne	rax, r0, .LBB16_32
-	jmp	.LBB16_30
-.LBB16_30:
+	jne	rax, r0, .LBB18_32
+	jmp	.LBB18_30
+.LBB18_30:
 	add	r3, 2
 	mov	r4, r3
-	jmp	.LBB16_32
-.LBB16_31:
+	jmp	.LBB18_32
+.LBB18_31:
 	add	r3, 2
 	mov	r6, -1
 	mov	r4, r3
-.LBB16_32:
+.LBB18_32:
 	mov	r1, 2
 	mov	r0, r4
 	call	__bit_shr
@@ -7389,13 +6921,13 @@ parse_exp10:                            // @parse_exp10
 	mov	r0, rax
 	call	__bit_xor
 	mov	r0, -2147483402
-	jl	rax, r0, .LBB16_38
-	jmp	.LBB16_33
-.LBB16_33:                              // %.preheader.preheader
+	jl	rax, r0, .LBB18_38
+	jmp	.LBB18_33
+.LBB18_33:                              // %.preheader.preheader
 	add	r4, 1
 	mov	r3, 0
 	mov	r7, -2147483638
-.LBB16_34:                              // %.preheader
+.LBB18_34:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	t1, r3
 	add	r5, -48
@@ -7427,19 +6959,19 @@ parse_exp10:                            // @parse_exp10
 	add	r4, 1
 	mov	r0, rax
 	call	__bit_xor
-	jl	rax, r7, .LBB16_34
-	jmp	.LBB16_35
-.LBB16_35:
+	jl	rax, r7, .LBB18_34
+	jmp	.LBB18_35
+.LBB18_35:
 	mul	r3, r6
 	mov	[r2], r3
 	mov	r3, 0
-	jmp	.LBB16_38
-.LBB16_36:                              // %strchr.exit5.thread.loopexit
+	jmp	.LBB18_38
+.LBB18_36:                              // %strchr.exit5.thread.loopexit
 	mov	r3, -1
-	jmp	.LBB16_38
-.LBB16_37:                              // %strchr.exit5.thread.loopexit1
+	jmp	.LBB18_38
+.LBB18_37:                              // %strchr.exit5.thread.loopexit1
 	mov	r3, -1
-.LBB16_38:                              // %strchr.exit5.thread
+.LBB18_38:                              // %strchr.exit5.thread
 	mov	rax, r3
 	ret
 // -- End function
@@ -7451,15 +6983,15 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	call	__bit_and
 	mov	r4, rax
 	mov	r2, r3
-	jz	r4, .LBB17_2
-	jmp	.LBB17_1
-.LBB17_1:                               // %.preheader31.preheader
+	jz	r4, .LBB19_2
+	jmp	.LBB19_1
+.LBB19_1:                               // %.preheader31.preheader
 	mov	r5, r3
 	add	r5, 1
 	mov	r7, 101
 	mov	r2, r3
-	jmp	.LBB17_4
-.LBB17_2:                               // %.loopexit9.i
+	jmp	.LBB19_4
+.LBB19_2:                               // %.loopexit9.i
 	mov	r5, [r2]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -7469,11 +7001,11 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB17_9
-	jmp	.LBB17_3
-.LBB17_3:                               // %.preheader5.i.preheader
-	jmp	.LBB17_7
-.LBB17_4:                               // %.preheader31
+	jne	rax, r6, .LBB19_9
+	jmp	.LBB19_3
+.LBB19_3:                               // %.preheader5.i.preheader
+	jmp	.LBB19_7
+.LBB19_4:                               // %.preheader31
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -7489,21 +7021,21 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB17_12
-	jmp	.LBB17_5
-.LBB17_5:                               // %.preheader31
-                                        //   in Loop: Header=BB17_4 Depth=1
-	je	rax, r7, .LBB17_37
-	jmp	.LBB17_6
-.LBB17_6:                               //   in Loop: Header=BB17_4 Depth=1
+	jz	rax, .LBB19_12
+	jmp	.LBB19_5
+.LBB19_5:                               // %.preheader31
+                                        //   in Loop: Header=BB19_4 Depth=1
+	je	rax, r7, .LBB19_37
+	jmp	.LBB19_6
+.LBB19_6:                               //   in Loop: Header=BB19_4 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r5
 	call	__bit_and
 	add	r5, 1
-	jz	rax, .LBB17_2
-	jmp	.LBB17_4
-.LBB17_7:                               // %.preheader5.i
+	jz	rax, .LBB19_2
+	jmp	.LBB19_4
+.LBB19_7:                               // %.preheader5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 1701143909
 	mov	r0, r5
@@ -7515,9 +7047,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB17_9
-	jmp	.LBB17_8
-.LBB17_8:                               //   in Loop: Header=BB17_7 Depth=1
+	jne	rax, r6, .LBB19_9
+	jmp	.LBB19_8
+.LBB19_8:                               //   in Loop: Header=BB19_7 Depth=1
 	add	r2, 4
 	mov	r5, [r2]
 	mov	r0, 16843008
@@ -7527,12 +7059,12 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB17_7
-	jmp	.LBB17_9
-.LBB17_9:                               // %.loopexit6.i.preheader
+	je	rax, r6, .LBB19_7
+	jmp	.LBB19_9
+.LBB19_9:                               // %.loopexit6.i.preheader
 	add	r2, -1
 	mov	r6, 101
-.LBB17_10:                              // %.loopexit6.i
+.LBB19_10:                              // %.loopexit6.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -7549,23 +7081,23 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB17_36
-	jmp	.LBB17_11
-.LBB17_11:                              // %.loopexit6.i
-                                        //   in Loop: Header=BB17_10 Depth=1
-	jnz	rax, .LBB17_10
-	jmp	.LBB17_12
-.LBB17_12:                              // %.loopexit29
+	je	rax, r6, .LBB19_36
+	jmp	.LBB19_11
+.LBB19_11:                              // %.loopexit6.i
+                                        //   in Loop: Header=BB19_10 Depth=1
+	jnz	rax, .LBB19_10
+	jmp	.LBB19_12
+.LBB19_12:                              // %.loopexit29
 	mov	r2, r3
-	jz	r4, .LBB17_14
-	jmp	.LBB17_13
-.LBB17_13:                              // %.preheader25.preheader
+	jz	r4, .LBB19_14
+	jmp	.LBB19_13
+.LBB19_13:                              // %.preheader25.preheader
 	mov	r5, r3
 	add	r5, 1
 	mov	r7, 69
 	mov	r2, r3
-	jmp	.LBB17_16
-.LBB17_14:                              // %.loopexit9.i5
+	jmp	.LBB19_16
+.LBB19_14:                              // %.loopexit9.i5
 	mov	r5, [r2]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -7575,11 +7107,11 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB17_21
-	jmp	.LBB17_15
-.LBB17_15:                              // %.preheader5.i7.preheader
-	jmp	.LBB17_19
-.LBB17_16:                              // %.preheader25
+	jne	rax, r6, .LBB19_21
+	jmp	.LBB19_15
+.LBB19_15:                              // %.preheader5.i7.preheader
+	jmp	.LBB19_19
+.LBB19_16:                              // %.preheader25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -7595,21 +7127,21 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB17_24
-	jmp	.LBB17_17
-.LBB17_17:                              // %.preheader25
-                                        //   in Loop: Header=BB17_16 Depth=1
-	je	rax, r7, .LBB17_35
-	jmp	.LBB17_18
-.LBB17_18:                              //   in Loop: Header=BB17_16 Depth=1
+	jz	rax, .LBB19_24
+	jmp	.LBB19_17
+.LBB19_17:                              // %.preheader25
+                                        //   in Loop: Header=BB19_16 Depth=1
+	je	rax, r7, .LBB19_35
+	jmp	.LBB19_18
+.LBB19_18:                              //   in Loop: Header=BB19_16 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r5
 	call	__bit_and
 	add	r5, 1
-	jz	rax, .LBB17_14
-	jmp	.LBB17_16
-.LBB17_19:                              // %.preheader5.i7
+	jz	rax, .LBB19_14
+	jmp	.LBB19_16
+.LBB19_19:                              // %.preheader5.i7
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 1162167621
 	mov	r0, r5
@@ -7621,9 +7153,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB17_21
-	jmp	.LBB17_20
-.LBB17_20:                              //   in Loop: Header=BB17_19 Depth=1
+	jne	rax, r6, .LBB19_21
+	jmp	.LBB19_20
+.LBB19_20:                              //   in Loop: Header=BB19_19 Depth=1
 	add	r2, 4
 	mov	r5, [r2]
 	mov	r0, 16843008
@@ -7633,12 +7165,12 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB17_19
-	jmp	.LBB17_21
-.LBB17_21:                              // %.loopexit6.i6.preheader
+	je	rax, r6, .LBB19_19
+	jmp	.LBB19_21
+.LBB19_21:                              // %.loopexit6.i6.preheader
 	add	r2, -1
 	mov	r6, 69
-.LBB17_22:                              // %.loopexit6.i6
+.LBB19_22:                              // %.loopexit6.i6
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -7655,17 +7187,17 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB17_34
-	jmp	.LBB17_23
-.LBB17_23:                              // %.loopexit6.i6
-                                        //   in Loop: Header=BB17_22 Depth=1
-	jnz	rax, .LBB17_22
-	jmp	.LBB17_24
-.LBB17_24:                              // %.loopexit
+	je	rax, r6, .LBB19_34
+	jmp	.LBB19_23
+.LBB19_23:                              // %.loopexit6.i6
+                                        //   in Loop: Header=BB19_22 Depth=1
+	jnz	rax, .LBB19_22
+	jmp	.LBB19_24
+.LBB19_24:                              // %.loopexit
 	mov	r5, r3
-	jz	r4, .LBB17_29
-	jmp	.LBB17_25
-.LBB17_25:
+	jz	r4, .LBB19_29
+	jmp	.LBB19_25
+.LBB19_25:
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -7681,14 +7213,14 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, r3
-	jz	rax, .LBB17_33
-	jmp	.LBB17_26
-.LBB17_26:                              // %.preheader1.i.preheader
+	jz	rax, .LBB19_33
+	jmp	.LBB19_26
+.LBB19_26:                              // %.preheader1.i.preheader
 	mov	r5, r3
 	add	r5, 1
 	mov	r2, r3
-	jmp	.LBB17_28
-.LBB17_27:                              //   in Loop: Header=BB17_28 Depth=1
+	jmp	.LBB19_28
+.LBB19_27:                              //   in Loop: Header=BB19_28 Depth=1
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -7704,21 +7236,21 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, rax
 	call	__bit_and
 	add	r5, 1
-	jz	rax, .LBB17_33
-	jmp	.LBB17_28
-.LBB17_28:                              // %.preheader1.i
+	jz	rax, .LBB19_33
+	jmp	.LBB19_28
+.LBB19_28:                              // %.preheader1.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
-	jnz	rax, .LBB17_27
-	jmp	.LBB17_29
-.LBB17_29:                              // %.loopexit.i.preheader
+	jnz	rax, .LBB19_27
+	jmp	.LBB19_29
+.LBB19_29:                              // %.loopexit.i.preheader
 	mov	r6, r5
 	add	r6, -1
 	mov	r7, -2139062144
-.LBB17_30:                              // %.loopexit.i
+.LBB19_30:                              // %.loopexit.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r5]
 	mov	r0, 16843008
@@ -7730,11 +7262,11 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	call	__bit_and
 	add	r5, 4
 	add	r6, 4
-	je	rax, r7, .LBB17_30
-	jmp	.LBB17_31
-.LBB17_31:                              // %.preheader.i.preheader
+	je	rax, r7, .LBB19_30
+	jmp	.LBB19_31
+.LBB19_31:                              // %.preheader.i.preheader
 	mov	r7, -4
-.LBB17_32:                              // %.preheader.i
+.LBB19_32:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, r7
@@ -7753,26 +7285,26 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	call	__bit_and
 	add	r2, 1
 	add	r7, 1
-	jnz	rax, .LBB17_32
-	jmp	.LBB17_33
-.LBB17_33:                              // %strlen.exit
-	jmp	.LBB17_38
-.LBB17_34:                              // %strchr.exit.loopexit
-	jmp	.LBB17_38
-.LBB17_35:                              // %strchr.exit.loopexit4
-	jmp	.LBB17_38
-.LBB17_36:                              // %strchr.exit.loopexit5
-	jmp	.LBB17_38
-.LBB17_37:                              // %strchr.exit.loopexit7
-.LBB17_38:                              // %strchr.exit
-	jz	r4, .LBB17_40
-	jmp	.LBB17_39
-.LBB17_39:                              // %.preheader.preheader
+	jnz	rax, .LBB19_32
+	jmp	.LBB19_33
+.LBB19_33:                              // %strlen.exit
+	jmp	.LBB19_38
+.LBB19_34:                              // %strchr.exit.loopexit
+	jmp	.LBB19_38
+.LBB19_35:                              // %strchr.exit.loopexit4
+	jmp	.LBB19_38
+.LBB19_36:                              // %strchr.exit.loopexit5
+	jmp	.LBB19_38
+.LBB19_37:                              // %strchr.exit.loopexit7
+.LBB19_38:                              // %strchr.exit
+	jz	r4, .LBB19_40
+	jmp	.LBB19_39
+.LBB19_39:                              // %.preheader.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r6, 46
-	jmp	.LBB17_42
-.LBB17_40:                              // %.loopexit9.i9
+	jmp	.LBB19_42
+.LBB19_40:                              // %.loopexit9.i9
 	mov	r4, [r3]
 	mov	r0, 16843008
 	sub	r0, r4
@@ -7782,11 +7314,11 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r5, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB17_47
-	jmp	.LBB17_41
-.LBB17_41:                              // %.preheader5.i12.preheader
-	jmp	.LBB17_45
-.LBB17_42:                              // %.preheader
+	jne	rax, r5, .LBB19_47
+	jmp	.LBB19_41
+.LBB19_41:                              // %.preheader5.i12.preheader
+	jmp	.LBB19_45
+.LBB19_42:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r3
@@ -7802,21 +7334,21 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB17_87
-	jmp	.LBB17_43
-.LBB17_43:                              // %.preheader
-                                        //   in Loop: Header=BB17_42 Depth=1
-	je	rax, r6, .LBB17_51
-	jmp	.LBB17_44
-.LBB17_44:                              //   in Loop: Header=BB17_42 Depth=1
+	jz	rax, .LBB19_87
+	jmp	.LBB19_43
+.LBB19_43:                              // %.preheader
+                                        //   in Loop: Header=BB19_42 Depth=1
+	je	rax, r6, .LBB19_51
+	jmp	.LBB19_44
+.LBB19_44:                              //   in Loop: Header=BB19_42 Depth=1
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jz	rax, .LBB17_40
-	jmp	.LBB17_42
-.LBB17_45:                              // %.preheader5.i12
+	jz	rax, .LBB19_40
+	jmp	.LBB19_42
+.LBB19_45:                              // %.preheader5.i12
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 774778414
 	mov	r0, r4
@@ -7828,9 +7360,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB17_47
-	jmp	.LBB17_46
-.LBB17_46:                              //   in Loop: Header=BB17_45 Depth=1
+	jne	rax, r5, .LBB19_47
+	jmp	.LBB19_46
+.LBB19_46:                              //   in Loop: Header=BB19_45 Depth=1
 	add	r3, 4
 	mov	r4, [r3]
 	mov	r0, 16843008
@@ -7840,12 +7372,12 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r5, .LBB17_45
-	jmp	.LBB17_47
-.LBB17_47:                              // %.loopexit6.i10.preheader
+	je	rax, r5, .LBB19_45
+	jmp	.LBB19_47
+.LBB19_47:                              // %.loopexit6.i10.preheader
 	add	r3, -1
 	mov	r5, 46
-.LBB17_48:                              // %.loopexit6.i10
+.LBB19_48:                              // %.loopexit6.i10
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
 	mov	r1, 2
@@ -7862,13 +7394,13 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r5, .LBB17_50
-	jmp	.LBB17_49
-.LBB17_49:                              // %.loopexit6.i10
-                                        //   in Loop: Header=BB17_48 Depth=1
-	jnz	rax, .LBB17_48
-	jmp	.LBB17_50
-.LBB17_50:
+	je	rax, r5, .LBB19_50
+	jmp	.LBB19_49
+.LBB19_49:                              // %.loopexit6.i10
+                                        //   in Loop: Header=BB19_48 Depth=1
+	jnz	rax, .LBB19_48
+	jmp	.LBB19_50
+.LBB19_50:
 	mov	r0, rax
 	call	__bit_and
 	mov	r1, 46
@@ -7892,28 +7424,28 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r1, r3
 	call	__bit_and
 	mov	r3, rax
-	jmp	.LBB17_52
-.LBB17_51:                              // %strchr.exit13.loopexit
-.LBB17_52:                              // %strchr.exit13
-	jz	r3, .LBB17_87
-	jmp	.LBB17_53
-.LBB17_53:                              // %strchr.exit13
+	jmp	.LBB19_52
+.LBB19_51:                              // %strchr.exit13.loopexit
+.LBB19_52:                              // %strchr.exit13
+	jz	r3, .LBB19_87
+	jmp	.LBB19_53
+.LBB19_53:                              // %strchr.exit13
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r4, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r4, .LBB17_87
-	jmp	.LBB17_54
-.LBB17_54:
+	jge	rax, r4, .LBB19_87
+	jmp	.LBB19_54
+.LBB19_54:
 	add	r3, 1
 	mov	r0, 1
 	mov	r6, 0
 	mov	t0, -3
 	mov	r7, 48
 	mov	r5, r2
-.LBB17_55:                              // =>This Inner Loop Header: Depth=1
+.LBB19_55:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, -2147483648
 	mov	r4, r5
 	mov	t2, r0
@@ -7924,9 +7456,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_xor
-	jle	rax, r5, .LBB17_57
-	jmp	.LBB17_56
-.LBB17_56:                              //   in Loop: Header=BB17_55 Depth=1
+	jle	rax, r5, .LBB19_57
+	jmp	.LBB19_56
+.LBB19_56:                              //   in Loop: Header=BB19_55 Depth=1
 	mov	r5, r4
 	add	r5, -1
 	mov	r1, 2
@@ -7949,9 +7481,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	add	t0, -1
 	mov	r6, t4
 	add	r6, -1
-	je	rax, r7, .LBB17_55
-	jmp	.LBB17_57
-.LBB17_57:
+	je	rax, r7, .LBB19_55
+	jmp	.LBB19_57
+.LBB19_57:
 	mov	r0, r4
 	mov	r1, r3
 	call	__bit_xor
@@ -7975,9 +7507,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, r2
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB17_62
-	jmp	.LBB17_58
-.LBB17_58:
+	jz	rax, .LBB19_62
+	jmp	.LBB19_58
+.LBB19_58:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -7993,14 +7525,14 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, r2
-	jz	rax, .LBB17_66
-	jmp	.LBB17_59
-.LBB17_59:                              // %.preheader1.i14.preheader
+	jz	rax, .LBB19_66
+	jmp	.LBB19_59
+.LBB19_59:                              // %.preheader1.i14.preheader
 	mov	r3, r2
 	add	r3, 1
 	mov	r6, r2
-	jmp	.LBB17_61
-.LBB17_60:                              //   in Loop: Header=BB17_61 Depth=1
+	jmp	.LBB19_61
+.LBB19_60:                              //   in Loop: Header=BB19_61 Depth=1
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -8016,21 +7548,21 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 1
-	jz	rax, .LBB17_66
-	jmp	.LBB17_61
-.LBB17_61:                              // %.preheader1.i14
+	jz	rax, .LBB19_66
+	jmp	.LBB19_61
+.LBB19_61:                              // %.preheader1.i14
                                         // =>This Inner Loop Header: Depth=1
 	add	r6, 1
 	mov	r1, 3
 	mov	r0, r6
 	call	__bit_and
-	jnz	rax, .LBB17_60
-	jmp	.LBB17_62
-.LBB17_62:                              // %.loopexit.i15.preheader
+	jnz	rax, .LBB19_60
+	jmp	.LBB19_62
+.LBB19_62:                              // %.loopexit.i15.preheader
 	mov	r7, r3
 	add	r7, -1
 	mov	t1, -2139062144
-.LBB17_63:                              // %.loopexit.i15
+.LBB19_63:                              // %.loopexit.i15
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r3]
 	mov	r0, 16843008
@@ -8042,11 +7574,11 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	call	__bit_and
 	add	r3, 4
 	add	r7, 4
-	je	rax, t1, .LBB17_63
-	jmp	.LBB17_64
-.LBB17_64:                              // %.preheader.i16.preheader
+	je	rax, t1, .LBB19_63
+	jmp	.LBB19_64
+.LBB19_64:                              // %.preheader.i16.preheader
 	mov	t1, -4
-.LBB17_65:                              // %.preheader.i16
+.LBB19_65:                              // %.preheader.i16
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, t1
@@ -8065,9 +7597,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	call	__bit_and
 	add	r6, 1
 	add	t1, 1
-	jnz	rax, .LBB17_65
-	jmp	.LBB17_66
-.LBB17_66:                              // %strlen.exit17
+	jnz	rax, .LBB19_65
+	jmp	.LBB19_66
+.LBB19_66:                              // %strlen.exit17
 	mov	r3, r6
 	sub	r3, r2
 	mov	r1, -2147483648
@@ -8077,9 +7609,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r7, rax
 	mov	r0, r2
 	call	__bit_xor
-	jge	rax, r7, .LBB17_76
-	jmp	.LBB17_67
-.LBB17_67:
+	jge	rax, r7, .LBB19_76
+	jmp	.LBB19_67
+.LBB19_67:
 	mov	r7, r2
 	add	r7, r3
 	mov	r0, r7
@@ -8087,25 +7619,25 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	t1, rax
 	mov	r0, r4
 	call	__bit_xor
-	jge	rax, t1, .LBB17_76
-	jmp	.LBB17_68
-.LBB17_68:
+	jge	rax, t1, .LBB19_76
+	jmp	.LBB19_68
+.LBB19_68:
 	add	r4, r3
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB17_73
-	jmp	.LBB17_69
-.LBB17_69:
+	jl	rax, r0, .LBB19_73
+	jmp	.LBB19_69
+.LBB19_69:
 	mov	r0, r7
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB17_74
-	jmp	.LBB17_70
-.LBB17_70:                              // %.preheader.i19.preheader
+	jnz	rax, .LBB19_74
+	jmp	.LBB19_70
+.LBB19_70:                              // %.preheader.i19.preheader
 	mov	r4, 0
 	sub	r4, r2
 	mov	r7, r2
@@ -8113,7 +7645,7 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	add	t2, r5
 	add	t3, r5
 	mov	r5, -2147483645
-.LBB17_71:                              // %.preheader.i19
+.LBB19_71:                              // %.preheader.i19
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r7
 	add	r0, r4
@@ -8131,20 +7663,20 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	add	t3, -4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r5, .LBB17_71
-	jmp	.LBB17_72
-.LBB17_72:                              // %.loopexit9.i20.loopexit
+	jg	rax, r5, .LBB19_71
+	jmp	.LBB19_72
+.LBB19_72:                              // %.loopexit9.i20.loopexit
 	add	r2, r3
 	add	t2, r6
 	mov	r4, t2
 	mov	r7, r2
-.LBB17_73:                              // %.loopexit9.i20
-	jz	r3, .LBB17_87
-	jmp	.LBB17_74
-.LBB17_74:                              // %.preheader227
+.LBB19_73:                              // %.loopexit9.i20
+	jz	r3, .LBB19_87
+	jmp	.LBB19_74
+.LBB19_74:                              // %.preheader227
 	add	r7, -1
 	add	r4, -1
-.LBB17_75:                              // =>This Inner Loop Header: Depth=1
+.LBB19_75:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	add	r3, -1
 	mov	r0, r7
@@ -8195,45 +7727,45 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	[r6], rax
 	add	r7, -1
 	add	r4, -1
-	jz	r3, .LBB17_87
-	jmp	.LBB17_75
-.LBB17_76:
+	jz	r3, .LBB19_87
+	jmp	.LBB19_75
+.LBB19_76:
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB17_84
-	jmp	.LBB17_77
-.LBB17_77:
+	jl	rax, r0, .LBB19_84
+	jmp	.LBB19_77
+.LBB19_77:
 	mov	r0, r4
 	mov	r1, r2
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB17_85
-	jmp	.LBB17_78
-.LBB17_78:
+	jnz	rax, .LBB19_85
+	jmp	.LBB19_78
+.LBB19_78:
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB17_80
-	jmp	.LBB17_79
-.LBB17_79:                              // %.preheader12.i.preheader
+	jl	rax, r0, .LBB19_80
+	jmp	.LBB19_79
+.LBB19_79:                              // %.preheader12.i.preheader
 	add	r5, t4
 	mov	r4, -2147483633
 	mov	r0, r2
-	jmp	.LBB17_82
-.LBB17_80:                              // %.preheader237
+	jmp	.LBB19_82
+.LBB19_80:                              // %.preheader237
 	mov	r5, -2147483645
-	jmp	.LBB17_83
-.LBB17_81:
+	jmp	.LBB19_83
+.LBB19_81:
 	add	r5, r2
 	mov	r0, 3
 	mov	r4, r5
-	jg	r3, r0, .LBB17_80
-	jmp	.LBB17_84
-.LBB17_82:                              // %.preheader12.i
+	jg	r3, r0, .LBB19_80
+	jmp	.LBB19_84
+.LBB19_82:                              // %.preheader12.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r0]
 	mov	r6, r0
@@ -8261,9 +7793,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, r2
-	jg	rax, r4, .LBB17_82
-	jmp	.LBB17_81
-.LBB17_83:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r4, .LBB19_82
+	jmp	.LBB19_81
+.LBB19_83:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r2]
 	add	r2, 4
 	mov	[r4], r0
@@ -8271,15 +7803,15 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	add	r4, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r5, .LBB17_83
-	jmp	.LBB17_84
-.LBB17_84:                              // %.loopexit11.i
-	jz	r3, .LBB17_87
-	jmp	.LBB17_85
-.LBB17_85:                              // %.preheader232
+	jg	rax, r5, .LBB19_83
+	jmp	.LBB19_84
+.LBB19_84:                              // %.loopexit11.i
+	jz	r3, .LBB19_87
+	jmp	.LBB19_85
+.LBB19_85:                              // %.preheader232
 	mov	r7, r2
 	mov	t1, r4
-.LBB17_86:                              // =>This Inner Loop Header: Depth=1
+.LBB19_86:                              // =>This Inner Loop Header: Depth=1
 	add	r3, -1
 	mov	r1, 2
 	add	r7, 1
@@ -8332,9 +7864,9 @@ trim_trailing_zeros_g:                  // @trim_trailing_zeros_g
 	mov	[r4], rax
 	mov	r2, r7
 	mov	r4, t1
-	jnz	r3, .LBB17_86
-	jmp	.LBB17_87
-.LBB17_87:                              // %memmove.exit
+	jnz	r3, .LBB19_86
+	jmp	.LBB19_87
+.LBB19_87:                              // %memmove.exit
 	ret
 // -- End function
 // -- Begin function gcvt_fast
@@ -8344,13 +7876,13 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r4, r3
 	mov	t2, r1
 	mov	t1, r0
-	jz	r4, .LBB18_69
-	jmp	.LBB18_1
-.LBB18_1:
+	jz	r4, .LBB20_69
+	jmp	.LBB20_1
+.LBB20_1:
 	mov	r0, 0
-	jg	r2, r0, .LBB18_3
-	jmp	.LBB18_2
-.LBB18_2:
+	jg	r2, r0, .LBB20_3
+	jmp	.LBB20_2
+.LBB20_2:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -8380,8 +7912,8 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB18_69
-.LBB18_3:
+	jmp	.LBB20_69
+.LBB20_3:
 	mov	t6, r2
 	add	r2, -63
 	mov	r1, 31
@@ -8403,9 +7935,9 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r2, t1
 	mov	r3, t2
 	call	__unorddf2
-	jz	rax, .LBB18_5
-	jmp	.LBB18_4
-.LBB18_4:
+	jz	rax, .LBB20_5
+	jmp	.LBB20_4
+.LBB20_4:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -8525,8 +8057,8 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB18_69
-.LBB18_5:
+	jmp	.LBB20_69
+.LBB20_5:
 	mov	r1, 2147483647
 	mov	r0, t2
 	call	__bit_and
@@ -8536,18 +8068,18 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, t1
 	mov	r1, rax
 	call	__gtdf2
-	jl	rax, r5, .LBB18_9
-	jmp	.LBB18_6
-.LBB18_6:
+	jl	rax, r5, .LBB20_9
+	jmp	.LBB20_6
+.LBB20_6:
 	mov	r2, 0
 	mov	r3, 0
 	mov	r0, t1
 	mov	r1, t2
 	call	__ltdf2
 	mov	r2, r4
-	jg	rax, t3, .LBB18_8
-	jmp	.LBB18_7
-.LBB18_7:
+	jg	rax, t3, .LBB20_8
+	jmp	.LBB20_7
+.LBB20_7:
 	mov	r2, r4
 	mov	r1, 3
 	add	r2, 1
@@ -8579,7 +8111,7 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-.LBB18_8:
+.LBB20_8:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -8699,17 +8231,17 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB18_69
-.LBB18_9:
+	jmp	.LBB20_69
+.LBB20_9:
 	mov	r2, 0
 	mov	r3, 0
 	mov	r0, t1
 	mov	r1, t2
 	call	__ltdf2
 	mov	r6, r4
-	jg	rax, t3, .LBB18_11
-	jmp	.LBB18_10
-.LBB18_10:
+	jg	rax, t3, .LBB20_11
+	jmp	.LBB20_10
+.LBB20_10:
 	mov	r6, r4
 	mov	r1, 3
 	add	r6, 1
@@ -8745,26 +8277,26 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, t2
 	call	__bit_xor
 	mov	t2, rax
-.LBB18_11:
+.LBB20_11:
 	mov	r2, 0
 	mov	r3, 0
 	mov	r5, 0
 	mov	r0, t1
 	mov	r1, t2
 	call	__eqdf2
-	jz	rax, .LBB18_14
-	jmp	.LBB18_12
-.LBB18_12:
+	jz	rax, .LBB20_14
+	jmp	.LBB20_12
+.LBB20_12:
 	mov	r3, 1076101120
 	mov	r0, t1
 	mov	r1, t2
 	call	__gedf2
-	jl	rax, r5, .LBB18_15
-	jmp	.LBB18_13
-.LBB18_13:                              // %.preheader29.preheader
+	jl	rax, r5, .LBB20_15
+	jmp	.LBB20_13
+.LBB20_13:                              // %.preheader29.preheader
 	mov	t3, 0
-	jmp	.LBB18_17
-.LBB18_14:
+	jmp	.LBB20_17
+.LBB20_14:
 	mov	r1, 3
 	mov	r0, r6
 	call	__bit_and
@@ -8824,8 +8356,8 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB18_69
-.LBB18_15:                              // %.loopexit30
+	jmp	.LBB20_69
+.LBB20_15:                              // %.loopexit30
 	add	r7, 63
 	mov	r3, 1072693248
 	mov	t7, 0
@@ -8833,12 +8365,12 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, t2
 	call	__ltdf2
 	mov	r0, -1
-	jg	rax, r0, .LBB18_18
-	jmp	.LBB18_16
-.LBB18_16:                              // %.preheader27.preheader
+	jg	rax, r0, .LBB20_18
+	jmp	.LBB20_16
+.LBB20_16:                              // %.preheader27.preheader
 	mov	t3, 0
-	jmp	.LBB18_19
-.LBB18_17:                              // %.preheader29
+	jmp	.LBB20_19
+.LBB20_17:                              // %.preheader29
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, -1717986918
 	mov	r3, 1069128089
@@ -8853,13 +8385,13 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, t1
 	mov	r1, t2
 	call	__ltdf2
-	jl	rax, t3, .LBB18_15
-	jmp	.LBB18_17
-.LBB18_18:                              // %.loopexit28
+	jl	rax, t3, .LBB20_15
+	jmp	.LBB20_17
+.LBB20_18:                              // %.loopexit28
 	mov	x0, r7
 	add	x0, 1
-	jmp	.LBB18_20
-.LBB18_19:                              // %.preheader27
+	jmp	.LBB20_20
+.LBB20_19:                              // %.preheader27
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, 0
 	mov	r3, 1076101120
@@ -8873,9 +8405,9 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, t1
 	mov	r1, t2
 	call	__ltdf2
-	jl	rax, t3, .LBB18_19
-	jmp	.LBB18_18
-.LBB18_20:                              // =>This Inner Loop Header: Depth=1
+	jl	rax, t3, .LBB20_19
+	jmp	.LBB20_18
+.LBB20_20:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, t1
 	mov	r1, t2
 	call	__fixdfsi
@@ -8934,9 +8466,9 @@ gcvt_fast:                              // @gcvt_fast
 	add	t7, 1
 	mov	t1, rax
 	mov	t2, t0
-	jne	x0, t7, .LBB18_20
-	jmp	.LBB18_21
-.LBB18_21:
+	jne	x0, t7, .LBB20_20
+	jmp	.LBB20_21
+.LBB20_21:
 	mov	r0, rsp
 	add	r0, r7
 	mov	r1, 2
@@ -8958,14 +8490,14 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, rax
 	call	__bit_sar
 	mov	r0, 53
-	jl	rax, r0, .LBB18_29
-	jmp	.LBB18_22
-.LBB18_22:                              // %.preheader26.preheader
+	jl	rax, r0, .LBB20_29
+	jmp	.LBB20_22
+.LBB20_22:                              // %.preheader26.preheader
 	mov	t2, r7
 	add	t2, -1
 	mov	t3, 57
 	mov	t4, 1
-.LBB18_23:                              // %.preheader26
+.LBB20_23:                              // %.preheader26
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, rsp
 	add	r2, t2
@@ -8983,9 +8515,9 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t3, .LBB18_26
-	jmp	.LBB18_24
-.LBB18_24:                              //   in Loop: Header=BB18_23 Depth=1
+	jne	rax, t3, .LBB20_26
+	jmp	.LBB20_24
+.LBB20_24:                              //   in Loop: Header=BB20_23 Depth=1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -9018,13 +8550,13 @@ gcvt_fast:                              // @gcvt_fast
 	add	t2, -1
 	add	r0, 1
 	mov	[r2], rax
-	jg	r0, t4, .LBB18_23
-	jmp	.LBB18_25
-.LBB18_25:                              // %.preheader25.preheader
+	jg	r0, t4, .LBB20_23
+	jmp	.LBB20_25
+.LBB20_25:                              // %.preheader25.preheader
 	mov	t3, 1
 	mov	t4, r7
-	jmp	.LBB18_27
-.LBB18_26:
+	jmp	.LBB20_27
+.LBB20_26:
 	mov	r1, 3
 	add	rax, 1
 	mov	r0, r2
@@ -9063,8 +8595,8 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB18_29
-.LBB18_27:                              // %.preheader25
+	jmp	.LBB20_29
+.LBB20_27:                              // %.preheader25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, rsp
 	mov	t5, t4
@@ -9118,9 +8650,9 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	mov	[r2], rax
 	add	t4, -1
-	jg	t5, t3, .LBB18_27
-	jmp	.LBB18_28
-.LBB18_28:
+	jg	t5, t3, .LBB20_27
+	jmp	.LBB20_28
+.LBB20_28:
 	mov	r1, 3
 	mov	r0, rsp
 	call	__bit_and
@@ -9151,18 +8683,18 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	mov	[r3], rax
 	add	r5, 1
-.LBB18_29:
+.LBB20_29:
 	mov	r0, 1
 	mov	t3, r7
-	je	t6, r0, .LBB18_35
-	jmp	.LBB18_30
-.LBB18_30:                              // %.preheader23.preheader
+	je	t6, r0, .LBB20_35
+	jmp	.LBB20_30
+.LBB20_30:                              // %.preheader23.preheader
 	mov	t4, r7
 	add	t4, -1
 	mov	r3, 2
 	mov	t1, 48
 	mov	t3, 1
-.LBB18_31:                              // %.preheader23
+.LBB20_31:                              // %.preheader23
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, rsp
 	add	r0, t4
@@ -9179,31 +8711,31 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t1, .LBB18_33
-	jmp	.LBB18_32
-.LBB18_32:                              //   in Loop: Header=BB18_31 Depth=1
+	jne	rax, t1, .LBB20_33
+	jmp	.LBB20_32
+.LBB20_32:                              //   in Loop: Header=BB20_31 Depth=1
 	mov	r0, t4
 	add	t4, -1
 	add	r0, 1
-	jg	r0, r3, .LBB18_31
-	jmp	.LBB18_35
-.LBB18_33:
+	jg	r0, r3, .LBB20_31
+	jmp	.LBB20_35
+.LBB20_33:
 	mov	t3, t4
 	mov	r0, -4
 	add	t3, 1
-	jl	r5, r0, .LBB18_38
-	jmp	.LBB18_34
-.LBB18_34:
-	jge	r5, r7, .LBB18_38
-	jmp	.LBB18_52
-.LBB18_35:                              // %.loopexit24
+	jl	r5, r0, .LBB20_38
+	jmp	.LBB20_34
+.LBB20_34:
+	jge	r5, r7, .LBB20_38
+	jmp	.LBB20_52
+.LBB20_35:                              // %.loopexit24
 	mov	r0, -4
-	jl	r5, r0, .LBB18_37
-	jmp	.LBB18_36
-.LBB18_36:                              // %.loopexit24
-	jl	r5, r7, .LBB18_52
-	jmp	.LBB18_37
-.LBB18_37:
+	jl	r5, r0, .LBB20_37
+	jmp	.LBB20_36
+.LBB20_36:                              // %.loopexit24
+	jl	r5, r7, .LBB20_52
+	jmp	.LBB20_37
+.LBB20_37:
 	mov	r1, 2
 	mov	r0, rsp
 	call	__bit_shr
@@ -9254,8 +8786,8 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	mov	[r6], rax
 	mov	r6, t1
-	jmp	.LBB18_42
-.LBB18_38:
+	jmp	.LBB20_42
+.LBB20_38:
 	mov	r1, 2
 	mov	t5, 2
 	mov	r0, rsp
@@ -9336,13 +8868,13 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jl	t3, t5, .LBB18_42
-	jmp	.LBB18_39
-.LBB18_39:                              // %.preheader21.preheader
+	jl	t3, t5, .LBB20_42
+	jmp	.LBB20_39
+.LBB20_39:                              // %.preheader21.preheader
 	mov	t3, rsp
 	mov	t2, 0
 	add	t3, 1
-.LBB18_40:                              // %.preheader21
+.LBB20_40:                              // %.preheader21
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, r6
 	mov	r0, t3
@@ -9395,11 +8927,11 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	add	t2, 1
 	mov	[r2], rax
-	jne	t4, t2, .LBB18_40
-	jmp	.LBB18_41
-.LBB18_41:                              // %.loopexit22.loopexit
+	jne	t4, t2, .LBB20_40
+	jmp	.LBB20_41
+.LBB20_41:                              // %.loopexit22.loopexit
 	add	r6, t2
-.LBB18_42:                              // %.loopexit22
+.LBB20_42:                              // %.loopexit22
 	mov	r2, r6
 	mov	r1, 3
 	add	r2, 1
@@ -9450,13 +8982,13 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_and
 	mov	r3, rax
 	add	r3, 43
-	jg	r5, t2, .LBB18_44
-	jmp	.LBB18_43
-.LBB18_43:
+	jg	r5, t2, .LBB20_44
+	jmp	.LBB20_43
+.LBB20_43:
 	mov	r0, 0
 	sub	r0, r5
 	mov	r5, r0
-.LBB18_44:
+.LBB20_44:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -9496,14 +9028,14 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r2, r6
 	mov	r0, 10
 	add	r2, 2
-	jl	r5, r0, .LBB18_46
-	jmp	.LBB18_45
-.LBB18_45:                              // %.preheader.preheader
+	jl	r5, r0, .LBB20_46
+	jmp	.LBB20_45
+.LBB20_45:                              // %.preheader.preheader
 	mov	t5, 0
 	mov	t6, 99
 	mov	r7, r5
-	jmp	.LBB18_47
-.LBB18_46:
+	jmp	.LBB20_47
+.LBB20_46:
 	mov	r1, 3
 	add	r6, 3
 	mov	r0, r2
@@ -9535,8 +9067,8 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	mov	[r2], rax
 	mov	r3, r6
-	jmp	.LBB18_51
-.LBB18_47:                              // %.preheader
+	jmp	.LBB20_51
+.LBB20_47:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r3, r7
 	mov	t1, r6
@@ -9585,20 +9117,20 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	mov	[t1], rax
 	add	t5, 1
-	jg	r3, t6, .LBB18_47
-	jmp	.LBB18_48
-.LBB18_48:
+	jg	r3, t6, .LBB20_47
+	jmp	.LBB20_48
+.LBB20_48:
 	add	r6, t5
 	add	t5, 1
 	mov	r3, r6
 	mov	r0, 3
 	add	r3, 2
-	jl	t5, r0, .LBB18_51
-	jmp	.LBB18_49
-.LBB18_49:
+	jl	t5, r0, .LBB20_51
+	jmp	.LBB20_49
+.LBB20_49:
 	mov	r7, r2
 	mov	t6, r6
-.LBB18_50:                              // =>This Inner Loop Header: Depth=1
+.LBB20_50:                              // =>This Inner Loop Header: Depth=1
 	mov	t1, r6
 	mov	r1, 2
 	add	t1, 1
@@ -9705,9 +9237,9 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_xor
 	mov	r6, t6
 	mov	r2, r7
-	jl	rax, t1, .LBB18_50
-	jmp	.LBB18_51
-.LBB18_51:                              // %.loopexit
+	jl	rax, t1, .LBB20_50
+	jmp	.LBB20_51
+.LBB20_51:                              // %.loopexit
 	mov	r1, 10
 	mov	r0, r5
 	call	__umodsi3
@@ -9749,19 +9281,19 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB18_68
-.LBB18_52:
+	jmp	.LBB20_68
+.LBB20_52:
 	mov	r0, 0
-	jl	r5, r0, .LBB18_60
-	jmp	.LBB18_53
-.LBB18_53:                              // %.preheader100.preheader
-.LBB18_54:                              // %.preheader100
+	jl	r5, r0, .LBB20_60
+	jmp	.LBB20_53
+.LBB20_53:                              // %.preheader100.preheader
+.LBB20_54:                              // %.preheader100
                                         // =>This Inner Loop Header: Depth=1
 	mov	t2, r0
 	mov	r3, 48
-	jge	t2, t3, .LBB18_56
-	jmp	.LBB18_55
-.LBB18_55:                              //   in Loop: Header=BB18_54 Depth=1
+	jge	t2, t3, .LBB20_56
+	jmp	.LBB20_55
+.LBB20_55:                              //   in Loop: Header=BB20_54 Depth=1
 	mov	r0, rsp
 	add	r0, t2
 	mov	r1, 2
@@ -9778,7 +9310,7 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, rax
-.LBB18_56:                              //   in Loop: Header=BB18_54 Depth=1
+.LBB20_56:                              //   in Loop: Header=BB20_54 Depth=1
 	mov	r2, r6
 	mov	r1, 3
 	add	r2, 1
@@ -9820,14 +9352,14 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r0, t2
 	add	r0, 1
 	mov	r6, r2
-	jne	t2, r5, .LBB18_54
-	jmp	.LBB18_57
-.LBB18_57:
+	jne	t2, r5, .LBB20_54
+	jmp	.LBB20_57
+.LBB20_57:
 	mov	r0, r5
 	add	r0, 1
-	jle	t3, r0, .LBB18_68
-	jmp	.LBB18_58
-.LBB18_58:
+	jle	t3, r0, .LBB20_68
+	jmp	.LBB20_58
+.LBB20_58:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -9861,7 +9393,7 @@ gcvt_fast:                              // @gcvt_fast
 	sub	t3, r5
 	add	t1, r5
 	mov	t2, 1
-.LBB18_59:                              // =>This Inner Loop Header: Depth=1
+.LBB20_59:                              // =>This Inner Loop Header: Depth=1
 	mov	r3, r2
 	mov	r0, t1
 	add	r0, t2
@@ -9913,9 +9445,9 @@ gcvt_fast:                              // @gcvt_fast
 	call	__bit_or
 	add	t2, 1
 	mov	[r3], rax
-	je	t3, t2, .LBB18_67
-	jmp	.LBB18_59
-.LBB18_60:
+	je	t3, t2, .LBB20_67
+	jmp	.LBB20_59
+.LBB20_60:
 	mov	r3, r6
 	mov	r1, 3
 	add	r3, 1
@@ -9979,23 +9511,23 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	je	r5, t2, .LBB18_63
-	jmp	.LBB18_61
-.LBB18_61:                              // %.preheader19.preheader
+	je	r5, t2, .LBB20_63
+	jmp	.LBB20_61
+.LBB20_61:                              // %.preheader19.preheader
 	mov	t1, 2
-	jmp	.LBB18_65
-.LBB18_62:                              // %.loopexit20.loopexit
+	jmp	.LBB20_65
+.LBB20_62:                              // %.loopexit20.loopexit
 	add	r6, t1
 	mov	r2, r6
-.LBB18_63:                              // %.loopexit20
+.LBB20_63:                              // %.loopexit20
 	mov	r0, 1
-	jl	t3, r0, .LBB18_68
-	jmp	.LBB18_64
-.LBB18_64:                              // %.preheader17.preheader
+	jl	t3, r0, .LBB20_68
+	jmp	.LBB20_64
+.LBB20_64:                              // %.preheader17.preheader
 	mov	r3, rsp
 	mov	r5, r2
-	jmp	.LBB18_66
-.LBB18_65:                              // %.preheader19
+	jmp	.LBB20_66
+.LBB20_65:                              // %.preheader19
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r6
 	add	r0, t1
@@ -10032,9 +9564,9 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, r5
 	call	__bit_xor
 	add	t1, 1
-	je	rax, t2, .LBB18_62
-	jmp	.LBB18_65
-.LBB18_66:                              // %.preheader17
+	je	rax, t2, .LBB20_62
+	jmp	.LBB20_65
+.LBB20_66:                              // %.preheader17
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r3
@@ -10087,11 +9619,11 @@ gcvt_fast:                              // @gcvt_fast
 	add	t3, -1
 	add	r3, 1
 	mov	r5, r2
-	jz	t3, .LBB18_68
-	jmp	.LBB18_66
-.LBB18_67:                              // %.loopexit16.loopexit
+	jz	t3, .LBB20_68
+	jmp	.LBB20_66
+.LBB20_67:                              // %.loopexit16.loopexit
 	add	r2, t2
-.LBB18_68:                              // %.loopexit16
+.LBB20_68:                              // %.loopexit16
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -10121,7 +9653,7 @@ gcvt_fast:                              // @gcvt_fast
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-.LBB18_69:
+.LBB20_69:
 	mov	rax, r4
 	mov	x0, [rsp-1]
 	ret
@@ -10138,9 +9670,9 @@ itoa:                                   // @itoa
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, 2147483612
-	jg	rax, r0, .LBB19_2
-	jmp	.LBB19_1
-.LBB19_1:
+	jg	rax, r0, .LBB21_2
+	jmp	.LBB21_1
+.LBB21_1:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -10171,16 +9703,16 @@ itoa:                                   // @itoa
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-	jmp	.LBB19_20
-.LBB19_2:
+	jmp	.LBB21_20
+.LBB21_2:
 	mov	r0, -1
-	jg	r4, r0, .LBB19_5
-	jmp	.LBB19_3
-.LBB19_3:
+	jg	r4, r0, .LBB21_5
+	jmp	.LBB21_3
+.LBB21_3:
 	mov	r0, 10
-	jne	r5, r0, .LBB19_5
-	jmp	.LBB19_4
-.LBB19_4:
+	jne	r5, r0, .LBB21_5
+	jmp	.LBB21_4
+.LBB21_4:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -10214,17 +9746,17 @@ itoa:                                   // @itoa
 	sub	r0, r4
 	mov	r3, 1
 	mov	r4, r0
-	jmp	.LBB19_7
-.LBB19_5:
+	jmp	.LBB21_7
+.LBB21_5:
 	mov	r0, 10
 	mov	r3, 0
-	je	r5, r0, .LBB19_7
-	jmp	.LBB19_6
-.LBB19_6:                               // %.preheader8.preheader
+	je	r5, r0, .LBB21_7
+	jmp	.LBB21_6
+.LBB21_6:                               // %.preheader8.preheader
 	mov	t3, 0
-	mov	t4, mcasm_static_33a7899256dc59416c82d429680e7cfe
-	jmp	.LBB19_16
-.LBB19_7:
+	mov	t4, mcasm_static_81a1c06102d7a90b5192a628c3bc5112
+	jmp	.LBB21_16
+.LBB21_7:
 	mov	r5, rsp
 	add	r5, 15
 	mov	r1, 3
@@ -10260,13 +9792,13 @@ itoa:                                   // @itoa
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483548
-	jl	rax, r0, .LBB19_10
-	jmp	.LBB19_8
-.LBB19_8:                               // %.preheader.preheader
-	mov	t5, mcasm_static_92917a51047e9c5473b9f087288fdab8
+	jl	rax, r0, .LBB21_10
+	jmp	.LBB21_8
+.LBB21_8:                               // %.preheader.preheader
+	mov	t5, mcasm_static_b7b83498ebf29d53a2dd2a18a0a51c3a
 	mov	t6, -2147473649
 	mov	r6, r4
-.LBB19_9:                               // %.preheader
+.LBB21_9:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 100
 	mov	r0, r6
@@ -10380,14 +9912,14 @@ itoa:                                   // @itoa
 	mov	r0, r6
 	call	__bit_xor
 	mov	r6, r4
-	jg	rax, t6, .LBB19_9
-	jmp	.LBB19_10
-.LBB19_10:                              // %.loopexit5
+	jg	rax, t6, .LBB21_9
+	jmp	.LBB21_10
+.LBB21_10:                              // %.loopexit5
 	mov	r0, 9
 	add	r3, r2
-	jg	r4, r0, .LBB19_12
-	jmp	.LBB19_11
-.LBB19_11:
+	jg	r4, r0, .LBB21_12
+	jmp	.LBB21_11
+.LBB21_11:
 	mov	r1, 48
 	mov	r0, r4
 	call	__bit_or
@@ -10430,14 +9962,14 @@ itoa:                                   // @itoa
 	mov	r1, rax
 	call	__bit_or
 	mov	[r7], rax
-	jmp	.LBB19_13
-.LBB19_12:
+	jmp	.LBB21_13
+.LBB21_12:
 	mov	r7, r5
 	mov	r1, 1
 	add	r7, -1
 	mov	r0, r4
 	call	__bit_shl
-	mov	r6, mcasm_static_92917a51047e9c5473b9f087288fdab8
+	mov	r6, mcasm_static_b7b83498ebf29d53a2dd2a18a0a51c3a
 	add	r6, rax
 	mov	r0, r6
 	add	r0, 1
@@ -10538,13 +10070,13 @@ itoa:                                   // @itoa
 	mov	t3, -2
 	mov	r0, 100
 	mov	t1, 0
-	je	r4, r0, .LBB19_15
-	jmp	.LBB19_13
-.LBB19_13:
+	je	r4, r0, .LBB21_15
+	jmp	.LBB21_13
+.LBB21_13:
 	add	t3, r5
 	add	t3, 1
 	mov	t1, 0
-.LBB19_14:                              // =>This Inner Loop Header: Depth=1
+.LBB21_14:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, t1
 	mov	r1, 3
@@ -10599,9 +10131,9 @@ itoa:                                   // @itoa
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jnz	r6, .LBB19_14
-	jmp	.LBB19_15
-.LBB19_15:                              // %.loopexit
+	jnz	r6, .LBB21_14
+	jmp	.LBB21_15
+.LBB21_15:                              // %.loopexit
 	add	r3, t1
 	mov	r1, 3
 	mov	r0, r3
@@ -10632,8 +10164,8 @@ itoa:                                   // @itoa
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB19_20
-.LBB19_16:                              // %.preheader8
+	jmp	.LBB21_20
+.LBB21_16:                              // %.preheader8
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r4
 	mov	r1, r5
@@ -10698,9 +10230,9 @@ itoa:                                   // @itoa
 	mov	r0, r5
 	call	__bit_xor
 	mov	r4, r3
-	jle	rax, r6, .LBB19_16
-	jmp	.LBB19_17
-.LBB19_17:
+	jle	rax, r6, .LBB21_16
+	jmp	.LBB21_17
+.LBB21_17:
 	mov	r0, r2
 	add	r0, t3
 	mov	r1, 3
@@ -10733,11 +10265,11 @@ itoa:                                   // @itoa
 	call	__bit_or
 	mov	r0, 1
 	mov	[r4], rax
-	je	t3, r0, .LBB19_20
-	jmp	.LBB19_18
-.LBB19_18:                              // %.preheader6.preheader
+	je	t3, r0, .LBB21_20
+	jmp	.LBB21_18
+.LBB21_18:                              // %.preheader6.preheader
 	add	t3, -1
-.LBB19_19:                              // %.preheader6
+.LBB21_19:                              // %.preheader6
                                         // =>This Inner Loop Header: Depth=1
 	mov	r5, r2
 	add	r5, t2
@@ -10839,9 +10371,9 @@ itoa:                                   // @itoa
 	add	t2, 1
 	add	t3, -1
 	mov	[r4], rax
-	jl	t2, t3, .LBB19_19
-	jmp	.LBB19_20
-.LBB19_20:                              // %.loopexit7
+	jl	t2, t3, .LBB21_19
+	jmp	.LBB21_20
+.LBB21_20:                              // %.loopexit7
 	mov	rax, r2
 	ret
 // -- End function
@@ -10850,13 +10382,13 @@ labs:                                   // @labs
 // %bb.0:
 	mov	r1, -1
 	mov	rax, r0
-	jg	rax, r1, .LBB20_2
-	jmp	.LBB20_1
-.LBB20_1:
+	jg	rax, r1, .LBB22_2
+	jmp	.LBB22_1
+.LBB22_1:
 	mov	r0, 0
 	sub	r0, rax
 	mov	rax, r0
-.LBB20_2:
+.LBB22_2:
 	ret
 // -- End function
 // -- Begin function malloc
@@ -10865,9 +10397,9 @@ malloc:                                 // @malloc
 	mov	r1, 16384
 	mov	r2, [r1]
 	mov	r3, 1296125004
-	je	r2, r3, .LBB21_2
-	jmp	.LBB21_1
-.LBB21_1:
+	je	r2, r3, .LBB23_2
+	jmp	.LBB23_1
+.LBB23_1:
 	mov	[r1], 1296125004
 	mov	r1, 16385
 	mov	[r1], 16387
@@ -10895,8 +10427,8 @@ malloc:                                 // @malloc
 	mov	r4, r2
 	add	r4, 1
 	add	r2, 2
-	jmp	.LBB21_17
-.LBB21_2:
+	jmp	.LBB23_17
+.LBB23_2:
 	mov	r1, 16386
 	mov	t2, [r1]
 	add	r0, 3
@@ -10921,11 +10453,11 @@ malloc:                                 // @malloc
 	mov	r4, r2
 	add	r4, 1
 	add	r2, 2
-	jz	t2, .LBB21_17
-	jmp	.LBB21_3
-.LBB21_3:                               // %.preheader.preheader
+	jz	t2, .LBB23_17
+	jmp	.LBB23_3
+.LBB23_3:                               // %.preheader.preheader
 	mov	r0, 0
-.LBB21_4:                               // %.preheader
+.LBB23_4:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	t1, t2
 	mov	r5, [t1]
@@ -10939,31 +10471,31 @@ malloc:                                 // @malloc
 	mov	r6, rax
 	mov	r0, r5
 	call	__bit_xor
-	jle	rax, r6, .LBB21_12
-	jmp	.LBB21_5
-.LBB21_5:
+	jle	rax, r6, .LBB23_12
+	jmp	.LBB23_5
+.LBB23_5:
 	add	r4, 3
 	mov	r0, r4
 	call	__bit_xor
 	mov	r4, rax
 	mov	r0, r5
 	call	__bit_xor
-	jge	rax, r4, .LBB21_9
-	jmp	.LBB21_6
-.LBB21_6:
-	jnz	r3, .LBB21_8
-	jmp	.LBB21_7
-.LBB21_7:
+	jge	rax, r4, .LBB23_9
+	jmp	.LBB23_6
+.LBB23_6:
+	jnz	r3, .LBB23_8
+	jmp	.LBB23_7
+.LBB23_7:
 	mov	r0, 16386
 	mov	[r0], t2
 	mov	r6, r7
-	jmp	.LBB21_20
-.LBB21_8:
+	jmp	.LBB23_20
+.LBB23_8:
 	add	r3, 1
 	mov	[r3], t2
 	mov	r6, r7
-	jmp	.LBB21_20
-.LBB21_9:
+	jmp	.LBB23_20
+.LBB23_9:
 	mov	r0, t1
 	add	r0, r2
 	sub	r5, r2
@@ -10972,38 +10504,38 @@ malloc:                                 // @malloc
 	add	r1, 1
 	mov	[r1], t2
 	mov	[t1], r2
-	jnz	r3, .LBB21_11
-	jmp	.LBB21_10
-.LBB21_10:
+	jnz	r3, .LBB23_11
+	jmp	.LBB23_10
+.LBB23_10:
 	mov	r1, 16386
 	mov	[r1], r0
 	mov	r6, r7
-	jmp	.LBB21_20
-.LBB21_11:
+	jmp	.LBB23_20
+.LBB23_11:
 	add	r3, 1
 	mov	[r3], r0
 	mov	r6, r7
-	jmp	.LBB21_20
-.LBB21_12:                              //   in Loop: Header=BB21_4 Depth=1
+	jmp	.LBB23_20
+.LBB23_12:                              //   in Loop: Header=BB23_4 Depth=1
 	mov	r0, t1
-	jnz	t2, .LBB21_4
-	jmp	.LBB21_13
-.LBB21_13:
+	jnz	t2, .LBB23_4
+	jmp	.LBB23_13
+.LBB23_13:
 	mov	r0, 16385
 	mov	t2, [r0]
 	mov	r0, r5
 	add	r0, t1
-	jne	t2, r0, .LBB21_17
-	jmp	.LBB21_14
-.LBB21_14:
+	jne	t2, r0, .LBB23_17
+	jmp	.LBB23_14
+.LBB23_14:
 	mov	r0, t2
 	add	r0, -8388609
 	mov	r6, 0
 	call	__bit_xor
 	mov	r0, 2139111426
-	jl	rax, r0, .LBB21_20
-	jmp	.LBB21_15
-.LBB21_15:
+	jl	rax, r0, .LBB23_20
+	jmp	.LBB23_15
+.LBB23_15:
 	mov	r4, r2
 	mov	r0, 8388608
 	sub	r0, t2
@@ -11012,9 +10544,9 @@ malloc:                                 // @malloc
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r5, .LBB21_20
-	jmp	.LBB21_16
-.LBB21_16:
+	jg	rax, r5, .LBB23_20
+	jmp	.LBB23_16
+.LBB23_16:
 	mov	r0, r3
 	call	__bit_not
 	add	rax, 1
@@ -11043,8 +10575,8 @@ malloc:                                 // @malloc
 	mov	[r3], r0
 	mov	[t1], r2
 	mov	r6, r7
-	jmp	.LBB21_20
-.LBB21_17:
+	jmp	.LBB23_20
+.LBB23_17:
 	mov	r0, 16385
 	mov	r3, [r0]
 	mov	r0, r3
@@ -11053,14 +10585,14 @@ malloc:                                 // @malloc
 	mov	r6, 0
 	call	__bit_xor
 	mov	r0, 2139111426
-	jl	rax, r0, .LBB21_20
-	jmp	.LBB21_18
-.LBB21_18:
+	jl	rax, r0, .LBB23_20
+	jmp	.LBB23_18
+.LBB23_18:
 	mov	r0, 8388608
 	sub	r0, r3
-	jge	r4, r0, .LBB21_20
-	jmp	.LBB21_19
-.LBB21_19:
+	jge	r4, r0, .LBB23_20
+	jmp	.LBB23_19
+.LBB23_19:
 	mov	r0, r3
 	add	r0, r2
 	mov	r1, 16385
@@ -11068,7 +10600,7 @@ malloc:                                 // @malloc
 	mov	[r3], r2
 	add	r3, 1
 	mov	r6, r3
-.LBB21_20:
+.LBB23_20:
 	mov	rax, r6
 	ret
 // -- End function
@@ -11076,15 +10608,15 @@ malloc:                                 // @malloc
 free:                                   // @free
 // %bb.0:
 	mov	r3, r0
-	jz	r3, .LBB22_18
-	jmp	.LBB22_1
-.LBB22_1:
+	jz	r3, .LBB24_18
+	jmp	.LBB24_1
+.LBB24_1:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r2, 1296125004
-	je	r1, r2, .LBB22_3
-	jmp	.LBB22_2
-.LBB22_2:
+	je	r1, r2, .LBB24_3
+	jmp	.LBB24_2
+.LBB24_2:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -11096,8 +10628,8 @@ free:                                   // @free
 	mov	r6, 0
 	mov	r2, 0
 	mov	rax, 0
-	jmp	.LBB22_8
-.LBB22_3:
+	jmp	.LBB24_8
+.LBB24_3:
 	mov	r0, 16386
 	mov	r2, [r0]
 	mov	r4, r3
@@ -11112,13 +10644,13 @@ free:                                   // @free
 	mov	r0, rax
 	call	__bit_shr
 	mov	r6, 0
-	jz	r2, .LBB22_8
-	jmp	.LBB22_4
-.LBB22_4:
-	jge	r2, r4, .LBB22_8
-	jmp	.LBB22_5
-.LBB22_5:                               // %.preheader.preheader
-.LBB22_6:                               // %.preheader
+	jz	r2, .LBB24_8
+	jmp	.LBB24_4
+.LBB24_4:
+	jge	r2, r4, .LBB24_8
+	jmp	.LBB24_5
+.LBB24_5:                               // %.preheader.preheader
+.LBB24_6:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r6, r2
 	mov	r0, r6
@@ -11132,58 +10664,58 @@ free:                                   // @free
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r2, .LBB22_8
-	jmp	.LBB22_7
-.LBB22_7:                               // %.preheader
-                                        //   in Loop: Header=BB22_6 Depth=1
-	jl	r2, r4, .LBB22_6
-	jmp	.LBB22_8
-.LBB22_8:                               // %.loopexit
-	jne	r2, r4, .LBB22_10
-	jmp	.LBB22_9
-.LBB22_9:
+	jz	r2, .LBB24_8
+	jmp	.LBB24_7
+.LBB24_7:                               // %.preheader
+                                        //   in Loop: Header=BB24_6 Depth=1
+	jl	r2, r4, .LBB24_6
+	jmp	.LBB24_8
+.LBB24_8:                               // %.loopexit
+	jne	r2, r4, .LBB24_10
+	jmp	.LBB24_9
+.LBB24_9:
 	call	abort
-.LBB22_10:
+.LBB24_10:
 	mov	r0, 16386
-	jz	r6, .LBB22_14
-	jmp	.LBB22_11
-.LBB22_11:
+	jz	r6, .LBB24_14
+	jmp	.LBB24_11
+.LBB24_11:
 	mov	r0, [r6]
 	mov	r1, r0
 	add	r1, r6
-	jne	r1, r4, .LBB22_13
-	jmp	.LBB22_12
-.LBB22_12:
+	jne	r1, r4, .LBB24_13
+	jmp	.LBB24_12
+.LBB24_12:
 	add	r0, r5
 	mov	[r6], r0
 	mov	r4, r6
-	jmp	.LBB22_15
-.LBB22_13:
+	jmp	.LBB24_15
+.LBB24_13:
 	add	r6, 1
 	mov	r0, r6
-.LBB22_14:
+.LBB24_14:
 	mov	[r0], r4
 	mov	[r3], r2
-.LBB22_15:
+.LBB24_15:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB22_18
-	jmp	.LBB22_16
-.LBB22_16:
+	jz	rax, .LBB24_18
+	jmp	.LBB24_16
+.LBB24_16:
 	mov	r0, [r4]
 	mov	r1, r0
 	add	r1, r4
-	jne	r1, r2, .LBB22_18
-	jmp	.LBB22_17
-.LBB22_17:
+	jne	r1, r2, .LBB24_18
+	jmp	.LBB24_17
+.LBB24_17:
 	add	r0, [r2]
 	mov	[r4], r0
 	add	r2, 1
 	mov	r0, [r2]
 	add	r4, 1
 	mov	[r4], r0
-.LBB22_18:
+.LBB24_18:
 	ret
 // -- End function
 // -- Begin function realloc
@@ -11193,22 +10725,22 @@ realloc:                                // @realloc
 	mov	[rsp-2], x1
 	mov	[rsp-3], x2
 	mov	r2, r0
-	jnz	r2, .LBB23_2
-	jmp	.LBB23_1
-.LBB23_1:
+	jnz	r2, .LBB25_2
+	jmp	.LBB25_1
+.LBB25_1:
 	mov	r0, r1
 	call	malloc
-	jmp	.LBB23_92
-.LBB23_2:
+	jmp	.LBB25_92
+.LBB25_2:
 	mov	r0, 16384
 	mov	r0, [r0]
-	jnz	r1, .LBB23_20
-	jmp	.LBB23_3
-.LBB23_3:
+	jnz	r1, .LBB25_20
+	jmp	.LBB25_3
+.LBB25_3:
 	mov	r1, 1296125004
-	je	r0, r1, .LBB23_5
-	jmp	.LBB23_4
-.LBB23_4:
+	je	r0, r1, .LBB25_5
+	jmp	.LBB25_4
+.LBB25_4:
 	mov	r0, 16384
 	mov	[r0], 1296125004
 	mov	r0, 16385
@@ -11221,8 +10753,8 @@ realloc:                                // @realloc
 	mov	r6, 0
 	mov	r3, 0
 	mov	rax, 0
-	jmp	.LBB23_10
-.LBB23_5:
+	jmp	.LBB25_10
+.LBB25_5:
 	mov	r0, 16386
 	mov	r3, [r0]
 	mov	r4, r2
@@ -11237,13 +10769,13 @@ realloc:                                // @realloc
 	mov	r0, rax
 	call	__bit_shr
 	mov	r6, 0
-	jz	r3, .LBB23_10
-	jmp	.LBB23_6
-.LBB23_6:
-	jge	r3, r4, .LBB23_10
-	jmp	.LBB23_7
-.LBB23_7:                               // %.preheader.preheader
-.LBB23_8:                               // %.preheader
+	jz	r3, .LBB25_10
+	jmp	.LBB25_6
+.LBB25_6:
+	jge	r3, r4, .LBB25_10
+	jmp	.LBB25_7
+.LBB25_7:                               // %.preheader.preheader
+.LBB25_8:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r6, r3
 	mov	r0, r6
@@ -11257,72 +10789,72 @@ realloc:                                // @realloc
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r3, .LBB23_10
-	jmp	.LBB23_9
-.LBB23_9:                               // %.preheader
-                                        //   in Loop: Header=BB23_8 Depth=1
-	jl	r3, r4, .LBB23_8
-	jmp	.LBB23_10
-.LBB23_10:                              // %.loopexit
-	jne	r3, r4, .LBB23_12
-	jmp	.LBB23_11
-.LBB23_11:
+	jz	r3, .LBB25_10
+	jmp	.LBB25_9
+.LBB25_9:                               // %.preheader
+                                        //   in Loop: Header=BB25_8 Depth=1
+	jl	r3, r4, .LBB25_8
+	jmp	.LBB25_10
+.LBB25_10:                              // %.loopexit
+	jne	r3, r4, .LBB25_12
+	jmp	.LBB25_11
+.LBB25_11:
 	call	abort
-.LBB23_12:
+.LBB25_12:
 	mov	r0, 16386
-	jz	r6, .LBB23_16
-	jmp	.LBB23_13
-.LBB23_13:
+	jz	r6, .LBB25_16
+	jmp	.LBB25_13
+.LBB25_13:
 	mov	r0, [r6]
 	mov	r1, r0
 	add	r1, r6
-	jne	r1, r4, .LBB23_15
-	jmp	.LBB23_14
-.LBB23_14:
+	jne	r1, r4, .LBB25_15
+	jmp	.LBB25_14
+.LBB25_14:
 	add	r0, r5
 	mov	[r6], r0
 	mov	r4, r6
-	jmp	.LBB23_17
-.LBB23_15:
+	jmp	.LBB25_17
+.LBB25_15:
 	add	r6, 1
 	mov	r0, r6
-.LBB23_16:
+.LBB25_16:
 	mov	[r0], r4
 	mov	[r2], r3
-.LBB23_17:
+.LBB25_17:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, 0
-	jz	r0, .LBB23_92
-	jmp	.LBB23_18
-.LBB23_18:
+	jz	r0, .LBB25_92
+	jmp	.LBB25_18
+.LBB25_18:
 	mov	r0, [r4]
 	mov	r1, r0
 	add	r1, r4
-	jne	r1, r3, .LBB23_92
-	jmp	.LBB23_19
-.LBB23_19:
+	jne	r1, r3, .LBB25_92
+	jmp	.LBB25_19
+.LBB25_19:
 	add	r0, [r3]
 	mov	[r4], r0
 	add	r3, 1
 	mov	r0, [r3]
 	add	r4, 1
 	mov	[r4], r0
-	jmp	.LBB23_92
-.LBB23_20:
+	jmp	.LBB25_92
+.LBB25_20:
 	mov	r3, 1296125004
-	je	r0, r3, .LBB23_22
-	jmp	.LBB23_21
-.LBB23_21:
+	je	r0, r3, .LBB25_22
+	jmp	.LBB25_21
+.LBB25_21:
 	mov	r0, 16384
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
 	mov	r0, 16386
 	mov	[r0], 0
-.LBB23_22:
+.LBB25_22:
 	mov	t6, r2
 	add	t6, -1
 	mov	r5, [t6]
@@ -11356,41 +10888,41 @@ realloc:                                // @realloc
 	mov	r6, rax
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, r6, .LBB23_73
-	jmp	.LBB23_23
-.LBB23_23:
+	jg	rax, r6, .LBB25_73
+	jmp	.LBB25_23
+.LBB25_23:
 	mov	r0, 16385
 	mov	r0, [r0]
 	mov	t1, r5
 	add	t1, t6
 	mov	r7, r4
 	sub	r7, r5
-	je	t1, r0, .LBB23_27
-	jmp	.LBB23_24
-.LBB23_24:
+	je	t1, r0, .LBB25_27
+	jmp	.LBB25_24
+.LBB25_24:
 	mov	r0, 16386
 	mov	r0, [r0]
 	mov	r6, 0
-	jz	r0, .LBB23_32
-	jmp	.LBB23_25
-.LBB23_25:
-	jge	r0, t1, .LBB23_32
-	jmp	.LBB23_26
-.LBB23_26:                              // %.preheader29.preheader
-	jmp	.LBB23_30
-.LBB23_27:
+	jz	r0, .LBB25_32
+	jmp	.LBB25_25
+.LBB25_25:
+	jge	r0, t1, .LBB25_32
+	jmp	.LBB25_26
+.LBB25_26:                              // %.preheader29.preheader
+	jmp	.LBB25_30
+.LBB25_27:
 	mov	r0, t1
 	add	r0, -8388609
 	call	__bit_xor
 	mov	r0, 2139111426
-	jl	rax, r0, .LBB23_39
-	jmp	.LBB23_28
-.LBB23_28:
+	jl	rax, r0, .LBB25_39
+	jmp	.LBB25_28
+.LBB25_28:
 	mov	r0, 8388608
 	sub	r0, t1
-	jg	r7, r0, .LBB23_39
-	jmp	.LBB23_29
-.LBB23_29:
+	jg	r7, r0, .LBB25_39
+	jmp	.LBB25_29
+.LBB25_29:
 	add	r3, r2
 	mov	r0, 16385
 	mov	[r0], r3
@@ -11398,22 +10930,22 @@ realloc:                                // @realloc
 	add	r0, -1
 	mov	[r0], r4
 	mov	rax, r2
-	jmp	.LBB23_92
-.LBB23_30:                              // %.preheader29
+	jmp	.LBB25_92
+.LBB25_30:                              // %.preheader29
                                         // =>This Inner Loop Header: Depth=1
 	mov	r6, r0
 	add	r0, 1
 	mov	r0, [r0]
-	jz	r0, .LBB23_32
-	jmp	.LBB23_31
-.LBB23_31:                              // %.preheader29
-                                        //   in Loop: Header=BB23_30 Depth=1
-	jl	r0, t1, .LBB23_30
-	jmp	.LBB23_32
-.LBB23_32:                              // %.loopexit30
-	jne	r0, t1, .LBB23_39
-	jmp	.LBB23_33
-.LBB23_33:
+	jz	r0, .LBB25_32
+	jmp	.LBB25_31
+.LBB25_31:                              // %.preheader29
+                                        //   in Loop: Header=BB25_30 Depth=1
+	jl	r0, t1, .LBB25_30
+	jmp	.LBB25_32
+.LBB25_32:                              // %.loopexit30
+	jne	r0, t1, .LBB25_39
+	jmp	.LBB25_33
+.LBB25_33:
 	mov	t1, [t1]
 	mov	r1, -2147483648
 	mov	r0, r7
@@ -11421,9 +10953,9 @@ realloc:                                // @realloc
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_xor
-	jl	rax, t2, .LBB23_39
-	jmp	.LBB23_34
-.LBB23_34:
+	jl	rax, t2, .LBB25_39
+	jmp	.LBB25_34
+.LBB25_34:
 	mov	r0, r5
 	add	r0, r2
 	mov	t3, [r0]
@@ -11433,24 +10965,24 @@ realloc:                                // @realloc
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_xor
-	jge	rax, t2, .LBB23_38
-	jmp	.LBB23_35
-.LBB23_35:
+	jge	rax, t2, .LBB25_38
+	jmp	.LBB25_35
+.LBB25_35:
 	add	t1, r5
 	mov	[t6], t1
-	jnz	r6, .LBB23_37
-	jmp	.LBB23_36
-.LBB23_36:
+	jnz	r6, .LBB25_37
+	jmp	.LBB25_36
+.LBB25_36:
 	mov	r0, 16386
 	mov	[r0], t3
 	mov	rax, r2
-	jmp	.LBB23_92
-.LBB23_37:
+	jmp	.LBB25_92
+.LBB25_37:
 	add	r6, 1
 	mov	[r6], t3
 	mov	rax, r2
-	jmp	.LBB23_92
-.LBB23_38:
+	jmp	.LBB25_92
+.LBB25_38:
 	add	r3, r2
 	sub	t1, r7
 	mov	[r3], t1
@@ -11483,15 +11015,15 @@ realloc:                                // @realloc
 	add	r0, -1
 	mov	[r0], r4
 	mov	rax, r2
-	jmp	.LBB23_92
-.LBB23_39:
+	jmp	.LBB25_92
+.LBB25_39:
 	mov	r0, t3
 	call	malloc
 	mov	r4, rax
 	mov	rax, 0
-	jz	r4, .LBB23_92
-	jmp	.LBB23_40
-.LBB23_40:
+	jz	r4, .LBB25_92
+	jmp	.LBB25_40
+.LBB25_40:
 	mov	r6, r0
 	mov	r1, 2
 	mov	r7, r4
@@ -11520,9 +11052,9 @@ realloc:                                // @realloc
 	mov	r0, -2147483632
 	mov	r6, r2
 	mov	r3, r7
-	jl	rax, r0, .LBB23_53
-	jmp	.LBB23_41
-.LBB23_41:
+	jl	rax, r0, .LBB25_53
+	jmp	.LBB25_41
+.LBB25_41:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
@@ -11531,7 +11063,7 @@ realloc:                                // @realloc
 	sub	t5, r5
 	mov	t7, 0
 	mov	r7, r2
-.LBB23_42:                              // =>This Inner Loop Header: Depth=1
+.LBB25_42:                              // =>This Inner Loop Header: Depth=1
 	mov	r6, r4
 	mov	r0, r2
 	add	r0, t7
@@ -11584,9 +11116,9 @@ realloc:                                // @realloc
 	mov	[r6], rax
 	add	t7, 1
 	add	r7, 1
-	jne	t5, t7, .LBB23_42
-	jmp	.LBB23_43
-.LBB23_43:
+	jne	t5, t7, .LBB25_42
+	jmp	.LBB25_43
+.LBB25_43:
 	mov	r1, -8
 	mov	r0, r5
 	call	__bit_or
@@ -11598,37 +11130,37 @@ realloc:                                // @realloc
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, rax
-	jnz	r0, .LBB23_50
-	jmp	.LBB23_44
-.LBB23_44:
+	jnz	r0, .LBB25_50
+	jmp	.LBB25_44
+.LBB25_44:
 	mov	r7, r4
 	mov	r1, -2147483648
 	add	r7, t7
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB23_46
-	jmp	.LBB23_45
-.LBB23_45:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB25_46
+	jmp	.LBB25_45
+.LBB25_45:                              // %.preheader.i.preheader
 	add	r4, t7
 	add	t7, r2
 	mov	r6, 0
 	mov	r7, -2147483633
-	jmp	.LBB23_48
-.LBB23_46:                              // %.preheader162
+	jmp	.LBB25_48
+.LBB25_46:                              // %.preheader162
 	mov	r4, -2147483645
 	mov	t1, r5
-	jmp	.LBB23_49
-.LBB23_47:
+	jmp	.LBB25_49
+.LBB25_47:
 	add	r4, r6
 	add	t7, r6
 	mov	r0, 3
 	mov	r7, r4
 	mov	r6, t7
 	mov	t1, r5
-	jg	r5, r0, .LBB23_46
-	jmp	.LBB23_53
-.LBB23_48:                              // %.preheader.i
+	jg	r5, r0, .LBB25_46
+	jmp	.LBB25_53
+.LBB25_48:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, t7
 	add	r0, r6
@@ -11657,9 +11189,9 @@ realloc:                                // @realloc
 	add	r6, 16
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, r7, .LBB23_48
-	jmp	.LBB23_47
-.LBB23_49:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r7, .LBB25_48
+	jmp	.LBB25_47
+.LBB25_49:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r6]
 	add	r6, 4
 	mov	[r7], r0
@@ -11667,9 +11199,9 @@ realloc:                                // @realloc
 	add	r7, 4
 	mov	r0, t1
 	call	__bit_xor
-	jg	rax, r4, .LBB23_49
-	jmp	.LBB23_53
-.LBB23_50:
+	jg	rax, r4, .LBB25_49
+	jmp	.LBB25_53
+.LBB25_50:
 	call	__bit_shl
 	mov	t1, rax
 	mov	t2, 8
@@ -11683,7 +11215,7 @@ realloc:                                // @realloc
 	mov	t3, [r0]
 	add	x1, 4
 	mov	x0, 0
-.LBB23_51:                              // =>This Inner Loop Header: Depth=1
+.LBB25_51:                              // =>This Inner Loop Header: Depth=1
 	mov	x2, r4
 	mov	r0, t7
 	add	r0, x0
@@ -11723,9 +11255,9 @@ realloc:                                // @realloc
 	mov	r0, r5
 	call	__bit_xor
 	mov	t3, t4
-	jge	rax, t5, .LBB23_51
-	jmp	.LBB23_52
-.LBB23_52:
+	jge	rax, t5, .LBB25_51
+	jmp	.LBB25_52
+.LBB25_52:
 	mov	r1, -4
 	mov	r0, r6
 	call	__bit_or
@@ -11742,15 +11274,15 @@ realloc:                                // @realloc
 	add	r4, x0
 	add	r6, 4
 	mov	r7, r4
-	jmp	.LBB23_54
-.LBB23_53:                              // %.loopexit8.i
+	jmp	.LBB25_54
+.LBB25_53:                              // %.loopexit8.i
 	mov	r5, t1
-	jz	t1, .LBB23_56
-	jmp	.LBB23_54
-.LBB23_54:                              // %.preheader159
+	jz	t1, .LBB25_56
+	jmp	.LBB25_54
+.LBB25_54:                              // %.preheader159
 	mov	t2, r6
 	mov	t3, r7
-.LBB23_55:                              // =>This Inner Loop Header: Depth=1
+.LBB25_55:                              // =>This Inner Loop Header: Depth=1
 	add	r5, -1
 	mov	r1, 2
 	add	t2, 1
@@ -11803,15 +11335,15 @@ realloc:                                // @realloc
 	mov	[r7], rax
 	mov	r7, t3
 	mov	r6, t2
-	jnz	r5, .LBB23_55
-	jmp	.LBB23_56
-.LBB23_56:                              // %memcpy.exit
+	jnz	r5, .LBB25_55
+	jmp	.LBB25_56
+.LBB25_56:                              // %memcpy.exit
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r4, 1296125004
-	je	r1, r4, .LBB23_58
-	jmp	.LBB23_57
-.LBB23_57:
+	je	r1, r4, .LBB25_58
+	jmp	.LBB25_57
+.LBB25_57:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -11821,8 +11353,8 @@ realloc:                                // @realloc
 	mov	r6, 0
 	mov	r4, 0
 	mov	rax, 0
-	jmp	.LBB23_63
-.LBB23_58:
+	jmp	.LBB25_63
+.LBB25_58:
 	mov	r0, 16386
 	mov	r4, [r0]
 	mov	r5, [t6]
@@ -11835,13 +11367,13 @@ realloc:                                // @realloc
 	mov	r0, rax
 	call	__bit_shr
 	mov	r6, 0
-	jz	r4, .LBB23_63
-	jmp	.LBB23_59
-.LBB23_59:
-	jge	r4, t6, .LBB23_63
-	jmp	.LBB23_60
-.LBB23_60:                              // %.preheader27.preheader
-.LBB23_61:                              // %.preheader27
+	jz	r4, .LBB25_63
+	jmp	.LBB25_59
+.LBB25_59:
+	jge	r4, t6, .LBB25_63
+	jmp	.LBB25_60
+.LBB25_60:                              // %.preheader27.preheader
+.LBB25_61:                              // %.preheader27
                                         // =>This Inner Loop Header: Depth=1
 	mov	r6, r4
 	mov	r0, r6
@@ -11855,70 +11387,70 @@ realloc:                                // @realloc
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r4, .LBB23_63
-	jmp	.LBB23_62
-.LBB23_62:                              // %.preheader27
-                                        //   in Loop: Header=BB23_61 Depth=1
-	jl	r4, t6, .LBB23_61
-	jmp	.LBB23_63
-.LBB23_63:                              // %.loopexit28
-	jne	r4, t6, .LBB23_65
-	jmp	.LBB23_64
-.LBB23_64:
+	jz	r4, .LBB25_63
+	jmp	.LBB25_62
+.LBB25_62:                              // %.preheader27
+                                        //   in Loop: Header=BB25_61 Depth=1
+	jl	r4, t6, .LBB25_61
+	jmp	.LBB25_63
+.LBB25_63:                              // %.loopexit28
+	jne	r4, t6, .LBB25_65
+	jmp	.LBB25_64
+.LBB25_64:
 	call	abort
-.LBB23_65:
+.LBB25_65:
 	mov	r0, 16386
-	jz	r6, .LBB23_69
-	jmp	.LBB23_66
-.LBB23_66:
+	jz	r6, .LBB25_69
+	jmp	.LBB25_66
+.LBB25_66:
 	mov	r0, [r6]
 	mov	r1, r0
 	add	r1, r6
-	jne	r1, t6, .LBB23_68
-	jmp	.LBB23_67
-.LBB23_67:
+	jne	r1, t6, .LBB25_68
+	jmp	.LBB25_67
+.LBB25_67:
 	add	r0, r5
 	mov	[r6], r0
 	mov	t6, r6
-	jmp	.LBB23_70
-.LBB23_68:
+	jmp	.LBB25_70
+.LBB25_68:
 	add	r6, 1
 	mov	r0, r6
-.LBB23_69:
+.LBB25_69:
 	mov	[r0], t6
 	mov	[r2], r4
-.LBB23_70:
+.LBB25_70:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r3
-	jz	r0, .LBB23_92
-	jmp	.LBB23_71
-.LBB23_71:
+	jz	r0, .LBB25_92
+	jmp	.LBB25_71
+.LBB25_71:
 	mov	r0, [t6]
 	mov	r1, r0
 	add	r1, t6
-	jne	r1, r4, .LBB23_92
-	jmp	.LBB23_72
-.LBB23_72:
+	jne	r1, r4, .LBB25_92
+	jmp	.LBB25_72
+.LBB25_72:
 	add	r0, [r4]
 	mov	[t6], r0
 	add	r4, 1
 	mov	r0, [r4]
 	add	t6, 1
 	mov	[t6], r0
-	jmp	.LBB23_92
-.LBB23_73:
+	jmp	.LBB25_92
+.LBB25_73:
 	sub	r5, r4
 	mov	r0, r5
 	call	__bit_xor
 	mov	r1, -2147483646
 	mov	r0, rax
 	mov	rax, r2
-	jl	r0, r1, .LBB23_92
-	jmp	.LBB23_74
-.LBB23_74:
+	jl	r0, r1, .LBB25_92
+	jmp	.LBB25_74
+.LBB25_74:
 	add	r3, r2
 	mov	r0, r2
 	add	r0, -1
@@ -11926,15 +11458,15 @@ realloc:                                // @realloc
 	add	r4, r2
 	mov	[r3], r5
 	mov	rax, r2
-	jz	r4, .LBB23_92
-	jmp	.LBB23_75
-.LBB23_75:
+	jz	r4, .LBB25_92
+	jmp	.LBB25_75
+.LBB25_75:
 	mov	r0, 16384
 	mov	r1, [r0]
 	mov	r6, 1296125004
-	je	r1, r6, .LBB23_77
-	jmp	.LBB23_76
-.LBB23_76:
+	je	r1, r6, .LBB25_77
+	jmp	.LBB25_76
+.LBB25_76:
 	mov	[r0], 1296125004
 	mov	r0, 16385
 	mov	[r0], 16387
@@ -11944,8 +11476,8 @@ realloc:                                // @realloc
 	mov	r7, 0
 	mov	r6, 0
 	mov	rax, 0
-	jmp	.LBB23_82
-.LBB23_77:
+	jmp	.LBB25_82
+.LBB25_77:
 	mov	r0, 16386
 	mov	r6, [r0]
 	mov	r0, r6
@@ -11957,13 +11489,13 @@ realloc:                                // @realloc
 	mov	r0, rax
 	call	__bit_shr
 	mov	r7, 0
-	jz	r6, .LBB23_82
-	jmp	.LBB23_78
-.LBB23_78:
-	jge	r6, r3, .LBB23_82
-	jmp	.LBB23_79
-.LBB23_79:                              // %.preheader25.preheader
-.LBB23_80:                              // %.preheader25
+	jz	r6, .LBB25_82
+	jmp	.LBB25_78
+.LBB25_78:
+	jge	r6, r3, .LBB25_82
+	jmp	.LBB25_79
+.LBB25_79:                              // %.preheader25.preheader
+.LBB25_80:                              // %.preheader25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, r6
 	mov	r0, r7
@@ -11977,54 +11509,54 @@ realloc:                                // @realloc
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jz	r6, .LBB23_82
-	jmp	.LBB23_81
-.LBB23_81:                              // %.preheader25
-                                        //   in Loop: Header=BB23_80 Depth=1
-	jl	r6, r3, .LBB23_80
-	jmp	.LBB23_82
-.LBB23_82:                              // %.loopexit26
-	jne	r6, r3, .LBB23_84
-	jmp	.LBB23_83
-.LBB23_83:
+	jz	r6, .LBB25_82
+	jmp	.LBB25_81
+.LBB25_81:                              // %.preheader25
+                                        //   in Loop: Header=BB25_80 Depth=1
+	jl	r6, r3, .LBB25_80
+	jmp	.LBB25_82
+.LBB25_82:                              // %.loopexit26
+	jne	r6, r3, .LBB25_84
+	jmp	.LBB25_83
+.LBB25_83:
 	call	abort
-.LBB23_84:
+.LBB25_84:
 	mov	r0, 16386
-	jz	r7, .LBB23_88
-	jmp	.LBB23_85
-.LBB23_85:
+	jz	r7, .LBB25_88
+	jmp	.LBB25_85
+.LBB25_85:
 	mov	r0, [r7]
 	mov	r1, r0
 	add	r1, r7
-	jne	r1, r3, .LBB23_87
-	jmp	.LBB23_86
-.LBB23_86:
+	jne	r1, r3, .LBB25_87
+	jmp	.LBB25_86
+.LBB25_86:
 	add	r0, r5
 	mov	[r7], r0
 	mov	r3, r7
-	jmp	.LBB23_89
-.LBB23_87:
+	jmp	.LBB25_89
+.LBB25_87:
 	add	r7, 1
 	mov	r0, r7
-.LBB23_88:
+.LBB25_88:
 	mov	[r0], r3
 	mov	[r4], r6
-.LBB23_89:
+.LBB25_89:
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r2
-	jz	r0, .LBB23_92
-	jmp	.LBB23_90
-.LBB23_90:
+	jz	r0, .LBB25_92
+	jmp	.LBB25_90
+.LBB25_90:
 	mov	r0, [r3]
 	mov	r1, r0
 	add	r1, r3
 	mov	rax, r2
-	jne	r1, r6, .LBB23_92
-	jmp	.LBB23_91
-.LBB23_91:
+	jne	r1, r6, .LBB25_92
+	jmp	.LBB25_91
+.LBB25_91:
 	add	r0, [r6]
 	mov	[r3], r0
 	add	r6, 1
@@ -12032,7 +11564,7 @@ realloc:                                // @realloc
 	add	r3, 1
 	mov	[r3], r0
 	mov	rax, r2
-.LBB23_92:
+.LBB25_92:
 	mov	x2, [rsp-3]
 	mov	x1, [rsp-2]
 	mov	x0, [rsp-1]
@@ -12043,9 +11575,9 @@ calloc:                                 // @calloc
 // %bb.0:
 	mov	r2, r1
 	mov	r5, r0
-	jz	r5, .LBB24_2
-	jmp	.LBB24_1
-.LBB24_1:
+	jz	r5, .LBB26_2
+	jmp	.LBB26_1
+.LBB26_1:
 	mov	r1, 0
 	mov	r3, 0
 	mov	r4, 0
@@ -12059,32 +11591,32 @@ calloc:                                 // @calloc
 	mov	r1, 31
 	mov	r0, rax
 	call	__bit_shr
-	jnz	rax, .LBB24_18
-	jmp	.LBB24_2
-.LBB24_2:
+	jnz	rax, .LBB26_18
+	jmp	.LBB26_2
+.LBB26_2:
 	mul	r2, r5
 	mov	r0, r2
 	call	malloc
 	mov	r3, rax
 	mov	r4, 0
-	jz	r3, .LBB24_18
-	jmp	.LBB24_3
-.LBB24_3:
+	jz	r3, .LBB26_18
+	jmp	.LBB26_3
+.LBB26_3:
 	mov	r1, 3
 	mov	r4, r3
 	mov	r0, r4
 	call	__bit_and
-	jz	rax, .LBB24_8
-	jmp	.LBB24_4
-.LBB24_4:                               // %.preheader2.preheader
+	jz	rax, .LBB26_8
+	jmp	.LBB26_4
+.LBB26_4:                               // %.preheader2.preheader
 	mov	t2, r3
 	add	t2, 1
 	mov	t1, 0
-.LBB24_5:                               // %.preheader2
+.LBB26_5:                               // %.preheader2
                                         // =>This Inner Loop Header: Depth=1
-	je	r2, t1, .LBB24_18
-	jmp	.LBB24_6
-.LBB24_6:                               //   in Loop: Header=BB24_5 Depth=1
+	je	r2, t1, .LBB26_18
+	jmp	.LBB26_6
+.LBB26_6:                               //   in Loop: Header=BB26_5 Depth=1
 	mov	r0, r3
 	add	r0, t1
 	mov	r1, 3
@@ -12120,35 +11652,35 @@ calloc:                                 // @calloc
 	mov	[r6], rax
 	call	__bit_and
 	add	t1, 1
-	jnz	rax, .LBB24_5
-	jmp	.LBB24_7
-.LBB24_7:                               // %.loopexit7.i.loopexit
+	jnz	rax, .LBB26_5
+	jmp	.LBB26_7
+.LBB26_7:                               // %.loopexit7.i.loopexit
 	add	r3, t1
 	sub	r2, t1
-.LBB24_8:                               // %.loopexit7.i
+.LBB26_8:                               // %.loopexit7.i
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB24_15
-	jmp	.LBB24_9
-.LBB24_9:
+	jl	rax, r0, .LBB26_15
+	jmp	.LBB26_9
+.LBB26_9:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB24_11
-	jmp	.LBB24_10
-.LBB24_10:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB26_11
+	jmp	.LBB26_10
+.LBB26_10:                              // %.preheader.i.preheader
 	mov	r5, -2147483633
-	jmp	.LBB24_13
-.LBB24_11:                              // %.preheader33
+	jmp	.LBB26_13
+.LBB26_11:                              // %.preheader33
 	mov	r5, -2147483645
-	jmp	.LBB24_14
-.LBB24_12:
+	jmp	.LBB26_14
+.LBB26_12:
 	mov	r0, 3
-	jg	r2, r0, .LBB24_11
-	jmp	.LBB24_15
-.LBB24_13:                              // %.preheader.i
+	jg	r2, r0, .LBB26_11
+	jmp	.LBB26_15
+.LBB26_13:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -12165,22 +11697,22 @@ calloc:                                 // @calloc
 	mov	[r0], 0
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB24_13
-	jmp	.LBB24_12
-.LBB24_14:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB26_13
+	jmp	.LBB26_12
+.LBB26_14:                              // =>This Inner Loop Header: Depth=1
 	mov	[r3], 0
 	add	r2, -4
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB24_14
-	jmp	.LBB24_15
-.LBB24_15:                              // %.loopexit5.i
-	jz	r2, .LBB24_18
-	jmp	.LBB24_16
-.LBB24_16:                              // %.preheader.preheader
+	jg	rax, r5, .LBB26_14
+	jmp	.LBB26_15
+.LBB26_15:                              // %.loopexit5.i
+	jz	r2, .LBB26_18
+	jmp	.LBB26_16
+.LBB26_16:                              // %.preheader.preheader
 	mov	r7, r3
-.LBB24_17:                              // %.preheader
+.LBB26_17:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 3
@@ -12214,9 +11746,9 @@ calloc:                                 // @calloc
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, r7
-	jnz	r2, .LBB24_17
-	jmp	.LBB24_18
-.LBB24_18:                              // %memset.exit
+	jnz	r2, .LBB26_17
+	jmp	.LBB26_18
+.LBB26_18:                              // %memset.exit
 	mov	rax, r4
 	ret
 // -- End function
@@ -12254,15 +11786,15 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, rax
-	jne	r2, r3, .LBB25_6
-	jmp	.LBB25_1
-.LBB25_1:
+	jne	r2, r3, .LBB27_6
+	jmp	.LBB27_1
+.LBB27_1:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jz	rax, .LBB25_3
-	jmp	.LBB25_2
-.LBB25_2:                               // %memcpy.exit38.loopexit175
+	jz	rax, .LBB27_3
+	jmp	.LBB27_2
+.LBB27_2:                               // %memcpy.exit38.loopexit175
 	mov	r2, r5
 	add	r2, 1
 	mov	r1, 3
@@ -12354,13 +11886,13 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB25_183
-.LBB25_3:
+	jmp	.LBB27_183
+.LBB27_3:
 	mov	r0, -1
 	mov	r4, 8
-	jg	t4, r0, .LBB25_5
-	jmp	.LBB25_4
-.LBB25_4:
+	jg	t4, r0, .LBB27_5
+	jmp	.LBB27_4
+.LBB27_4:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -12391,7 +11923,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r4, 9
-.LBB25_5:                               // %memcpy.exit38.loopexit
+.LBB27_5:                               // %memcpy.exit38.loopexit
 	mov	r1, 31
 	mov	r0, t4
 	call	__bit_shr
@@ -12641,22 +12173,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB25_183
-.LBB25_6:
+	jmp	.LBB27_183
+.LBB27_6:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jnz	rax, .LBB25_26
-	jmp	.LBB25_7
-.LBB25_7:
-	jnz	r2, .LBB25_26
-	jmp	.LBB25_8
-.LBB25_8:
+	jnz	rax, .LBB27_26
+	jmp	.LBB27_7
+.LBB27_7:
+	jnz	r2, .LBB27_26
+	jmp	.LBB27_8
+.LBB27_8:
 	mov	r0, -1
 	mov	r2, 0
-	jg	t4, r0, .LBB25_10
-	jmp	.LBB25_9
-.LBB25_9:
+	jg	t4, r0, .LBB27_10
+	jmp	.LBB27_9
+.LBB27_9:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -12687,7 +12219,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r2, 1
-.LBB25_10:
+.LBB27_10:
 	mov	r4, r2
 	mov	r7, r5
 	add	r7, r2
@@ -12721,9 +12253,9 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[t1], rax
-	jz	r6, .LBB25_183
-	jmp	.LBB25_11
-.LBB25_11:
+	jz	r6, .LBB27_183
+	jmp	.LBB27_11
+.LBB27_11:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_or
@@ -12763,17 +12295,17 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r5
 	call	__bit_and
 	mov	r3, r6
-	jz	rax, .LBB25_15
-	jmp	.LBB25_12
-.LBB25_12:                              // %.preheader78.preheader
+	jz	rax, .LBB27_15
+	jmp	.LBB27_12
+.LBB27_12:                              // %.preheader78.preheader
 	add	r7, 3
 	mov	r0, r5
 	mov	r3, r6
-.LBB25_13:                              // %.preheader78
+.LBB27_13:                              // %.preheader78
                                         // =>This Inner Loop Header: Depth=1
-	jz	r3, .LBB25_25
-	jmp	.LBB25_14
-.LBB25_14:                              //   in Loop: Header=BB25_13 Depth=1
+	jz	r3, .LBB27_25
+	jmp	.LBB27_14
+.LBB27_14:                              //   in Loop: Header=BB27_13 Depth=1
 	add	r3, -1
 	mov	r5, r0
 	mov	r1, 3
@@ -12810,32 +12342,32 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	add	r7, 1
 	mov	r0, r5
-	jnz	rax, .LBB25_13
-	jmp	.LBB25_15
-.LBB25_15:                              // %.loopexit7.i
+	jnz	rax, .LBB27_13
+	jmp	.LBB27_15
+.LBB27_15:                              // %.loopexit7.i
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB25_22
-	jmp	.LBB25_16
-.LBB25_16:
+	jl	rax, r0, .LBB27_22
+	jmp	.LBB27_16
+.LBB27_16:
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB25_18
-	jmp	.LBB25_17
-.LBB25_17:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB27_18
+	jmp	.LBB27_17
+.LBB27_17:                              // %.preheader.i.preheader
 	mov	r4, -2147483633
-	jmp	.LBB25_20
-.LBB25_18:                              // %.preheader432
+	jmp	.LBB27_20
+.LBB27_18:                              // %.preheader432
 	mov	r4, -2147483645
-	jmp	.LBB25_21
-.LBB25_19:
+	jmp	.LBB27_21
+.LBB27_19:
 	mov	r0, 3
-	jg	r3, r0, .LBB25_18
-	jmp	.LBB25_22
-.LBB25_20:                              // %.preheader.i
+	jg	r3, r0, .LBB27_18
+	jmp	.LBB27_22
+.LBB27_20:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 4
@@ -12852,22 +12384,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r4, .LBB25_20
-	jmp	.LBB25_19
-.LBB25_21:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r4, .LBB27_20
+	jmp	.LBB27_19
+.LBB27_21:                              // =>This Inner Loop Header: Depth=1
 	mov	[r5], 808464432
 	add	r3, -4
 	add	r5, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r4, .LBB25_21
-	jmp	.LBB25_22
-.LBB25_22:                              // %.loopexit5.i
-	jz	r3, .LBB25_25
-	jmp	.LBB25_23
-.LBB25_23:                              // %.preheader.preheader
+	jg	rax, r4, .LBB27_21
+	jmp	.LBB27_22
+.LBB27_22:                              // %.loopexit5.i
+	jz	r3, .LBB27_25
+	jmp	.LBB27_23
+.LBB27_23:                              // %.preheader.preheader
 	mov	t1, r5
-.LBB25_24:                              // %.preheader
+.LBB27_24:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, -1
 	mov	r1, 3
@@ -12901,33 +12433,33 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r5], rax
 	mov	r5, t1
-	jnz	r3, .LBB25_24
-	jmp	.LBB25_25
-.LBB25_25:                              // %memset.exit
+	jnz	r3, .LBB27_24
+	jmp	.LBB27_25
+.LBB27_25:                              // %memset.exit
 	add	r2, r6
 	mov	r4, r2
-	jmp	.LBB25_183
-.LBB25_26:
+	jmp	.LBB27_183
+.LBB27_26:
 	mov	r1, 1048576
 	mov	r0, t1
 	call	__bit_or
-	jz	r2, .LBB25_28
-	jmp	.LBB25_27
-.LBB25_27:
+	jz	r2, .LBB27_28
+	jmp	.LBB27_27
+.LBB27_27:
 	mov	t1, rax
-.LBB25_28:
+.LBB27_28:
 	mov	t2, -1074
-	jz	r2, .LBB25_30
-	jmp	.LBB25_29
-.LBB25_29:
+	jz	r2, .LBB27_30
+	jmp	.LBB27_29
+.LBB27_29:
 	add	r2, -1075
 	mov	t2, r2
-.LBB25_30:
+.LBB27_30:
 	mov	r0, -1
 	mov	r4, 0
-	jg	t4, r0, .LBB25_32
-	jmp	.LBB25_31
-.LBB25_31:
+	jg	t4, r0, .LBB27_32
+	jmp	.LBB27_31
+.LBB27_31:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -12958,12 +12490,12 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r4, 1
-.LBB25_32:
+.LBB27_32:
 	mov	r0, -52
 	mov	[rsp-23], t2
-	jl	t2, r0, .LBB25_76
-	jmp	.LBB25_33
-.LBB25_33:
+	jl	t2, r0, .LBB27_76
+	jmp	.LBB27_33
+.LBB27_33:
 	mov	r1, -2147483648
 	mov	r2, -2147483648
 	mov	t2, [rsp-23]
@@ -13004,15 +12536,15 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	x10, -4
 	mov	t2, 0
 	mov	x11, -2147483645
-	mov	x13, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	x13, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	mov	x14, 99999999
 	mov	x12, 10
 	mov	t6, t5
-.LBB25_34:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB25_38 Depth 2
-                                        //     Child Loop BB25_66 Depth 2
-                                        //     Child Loop BB25_47 Depth 2
-                                        //     Child Loop BB25_50 Depth 2
+.LBB27_34:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB27_38 Depth 2
+                                        //     Child Loop BB27_66 Depth 2
+                                        //     Child Loop BB27_47 Depth 2
+                                        //     Child Loop BB27_50 Depth 2
 	add	t6, -1
 	mov	r0, t4
 	mov	r1, t6
@@ -13022,19 +12554,19 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, t1
 	call	ryu_mul_shift_mod1e9_exact
 	mov	t7, rax
-	jnz	t2, .LBB25_39
-	jmp	.LBB25_35
-.LBB25_35:                              //   in Loop: Header=BB25_34 Depth=1
-	jnz	t7, .LBB25_53
-	jmp	.LBB25_36
-.LBB25_36:                              //   in Loop: Header=BB25_34 Depth=1
+	jnz	t2, .LBB27_39
+	jmp	.LBB27_35
+.LBB27_35:                              //   in Loop: Header=BB27_34 Depth=1
+	jnz	t7, .LBB27_53
+	jmp	.LBB27_36
+.LBB27_36:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	r0, 2
-	jl	t5, r0, .LBB25_76
-	jmp	.LBB25_37
-.LBB25_37:                              // %.preheader98.preheader
-                                        //   in Loop: Header=BB25_34 Depth=1
-.LBB25_38:                              // %.preheader98
-                                        //   Parent Loop BB25_34 Depth=1
+	jl	t5, r0, .LBB27_76
+	jmp	.LBB27_37
+.LBB27_37:                              // %.preheader98.preheader
+                                        //   in Loop: Header=BB27_34 Depth=1
+.LBB27_38:                              // %.preheader98
+                                        //   Parent Loop BB27_34 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	t6, t5
 	add	t6, -2
@@ -13046,15 +12578,15 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, t1
 	call	ryu_mul_shift_mod1e9_exact
 	mov	t7, rax
-	jz	t7, .LBB25_75
-	jmp	.LBB25_52
-.LBB25_39:                              //   in Loop: Header=BB25_34 Depth=1
+	jz	t7, .LBB27_75
+	jmp	.LBB27_52
+.LBB27_39:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	r2, r5
 	add	r2, r4
-	jz	t7, .LBB25_41
-	jmp	.LBB25_40
-.LBB25_40:                              // %memcpy.exit40
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jz	t7, .LBB27_41
+	jmp	.LBB27_40
+.LBB27_40:                              // %memcpy.exit40
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	x4, r2
 	mov	r1, 10000
 	add	x4, 7
@@ -13530,17 +13062,17 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB25_51
-.LBB25_41:                              //   in Loop: Header=BB25_34 Depth=1
+	jmp	.LBB27_51
+.LBB27_41:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
 	mov	x0, 9
 	mov	t7, r2
-	jz	rax, .LBB25_46
-	jmp	.LBB25_42
-.LBB25_42:                              // %.preheader95.preheader
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jz	rax, .LBB27_46
+	jmp	.LBB27_42
+.LBB27_42:                              // %.preheader95.preheader
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	t7, r2
 	add	t7, 1
 	mov	r0, r2
@@ -13575,10 +13107,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, t7
 	call	__bit_and
 	mov	x0, 8
-	jz	rax, .LBB25_46
-	jmp	.LBB25_43
-.LBB25_43:                              // %.preheader95.1
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jz	rax, .LBB27_46
+	jmp	.LBB27_43
+.LBB27_43:                              // %.preheader95.1
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	x1, r2
 	add	x1, 2
 	mov	r0, t7
@@ -13614,10 +13146,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	mov	x0, 7
 	mov	t7, x1
-	jz	rax, .LBB25_46
-	jmp	.LBB25_44
-.LBB25_44:                              // %.preheader95.2
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jz	rax, .LBB27_46
+	jmp	.LBB27_44
+.LBB27_44:                              // %.preheader95.2
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	t7, r2
 	add	t7, 3
 	mov	r0, x1
@@ -13652,10 +13184,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, t7
 	call	__bit_and
 	mov	x0, 6
-	jz	rax, .LBB25_46
-	jmp	.LBB25_45
-.LBB25_45:                              // %.preheader95.3
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jz	rax, .LBB27_46
+	jmp	.LBB27_45
+.LBB27_45:                              // %.preheader95.3
+                                        //   in Loop: Header=BB27_34 Depth=1
 	add	r2, 4
 	mov	r0, t7
 	call	__bit_and
@@ -13687,10 +13219,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[t7], rax
 	mov	x0, 5
 	mov	t7, r2
-.LBB25_46:                              // %.thread.preheader
-                                        //   in Loop: Header=BB25_34 Depth=1
-.LBB25_47:                              // %.thread
-                                        //   Parent Loop BB25_34 Depth=1
+.LBB27_46:                              // %.thread.preheader
+                                        //   in Loop: Header=BB27_34 Depth=1
+.LBB27_47:                              // %.thread
+                                        //   Parent Loop BB27_34 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	[t7], 808464432
 	add	x0, -4
@@ -13698,17 +13230,17 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	t7, 4
 	mov	r0, x0
 	call	__bit_xor
-	jg	rax, x11, .LBB25_47
-	jmp	.LBB25_48
-.LBB25_48:                              // %.loopexit5.i45
-                                        //   in Loop: Header=BB25_34 Depth=1
-	jz	x0, .LBB25_51
-	jmp	.LBB25_49
-.LBB25_49:                              // %.preheader94.preheader
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jg	rax, x11, .LBB27_47
+	jmp	.LBB27_48
+.LBB27_48:                              // %.loopexit5.i45
+                                        //   in Loop: Header=BB27_34 Depth=1
+	jz	x0, .LBB27_51
+	jmp	.LBB27_49
+.LBB27_49:                              // %.preheader94.preheader
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 0
-.LBB25_50:                              // %.preheader94
-                                        //   Parent Loop BB25_34 Depth=1
+.LBB27_50:                              // %.preheader94
+                                        //   Parent Loop BB27_34 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, t7
 	add	r0, t2
@@ -13741,78 +13273,78 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	add	t2, 1
 	mov	[x1], rax
-	jne	x0, t2, .LBB25_50
-	jmp	.LBB25_51
-.LBB25_51:                              // %memset.exit47
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jne	x0, t2, .LBB27_50
+	jmp	.LBB27_51
+.LBB27_51:                              // %memset.exit47
+                                        //   in Loop: Header=BB27_34 Depth=1
 	add	r4, 9
-	jmp	.LBB25_74
-.LBB25_52:                              // %.loopexit99.loopexit
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jmp	.LBB27_74
+.LBB27_52:                              // %.loopexit99.loopexit
+                                        //   in Loop: Header=BB27_34 Depth=1
 	add	t5, -1
-.LBB25_53:                              // %.loopexit99
-                                        //   in Loop: Header=BB25_34 Depth=1
+.LBB27_53:                              // %.loopexit99
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	r1, -2147483648
 	mov	r0, t7
 	call	__bit_xor
 	mov	r0, -1147483648
-	jl	rax, r0, .LBB25_55
-	jmp	.LBB25_54
-.LBB25_54:
+	jl	rax, r0, .LBB27_55
+	jmp	.LBB27_54
+.LBB27_54:
 	call	abort
-.LBB25_55:                              //   in Loop: Header=BB25_34 Depth=1
+.LBB27_55:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 9
 	mov	r2, r5
 	add	r2, r4
-	jg	t7, x14, .LBB25_65
-	jmp	.LBB25_56
-.LBB25_56:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, x14, .LBB27_65
+	jmp	.LBB27_56
+.LBB27_56:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 8
 	mov	r0, 9999999
-	jg	t7, r0, .LBB25_65
-	jmp	.LBB25_57
-.LBB25_57:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_65
+	jmp	.LBB27_57
+.LBB27_57:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 7
 	mov	r0, 999999
-	jg	t7, r0, .LBB25_65
-	jmp	.LBB25_58
-.LBB25_58:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_65
+	jmp	.LBB27_58
+.LBB27_58:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 6
 	mov	r0, 99999
-	jg	t7, r0, .LBB25_65
-	jmp	.LBB25_59
-.LBB25_59:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_65
+	jmp	.LBB27_59
+.LBB27_59:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 5
 	mov	r0, 9999
-	jg	t7, r0, .LBB25_65
-	jmp	.LBB25_60
-.LBB25_60:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_65
+	jmp	.LBB27_60
+.LBB27_60:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 4
 	mov	r0, 999
-	jg	t7, r0, .LBB25_64
-	jmp	.LBB25_61
-.LBB25_61:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_64
+	jmp	.LBB27_61
+.LBB27_61:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 3
 	mov	r0, 99
-	jg	t7, r0, .LBB25_64
-	jmp	.LBB25_62
-.LBB25_62:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_64
+	jmp	.LBB27_62
+.LBB27_62:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 2
 	mov	r0, 9
-	jg	t7, r0, .LBB25_64
-	jmp	.LBB25_63
-.LBB25_63:                              //   in Loop: Header=BB25_34 Depth=1
+	jg	t7, r0, .LBB27_64
+	jmp	.LBB27_63
+.LBB27_63:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 1
-.LBB25_64:                              //   in Loop: Header=BB25_34 Depth=1
+.LBB27_64:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	x0, 0
-	jmp	.LBB25_68
-.LBB25_65:                              //   in Loop: Header=BB25_34 Depth=1
+	jmp	.LBB27_68
+.LBB27_65:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t3, x10
 	add	t3, r4
 	add	t3, t2
 	mov	x15, 0
-.LBB25_66:                              // %memcpy.exit48
-                                        //   Parent Loop BB25_34 Depth=1
+.LBB27_66:                              // %memcpy.exit48
+                                        //   Parent Loop BB27_34 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 10000
 	mov	x0, t7
@@ -14037,19 +13569,19 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[x3], rax
 	add	x15, -4
-	jg	x0, x14, .LBB25_66
-	jmp	.LBB25_67
-.LBB25_67:                              // %.loopexit97.loopexit
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jg	x0, x14, .LBB27_66
+	jmp	.LBB27_67
+.LBB27_67:                              // %.loopexit97.loopexit
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	x0, 0
 	sub	x0, x15
-.LBB25_68:                              // %.loopexit97
-                                        //   in Loop: Header=BB25_34 Depth=1
+.LBB27_68:                              // %.loopexit97
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	r0, 100
-	jl	t7, r0, .LBB25_70
-	jmp	.LBB25_69
-.LBB25_69:                              // %memcpy.exit50
-                                        //   in Loop: Header=BB25_34 Depth=1
+	jl	t7, r0, .LBB27_70
+	jmp	.LBB27_69
+.LBB27_69:                              // %memcpy.exit50
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	x2, r5
 	mov	r1, 65532
 	add	x2, r4
@@ -14178,11 +13710,11 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	x0, rax
 	mov	t7, x1
-.LBB25_70:                              //   in Loop: Header=BB25_34 Depth=1
-	jl	t7, x12, .LBB25_72
-	jmp	.LBB25_71
-.LBB25_71:                              // %memcpy.exit51.loopexit
-                                        //   in Loop: Header=BB25_34 Depth=1
+.LBB27_70:                              //   in Loop: Header=BB27_34 Depth=1
+	jl	t7, x12, .LBB27_72
+	jmp	.LBB27_71
+.LBB27_71:                              // %memcpy.exit51.loopexit
+                                        //   in Loop: Header=BB27_34 Depth=1
 	mov	r2, r5
 	mov	r1, 1
 	add	r2, r4
@@ -14290,8 +13822,8 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB25_73
-.LBB25_72:                              //   in Loop: Header=BB25_34 Depth=1
+	jmp	.LBB27_73
+.LBB27_72:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	r1, 48
 	mov	r0, t7
 	call	__bit_or
@@ -14332,20 +13864,20 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-.LBB25_73:                              // %memcpy.exit51
-                                        //   in Loop: Header=BB25_34 Depth=1
+.LBB27_73:                              // %memcpy.exit51
+                                        //   in Loop: Header=BB27_34 Depth=1
 	add	r4, t2
-.LBB25_74:                              //   in Loop: Header=BB25_34 Depth=1
+.LBB27_74:                              //   in Loop: Header=BB27_34 Depth=1
 	mov	t2, 1
 	mov	r0, t5
 	mov	t5, t6
-	jg	r0, t2, .LBB25_34
-	jmp	.LBB25_77
-.LBB25_75:                              //   in Loop: Header=BB25_38 Depth=2
+	jg	r0, t2, .LBB27_34
+	jmp	.LBB27_77
+.LBB27_75:                              //   in Loop: Header=BB27_38 Depth=2
 	add	t5, -1
-	jg	t5, x9, .LBB25_38
-	jmp	.LBB25_76
-.LBB25_76:                              // %.loopexit100
+	jg	t5, x9, .LBB27_38
+	jmp	.LBB27_76
+.LBB27_76:                              // %.loopexit100
 	mov	r0, r5
 	add	r0, r4
 	mov	r1, 3
@@ -14377,10 +13909,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB25_77:                              // %.loopexit102
-	jz	r6, .LBB25_79
-	jmp	.LBB25_78
-.LBB25_78:
+.LBB27_77:                              // %.loopexit102
+	jz	r6, .LBB27_79
+	jmp	.LBB27_78
+.LBB27_78:
 	mov	r0, r5
 	add	r0, r4
 	mov	r1, 3
@@ -14412,23 +13944,23 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB25_79:
+.LBB27_79:
 	mov	r0, -1
 	mov	t2, [rsp-23]
-	jg	t2, r0, .LBB25_168
-	jmp	.LBB25_80
-.LBB25_80:
+	jg	t2, r0, .LBB27_168
+	jmp	.LBB27_80
+.LBB27_80:
 	mov	r0, -52
-	jl	t2, r0, .LBB25_82
-	jmp	.LBB25_81
-.LBB25_81:
+	jl	t2, r0, .LBB27_82
+	jmp	.LBB27_81
+.LBB27_81:
 	mov	r1, 9
 	mov	r0, r6
 	call	__udivsi3
 	mov	t4, rax
 	mov	t6, 0
-	jmp	.LBB25_100
-.LBB25_82:
+	jmp	.LBB27_100
+.LBB27_82:
 	mov	r0, t2
 	call	__bit_not
 	mul	rax, 78913
@@ -14463,27 +13995,27 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r6
 	call	__udivsi3
 	mov	t4, rax
-	jge	t4, r3, .LBB25_98
-	jmp	.LBB25_83
-.LBB25_83:
+	jge	t4, r3, .LBB27_98
+	jmp	.LBB27_83
+.LBB27_83:
 	mov	r3, r5
 	add	r3, r4
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r2, r6
-	jz	rax, .LBB25_87
-	jmp	.LBB25_84
-.LBB25_84:                              // %.preheader81.preheader
+	jz	rax, .LBB27_87
+	jmp	.LBB27_84
+.LBB27_84:                              // %.preheader81.preheader
 	add	r5, r4
 	add	r5, 1
 	mov	r0, r3
 	mov	r2, r6
-.LBB25_85:                              // %.preheader81
+.LBB27_85:                              // %.preheader81
                                         // =>This Inner Loop Header: Depth=1
-	jz	r2, .LBB25_97
-	jmp	.LBB25_86
-.LBB25_86:                              //   in Loop: Header=BB25_85 Depth=1
+	jz	r2, .LBB27_97
+	jmp	.LBB27_86
+.LBB27_86:                              //   in Loop: Header=BB27_85 Depth=1
 	add	r2, -1
 	mov	r3, r0
 	mov	r1, 3
@@ -14520,32 +14052,32 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	add	r5, 1
 	mov	r0, r3
-	jnz	rax, .LBB25_85
-	jmp	.LBB25_87
-.LBB25_87:                              // %.loopexit7.i52
+	jnz	rax, .LBB27_85
+	jmp	.LBB27_87
+.LBB27_87:                              // %.loopexit7.i52
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB25_94
-	jmp	.LBB25_88
-.LBB25_88:
+	jl	rax, r0, .LBB27_94
+	jmp	.LBB27_88
+.LBB27_88:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB25_90
-	jmp	.LBB25_89
-.LBB25_89:                              // %.preheader.i54.preheader
+	jl	rax, r0, .LBB27_90
+	jmp	.LBB27_89
+.LBB27_89:                              // %.preheader.i54.preheader
 	mov	r5, -2147483633
-	jmp	.LBB25_92
-.LBB25_90:                              // %.preheader440
+	jmp	.LBB27_92
+.LBB27_90:                              // %.preheader440
 	mov	r5, -2147483645
-	jmp	.LBB25_93
-.LBB25_91:
+	jmp	.LBB27_93
+.LBB27_91:
 	mov	r0, 3
-	jg	r2, r0, .LBB25_90
-	jmp	.LBB25_94
-.LBB25_92:                              // %.preheader.i54
+	jg	r2, r0, .LBB27_90
+	jmp	.LBB27_94
+.LBB27_92:                              // %.preheader.i54
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -14562,22 +14094,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_92
-	jmp	.LBB25_91
-.LBB25_93:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB27_92
+	jmp	.LBB27_91
+.LBB27_93:                              // =>This Inner Loop Header: Depth=1
 	mov	[r3], 808464432
 	add	r2, -4
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_93
-	jmp	.LBB25_94
-.LBB25_94:                              // %.loopexit5.i53
-	jz	r2, .LBB25_97
-	jmp	.LBB25_95
-.LBB25_95:                              // %.preheader80.preheader
+	jg	rax, r5, .LBB27_93
+	jmp	.LBB27_94
+.LBB27_94:                              // %.loopexit5.i53
+	jz	r2, .LBB27_97
+	jmp	.LBB27_95
+.LBB27_95:                              // %.preheader80.preheader
 	mov	t1, r3
-.LBB25_96:                              // %.preheader80
+.LBB27_96:                              // %.preheader80
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 3
@@ -14611,16 +14143,16 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, t1
-	jnz	r2, .LBB25_96
-	jmp	.LBB25_97
-.LBB25_97:                              // %memset.exit55
+	jnz	r2, .LBB27_96
+	jmp	.LBB27_97
+.LBB27_97:                              // %memset.exit55
 	add	r4, r6
-	jmp	.LBB25_183
-.LBB25_98:
+	jmp	.LBB27_183
+.LBB27_98:
 	mov	t6, 0
-	jz	r3, .LBB25_100
-	jmp	.LBB25_99
-.LBB25_99:
+	jz	r3, .LBB27_100
+	jmp	.LBB27_99
+.LBB27_99:
 	mov	r0, r5
 	add	r0, r4
 	mov	r2, r3
@@ -14629,18 +14161,18 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	memset
 	add	r4, r2
 	mov	t6, r3
-.LBB25_100:
+.LBB27_100:
 	mov	r2, 0
 	sub	r2, t2
-	jge	t6, t4, .LBB25_102
-	jmp	.LBB25_101
-.LBB25_101:
+	jge	t6, t4, .LBB27_102
+	jmp	.LBB27_101
+.LBB27_101:
 	mov	r0, t6
 	mul	r0, 9
 	add	r0, 9
-	jg	r0, r2, .LBB25_103
-	jmp	.LBB25_102
-.LBB25_102:
+	jg	r0, r2, .LBB27_103
+	jmp	.LBB27_102
+.LBB27_102:
 	mov	r0, t4
 	mul	r0, 9
 	mov	r1, r0
@@ -14667,9 +14199,9 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	t7, 16
 	add	t3, 20
 	mov	t2, -2147483645
-	mov	x13, mcasm_static_2de58166cf8331e41d2a5b19e324f343
-	jmp	.LBB25_118
-.LBB25_103:                             // %.loopexit90
+	mov	x13, mcasm_static_29af82f542537f86f33d7b3d416ba898
+	jmp	.LBB27_118
+.LBB27_103:                             // %.loopexit90
 	mul	t6, -9
 	mov	r3, r5
 	add	r3, r4
@@ -14678,18 +14210,18 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r3
 	call	__bit_and
 	mov	r2, t6
-	jz	rax, .LBB25_107
-	jmp	.LBB25_104
-.LBB25_104:                             // %.preheader84.preheader
+	jz	rax, .LBB27_107
+	jmp	.LBB27_104
+.LBB27_104:                             // %.preheader84.preheader
 	add	r5, r4
 	add	r5, 1
 	mov	r0, r3
 	mov	r2, t6
-.LBB25_105:                             // %.preheader84
+.LBB27_105:                             // %.preheader84
                                         // =>This Inner Loop Header: Depth=1
-	jz	r2, .LBB25_117
-	jmp	.LBB25_106
-.LBB25_106:                             //   in Loop: Header=BB25_105 Depth=1
+	jz	r2, .LBB27_117
+	jmp	.LBB27_106
+.LBB27_106:                             //   in Loop: Header=BB27_105 Depth=1
 	add	r2, -1
 	mov	r3, r0
 	mov	r1, 3
@@ -14726,32 +14258,32 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	add	r5, 1
 	mov	r0, r3
-	jnz	rax, .LBB25_105
-	jmp	.LBB25_107
-.LBB25_107:                             // %.loopexit7.i56
+	jnz	rax, .LBB27_105
+	jmp	.LBB27_107
+.LBB27_107:                             // %.loopexit7.i56
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB25_114
-	jmp	.LBB25_108
-.LBB25_108:
+	jl	rax, r0, .LBB27_114
+	jmp	.LBB27_108
+.LBB27_108:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB25_110
-	jmp	.LBB25_109
-.LBB25_109:                             // %.preheader.i58.preheader
+	jl	rax, r0, .LBB27_110
+	jmp	.LBB27_109
+.LBB27_109:                             // %.preheader.i58.preheader
 	mov	r5, -2147483633
-	jmp	.LBB25_112
-.LBB25_110:                             // %.preheader450
+	jmp	.LBB27_112
+.LBB27_110:                             // %.preheader450
 	mov	r5, -2147483645
-	jmp	.LBB25_113
-.LBB25_111:
+	jmp	.LBB27_113
+.LBB27_111:
 	mov	r0, 3
-	jg	r2, r0, .LBB25_110
-	jmp	.LBB25_114
-.LBB25_112:                             // %.preheader.i58
+	jg	r2, r0, .LBB27_110
+	jmp	.LBB27_114
+.LBB27_112:                             // %.preheader.i58
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -14768,22 +14300,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_112
-	jmp	.LBB25_111
-.LBB25_113:                             // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB27_112
+	jmp	.LBB27_111
+.LBB27_113:                             // =>This Inner Loop Header: Depth=1
 	mov	[r3], 808464432
 	add	r2, -4
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_113
-	jmp	.LBB25_114
-.LBB25_114:                             // %.loopexit5.i57
-	jz	r2, .LBB25_117
-	jmp	.LBB25_115
-.LBB25_115:                             // %.preheader83.preheader
+	jg	rax, r5, .LBB27_113
+	jmp	.LBB27_114
+.LBB27_114:                             // %.loopexit5.i57
+	jz	r2, .LBB27_117
+	jmp	.LBB27_115
+.LBB27_115:                             // %.preheader83.preheader
 	mov	r7, r3
-.LBB25_116:                             // %.preheader83
+.LBB27_116:                             // %.preheader83
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 3
@@ -14817,14 +14349,14 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, r7
-	jnz	r2, .LBB25_116
-	jmp	.LBB25_117
-.LBB25_117:                             // %memset.exit59
+	jnz	r2, .LBB27_116
+	jmp	.LBB27_117
+.LBB27_117:                             // %memset.exit59
 	add	r4, t6
-	jmp	.LBB25_183
-.LBB25_118:                             // =>This Loop Header: Depth=1
-                                        //     Child Loop BB25_127 Depth 2
-                                        //     Child Loop BB25_130 Depth 2
+	jmp	.LBB27_183
+.LBB27_118:                             // =>This Loop Header: Depth=1
+                                        //     Child Loop BB27_127 Depth 2
+                                        //     Child Loop BB27_130 Depth 2
 	mov	x14, t6
 	add	t6, 1
 	mov	x15, r2
@@ -15122,15 +14654,15 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r2, x0
 	mov	r3, x1
 	call	__adddi3
-	je	x14, t4, .LBB25_131
-	jmp	.LBB25_119
-.LBB25_119:                             //   in Loop: Header=BB25_118 Depth=1
+	je	x14, t4, .LBB27_131
+	jmp	.LBB27_119
+.LBB27_119:                             //   in Loop: Header=BB27_118 Depth=1
 	mov	r2, r5
 	add	r2, r4
-	jz	rax, .LBB25_121
-	jmp	.LBB25_120
-.LBB25_120:                             // %memcpy.exit60
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jz	rax, .LBB27_121
+	jmp	.LBB27_120
+.LBB27_120:                             // %memcpy.exit60
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	x4, r2
 	mov	r1, 10000
 	add	x4, 7
@@ -15607,17 +15139,17 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB25_149
-.LBB25_121:                             //   in Loop: Header=BB25_118 Depth=1
+	jmp	.LBB27_149
+.LBB27_121:                             //   in Loop: Header=BB27_118 Depth=1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
 	mov	x0, 9
 	mov	r3, r2
-	jz	rax, .LBB25_126
-	jmp	.LBB25_122
-.LBB25_122:                             // %.preheader88.preheader
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jz	rax, .LBB27_126
+	jmp	.LBB27_122
+.LBB27_122:                             // %.preheader88.preheader
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	r3, r2
 	add	r3, 1
 	mov	r0, r2
@@ -15652,10 +15184,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r3
 	call	__bit_and
 	mov	x0, 8
-	jz	rax, .LBB25_126
-	jmp	.LBB25_123
-.LBB25_123:                             // %.preheader88.1
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jz	rax, .LBB27_126
+	jmp	.LBB27_123
+.LBB27_123:                             // %.preheader88.1
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	x1, r2
 	add	x1, 2
 	mov	r0, r3
@@ -15691,10 +15223,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	mov	x0, 7
 	mov	r3, x1
-	jz	rax, .LBB25_126
-	jmp	.LBB25_124
-.LBB25_124:                             // %.preheader88.2
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jz	rax, .LBB27_126
+	jmp	.LBB27_124
+.LBB27_124:                             // %.preheader88.2
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	r3, r2
 	add	r3, 3
 	mov	r0, x1
@@ -15729,10 +15261,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r3
 	call	__bit_and
 	mov	x0, 6
-	jz	rax, .LBB25_126
-	jmp	.LBB25_125
-.LBB25_125:                             // %.preheader88.3
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jz	rax, .LBB27_126
+	jmp	.LBB27_125
+.LBB27_125:                             // %.preheader88.3
+                                        //   in Loop: Header=BB27_118 Depth=1
 	add	r2, 4
 	mov	r0, r3
 	call	__bit_and
@@ -15764,10 +15296,10 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[r3], rax
 	mov	x0, 5
 	mov	r3, r2
-.LBB25_126:                             // %.thread73.preheader
-                                        //   in Loop: Header=BB25_118 Depth=1
-.LBB25_127:                             // %.thread73
-                                        //   Parent Loop BB25_118 Depth=1
+.LBB27_126:                             // %.thread73.preheader
+                                        //   in Loop: Header=BB27_118 Depth=1
+.LBB27_127:                             // %.thread73
+                                        //   Parent Loop BB27_118 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	[r3], 808464432
 	add	x0, -4
@@ -15775,17 +15307,17 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	r3, 4
 	mov	r0, x0
 	call	__bit_xor
-	jg	rax, t2, .LBB25_127
-	jmp	.LBB25_128
-.LBB25_128:                             // %.loopexit5.i65
-                                        //   in Loop: Header=BB25_118 Depth=1
-	jz	x0, .LBB25_149
-	jmp	.LBB25_129
-.LBB25_129:                             // %.preheader87.preheader
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jg	rax, t2, .LBB27_127
+	jmp	.LBB27_128
+.LBB27_128:                             // %.loopexit5.i65
+                                        //   in Loop: Header=BB27_118 Depth=1
+	jz	x0, .LBB27_149
+	jmp	.LBB27_129
+.LBB27_129:                             // %.preheader87.preheader
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	x3, 0
-.LBB25_130:                             // %.preheader87
-                                        //   Parent Loop BB25_118 Depth=1
+.LBB27_130:                             // %.preheader87
+                                        //   Parent Loop BB27_118 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, r3
 	add	r0, x3
@@ -15818,18 +15350,18 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	add	x3, 1
 	mov	[x1], rax
-	je	x0, x3, .LBB25_149
-	jmp	.LBB25_130
-.LBB25_131:
+	je	x0, x3, .LBB27_149
+	jmp	.LBB27_130
+.LBB27_131:
 	mov	t6, rax
 	mul	t4, -9
 	add	t4, r6
 	mov	r1, 9
 	mov	r0, 0
 	mov	t2, [rsp-23]
-	je	t4, r1, .LBB25_135
-	jmp	.LBB25_132
-.LBB25_132:
+	je	t4, r1, .LBB27_135
+	jmp	.LBB27_132
+.LBB27_132:
 	mov	r0, 1
 	mov	r2, [rsp-27]
 	sub	r0, r2
@@ -15849,23 +15381,23 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	add	r2, 1
 	mov	rax, t6
 	mov	r1, 10
-	jmp	.LBB25_134
-.LBB25_133:
+	jmp	.LBB27_134
+.LBB27_133:
 	mov	t6, rax
 	mov	r0, rax
 	mul	r0, -10
 	add	r0, r3
 	mov	r1, 5
-	je	r0, r1, .LBB25_136
-	jmp	.LBB25_135
-.LBB25_134:                             // =>This Inner Loop Header: Depth=1
+	je	r0, r1, .LBB27_136
+	jmp	.LBB27_135
+.LBB27_134:                             // =>This Inner Loop Header: Depth=1
 	mov	r3, rax
 	mov	r0, r3
 	call	__udivsi3
 	add	r2, -1
-	jz	r2, .LBB25_133
-	jmp	.LBB25_134
-.LBB25_135:
+	jz	r2, .LBB27_133
+	jmp	.LBB27_134
+.LBB27_135:
 	mov	r1, -2147483648
 	call	__bit_xor
 	mov	r0, -2147483643
@@ -15878,30 +15410,30 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, rax
-	jmp	.LBB25_142
-.LBB25_136:
+	jmp	.LBB27_142
+.LBB27_136:
 	mov	r0, r6
 	call	__bit_not
 	mov	r3, rax
 	sub	r3, t2
 	mov	r0, 1
 	mov	r2, 2
-	jl	r3, r0, .LBB25_142
-	jmp	.LBB25_137
-.LBB25_137:
+	jl	r3, r0, .LBB27_142
+	jmp	.LBB27_137
+.LBB27_137:
 	mov	r0, 59
 	mov	r2, 1
-	jg	r3, r0, .LBB25_142
-	jmp	.LBB25_138
-.LBB25_138:
+	jg	r3, r0, .LBB27_142
+	jmp	.LBB27_138
+.LBB27_138:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jnz	rax, .LBB25_140
-	jmp	.LBB25_139
-.LBB25_139:
+	jnz	rax, .LBB27_140
+	jmp	.LBB27_139
+.LBB27_139:
 	call	abort
-.LBB25_140:
+.LBB27_140:
 	mov	r1, 31
 	mov	r0, r3
 	call	__bit_and
@@ -15973,24 +15505,24 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, r2
 	call	__bit_or
 	mov	r2, 2
-	jz	rax, .LBB25_142
-	jmp	.LBB25_141
-.LBB25_141:
+	jz	rax, .LBB27_142
+	jmp	.LBB27_141
+.LBB27_141:
 	mov	r2, 1
-.LBB25_142:
-	jz	t4, .LBB25_151
-	jmp	.LBB25_143
-.LBB25_143:
+.LBB27_142:
+	jz	t4, .LBB27_151
+	jmp	.LBB27_143
+.LBB27_143:
 	mov	r6, t4
 	add	r6, -1
 	mov	r3, 0
 	mov	r7, t6
-	jz	r6, .LBB25_146
-	jmp	.LBB25_144
-.LBB25_144:
-	mov	x0, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	jz	r6, .LBB27_146
+	jmp	.LBB27_144
+.LBB27_144:
+	mov	x0, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	mov	r0, r7
-.LBB25_145:                             // %memcpy.exit68
+.LBB27_145:                             // %memcpy.exit68
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 100
 	call	__udivsi3
@@ -16108,9 +15640,9 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, r7
-	jl	rax, t1, .LBB25_145
-	jmp	.LBB25_146
-.LBB25_146:                             // %.loopexit
+	jl	rax, t1, .LBB27_145
+	jmp	.LBB27_146
+.LBB27_146:                             // %.loopexit
 	mov	r6, r7
 	mov	r1, -2147483648
 	mov	r0, t4
@@ -16118,9 +15650,9 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r7, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r7, .LBB25_148
-	jmp	.LBB25_147
-.LBB25_147:
+	jge	rax, r7, .LBB27_148
+	jmp	.LBB27_147
+.LBB27_147:
 	mov	r7, r5
 	mov	r1, 10
 	add	r7, r4
@@ -16166,30 +15698,30 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r7], rax
-.LBB25_148:
+.LBB27_148:
 	add	r4, t4
-	jmp	.LBB25_151
-.LBB25_149:                             // %memset.exit67
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jmp	.LBB27_151
+.LBB27_149:                             // %memset.exit67
+                                        //   in Loop: Header=BB27_118 Depth=1
 	add	r4, 9
 	add	t5, 9
 	mov	r2, x15
-	jge	t6, t4, .LBB25_118
-	jmp	.LBB25_150
-.LBB25_150:                             // %memset.exit67
-                                        //   in Loop: Header=BB25_118 Depth=1
+	jge	t6, t4, .LBB27_118
+	jmp	.LBB27_150
+.LBB27_150:                             // %memset.exit67
+                                        //   in Loop: Header=BB27_118 Depth=1
 	mov	r0, t6
 	mul	r0, 9
 	add	r0, 9
-	jg	r0, r2, .LBB25_103
-	jmp	.LBB25_118
-.LBB25_151:
-	jz	r2, .LBB25_183
-	jmp	.LBB25_152
-.LBB25_152:
-	jz	r4, .LBB25_154
-	jmp	.LBB25_153
-.LBB25_153:                             // %.preheader86.preheader
+	jg	r0, r2, .LBB27_103
+	jmp	.LBB27_118
+.LBB27_151:
+	jz	r2, .LBB27_183
+	jmp	.LBB27_152
+.LBB27_152:
+	jz	r4, .LBB27_154
+	jmp	.LBB27_153
+.LBB27_153:                             // %.preheader86.preheader
 	mov	t2, r5
 	add	t2, -1
 	mov	r3, 0
@@ -16197,8 +15729,8 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	t4, 57
 	mov	r6, r4
 	mov	t5, r6
-	jmp	.LBB25_155
-.LBB25_154:
+	jmp	.LBB27_155
+.LBB27_154:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -16228,8 +15760,8 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB25_162
-.LBB25_155:                             // %.preheader86
+	jmp	.LBB27_162
+.LBB27_155:                             // %.preheader86
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, t2
 	add	r7, r6
@@ -16248,23 +15780,23 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, t3, .LBB25_158
-	jmp	.LBB25_156
-.LBB25_156:                             // %.preheader86
-                                        //   in Loop: Header=BB25_155 Depth=1
-	je	rax, t4, .LBB25_163
-	jmp	.LBB25_157
-.LBB25_157:                             // %.preheader86
+	je	rax, t3, .LBB27_158
+	jmp	.LBB27_156
+.LBB27_156:                             // %.preheader86
+                                        //   in Loop: Header=BB27_155 Depth=1
+	je	rax, t4, .LBB27_163
+	jmp	.LBB27_157
+.LBB27_157:                             // %.preheader86
 	mov	r0, 45
-	je	rax, r0, .LBB25_159
-	jmp	.LBB25_164
-.LBB25_158:                             // %.preheader86._crit_edge27
-                                        //   in Loop: Header=BB25_155 Depth=1
+	je	rax, r0, .LBB27_159
+	jmp	.LBB27_164
+.LBB27_158:                             // %.preheader86._crit_edge27
+                                        //   in Loop: Header=BB27_155 Depth=1
 	mov	r3, t5
-	jmp	.LBB25_167
-.LBB25_159:                             // %.preheader86._crit_edge
+	jmp	.LBB27_167
+.LBB27_159:                             // %.preheader86._crit_edge
 	mov	r0, r6
-.LBB25_160:
+.LBB27_160:
 	add	r0, r5
 	mov	r1, 3
 	call	__bit_and
@@ -16295,9 +15827,9 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	r0, 1
 	mov	[r6], rax
-	jl	r3, r0, .LBB25_162
-	jmp	.LBB25_161
-.LBB25_161:
+	jl	r3, r0, .LBB27_162
+	jmp	.LBB27_161
+.LBB27_161:
 	add	r3, r5
 	mov	r1, 3
 	mov	r0, r3
@@ -16358,7 +15890,7 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB25_162:
+.LBB27_162:
 	add	r5, r4
 	mov	r1, 3
 	add	r4, 1
@@ -16390,8 +15922,8 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB25_183
-.LBB25_163:                             //   in Loop: Header=BB25_155 Depth=1
+	jmp	.LBB27_183
+.LBB27_163:                             //   in Loop: Header=BB27_155 Depth=1
 	mov	r1, 3
 	mov	r0, r7
 	call	__bit_and
@@ -16422,22 +15954,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r6], rax
 	mov	r2, 1
-	jmp	.LBB25_167
-.LBB25_164:
+	jmp	.LBB27_167
+.LBB27_164:
 	mov	r1, 1
 	mov	r3, rax
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, 2
-	jne	r2, r0, .LBB25_166
-	jmp	.LBB25_165
-.LBB25_165:
+	jne	r2, r0, .LBB27_166
+	jmp	.LBB27_165
+.LBB27_165:
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB25_183
-	jmp	.LBB25_166
-.LBB25_166:
+	jz	rax, .LBB27_183
+	jmp	.LBB27_166
+.LBB27_166:
 	add	r6, r5
 	add	r6, -1
 	mov	r1, 3
@@ -16478,31 +16010,31 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-	jmp	.LBB25_183
-.LBB25_167:                             //   in Loop: Header=BB25_155 Depth=1
+	jmp	.LBB27_183
+.LBB27_167:                             //   in Loop: Header=BB27_155 Depth=1
 	mov	r0, 0
 	mov	r6, t5
-	jz	t5, .LBB25_160
-	jmp	.LBB25_155
-.LBB25_168:
+	jz	t5, .LBB27_160
+	jmp	.LBB27_155
+.LBB27_168:
 	mov	r3, r5
 	add	r3, r4
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r2, r6
-	jz	rax, .LBB25_172
-	jmp	.LBB25_169
-.LBB25_169:                             // %.preheader92.preheader
+	jz	rax, .LBB27_172
+	jmp	.LBB27_169
+.LBB27_169:                             // %.preheader92.preheader
 	add	r5, r4
 	add	r5, 1
 	mov	r0, r3
 	mov	r2, r6
-.LBB25_170:                             // %.preheader92
+.LBB27_170:                             // %.preheader92
                                         // =>This Inner Loop Header: Depth=1
-	jz	r2, .LBB25_182
-	jmp	.LBB25_171
-.LBB25_171:                             //   in Loop: Header=BB25_170 Depth=1
+	jz	r2, .LBB27_182
+	jmp	.LBB27_171
+.LBB27_171:                             //   in Loop: Header=BB27_170 Depth=1
 	add	r2, -1
 	mov	r3, r0
 	mov	r1, 3
@@ -16539,32 +16071,32 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_and
 	add	r5, 1
 	mov	r0, r3
-	jnz	rax, .LBB25_170
-	jmp	.LBB25_172
-.LBB25_172:                             // %.loopexit7.i69
+	jnz	rax, .LBB27_170
+	jmp	.LBB27_172
+.LBB27_172:                             // %.loopexit7.i69
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB25_179
-	jmp	.LBB25_173
-.LBB25_173:
+	jl	rax, r0, .LBB27_179
+	jmp	.LBB27_173
+.LBB27_173:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB25_175
-	jmp	.LBB25_174
-.LBB25_174:                             // %.preheader.i71.preheader
+	jl	rax, r0, .LBB27_175
+	jmp	.LBB27_174
+.LBB27_174:                             // %.preheader.i71.preheader
 	mov	r5, -2147483633
-	jmp	.LBB25_177
-.LBB25_175:                             // %.preheader481
+	jmp	.LBB27_177
+.LBB27_175:                             // %.preheader481
 	mov	r5, -2147483645
-	jmp	.LBB25_178
-.LBB25_176:
+	jmp	.LBB27_178
+.LBB27_176:
 	mov	r0, 3
-	jg	r2, r0, .LBB25_175
-	jmp	.LBB25_179
-.LBB25_177:                             // %.preheader.i71
+	jg	r2, r0, .LBB27_175
+	jmp	.LBB27_179
+.LBB27_177:                             // %.preheader.i71
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -16581,22 +16113,22 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_177
-	jmp	.LBB25_176
-.LBB25_178:                             // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB27_177
+	jmp	.LBB27_176
+.LBB27_178:                             // =>This Inner Loop Header: Depth=1
 	mov	[r3], 808464432
 	add	r2, -4
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB25_178
-	jmp	.LBB25_179
-.LBB25_179:                             // %.loopexit5.i70
-	jz	r2, .LBB25_182
-	jmp	.LBB25_180
-.LBB25_180:                             // %.preheader91.preheader
+	jg	rax, r5, .LBB27_178
+	jmp	.LBB27_179
+.LBB27_179:                             // %.loopexit5.i70
+	jz	r2, .LBB27_182
+	jmp	.LBB27_180
+.LBB27_180:                             // %.preheader91.preheader
 	mov	t1, r3
-.LBB25_181:                             // %.preheader91
+.LBB27_181:                             // %.preheader91
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 3
@@ -16630,11 +16162,11 @@ d2fixed_buffered_n:                     // @d2fixed_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, t1
-	jnz	r2, .LBB25_181
-	jmp	.LBB25_182
-.LBB25_182:                             // %memset.exit72
+	jnz	r2, .LBB27_181
+	jmp	.LBB27_182
+.LBB27_182:                             // %memset.exit72
 	add	r4, r6
-.LBB25_183:                             // %memcpy.exit38
+.LBB27_183:                             // %memcpy.exit38
 	mov	rax, r4
 	mov	x15, [rsp-16]
 	mov	x14, [rsp-15]
@@ -16664,9 +16196,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	add	r5, 128
 	mov	r0, -1
 	mov	r4, r2
-	jg	r5, r0, .LBB26_2
-	jmp	.LBB26_1
-.LBB26_1:
+	jg	r5, r0, .LBB28_2
+	jmp	.LBB28_1
+.LBB28_1:
 	mov	[r4], 1
 	mov	r0, r4
 	add	r0, 4
@@ -16682,8 +16214,8 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	add	r4, 20
 	mov	[r4], 0
 	mov	[r0], 0
-	jmp	.LBB26_19
-.LBB26_2:
+	jmp	.LBB28_19
+.LBB28_2:
 	mov	r6, rsp
 	mov	r7, rsp
 	mov	t1, rsp
@@ -16709,9 +16241,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	[t6], -2147483648
 	mov	[t4], 0
 	mov	r0, -255
-	jz	r3, .LBB26_9
-	jmp	.LBB26_3
-.LBB26_3:
+	jz	r3, .LBB28_9
+	jmp	.LBB28_3
+.LBB28_3:
 	mov	[rsp], -255
 	mov	[r7], 0
 	mov	[r6], 0
@@ -16730,13 +16262,13 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	[t2], -124440528
 	mov	[t6], -1989124287
 	mov	[t4], 917808535
-.LBB26_4:                               // =>This Inner Loop Header: Depth=1
+.LBB28_4:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 1
 	mov	r0, r3
 	call	__bit_and
-	jz	rax, .LBB26_6
-	jmp	.LBB26_5
-.LBB26_5:                               //   in Loop: Header=BB26_4 Depth=1
+	jz	rax, .LBB28_6
+	jmp	.LBB28_5
+.LBB28_5:                               //   in Loop: Header=BB28_4 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	mov	r2, rsp
@@ -16759,14 +16291,14 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	[r7], r1
 	mov	[r6], r2
 	mov	[rsp], t0
-.LBB26_6:                               //   in Loop: Header=BB26_4 Depth=1
+.LBB28_6:                               //   in Loop: Header=BB28_4 Depth=1
 	mov	r1, 1
 	mov	r0, r3
 	call	__bit_shr
 	mov	r3, rax
-	jz	r3, .LBB26_8
-	jmp	.LBB26_7
-.LBB26_7:                               //   in Loop: Header=BB26_4 Depth=1
+	jz	r3, .LBB28_8
+	jmp	.LBB28_7
+.LBB28_7:                               //   in Loop: Header=BB28_4 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	mov	r2, rsp
@@ -16789,8 +16321,8 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	[r7], r1
 	mov	[r6], r2
 	mov	[rsp], t0
-	jmp	.LBB26_4
-.LBB26_8:
+	jmp	.LBB28_4
+.LBB28_8:
 	mov	r0, [r6]
 	mov	r1, [r7]
 	mov	r2, [t1]
@@ -16810,7 +16342,7 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	[t2], r2
 	mov	[t5], r1
 	mov	[t4], r3
-.LBB26_9:
+.LBB28_9:
 	add	r0, r5
 	mov	[rsp], r0
 	mov	r0, rsp
@@ -16827,9 +16359,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	t1, [t1]
 	mov	r7, [r7]
 	mov	r0, -1
-	jne	rax, r0, .LBB26_13
-	jmp	.LBB26_10
-.LBB26_10:
+	jne	rax, r0, .LBB28_13
+	jmp	.LBB28_10
+.LBB28_10:
 	mov	r0, r7
 	mov	r1, t1
 	call	__adddi3
@@ -16838,9 +16370,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jnz	rax, .LBB26_13
-	jmp	.LBB26_11
-.LBB26_11:
+	jnz	rax, .LBB28_13
+	jmp	.LBB28_11
+.LBB28_11:
 	mov	r1, [t2]
 	mov	r0, [t3]
 	call	__adddi3
@@ -16851,15 +16383,15 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	call	__bit_or
 	mov	r7, 0
 	mov	t1, 0
-	jnz	rax, .LBB26_13
-	jmp	.LBB26_12
-.LBB26_12:
+	jnz	rax, .LBB28_13
+	jmp	.LBB28_12
+.LBB28_12:
 	mov	r1, [t4]
 	mov	r0, [t5]
 	call	__adddi3
 	mov	[t4], t0
 	mov	[t5], rax
-.LBB26_13:
+.LBB28_13:
 	mov	t2, [t2]
 	mov	t4, [t4]
 	mov	t5, [t5]
@@ -16867,18 +16399,18 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	r0, t5
 	mov	r1, t4
 	call	__bit_or
-	jnz	rax, .LBB26_17
-	jmp	.LBB26_14
-.LBB26_14:
+	jnz	rax, .LBB28_17
+	jmp	.LBB28_14
+.LBB28_14:
 	mov	r1, 1000000000
 	mov	r0, t3
 	call	__bit_xor
 	mov	r0, rax
 	mov	r1, t2
 	call	__bit_or
-	jnz	rax, .LBB26_16
-	jmp	.LBB26_15
-.LBB26_15:
+	jnz	rax, .LBB28_16
+	jmp	.LBB28_15
+.LBB28_15:
 	mov	r0, r7
 	mov	r1, r6
 	call	__bit_or
@@ -16893,9 +16425,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	t2, 0
 	mov	t3, 1000000000
 	mov	rax, 1000000000
-	jz	r0, .LBB26_18
-	jmp	.LBB26_17
-.LBB26_16:
+	jz	r0, .LBB28_18
+	jmp	.LBB28_17
+.LBB28_16:
 	mov	r0, t2
 	call	__bit_not
 	add	rax, 1
@@ -16923,9 +16455,9 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, t3
-	jnz	r0, .LBB26_18
-	jmp	.LBB26_17
-.LBB26_17:
+	jnz	r0, .LBB28_18
+	jmp	.LBB28_17
+.LBB28_17:
 	mov	r2, 1000000000
 	mov	r0, t5
 	mov	r1, t4
@@ -16973,7 +16505,7 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	mov	r3, t2
 	call	__adddi3
 	mov	t2, 0
-.LBB26_18:
+.LBB28_18:
 	mov	[r4], r6
 	mov	r0, r4
 	add	r0, 4
@@ -16989,7 +16521,7 @@ ryu_fill_pow10_split_exp:               // @ryu_fill_pow10_split_exp
 	add	r4, 20
 	mov	[r4], t2
 	mov	[r0], rax
-.LBB26_19:
+.LBB28_19:
 	ret
 // -- End function
 // -- Begin function ryu_mul_shift_mod1e9_exact
@@ -17240,9 +16772,9 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	[x7], t2
 	mov	x1, t2
 	mov	x2, r2
-	jz	t1, .LBB27_17
-	jmp	.LBB27_1
-.LBB27_1:
+	jz	t1, .LBB29_17
+	jmp	.LBB29_1
+.LBB29_1:
 	mov	r1, -2147483648
 	mov	r0, t1
 	call	__bit_xor
@@ -17255,9 +16787,9 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r6, 0
 	mov	r4, 0
 	mov	r5, 0
-	jg	rax, r0, .LBB27_17
-	jmp	.LBB27_2
-.LBB27_2:
+	jg	rax, r0, .LBB29_17
+	jmp	.LBB29_2
+.LBB29_2:
 	mov	r1, 6
 	mov	r0, t1
 	call	__bit_shr
@@ -17275,13 +16807,13 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r0, t5
 	add	r0, 4
 	mov	r5, [r0]
-	jnz	t3, .LBB27_6
-	jmp	.LBB27_3
-.LBB27_3:
+	jnz	t3, .LBB29_6
+	jmp	.LBB29_3
+.LBB29_3:
 	mov	r0, 191
-	jg	t1, r0, .LBB27_17
-	jmp	.LBB27_4
-.LBB27_4:
+	jg	t1, r0, .LBB29_17
+	jmp	.LBB29_4
+.LBB29_4:
 	mov	r0, t5
 	add	r0, 8
 	mov	r1, t5
@@ -17289,16 +16821,16 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r6, [r1]
 	mov	r7, [r0]
 	mov	r0, 127
-	jg	t1, r0, .LBB27_17
-	jmp	.LBB27_5
-.LBB27_5:
+	jg	t1, r0, .LBB29_17
+	jmp	.LBB29_5
+.LBB29_5:
 	mov	r0, t5
 	add	r0, 16
 	add	t5, 20
 	mov	t7, [t5]
 	mov	x0, [r0]
-	jmp	.LBB27_17
-.LBB27_6:
+	jmp	.LBB29_17
+.LBB29_6:
 	mov	t6, 64
 	mov	r1, 31
 	sub	t6, t3
@@ -17359,9 +16891,9 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, x1
 	call	__bit_and
 	mov	r5, rax
-	je	r3, x3, .LBB27_8
-	jmp	.LBB27_7
-.LBB27_7:
+	je	r3, x3, .LBB29_8
+	jmp	.LBB29_7
+.LBB29_7:
 	mov	r0, t5
 	add	r0, 8
 	mov	r1, t5
@@ -17433,14 +16965,14 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, r4
 	call	__bit_or
 	mov	r4, rax
-.LBB27_8:
+.LBB29_8:
 	mov	r0, 191
 	mov	r7, 0
 	mov	x0, 0
 	mov	t7, 0
-	jg	t1, r0, .LBB27_15
-	jmp	.LBB27_9
-.LBB27_9:
+	jg	t1, r0, .LBB29_15
+	jmp	.LBB29_9
+.LBB29_9:
 	mov	x1, r3
 	add	x1, 1
 	mov	r1, 3
@@ -17509,9 +17041,9 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, r6
 	call	__bit_and
 	mov	r6, rax
-	je	x1, x6, .LBB27_11
-	jmp	.LBB27_10
-.LBB27_10:
+	je	x1, x6, .LBB29_11
+	jmp	.LBB29_10
+.LBB29_10:
 	mov	r0, x2
 	add	r0, 8
 	add	x2, 12
@@ -17584,16 +17116,16 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r7, rax
 	mov	r0, 127
 	mov	x0, 0
-	jg	t1, r0, .LBB27_15
-	jmp	.LBB27_13
-.LBB27_11:
+	jg	t1, r0, .LBB29_15
+	jmp	.LBB29_13
+.LBB29_11:
 	mov	x1, 0
 	mov	r0, 127
 	mov	x2, 0
 	mov	x0, 0
-	jg	t1, r0, .LBB27_17
-	jmp	.LBB27_12
-.LBB27_12:
+	jg	t1, r0, .LBB29_17
+	jmp	.LBB29_12
+.LBB29_12:
 	mov	r0, t5
 	add	r0, 16
 	mov	t1, [r0]
@@ -17656,8 +17188,8 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, x4
 	call	__bit_and
 	mov	t7, rax
-	jmp	.LBB27_14
-.LBB27_13:
+	jmp	.LBB29_14
+.LBB29_13:
 	mov	r1, 31
 	mov	r0, t3
 	call	__bit_and
@@ -17717,9 +17249,9 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	t7, rax
 	mov	r0, 1
 	mov	x2, 0
-	je	r3, r0, .LBB27_17
-	jmp	.LBB27_14
-.LBB27_14:
+	je	r3, r0, .LBB29_17
+	jmp	.LBB29_14
+.LBB29_14:
 	mov	r0, t5
 	add	r0, 24
 	add	t5, 28
@@ -17791,7 +17323,7 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, x0
 	call	__bit_or
 	mov	x0, rax
-.LBB27_15:
+.LBB29_15:
 	mov	r1, 31
 	mov	r0, t3
 	call	__bit_and
@@ -17848,12 +17380,12 @@ ryu_mul_shift_mod1e9_exact:             // @ryu_mul_shift_mod1e9_exact
 	mov	r1, t5
 	call	__bit_and
 	mov	x2, rax
-	jz	r3, .LBB27_17
-	jmp	.LBB27_16
-.LBB27_16:
+	jz	r3, .LBB29_17
+	jmp	.LBB29_16
+.LBB29_16:
 	mov	x1, 0
 	mov	x2, 0
-.LBB27_17:
+.LBB29_17:
 	mov	r1, -512
 	mov	r0, x1
 	call	__bit_and
@@ -18038,13 +17570,13 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	[t6], 0
 	mov	[r7], -294967296
 	mov	[t7], 0
-.LBB28_1:                               // =>This Inner Loop Header: Depth=1
+.LBB30_1:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 1
 	mov	r0, r5
 	call	__bit_and
-	jz	rax, .LBB28_3
-	jmp	.LBB28_2
-.LBB28_2:                               //   in Loop: Header=BB28_1 Depth=1
+	jz	rax, .LBB30_3
+	jmp	.LBB30_2
+.LBB30_2:                               //   in Loop: Header=BB30_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	mov	r2, rsp
@@ -18067,14 +17599,14 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	[t2], r1
 	mov	[r6], r2
 	mov	[rsp], t0
-.LBB28_3:                               //   in Loop: Header=BB28_1 Depth=1
+.LBB30_3:                               //   in Loop: Header=BB30_1 Depth=1
 	mov	r1, 1
 	mov	r0, r5
 	call	__bit_shr
 	mov	r5, rax
-	jz	r5, .LBB28_5
-	jmp	.LBB28_4
-.LBB28_4:                               //   in Loop: Header=BB28_1 Depth=1
+	jz	r5, .LBB30_5
+	jmp	.LBB30_4
+.LBB30_4:                               //   in Loop: Header=BB30_1 Depth=1
 	mov	r0, rsp
 	mov	r1, rsp
 	mov	r2, rsp
@@ -18097,8 +17629,8 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	[t2], r1
 	mov	[r6], r2
 	mov	[rsp], t0
-	jmp	.LBB28_1
-.LBB28_5:
+	jmp	.LBB30_1
+.LBB30_5:
 	mov	r0, [r6]
 	mov	r1, [t2]
 	mov	r2, [t4]
@@ -18135,18 +17667,18 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	r0, t5
 	mov	r1, t4
 	call	__bit_or
-	jnz	rax, .LBB28_9
-	jmp	.LBB28_6
-.LBB28_6:
+	jnz	rax, .LBB30_9
+	jmp	.LBB30_6
+.LBB30_6:
 	mov	r1, 1000000000
 	mov	r0, t3
 	call	__bit_xor
 	mov	r0, rax
 	mov	r1, t2
 	call	__bit_or
-	jnz	rax, .LBB28_8
-	jmp	.LBB28_7
-.LBB28_7:
+	jnz	rax, .LBB30_8
+	jmp	.LBB30_7
+.LBB30_7:
 	mov	r0, r5
 	mov	r1, t1
 	call	__bit_or
@@ -18161,9 +17693,9 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	t2, 0
 	mov	t3, 1000000000
 	mov	rax, 1000000000
-	jz	r0, .LBB28_10
-	jmp	.LBB28_9
-.LBB28_8:
+	jz	r0, .LBB30_10
+	jmp	.LBB30_9
+.LBB30_8:
 	mov	r0, t2
 	call	__bit_not
 	add	rax, 1
@@ -18191,9 +17723,9 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, t3
-	jnz	r0, .LBB28_10
-	jmp	.LBB28_9
-.LBB28_9:
+	jnz	r0, .LBB30_10
+	jmp	.LBB30_9
+.LBB30_9:
 	mov	r2, 1000000000
 	mov	r3, 0
 	mov	r0, t5
@@ -18242,7 +17774,7 @@ ryu_fill_pow10_split_2_exp:             // @ryu_fill_pow10_split_2_exp
 	mov	r3, t2
 	call	__adddi3
 	mov	t2, 0
-.LBB28_10:
+.LBB30_10:
 	mov	[r4], t1
 	mov	r0, r4
 	add	r0, 4
@@ -20081,15 +19613,15 @@ ryu_dyadic256_quick_mul:                // @ryu_dyadic256_quick_mul
 	mov	r1, r5
 	call	__bit_or
 	mov	r0, 0
-	jl	r3, r0, .LBB29_3
-	jmp	.LBB29_1
-.LBB29_1:
+	jl	r3, r0, .LBB31_3
+	jmp	.LBB31_1
+.LBB31_1:
 	mov	r0, rax
 	mov	r1, r2
 	call	__bit_or
-	jz	rax, .LBB29_3
-	jmp	.LBB29_2
-.LBB29_2:
+	jz	rax, .LBB31_3
+	jmp	.LBB31_2
+.LBB31_2:
 	mov	r0, [rsp-30]
 	add	r0, 255
 	mov	r1, 1
@@ -20181,7 +19713,7 @@ ryu_dyadic256_quick_mul:                // @ryu_dyadic256_quick_mul
 	mov	[x0], r4
 	mov	[x3], r3
 	mov	[x2], r2
-.LBB29_3:
+.LBB31_3:
 	mov	x15, [rsp-16]
 	mov	x14, [rsp-15]
 	mov	x13, [rsp-14]
@@ -20263,9 +19795,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r0, r5
 	mov	r1, rax
 	call	__bit_or
-	jnz	rax, .LBB30_2
-	jmp	.LBB30_1
-.LBB30_1:
+	jnz	rax, .LBB32_2
+	jmp	.LBB32_1
+.LBB32_1:
 	mov	[r2], 0
 	mov	r0, r2
 	add	r0, 28
@@ -20287,13 +19819,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[r0], 0
 	add	r2, 4
 	mov	[r2], 0
-	jmp	.LBB30_41
-.LBB30_2:
+	jmp	.LBB32_41
+.LBB32_2:
 	mov	r5, [r3]
 	mov	r0, 1
-	jl	r5, r0, .LBB30_20
-	jmp	.LBB30_3
-.LBB30_3:
+	jl	r5, r0, .LBB32_20
+	jmp	.LBB32_3
+.LBB32_3:
 	mov	r0, r7
 	add	r0, 28
 	mov	r0, [r0]
@@ -20361,9 +19893,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[x4], 0
 	mov	r0, 255
 	mov	[r2], 0
-	jg	r5, r0, .LBB30_19
-	jmp	.LBB30_4
-.LBB30_4:
+	jg	r5, r0, .LBB32_19
+	jmp	.LBB32_4
+.LBB32_4:
 	mov	r1, 6
 	mov	r0, r5
 	call	__bit_shr
@@ -20382,15 +19914,15 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r0, t2
 	add	r0, 4
 	mov	t4, [r0]
-	jnz	r4, .LBB30_8
-	jmp	.LBB30_5
-.LBB30_5:
+	jnz	r4, .LBB32_8
+	jmp	.LBB32_5
+.LBB32_5:
 	mov	[x11], t4
 	mov	r0, 191
 	mov	[x10], t3
-	jg	r5, r0, .LBB30_19
-	jmp	.LBB30_6
-.LBB30_6:
+	jg	r5, r0, .LBB32_19
+	jmp	.LBB32_6
+.LBB32_6:
 	mov	r0, 2
 	sub	r0, r3
 	call	__bit_shl
@@ -20401,9 +19933,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[x9], r1
 	mov	r1, 127
 	mov	[x8], r0
-	jg	r5, r1, .LBB30_19
-	jmp	.LBB30_7
-.LBB30_7:
+	jg	r5, r1, .LBB32_19
+	jmp	.LBB32_7
+.LBB32_7:
 	mov	r0, 1
 	sub	r0, r3
 	mov	r1, 3
@@ -20414,8 +19946,8 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, [rax]
 	mov	[x6], r1
 	mov	[x7], r0
-	jmp	.LBB30_19
-.LBB30_8:
+	jmp	.LBB32_19
+.LBB32_8:
 	mov	r7, 64
 	mov	r1, 31
 	sub	r7, r4
@@ -20478,9 +20010,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, x0
 	call	__bit_and
 	mov	t4, rax
-	je	r3, x2, .LBB30_10
-	jmp	.LBB30_9
-.LBB30_9:
+	je	r3, x2, .LBB32_10
+	jmp	.LBB32_9
+.LBB32_9:
 	mov	r0, t2
 	add	r0, -8
 	mov	t6, [r0]
@@ -20551,13 +20083,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t3
 	call	__bit_or
 	mov	t3, rax
-.LBB30_10:
+.LBB32_10:
 	mov	[x11], t3
 	mov	r0, 191
 	mov	[x10], t4
-	jg	r5, r0, .LBB30_17
-	jmp	.LBB30_11
-.LBB30_11:
+	jg	r5, r0, .LBB32_17
+	jmp	.LBB32_11
+.LBB32_11:
 	mov	r0, 2
 	sub	r0, r3
 	mov	r1, 3
@@ -20626,9 +20158,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t7
 	call	__bit_and
 	mov	t4, rax
-	je	r3, x1, .LBB30_13
-	jmp	.LBB30_12
-.LBB30_12:
+	je	r3, x1, .LBB32_13
+	jmp	.LBB32_12
+.LBB32_12:
 	mov	r0, t5
 	add	r0, -8
 	mov	t6, [r0]
@@ -20699,13 +20231,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t3
 	call	__bit_or
 	mov	t3, rax
-.LBB30_13:
+.LBB32_13:
 	mov	[x9], t3
 	mov	r0, 127
 	mov	[x8], t4
-	jg	r5, r0, .LBB30_17
-	jmp	.LBB30_14
-.LBB30_14:
+	jg	r5, r0, .LBB32_17
+	jmp	.LBB32_14
+.LBB32_14:
 	mov	r0, 1
 	sub	r0, r3
 	mov	r1, 3
@@ -20774,9 +20306,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t6
 	call	__bit_and
 	mov	t3, rax
-	je	r3, x0, .LBB30_16
-	jmp	.LBB30_15
-.LBB30_15:
+	je	r3, x0, .LBB32_16
+	jmp	.LBB32_15
+.LBB32_15:
 	mov	r0, t4
 	add	r0, -8
 	mov	t5, [r0]
@@ -20847,13 +20379,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t2
 	call	__bit_or
 	mov	t2, rax
-.LBB30_16:
+.LBB32_16:
 	mov	[x6], t2
 	mov	[x7], t3
-.LBB30_17:
-	jnz	r3, .LBB30_19
-	jmp	.LBB30_18
-.LBB30_18:
+.LBB32_17:
+	jnz	r3, .LBB32_19
+	jmp	.LBB32_18
+.LBB32_18:
 	mov	r3, [x5]
 	mov	r5, [rsp]
 	mov	r1, 31
@@ -20914,9 +20446,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	call	__bit_and
 	mov	[r2], rax
 	mov	[x4], r3
-.LBB30_19:
-	jmp	.LBB30_41
-.LBB30_20:
+.LBB32_19:
+	jmp	.LBB32_41
+.LBB32_20:
 	mov	x7, rsp
 	mov	x8, rsp
 	mov	r0, rsp
@@ -20986,9 +20518,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[x13], 0
 	mov	r0, 255
 	mov	[r2], 0
-	jg	t1, r0, .LBB30_40
-	jmp	.LBB30_21
-.LBB30_21:
+	jg	t1, r0, .LBB32_40
+	jmp	.LBB32_21
+.LBB32_21:
 	mov	r1, 6
 	mov	r0, t1
 	call	__bit_shr
@@ -21006,15 +20538,15 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r0, r6
 	add	r0, 4
 	mov	t3, [r0]
-	jnz	r4, .LBB30_27
-	jmp	.LBB30_22
-.LBB30_22:
+	jnz	r4, .LBB32_27
+	jmp	.LBB32_22
+.LBB32_22:
 	mov	[r2], t4
 	mov	r0, 191
 	mov	[x13], t3
-	jg	t1, r0, .LBB30_25
-	jmp	.LBB30_23
-.LBB30_23:
+	jg	t1, r0, .LBB32_25
+	jmp	.LBB32_23
+.LBB32_23:
 	mov	r0, r6
 	mov	r1, r6
 	add	r1, 12
@@ -21024,9 +20556,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[x11], r1
 	mov	r1, 127
 	mov	[x12], r0
-	jg	t1, r1, .LBB30_25
-	jmp	.LBB30_24
-.LBB30_24:
+	jg	t1, r1, .LBB32_25
+	jmp	.LBB32_24
+.LBB32_24:
 	mov	r0, r6
 	add	r0, 16
 	add	r6, 20
@@ -21034,14 +20566,14 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r0, [r0]
 	mov	[x9], r1
 	mov	[x10], r0
-.LBB30_25:
-	jnz	r3, .LBB30_40
-	jmp	.LBB30_26
-.LBB30_26:
+.LBB32_25:
+	jnz	r3, .LBB32_40
+	jmp	.LBB32_26
+.LBB32_26:
 	mov	rax, [x7]
 	mov	r2, [x8]
-	jmp	.LBB30_39
-.LBB30_27:
+	jmp	.LBB32_39
+.LBB32_27:
 	mov	r7, 64
 	mov	r1, 31
 	sub	r7, r4
@@ -21104,9 +20636,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, x0
 	call	__bit_and
 	mov	t4, rax
-	je	r3, x2, .LBB30_29
-	jmp	.LBB30_28
-.LBB30_28:
+	je	r3, x2, .LBB32_29
+	jmp	.LBB32_28
+.LBB32_28:
 	mov	r0, r6
 	add	r0, 8
 	mov	r1, r6
@@ -21178,13 +20710,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t3
 	call	__bit_or
 	mov	t3, rax
-.LBB30_29:
+.LBB32_29:
 	mov	[r2], t3
 	mov	r0, 191
 	mov	[x13], t4
-	jg	t1, r0, .LBB30_37
-	jmp	.LBB30_30
-.LBB30_30:
+	jg	t1, r0, .LBB32_37
+	jmp	.LBB32_30
+.LBB32_30:
 	mov	r2, r3
 	add	r2, 1
 	mov	r1, 3
@@ -21254,9 +20786,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, x0
 	call	__bit_and
 	mov	t6, rax
-	je	r2, x2, .LBB30_32
-	jmp	.LBB30_31
-.LBB30_31:
+	je	r2, x2, .LBB32_32
+	jmp	.LBB32_31
+.LBB32_31:
 	mov	r0, t3
 	add	r0, 8
 	add	t3, 12
@@ -21329,15 +20861,15 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	[x12], rax
 	mov	r0, 127
 	mov	[x11], t2
-	jg	t1, r0, .LBB30_37
-	jmp	.LBB30_34
-.LBB30_32:
+	jg	t1, r0, .LBB32_37
+	jmp	.LBB32_34
+.LBB32_32:
 	mov	[x11], t6
 	mov	r0, 127
 	mov	[x12], t5
-	jg	t1, r0, .LBB30_40
-	jmp	.LBB30_33
-.LBB30_33:
+	jg	t1, r0, .LBB32_40
+	jmp	.LBB32_33
+.LBB32_33:
 	mov	r0, r6
 	add	r0, 16
 	mov	r2, [r0]
@@ -21401,8 +20933,8 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, t6
 	call	__bit_and
 	mov	t1, rax
-	jmp	.LBB30_35
-.LBB30_34:
+	jmp	.LBB32_35
+.LBB32_34:
 	mov	r1, 31
 	mov	r0, r4
 	call	__bit_and
@@ -21461,9 +20993,9 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	call	__bit_and
 	mov	r0, 1
 	mov	t1, rax
-	je	r3, r0, .LBB30_36
-	jmp	.LBB30_35
-.LBB30_35:
+	je	r3, r0, .LBB32_36
+	jmp	.LBB32_35
+.LBB32_35:
 	mov	r0, r6
 	add	r0, 24
 	add	r6, 28
@@ -21535,13 +21067,13 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r1, r2
 	call	__bit_or
 	mov	r2, rax
-.LBB30_36:
+.LBB32_36:
 	mov	[x9], t1
 	mov	[x10], r2
-.LBB30_37:
-	jnz	r3, .LBB30_40
-	jmp	.LBB30_38
-.LBB30_38:
+.LBB32_37:
+	jnz	r3, .LBB32_40
+	jmp	.LBB32_38
+.LBB32_38:
 	mov	r2, [x8]
 	mov	r3, [x7]
 	mov	r1, 31
@@ -21600,11 +21132,11 @@ ryu_dyadic256_as_mantissa_type:         // @ryu_dyadic256_as_mantissa_type
 	mov	r0, r5
 	mov	r1, t1
 	call	__bit_and
-.LBB30_39:
+.LBB32_39:
 	mov	[x5], rax
 	mov	[x6], r2
-.LBB30_40:
-.LBB30_41:
+.LBB32_40:
+.LBB32_41:
 	mov	x13, [rsp-14]
 	mov	x12, [rsp-13]
 	mov	x11, [rsp-12]
@@ -21733,15 +21265,15 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jne	r6, r3, .LBB33_6
-	jmp	.LBB33_1
-.LBB33_1:
+	jne	r6, r3, .LBB35_6
+	jmp	.LBB35_1
+.LBB35_1:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jz	rax, .LBB33_3
-	jmp	.LBB33_2
-.LBB33_2:                               // %memcpy.exit63.loopexit184
+	jz	rax, .LBB35_3
+	jmp	.LBB35_2
+.LBB35_2:                               // %memcpy.exit63.loopexit184
 	mov	r2, r4
 	add	r2, 1
 	mov	r1, 3
@@ -21833,13 +21365,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB33_201
-.LBB33_3:
+	jmp	.LBB35_201
+.LBB35_3:
 	mov	r0, -1
 	mov	t4, 8
-	jg	r5, r0, .LBB33_5
-	jmp	.LBB33_4
-.LBB33_4:
+	jg	r5, r0, .LBB35_5
+	jmp	.LBB35_4
+.LBB35_4:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -21870,7 +21402,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	t4, 9
-.LBB33_5:                               // %memcpy.exit63.loopexit
+.LBB35_5:                               // %memcpy.exit63.loopexit
 	mov	r1, 31
 	mov	r0, r5
 	call	__bit_shr
@@ -22120,22 +21652,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB33_201
-.LBB33_6:
+	jmp	.LBB35_201
+.LBB35_6:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jnz	rax, .LBB33_27
-	jmp	.LBB33_7
-.LBB33_7:
-	jnz	r6, .LBB33_27
-	jmp	.LBB33_8
-.LBB33_8:
+	jnz	rax, .LBB35_27
+	jmp	.LBB35_7
+.LBB35_7:
+	jnz	r6, .LBB35_27
+	jmp	.LBB35_8
+.LBB35_8:
 	mov	r0, -1
 	mov	r6, 0
-	jg	r5, r0, .LBB33_10
-	jmp	.LBB33_9
-.LBB33_9:
+	jg	r5, r0, .LBB35_10
+	jmp	.LBB35_9
+.LBB35_9:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -22166,7 +21698,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r6, 1
-.LBB33_10:
+.LBB35_10:
 	mov	t4, r6
 	mov	r7, r4
 	add	r7, r6
@@ -22200,9 +21732,9 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-	jz	r2, .LBB33_26
-	jmp	.LBB33_11
-.LBB33_11:
+	jz	r2, .LBB35_26
+	jmp	.LBB35_11
+.LBB35_11:
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_or
@@ -22243,17 +21775,17 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, r5
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB33_15
-	jmp	.LBB33_12
-.LBB33_12:                              // %.preheader101.preheader
+	jz	rax, .LBB35_15
+	jmp	.LBB35_12
+.LBB35_12:                              // %.preheader101.preheader
 	add	r7, 3
 	mov	r0, r5
 	mov	r3, r2
-.LBB33_13:                              // %.preheader101
+.LBB35_13:                              // %.preheader101
                                         // =>This Inner Loop Header: Depth=1
-	jz	r3, .LBB33_25
-	jmp	.LBB33_14
-.LBB33_14:                              //   in Loop: Header=BB33_13 Depth=1
+	jz	r3, .LBB35_25
+	jmp	.LBB35_14
+.LBB35_14:                              //   in Loop: Header=BB35_13 Depth=1
 	add	r3, -1
 	mov	r5, r0
 	mov	r1, 3
@@ -22290,32 +21822,32 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	add	r7, 1
 	mov	r0, r5
-	jnz	rax, .LBB33_13
-	jmp	.LBB33_15
-.LBB33_15:                              // %.loopexit7.i
+	jnz	rax, .LBB35_13
+	jmp	.LBB35_15
+.LBB35_15:                              // %.loopexit7.i
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB33_22
-	jmp	.LBB33_16
-.LBB33_16:
+	jl	rax, r0, .LBB35_22
+	jmp	.LBB35_16
+.LBB35_16:
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB33_18
-	jmp	.LBB33_17
-.LBB33_17:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB35_18
+	jmp	.LBB35_17
+.LBB35_17:                              // %.preheader.i.preheader
 	mov	r6, -2147483633
-	jmp	.LBB33_20
-.LBB33_18:                              // %.preheader418
+	jmp	.LBB35_20
+.LBB35_18:                              // %.preheader418
 	mov	r6, -2147483645
-	jmp	.LBB33_21
-.LBB33_19:
+	jmp	.LBB35_21
+.LBB35_19:
 	mov	r0, 3
-	jg	r3, r0, .LBB33_18
-	jmp	.LBB33_22
-.LBB33_20:                              // %.preheader.i
+	jg	r3, r0, .LBB35_18
+	jmp	.LBB35_22
+.LBB35_20:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 4
@@ -22332,22 +21864,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r6, .LBB33_20
-	jmp	.LBB33_19
-.LBB33_21:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r6, .LBB35_20
+	jmp	.LBB35_19
+.LBB35_21:                              // =>This Inner Loop Header: Depth=1
 	mov	[r5], 808464432
 	add	r3, -4
 	add	r5, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r6, .LBB33_21
-	jmp	.LBB33_22
-.LBB33_22:                              // %.loopexit5.i
-	jz	r3, .LBB33_25
-	jmp	.LBB33_23
-.LBB33_23:                              // %.preheader.preheader
+	jg	rax, r6, .LBB35_21
+	jmp	.LBB35_22
+.LBB35_22:                              // %.loopexit5.i
+	jz	r3, .LBB35_25
+	jmp	.LBB35_23
+.LBB35_23:                              // %.preheader.preheader
 	mov	r6, r5
-.LBB33_24:                              // %.preheader
+.LBB35_24:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, -1
 	mov	r1, 3
@@ -22381,12 +21913,12 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r5], rax
 	mov	r5, r6
-	jnz	r3, .LBB33_24
-	jmp	.LBB33_25
-.LBB33_25:                              // %memset.exit
+	jnz	r3, .LBB35_24
+	jmp	.LBB35_25
+.LBB35_25:                              // %memset.exit
 	add	t5, r2
 	mov	t4, t5
-.LBB33_26:                              // %memcpy.exit65
+.LBB35_26:                              // %memcpy.exit65
 	add	r4, t4
 	mov	r2, r4
 	mov	r1, 3
@@ -22510,30 +22042,30 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	add	t4, 4
-	jmp	.LBB33_201
-.LBB33_27:
+	jmp	.LBB35_201
+.LBB35_27:
 	mov	r1, 1048576
 	mov	r0, t1
 	call	__bit_or
-	jz	r6, .LBB33_29
-	jmp	.LBB33_28
-.LBB33_28:
+	jz	r6, .LBB35_29
+	jmp	.LBB35_28
+.LBB35_28:
 	mov	t1, rax
-.LBB33_29:
+.LBB35_29:
 	mov	[rsp-23], r7
 	mov	t2, -1074
-	jz	r6, .LBB33_31
-	jmp	.LBB33_30
-.LBB33_30:
+	jz	r6, .LBB35_31
+	jmp	.LBB35_30
+.LBB35_30:
 	add	r6, -1075
 	mov	t2, r6
-.LBB33_31:
+.LBB35_31:
 	mov	x10, 0
 	mov	r0, -1
 	mov	x12, 0
-	jg	r5, r0, .LBB33_33
-	jmp	.LBB33_32
-.LBB33_32:
+	jg	r5, r0, .LBB35_33
+	jmp	.LBB35_32
+.LBB35_32:
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
@@ -22564,15 +22096,15 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	x12, 1
-.LBB33_33:
+.LBB35_33:
 	mov	x9, r2
 	mov	r0, -52
 	add	x9, 1
 	mov	[rsp-24], r2
 	mov	[rsp-26], t2
-	jl	t2, r0, .LBB33_79
-	jmp	.LBB33_34
-.LBB33_34:
+	jl	t2, r0, .LBB35_79
+	jmp	.LBB35_34
+.LBB35_34:
 	mov	r1, -2147483648
 	mov	r2, -2147483648
 	mov	r0, t2
@@ -22612,15 +22144,15 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	t2, -1147483648
 	mov	t3, 99999999
 	mov	x10, 10000
-	mov	x11, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	x11, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	mov	t4, 10
 	mov	x15, -2147483645
 	mov	r5, 0
 	mov	r7, [rsp-23]
-.LBB33_35:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB33_45 Depth 2
-                                        //     Child Loop BB33_48 Depth 2
-                                        //     Child Loop BB33_66 Depth 2
+.LBB35_35:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB35_45 Depth 2
+                                        //     Child Loop BB35_48 Depth 2
+                                        //     Child Loop BB35_66 Depth 2
 	mov	x14, t7
 	add	t7, -1
 	mov	x13, r2
@@ -22632,9 +22164,9 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, t1
 	call	ryu_mul_shift_mod1e9_exact
 	mov	t5, rax
-	jz	x13, .LBB33_50
-	jmp	.LBB33_36
-.LBB33_36:                              //   in Loop: Header=BB33_35 Depth=1
+	jz	x13, .LBB35_50
+	jmp	.LBB35_36
+.LBB35_36:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r2, x13
 	add	r2, 9
 	mov	r1, -2147483648
@@ -22644,15 +22176,15 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	x1, rax
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, x1, .LBB33_76
-	jmp	.LBB33_37
-.LBB33_37:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	rax, x1, .LBB35_76
+	jmp	.LBB35_37
+.LBB35_37:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, r4
 	add	x0, x12
-	jz	t5, .LBB33_39
-	jmp	.LBB33_38
-.LBB33_38:                              // %memcpy.exit66
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jz	t5, .LBB35_39
+	jmp	.LBB35_38
+.LBB35_38:                              // %memcpy.exit66
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	x5, x0
 	mov	r1, 10000
 	add	x5, 7
@@ -23128,17 +22660,17 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[x0], rax
-	jmp	.LBB33_49
-.LBB33_39:                              //   in Loop: Header=BB33_35 Depth=1
+	jmp	.LBB35_49
+.LBB35_39:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, 3
 	mov	r0, x0
 	call	__bit_and
 	mov	x1, 9
 	mov	t5, x0
-	jz	rax, .LBB33_44
-	jmp	.LBB33_40
-.LBB33_40:                              // %.preheader117.preheader
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jz	rax, .LBB35_44
+	jmp	.LBB35_40
+.LBB35_40:                              // %.preheader117.preheader
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	t5, x0
 	add	t5, 1
 	mov	r0, x0
@@ -23173,10 +22705,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t5
 	call	__bit_and
 	mov	x1, 8
-	jz	rax, .LBB33_44
-	jmp	.LBB33_41
-.LBB33_41:                              // %.preheader117.1
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jz	rax, .LBB35_44
+	jmp	.LBB35_41
+.LBB35_41:                              // %.preheader117.1
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	x2, x0
 	add	x2, 2
 	mov	r0, t5
@@ -23212,10 +22744,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	mov	x1, 7
 	mov	t5, x2
-	jz	rax, .LBB33_44
-	jmp	.LBB33_42
-.LBB33_42:                              // %.preheader117.2
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jz	rax, .LBB35_44
+	jmp	.LBB35_42
+.LBB35_42:                              // %.preheader117.2
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	t5, x0
 	add	t5, 3
 	mov	r0, x2
@@ -23250,10 +22782,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t5
 	call	__bit_and
 	mov	x1, 6
-	jz	rax, .LBB33_44
-	jmp	.LBB33_43
-.LBB33_43:                              // %.preheader117.3
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jz	rax, .LBB35_44
+	jmp	.LBB35_43
+.LBB35_43:                              // %.preheader117.3
+                                        //   in Loop: Header=BB35_35 Depth=1
 	add	x0, 4
 	mov	r0, t5
 	call	__bit_and
@@ -23285,10 +22817,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[t5], rax
 	mov	x1, 5
 	mov	t5, x0
-.LBB33_44:                              // %.thread.preheader
-                                        //   in Loop: Header=BB33_35 Depth=1
-.LBB33_45:                              // %.thread
-                                        //   Parent Loop BB33_35 Depth=1
+.LBB35_44:                              // %.thread.preheader
+                                        //   in Loop: Header=BB35_35 Depth=1
+.LBB35_45:                              // %.thread
+                                        //   Parent Loop BB35_35 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	[t5], 808464432
 	add	x1, -4
@@ -23296,17 +22828,17 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	t5, 4
 	mov	r0, x1
 	call	__bit_xor
-	jg	rax, x15, .LBB33_45
-	jmp	.LBB33_46
-.LBB33_46:                              // %.loopexit5.i71
-                                        //   in Loop: Header=BB33_35 Depth=1
-	jz	x1, .LBB33_49
-	jmp	.LBB33_47
-.LBB33_47:                              // %.preheader116.preheader
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jg	rax, x15, .LBB35_45
+	jmp	.LBB35_46
+.LBB35_46:                              // %.loopexit5.i71
+                                        //   in Loop: Header=BB35_35 Depth=1
+	jz	x1, .LBB35_49
+	jmp	.LBB35_47
+.LBB35_47:                              // %.preheader116.preheader
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	x4, 0
-.LBB33_48:                              // %.preheader116
-                                        //   Parent Loop BB33_35 Depth=1
+.LBB35_48:                              // %.preheader116
+                                        //   Parent Loop BB35_35 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, t5
 	add	r0, x4
@@ -23339,66 +22871,66 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	add	x4, 1
 	mov	[x2], rax
-	jne	x1, x4, .LBB33_48
-	jmp	.LBB33_49
-.LBB33_49:                              // %memset.exit73
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jne	x1, x4, .LBB35_48
+	jmp	.LBB35_49
+.LBB35_49:                              // %memset.exit73
+                                        //   in Loop: Header=BB35_35 Depth=1
 	add	x12, 9
-	jmp	.LBB33_77
-.LBB33_50:                              //   in Loop: Header=BB33_35 Depth=1
+	jmp	.LBB35_77
+.LBB35_50:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r2, 0
-	jz	t5, .LBB33_77
-	jmp	.LBB33_51
-.LBB33_51:                              //   in Loop: Header=BB33_35 Depth=1
+	jz	t5, .LBB35_77
+	jmp	.LBB35_51
+.LBB35_51:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, -2147483648
 	mov	r0, t5
 	call	__bit_xor
-	jl	rax, t2, .LBB33_53
-	jmp	.LBB33_52
-.LBB33_52:
+	jl	rax, t2, .LBB35_53
+	jmp	.LBB35_52
+.LBB35_52:
 	call	abort
-.LBB33_53:                              //   in Loop: Header=BB33_35 Depth=1
+.LBB35_53:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 9
-	jg	t5, t3, .LBB33_62
-	jmp	.LBB33_54
-.LBB33_54:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, t3, .LBB35_62
+	jmp	.LBB35_54
+.LBB35_54:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 8
 	mov	r0, 9999999
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_55
-.LBB33_55:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_55
+.LBB35_55:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 7
 	mov	r0, 999999
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_56
-.LBB33_56:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_56
+.LBB35_56:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 6
 	mov	r0, 99999
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_57
-.LBB33_57:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_57
+.LBB35_57:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 5
 	mov	r0, 9999
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_58
-.LBB33_58:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_58
+.LBB35_58:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 4
 	mov	r0, 999
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_59
-.LBB33_59:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_59
+.LBB35_59:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 3
 	mov	r0, 99
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_60
-.LBB33_60:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_60
+.LBB35_60:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 2
 	mov	r0, 9
-	jg	t5, r0, .LBB33_62
-	jmp	.LBB33_61
-.LBB33_61:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	t5, r0, .LBB35_62
+	jmp	.LBB35_61
+.LBB35_61:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x0, 1
-.LBB33_62:                              //   in Loop: Header=BB33_35 Depth=1
+.LBB35_62:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r5, t7
 	mul	r5, 9
 	add	r5, x0
@@ -23408,25 +22940,25 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r2, rax
 	mov	r0, x0
 	call	__bit_xor
-	jg	rax, r2, .LBB33_76
-	jmp	.LBB33_63
-.LBB33_63:                              //   in Loop: Header=BB33_35 Depth=1
+	jg	rax, r2, .LBB35_76
+	jmp	.LBB35_63
+.LBB35_63:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r0, [rsp-24]
-	jz	r0, .LBB33_74
-	jmp	.LBB33_64
-.LBB33_64:                              //   in Loop: Header=BB33_35 Depth=1
+	jz	r0, .LBB35_74
+	jmp	.LBB35_64
+.LBB35_64:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r2, r4
 	add	r2, x12
 	mov	x3, 0
 	mov	x1, r2
 	add	x1, x0
-	jl	t5, x10, .LBB33_68
-	jmp	.LBB33_65
-.LBB33_65:                              //   in Loop: Header=BB33_35 Depth=1
+	jl	t5, x10, .LBB35_68
+	jmp	.LBB35_65
+.LBB35_65:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	x10, x9
 	mov	x13, 0
-.LBB33_66:                              // %memcpy.exit74
-                                        //   Parent Loop BB33_35 Depth=1
+.LBB35_66:                              // %memcpy.exit74
+                                        //   Parent Loop BB35_35 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 10000
 	mov	x2, t5
@@ -23650,22 +23182,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[x3], rax
 	add	x13, -4
-	jg	x2, t3, .LBB33_66
-	jmp	.LBB33_67
-.LBB33_67:                              // %.loopexit115.loopexit
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jg	x2, t3, .LBB35_66
+	jmp	.LBB35_67
+.LBB35_67:                              // %.loopexit115.loopexit
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	x3, 0
 	sub	x3, x13
 	mov	x9, x10
 	mov	r7, [rsp-23]
 	mov	x10, 10000
-.LBB33_68:                              // %.loopexit115
-                                        //   in Loop: Header=BB33_35 Depth=1
+.LBB35_68:                              // %.loopexit115
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	r0, 100
-	jl	t5, r0, .LBB33_70
-	jmp	.LBB33_69
-.LBB33_69:                              // %memcpy.exit76.loopexit
-                                        //   in Loop: Header=BB33_35 Depth=1
+	jl	t5, r0, .LBB35_70
+	jmp	.LBB35_69
+.LBB35_69:                              // %memcpy.exit76.loopexit
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, 65532
 	mov	r0, t5
 	call	__bit_and
@@ -23786,13 +23318,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[x1], rax
 	mov	t5, x2
-.LBB33_70:                              // %memcpy.exit76
-                                        //   in Loop: Header=BB33_35 Depth=1
+.LBB35_70:                              // %memcpy.exit76
+                                        //   in Loop: Header=BB35_35 Depth=1
 	mov	x1, r2
 	add	x1, 1
-	jl	t5, t4, .LBB33_72
-	jmp	.LBB33_71
-.LBB33_71:                              //   in Loop: Header=BB33_35 Depth=1
+	jl	t5, t4, .LBB35_72
+	jmp	.LBB35_71
+.LBB35_71:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, 1
 	mov	r0, t5
 	call	__bit_shl
@@ -23891,8 +23423,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	t5, rax
-	jmp	.LBB33_73
-.LBB33_72:                              //   in Loop: Header=BB33_35 Depth=1
+	jmp	.LBB35_73
+.LBB35_72:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, 3
 	mov	r0, x1
 	call	__bit_and
@@ -23926,7 +23458,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t5
 	call	__bit_or
 	mov	t5, rax
-.LBB33_73:                              //   in Loop: Header=BB33_35 Depth=1
+.LBB35_73:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -23965,8 +23497,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[r2], rax
 	mov	r0, x0
 	add	r0, 1
-	jmp	.LBB33_75
-.LBB33_74:                              //   in Loop: Header=BB33_35 Depth=1
+	jmp	.LBB35_75
+.LBB35_74:                              //   in Loop: Header=BB35_35 Depth=1
 	mov	r0, r4
 	add	r0, x12
 	mov	r1, 3
@@ -24006,24 +23538,24 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[x1], rax
 	mov	r0, 1
-.LBB33_75:                              //   in Loop: Header=BB33_35 Depth=1
+.LBB35_75:                              //   in Loop: Header=BB35_35 Depth=1
 	add	x12, r0
 	mov	r2, x0
-	jmp	.LBB33_77
-.LBB33_76:
+	jmp	.LBB35_77
+.LBB35_76:
 	mov	r2, x0
-	jmp	.LBB33_130
-.LBB33_77:                              //   in Loop: Header=BB33_35 Depth=1
-	jg	x14, r6, .LBB33_35
-	jmp	.LBB33_78
-.LBB33_78:
+	jmp	.LBB35_130
+.LBB35_77:                              //   in Loop: Header=BB35_35 Depth=1
+	jg	x14, r6, .LBB35_35
+	jmp	.LBB35_78
+.LBB35_78:
 	mov	[rsp-25], r5
 	mov	t6, 0
 	mov	r0, [rsp-26]
 	mov	x10, 0
-	jl	r0, t6, .LBB33_80
-	jmp	.LBB33_129
-.LBB33_79:
+	jl	r0, t6, .LBB35_80
+	jmp	.LBB35_129
+.LBB35_79:
 	mov	r0, t2
 	call	__bit_not
 	mul	rax, 78913
@@ -24057,7 +23589,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, 0
 	mov	[rsp-25], r0
 	mov	r2, 0
-.LBB33_80:
+.LBB35_80:
 	mov	x11, rsp
 	mov	x15, rsp
 	mov	t3, rsp
@@ -24073,10 +23605,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r7, 200
 	mov	t4, -2147483645
 	mov	x13, r2
-.LBB33_81:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB33_117 Depth 2
-                                        //     Child Loop BB33_96 Depth 2
-                                        //     Child Loop BB33_99 Depth 2
+.LBB35_81:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB35_117 Depth 2
+                                        //     Child Loop BB35_96 Depth 2
+                                        //     Child Loop BB35_99 Depth 2
 	mov	t7, t6
 	mov	[x11], 0
 	mov	[x15], 0
@@ -24085,14 +23617,14 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[x7], 0
 	mov	[rsp], 0
 	add	t6, 1
-	jz	t7, .LBB33_83
-	jmp	.LBB33_82
-.LBB33_82:                              //   in Loop: Header=BB33_81 Depth=1
+	jz	t7, .LBB35_83
+	jmp	.LBB35_82
+.LBB35_82:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, t7
 	mul	r0, 9
-	jg	r0, x10, .LBB33_84
-	jmp	.LBB33_83
-.LBB33_83:                              //   in Loop: Header=BB33_81 Depth=1
+	jg	r0, x10, .LBB35_84
+	jmp	.LBB35_83
+.LBB35_83:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r7, x12
 	mov	x12, r4
 	mov	t2, x9
@@ -24395,13 +23927,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r3, t5
 	call	__adddi3
 	mov	t5, rax
-	jz	x13, .LBB33_101
-	jmp	.LBB33_85
-.LBB33_84:                              //   in Loop: Header=BB33_81 Depth=1
+	jz	x13, .LBB35_101
+	jmp	.LBB35_85
+.LBB35_84:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 0
-	jz	x13, .LBB33_128
-	jmp	.LBB33_86
-.LBB33_85:                              //   in Loop: Header=BB33_81 Depth=1
+	jz	x13, .LBB35_128
+	jmp	.LBB35_86
+.LBB35_85:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r3, x13
 	add	r3, 9
 	mov	r1, -2147483648
@@ -24421,10 +23953,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	x12, r7
 	mov	x7, r5
 	mov	r7, 200
-	mov	r5, mcasm_static_2de58166cf8331e41d2a5b19e324f343
-	jg	rax, t7, .LBB33_127
-	jmp	.LBB33_88
-.LBB33_86:                              //   in Loop: Header=BB33_81 Depth=1
+	mov	r5, mcasm_static_29af82f542537f86f33d7b3d416ba898
+	jg	rax, t7, .LBB35_127
+	jmp	.LBB35_88
+.LBB35_86:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r3, x13
 	add	r3, 9
 	mov	r2, 9
@@ -24435,19 +23967,19 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	t7, rax
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, t7, .LBB33_127
-	jmp	.LBB33_87
-.LBB33_87:                              //   in Loop: Header=BB33_81 Depth=1
+	jg	rax, t7, .LBB35_127
+	jmp	.LBB35_87
+.LBB35_87:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, r4
 	add	r2, x12
-	jmp	.LBB33_90
-.LBB33_88:                              //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_90
+.LBB35_88:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, r4
 	add	r2, x12
-	jz	t5, .LBB33_90
-	jmp	.LBB33_89
-.LBB33_89:                              // %memcpy.exit77
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jz	t5, .LBB35_90
+	jmp	.LBB35_89
+.LBB35_89:                              // %memcpy.exit77
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	x3, r2
 	mov	r1, 10000
 	add	x3, 7
@@ -24923,16 +24455,16 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r2], rax
-	jmp	.LBB33_100
-.LBB33_90:                              //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_100
+.LBB35_90:                              //   in Loop: Header=BB35_81 Depth=1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
 	mov	t5, 9
-	jz	rax, .LBB33_95
-	jmp	.LBB33_91
-.LBB33_91:                              // %.preheader111.preheader
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jz	rax, .LBB35_95
+	jmp	.LBB35_91
+.LBB35_91:                              // %.preheader111.preheader
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	x1, r4
 	add	x1, x12
 	mov	t7, x1
@@ -24970,10 +24502,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	mov	t5, 8
 	mov	r2, t7
-	jz	rax, .LBB33_95
-	jmp	.LBB33_92
-.LBB33_92:                              // %.preheader111.1
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jz	rax, .LBB35_95
+	jmp	.LBB35_92
+.LBB35_92:                              // %.preheader111.1
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, x1
 	add	r2, 2
 	mov	r0, t7
@@ -25008,10 +24540,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, r2
 	call	__bit_and
 	mov	t5, 7
-	jz	rax, .LBB33_95
-	jmp	.LBB33_93
-.LBB33_93:                              // %.preheader111.2
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jz	rax, .LBB35_95
+	jmp	.LBB35_93
+.LBB35_93:                              // %.preheader111.2
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	t7, x1
 	add	t7, 3
 	mov	r0, r2
@@ -25047,10 +24579,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	mov	t5, 6
 	mov	r2, t7
-	jz	rax, .LBB33_95
-	jmp	.LBB33_94
-.LBB33_94:                              // %.preheader111.3
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jz	rax, .LBB35_95
+	jmp	.LBB35_94
+.LBB35_94:                              // %.preheader111.3
+                                        //   in Loop: Header=BB35_81 Depth=1
 	add	x1, 4
 	mov	r0, t7
 	call	__bit_and
@@ -25082,10 +24614,10 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[t5], rax
 	mov	t5, 5
 	mov	r2, x1
-.LBB33_95:                              // %.thread98.preheader
-                                        //   in Loop: Header=BB33_81 Depth=1
-.LBB33_96:                              // %.thread98
-                                        //   Parent Loop BB33_81 Depth=1
+.LBB35_95:                              // %.thread98.preheader
+                                        //   in Loop: Header=BB35_81 Depth=1
+.LBB35_96:                              // %.thread98
+                                        //   Parent Loop BB35_81 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	[r2], 808464432
 	add	t5, -4
@@ -25093,17 +24625,17 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	r2, 4
 	mov	r0, t5
 	call	__bit_xor
-	jg	rax, t4, .LBB33_96
-	jmp	.LBB33_97
-.LBB33_97:                              // %.loopexit5.i82
-                                        //   in Loop: Header=BB33_81 Depth=1
-	jz	t5, .LBB33_100
-	jmp	.LBB33_98
-.LBB33_98:                              // %.preheader110.preheader
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jg	rax, t4, .LBB35_96
+	jmp	.LBB35_97
+.LBB35_97:                              // %.loopexit5.i82
+                                        //   in Loop: Header=BB35_81 Depth=1
+	jz	t5, .LBB35_100
+	jmp	.LBB35_98
+.LBB35_98:                              // %.preheader110.preheader
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	x2, 0
-.LBB33_99:                              // %.preheader110
-                                        //   Parent Loop BB33_81 Depth=1
+.LBB35_99:                              // %.preheader110
+                                        //   Parent Loop BB35_81 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, r2
 	add	r0, x2
@@ -25136,14 +24668,14 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	add	x2, 1
 	mov	[x0], rax
-	jne	t5, x2, .LBB33_99
-	jmp	.LBB33_100
-.LBB33_100:                             // %memset.exit84
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jne	t5, x2, .LBB35_99
+	jmp	.LBB35_100
+.LBB35_100:                             // %memset.exit84
+                                        //   in Loop: Header=BB35_81 Depth=1
 	add	x12, 9
 	mov	r2, r3
-	jmp	.LBB33_128
-.LBB33_101:                             //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_128
+.LBB35_101:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 0
 	mov	x9, t2
 	mov	x10, x14
@@ -25155,61 +24687,61 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	x12, r7
 	mov	x7, r5
 	mov	r7, 200
-	mov	x14, mcasm_static_2de58166cf8331e41d2a5b19e324f343
-	jz	t5, .LBB33_128
-	jmp	.LBB33_102
-.LBB33_102:                             //   in Loop: Header=BB33_81 Depth=1
+	mov	x14, mcasm_static_29af82f542537f86f33d7b3d416ba898
+	jz	t5, .LBB35_128
+	jmp	.LBB35_102
+.LBB35_102:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r1, -2147483648
 	mov	r0, t5
 	call	__bit_xor
 	mov	r0, -1147483648
-	jl	rax, r0, .LBB33_104
-	jmp	.LBB33_103
-.LBB33_103:
+	jl	rax, r0, .LBB35_104
+	jmp	.LBB35_103
+.LBB35_103:
 	call	abort
-.LBB33_104:                             //   in Loop: Header=BB33_81 Depth=1
+.LBB35_104:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 9
 	mov	r0, 99999999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_105
-.LBB33_105:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_105
+.LBB35_105:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 8
 	mov	r0, 9999999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_106
-.LBB33_106:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_106
+.LBB35_106:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 7
 	mov	r0, 999999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_107
-.LBB33_107:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_107
+.LBB35_107:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 6
 	mov	r0, 99999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_108
-.LBB33_108:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_108
+.LBB35_108:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 5
 	mov	r0, 9999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_109
-.LBB33_109:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_109
+.LBB35_109:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 4
 	mov	r0, 999
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_110
-.LBB33_110:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_110
+.LBB35_110:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 3
 	mov	r0, 99
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_111
-.LBB33_111:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_111
+.LBB35_111:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 2
 	mov	r0, 9
-	jg	t5, r0, .LBB33_113
-	jmp	.LBB33_112
-.LBB33_112:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	t5, r0, .LBB35_113
+	jmp	.LBB35_112
+.LBB35_112:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r2, 1
-.LBB33_113:                             //   in Loop: Header=BB33_81 Depth=1
+.LBB35_113:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, t7
 	call	__bit_not
 	mul	rax, 9
@@ -25221,26 +24753,26 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r3, rax
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r3, .LBB33_127
-	jmp	.LBB33_114
-.LBB33_114:                             //   in Loop: Header=BB33_81 Depth=1
+	jg	rax, r3, .LBB35_127
+	jmp	.LBB35_114
+.LBB35_114:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, [rsp-24]
-	jz	r0, .LBB33_125
-	jmp	.LBB33_115
-.LBB33_115:                             //   in Loop: Header=BB33_81 Depth=1
+	jz	r0, .LBB35_125
+	jmp	.LBB35_115
+.LBB35_115:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r3, r4
 	add	r3, x12
 	mov	x0, 0
 	mov	t2, 99999999
 	mov	r0, 10000
-	jl	t5, r0, .LBB33_119
-	jmp	.LBB33_116
-.LBB33_116:                             //   in Loop: Header=BB33_81 Depth=1
+	jl	t5, r0, .LBB35_119
+	jmp	.LBB35_116
+.LBB35_116:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	x8, r3
 	add	x8, r2
 	mov	x7, 0
-.LBB33_117:                             // %memcpy.exit85
-                                        //   Parent Loop BB33_81 Depth=1
+.LBB35_117:                             // %memcpy.exit85
+                                        //   Parent Loop BB35_81 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 10000
 	mov	t7, t5
@@ -25464,20 +24996,20 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[x0], rax
 	add	x7, -4
-	jg	t7, t2, .LBB33_117
-	jmp	.LBB33_118
-.LBB33_118:                             // %.loopexit113.loopexit
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jg	t7, t2, .LBB35_117
+	jmp	.LBB35_118
+.LBB35_118:                             // %.loopexit113.loopexit
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	x0, 0
 	sub	x0, x7
 	mov	x7, r5
-.LBB33_119:                             // %.loopexit113
-                                        //   in Loop: Header=BB33_81 Depth=1
+.LBB35_119:                             // %.loopexit113
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, 100
-	jl	t5, r0, .LBB33_121
-	jmp	.LBB33_120
-.LBB33_120:                             // %memcpy.exit87.loopexit
-                                        //   in Loop: Header=BB33_81 Depth=1
+	jl	t5, r0, .LBB35_121
+	jmp	.LBB35_120
+.LBB35_120:                             // %memcpy.exit87.loopexit
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	r1, 65532
 	mov	r0, t5
 	call	__bit_and
@@ -25600,12 +25132,12 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[t5], rax
 	mov	t5, t7
-.LBB33_121:                             // %memcpy.exit87
-                                        //   in Loop: Header=BB33_81 Depth=1
+.LBB35_121:                             // %memcpy.exit87
+                                        //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, 10
-	jl	t5, r0, .LBB33_123
-	jmp	.LBB33_122
-.LBB33_122:                             //   in Loop: Header=BB33_81 Depth=1
+	jl	t5, r0, .LBB35_123
+	jmp	.LBB35_122
+.LBB35_122:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r1, 1
 	mov	r0, t5
 	call	__bit_shl
@@ -25705,8 +25237,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	t5, rax
-	jmp	.LBB33_124
-.LBB33_123:                             //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_124
+.LBB35_123:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, r3
 	add	r0, 1
 	mov	r1, 3
@@ -25741,7 +25273,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t5
 	call	__bit_or
 	mov	t5, rax
-.LBB33_124:                             //   in Loop: Header=BB33_81 Depth=1
+.LBB35_124:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
@@ -25780,8 +25312,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[r3], rax
 	mov	r0, r2
 	add	r0, 1
-	jmp	.LBB33_126
-.LBB33_125:                             //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_126
+.LBB35_125:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	r0, r4
 	add	r0, x12
 	mov	r1, 3
@@ -25821,26 +25353,26 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[t5], rax
 	mov	r0, 1
-.LBB33_126:                             //   in Loop: Header=BB33_81 Depth=1
+.LBB35_126:                             //   in Loop: Header=BB35_81 Depth=1
 	add	x12, r0
-	jmp	.LBB33_128
-.LBB33_127:
+	jmp	.LBB35_128
+.LBB35_127:
 	mov	r7, [rsp-23]
 	mov	r5, [rsp-25]
-	jmp	.LBB33_130
-.LBB33_128:                             //   in Loop: Header=BB33_81 Depth=1
+	jmp	.LBB35_130
+.LBB35_128:                             //   in Loop: Header=BB35_81 Depth=1
 	mov	x13, r2
-	jne	t6, r7, .LBB33_81
-	jmp	.LBB33_129
-.LBB33_129:                             // %.loopexit114
+	jne	t6, r7, .LBB35_81
+	jmp	.LBB35_129
+.LBB35_129:                             // %.loopexit114
 	sub	x9, r2
 	mov	r3, 0
 	mov	x13, r2
 	mov	t4, x9
 	mov	t5, 0
 	mov	r5, [rsp-25]
-	jmp	.LBB33_134
-.LBB33_130:
+	jmp	.LBB35_134
+.LBB35_130:
 	mov	t4, x9
 	sub	t4, x13
 	mov	r3, 0
@@ -25849,28 +25381,28 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	t6, rax
 	mov	r0, r2
 	call	__bit_xor
-	jle	rax, t6, .LBB33_134
-	jmp	.LBB33_131
-.LBB33_131:
+	jle	rax, t6, .LBB35_134
+	jmp	.LBB35_131
+.LBB35_131:
 	mov	r3, [rsp-24]
 	sub	r3, r2
 	add	r3, 1
 	mov	r1, 10
-.LBB33_132:                             // =>This Inner Loop Header: Depth=1
+.LBB35_132:                             // =>This Inner Loop Header: Depth=1
 	mov	r0, t5
 	call	__udivsi3
 	add	r3, 1
 	mov	t5, rax
-	jne	x13, r3, .LBB33_132
-	jmp	.LBB33_133
-.LBB33_133:
+	jne	x13, r3, .LBB35_132
+	jmp	.LBB35_133
+.LBB35_133:
 	mov	r3, t5
 	mul	r3, -10
 	add	r3, r0
 	mov	r0, 5
-	je	r3, r0, .LBB33_135
-	jmp	.LBB33_134
-.LBB33_134:
+	je	r3, r0, .LBB35_135
+	jmp	.LBB35_134
+.LBB35_134:
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
@@ -25884,30 +25416,30 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, rax
-	jmp	.LBB33_149
-.LBB33_135:
+	jmp	.LBB35_149
+.LBB35_135:
 	sub	x9, r5
 	mov	r0, [rsp-26]
 	add	r0, x9
 	mov	r3, 0
 	sub	r3, r0
 	mov	t3, 1
-	jl	r3, t3, .LBB33_140
-	jmp	.LBB33_136
-.LBB33_136:
+	jl	r3, t3, .LBB35_140
+	jmp	.LBB35_136
+.LBB35_136:
 	mov	r0, 59
 	mov	r2, 1
-	jg	r3, r0, .LBB33_149
-	jmp	.LBB33_137
-.LBB33_137:
+	jg	r3, r0, .LBB35_149
+	jmp	.LBB35_137
+.LBB35_137:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jnz	rax, .LBB33_139
-	jmp	.LBB33_138
-.LBB33_138:
+	jnz	rax, .LBB35_139
+	jmp	.LBB35_138
+.LBB35_138:
 	call	abort
-.LBB33_139:
+.LBB35_139:
 	mov	r1, 31
 	mov	r0, r3
 	call	__bit_and
@@ -25990,30 +25522,30 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_xor
 	mov	t3, rax
-.LBB33_140:
+.LBB35_140:
 	mov	r0, -1
-	jg	x9, r0, .LBB33_147
-	jmp	.LBB33_141
-.LBB33_141:
+	jg	x9, r0, .LBB35_147
+	jmp	.LBB35_141
+.LBB35_141:
 	mov	r1, 1
 	mov	r0, t3
 	call	__bit_and
-	jz	rax, .LBB33_147
-	jmp	.LBB33_142
-.LBB33_142:
+	jz	rax, .LBB35_147
+	jmp	.LBB35_142
+.LBB35_142:
 	mov	r0, r7
 	mov	r1, t1
 	call	__bit_or
-	jz	rax, .LBB33_144
-	jmp	.LBB33_143
-.LBB33_143:                             // %.preheader109.preheader
+	jz	rax, .LBB35_144
+	jmp	.LBB35_143
+.LBB35_143:                             // %.preheader109.preheader
 	mov	t3, 0
 	sub	t3, x9
 	mov	t2, -1
-	jmp	.LBB33_145
-.LBB33_144:
+	jmp	.LBB35_145
+.LBB35_144:
 	call	abort
-.LBB33_145:                             // %.preheader109
+.LBB35_145:                             // %.preheader109
                                         // =>This Inner Loop Header: Depth=1
 	mov	r2, -858993459
 	mov	r3, -858993460
@@ -26061,9 +25593,9 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	add	rax, r3
 	add	t2, 1
-	jnz	rax, .LBB33_145
-	jmp	.LBB33_146
-.LBB33_146:
+	jnz	rax, .LBB35_145
+	jmp	.LBB35_146
+.LBB35_146:
 	mov	r1, -2147483648
 	mov	r2, 1
 	mov	r0, t3
@@ -26071,9 +25603,9 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, r3, .LBB33_148
-	jmp	.LBB33_149
-.LBB33_147:
+	jge	rax, r3, .LBB35_148
+	jmp	.LBB35_149
+.LBB35_147:
 	mov	r1, -2147483648
 	mov	r0, x9
 	call	__bit_xor
@@ -26093,35 +25625,35 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB33_149
-	jmp	.LBB33_148
-.LBB33_148:
+	jz	rax, .LBB35_149
+	jmp	.LBB35_148
+.LBB35_148:
 	mov	r2, 2
-.LBB33_149:
-	jz	x13, .LBB33_171
-	jmp	.LBB33_150
-.LBB33_150:
+.LBB35_149:
+	jz	x13, .LBB35_171
+	jmp	.LBB35_150
+.LBB35_150:
 	mov	r3, r4
 	add	r3, x12
-	jnz	t5, .LBB33_166
-	jmp	.LBB33_151
-.LBB33_151:
+	jnz	t5, .LBB35_166
+	jmp	.LBB35_151
+.LBB35_151:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r6, t4
-	jz	rax, .LBB33_156
-	jmp	.LBB33_152
-.LBB33_152:                             // %.preheader106.preheader
+	jz	rax, .LBB35_156
+	jmp	.LBB35_152
+.LBB35_152:                             // %.preheader106.preheader
 	mov	t3, r4
 	add	t3, x12
 	add	t3, 1
 	mov	t2, 0
-.LBB33_153:                             // %.preheader106
+.LBB35_153:                             // %.preheader106
                                         // =>This Inner Loop Header: Depth=1
-	je	t4, t2, .LBB33_183
-	jmp	.LBB33_154
-.LBB33_154:                             //   in Loop: Header=BB33_153 Depth=1
+	je	t4, t2, .LBB35_183
+	jmp	.LBB35_154
+.LBB35_154:                             //   in Loop: Header=BB35_153 Depth=1
 	mov	r0, r3
 	add	r0, t2
 	mov	r1, 3
@@ -26157,36 +25689,36 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[r7], rax
 	call	__bit_and
 	add	t2, 1
-	jnz	rax, .LBB33_153
-	jmp	.LBB33_155
-.LBB33_155:                             // %.loopexit7.i88.loopexit
+	jnz	rax, .LBB35_153
+	jmp	.LBB35_155
+.LBB35_155:                             // %.loopexit7.i88.loopexit
 	add	r3, t2
 	mov	r6, t4
 	sub	r6, t2
-.LBB33_156:                             // %.loopexit7.i88
+.LBB35_156:                             // %.loopexit7.i88
 	mov	r1, -2147483648
 	mov	r0, r6
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB33_163
-	jmp	.LBB33_157
-.LBB33_157:
+	jl	rax, r0, .LBB35_163
+	jmp	.LBB35_157
+.LBB35_157:
 	mov	r0, r6
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB33_159
-	jmp	.LBB33_158
-.LBB33_158:                             // %.preheader.i90.preheader
+	jl	rax, r0, .LBB35_159
+	jmp	.LBB35_158
+.LBB35_158:                             // %.preheader.i90.preheader
 	mov	r7, -2147483633
-	jmp	.LBB33_161
-.LBB33_159:                             // %.preheader435
+	jmp	.LBB35_161
+.LBB35_159:                             // %.preheader435
 	mov	r7, -2147483645
-	jmp	.LBB33_162
-.LBB33_160:
+	jmp	.LBB35_162
+.LBB35_160:
 	mov	r0, 3
-	jg	r6, r0, .LBB33_159
-	jmp	.LBB33_163
-.LBB33_161:                             // %.preheader.i90
+	jg	r6, r0, .LBB35_159
+	jmp	.LBB35_163
+.LBB35_161:                             // %.preheader.i90
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -26203,22 +25735,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	[r0], 808464432
 	mov	r0, r6
 	call	__bit_xor
-	jg	rax, r7, .LBB33_161
-	jmp	.LBB33_160
-.LBB33_162:                             // =>This Inner Loop Header: Depth=1
+	jg	rax, r7, .LBB35_161
+	jmp	.LBB35_160
+.LBB35_162:                             // =>This Inner Loop Header: Depth=1
 	mov	[r3], 808464432
 	add	r6, -4
 	add	r3, 4
 	mov	r0, r6
 	call	__bit_xor
-	jg	rax, r7, .LBB33_162
-	jmp	.LBB33_163
-.LBB33_163:                             // %.loopexit5.i89
-	jz	r6, .LBB33_183
-	jmp	.LBB33_164
-.LBB33_164:                             // %.preheader105.preheader
+	jg	rax, r7, .LBB35_162
+	jmp	.LBB35_163
+.LBB35_163:                             // %.loopexit5.i89
+	jz	r6, .LBB35_183
+	jmp	.LBB35_164
+.LBB35_164:                             // %.preheader105.preheader
 	mov	t2, r3
-.LBB33_165:                             // %.preheader105
+.LBB35_165:                             // %.preheader105
                                         // =>This Inner Loop Header: Depth=1
 	add	r6, -1
 	mov	r1, 3
@@ -26252,22 +25784,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, t2
-	jz	r6, .LBB33_183
-	jmp	.LBB33_165
-.LBB33_166:
+	jz	r6, .LBB35_183
+	jmp	.LBB35_165
+.LBB35_166:
 	mov	r7, t4
 	add	r7, -1
 	mov	r6, 0
-	jz	r7, .LBB33_169
-	jmp	.LBB33_167
-.LBB33_167:
+	jz	r7, .LBB35_169
+	jmp	.LBB35_167
+.LBB35_167:
 	mov	t1, x12
 	add	t1, t4
 	add	t1, r4
 	add	t1, -1
-	mov	x1, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	x1, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	mov	r0, t5
-.LBB33_168:                             // %memcpy.exit92
+.LBB35_168:                             // %memcpy.exit92
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 100
 	call	__udivsi3
@@ -26385,18 +25917,18 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, r6
 	call	__bit_xor
 	mov	r0, t5
-	jl	rax, t2, .LBB33_168
-	jmp	.LBB33_169
-.LBB33_169:                             // %.loopexit108
+	jl	rax, t2, .LBB35_168
+	jmp	.LBB35_169
+.LBB35_169:                             // %.loopexit108
 	mov	r1, -2147483648
 	mov	r0, t4
 	call	__bit_xor
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_xor
-	jge	rax, r7, .LBB33_183
-	jmp	.LBB33_170
-.LBB33_170:
+	jge	rax, r7, .LBB35_183
+	jmp	.LBB35_170
+.LBB35_170:
 	mov	r1, 10
 	mov	r0, t5
 	call	__umodsi3
@@ -26440,12 +25972,12 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB33_183
-.LBB33_171:
+	jmp	.LBB35_183
+.LBB35_171:
 	mov	r0, [rsp-24]
-	jz	r0, .LBB33_182
-	jmp	.LBB33_172
-.LBB33_172:
+	jz	r0, .LBB35_182
+	jmp	.LBB35_172
+.LBB35_172:
 	mov	r3, r4
 	add	r3, x12
 	mov	r1, -2147483648
@@ -26455,13 +25987,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, -2147473648
 	mov	r6, r3
 	add	r6, t4
-	jl	rax, r0, .LBB33_176
-	jmp	.LBB33_173
-.LBB33_173:
+	jl	rax, r0, .LBB35_176
+	jmp	.LBB35_173
+.LBB35_173:
 	mov	x2, 0
-	mov	x3, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	x3, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	mov	x4, -2047483649
-.LBB33_174:                             // %memcpy.exit93
+.LBB35_174:                             // %memcpy.exit93
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 10000
 	mov	r7, t5
@@ -26688,16 +26220,16 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	x2, -4
 	mov	r0, r7
 	call	__bit_xor
-	jg	rax, x4, .LBB33_174
-	jmp	.LBB33_175
-.LBB33_175:                             // %.loopexit104.loopexit
+	jg	rax, x4, .LBB35_174
+	jmp	.LBB35_175
+.LBB35_175:                             // %.loopexit104.loopexit
 	mov	t1, 0
 	sub	t1, x2
-.LBB33_176:                             // %.loopexit104
+.LBB35_176:                             // %.loopexit104
 	mov	r0, 100
-	jl	t5, r0, .LBB33_178
-	jmp	.LBB33_177
-.LBB33_177:                             // %memcpy.exit95.loopexit
+	jl	t5, r0, .LBB35_178
+	jmp	.LBB35_177
+.LBB35_177:                             // %memcpy.exit95.loopexit
 	mov	r1, 65532
 	mov	r0, t5
 	call	__bit_and
@@ -26719,7 +26251,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_shl
 	sub	r6, t1
 	mov	t2, r6
-	mov	r0, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	r0, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	add	r0, rax
 	add	t2, -1
 	mov	t1, r0
@@ -26818,15 +26350,15 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r6], rax
 	mov	t5, r7
-.LBB33_178:                             // %memcpy.exit95
+.LBB35_178:                             // %memcpy.exit95
 	mov	r0, 10
-	jl	t5, r0, .LBB33_180
-	jmp	.LBB33_179
-.LBB33_179:
+	jl	t5, r0, .LBB35_180
+	jmp	.LBB35_179
+.LBB35_179:
 	mov	r1, 1
 	mov	r0, t5
 	call	__bit_shl
-	mov	r6, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	r6, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	add	r6, rax
 	mov	r0, r6
 	add	r0, 1
@@ -26922,8 +26454,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jmp	.LBB33_181
-.LBB33_180:
+	jmp	.LBB35_181
+.LBB35_180:
 	mov	r0, r3
 	add	r0, 1
 	mov	r1, 3
@@ -26958,7 +26490,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r0, t5
 	call	__bit_or
 	mov	r6, rax
-.LBB33_181:
+.LBB35_181:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
@@ -26996,8 +26528,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	add	t4, 1
-	jmp	.LBB33_183
-.LBB33_182:
+	jmp	.LBB35_183
+.LBB35_182:
 	mov	r0, r4
 	add	r0, x12
 	mov	r1, 3
@@ -27037,21 +26569,21 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r6], rax
 	mov	t4, 1
-.LBB33_183:                             // %memset.exit91
+.LBB35_183:                             // %memset.exit91
 	add	t4, x12
-	jz	r2, .LBB33_196
-	jmp	.LBB33_184
-.LBB33_184:
+	jz	r2, .LBB35_196
+	jmp	.LBB35_184
+.LBB35_184:
 	mov	r6, 0
-	jz	t4, .LBB33_190
-	jmp	.LBB33_185
-.LBB33_185:                             // %.preheader103.preheader
+	jz	t4, .LBB35_190
+	jmp	.LBB35_185
+.LBB35_185:                             // %.preheader103.preheader
 	mov	t2, r4
 	add	t2, -1
 	mov	t3, 46
 	mov	t5, 57
 	mov	r3, t4
-.LBB33_186:                             // %.preheader103
+.LBB35_186:                             // %.preheader103
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, t2
 	add	r7, r3
@@ -27069,19 +26601,19 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, t3, .LBB33_195
-	jmp	.LBB33_187
-.LBB33_187:                             // %.preheader103
-                                        //   in Loop: Header=BB33_186 Depth=1
-	je	rax, t5, .LBB33_191
-	jmp	.LBB33_188
-.LBB33_188:                             // %.preheader103
+	je	rax, t3, .LBB35_195
+	jmp	.LBB35_187
+.LBB35_187:                             // %.preheader103
+                                        //   in Loop: Header=BB35_186 Depth=1
+	je	rax, t5, .LBB35_191
+	jmp	.LBB35_188
+.LBB35_188:                             // %.preheader103
 	mov	r0, 45
-	jne	rax, r0, .LBB33_192
-	jmp	.LBB33_189
-.LBB33_189:                             // %.preheader103..loopexit.loopexit_crit_edge
+	jne	rax, r0, .LBB35_192
+	jmp	.LBB35_189
+.LBB35_189:                             // %.preheader103..loopexit.loopexit_crit_edge
 	mov	r6, r3
-.LBB33_190:                             // %.loopexit
+.LBB35_190:                             // %.loopexit
 	add	r6, r4
 	mov	r1, 3
 	mov	r0, r6
@@ -27113,8 +26645,8 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	add	r5, 1
-	jmp	.LBB33_196
-.LBB33_191:                             //   in Loop: Header=BB33_186 Depth=1
+	jmp	.LBB35_196
+.LBB35_191:                             //   in Loop: Header=BB35_186 Depth=1
 	mov	r1, 3
 	mov	r0, r7
 	call	__bit_and
@@ -27145,22 +26677,22 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r7], rax
 	mov	r2, 1
-	jmp	.LBB33_195
-.LBB33_192:
+	jmp	.LBB35_195
+.LBB35_192:
 	mov	r1, 1
 	mov	r6, rax
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, 2
-	jne	r2, r0, .LBB33_194
-	jmp	.LBB33_193
-.LBB33_193:
+	jne	r2, r0, .LBB35_194
+	jmp	.LBB35_193
+.LBB35_193:
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB33_196
-	jmp	.LBB33_194
-.LBB33_194:
+	jz	rax, .LBB35_196
+	jmp	.LBB35_194
+.LBB35_194:
 	add	r3, r4
 	add	r3, -1
 	mov	r1, 3
@@ -27201,12 +26733,12 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-	jmp	.LBB33_196
-.LBB33_195:                             //   in Loop: Header=BB33_186 Depth=1
+	jmp	.LBB35_196
+.LBB35_195:                             //   in Loop: Header=BB35_186 Depth=1
 	add	r3, -1
-	jz	r3, .LBB33_190
-	jmp	.LBB33_186
-.LBB33_196:
+	jz	r3, .LBB35_190
+	jmp	.LBB35_186
+.LBB35_196:
 	mov	r2, r4
 	add	r2, t4
 	mov	r1, 3
@@ -27257,13 +26789,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_and
 	mov	r3, rax
 	add	r3, 43
-	jg	r5, t1, .LBB33_198
-	jmp	.LBB33_197
-.LBB33_197:
+	jg	r5, t1, .LBB35_198
+	jmp	.LBB35_197
+.LBB35_197:
 	mov	r0, 0
 	sub	r0, r5
 	mov	r5, r0
-.LBB33_198:
+.LBB35_198:
 	mov	r0, r2
 	add	r0, 1
 	mov	r1, 3
@@ -27304,9 +26836,9 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	mov	r6, t4
 	mov	r0, 100
 	add	r6, 2
-	jl	r5, r0, .LBB33_200
-	jmp	.LBB33_199
-.LBB33_199:                             // %memcpy.exit96
+	jl	r5, r0, .LBB35_200
+	jmp	.LBB35_199
+.LBB35_199:                             // %memcpy.exit96
 	mov	r1, 10
 	mov	r0, r5
 	call	__udivsi3
@@ -27315,7 +26847,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	add	r4, r6
 	mov	r0, r3
 	call	__bit_shl
-	mov	r0, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	r0, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	add	r0, rax
 	mov	r6, r0
 	mov	r1, 2
@@ -27458,13 +26990,13 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r2], rax
 	add	t4, 5
-	jmp	.LBB33_201
-.LBB33_200:                             // %memcpy.exit97
+	jmp	.LBB35_201
+.LBB35_200:                             // %memcpy.exit97
 	mov	r1, 1
 	add	r4, r6
 	mov	r0, r5
 	call	__bit_shl
-	mov	r0, mcasm_static_2de58166cf8331e41d2a5b19e324f343
+	mov	r0, mcasm_static_29af82f542537f86f33d7b3d416ba898
 	add	r0, rax
 	mov	r2, r0
 	mov	r1, 2
@@ -27564,7 +27096,7 @@ d2exp_buffered_n:                       // @d2exp_buffered_n
 	call	__bit_or
 	mov	[r3], rax
 	add	t4, 4
-.LBB33_201:                             // %memcpy.exit63
+.LBB35_201:                             // %memcpy.exit63
 	mov	rax, t4
 	mov	x15, [rsp-16]
 	mov	x14, [rsp-15]
@@ -27673,28 +27205,28 @@ strtol:                                 // @strtol
 	mov	r0, r7
 	call	__bit_xor
 	mov	r0, -2147483612
-	jg	rax, r0, .LBB36_3
-	jmp	.LBB36_1
-.LBB36_1:
+	jg	rax, r0, .LBB38_3
+	jmp	.LBB38_1
+.LBB38_1:
 	mov	r0, 1
-	je	r7, r0, .LBB36_3
-	jmp	.LBB36_2
-.LBB36_2:                               // %.preheader6.preheader
+	je	r7, r0, .LBB38_3
+	jmp	.LBB38_2
+.LBB38_2:                               // %.preheader6.preheader
 	mov	r5, r2
 	add	r5, 1
 	mov	r6, -2147483643
 	mov	t1, 32
-	jmp	.LBB36_5
-.LBB36_3:
-	mov	r0, mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2
+	jmp	.LBB38_5
+.LBB38_3:
+	mov	r0, mcasm_static_719163f5f9eae4be69e01d67d1a83915
 	mov	[r0], 22
 	mov	r7, 0
-	jz	r3, .LBB36_40
-	jmp	.LBB36_4
-.LBB36_4:
+	jz	r3, .LBB38_40
+	jmp	.LBB38_4
+.LBB38_4:
 	mov	[r3], r2
-	jmp	.LBB36_40
-.LBB36_5:                               // %.preheader6
+	jmp	.LBB38_40
+.LBB38_5:                               // %.preheader6
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, -1
@@ -27716,30 +27248,30 @@ strtol:                                 // @strtol
 	add	r0, -9
 	mov	r1, -2147483648
 	call	__bit_xor
-	jl	rax, r6, .LBB36_9
-	jmp	.LBB36_6
-.LBB36_6:                               // %.preheader6
-                                        //   in Loop: Header=BB36_5 Depth=1
-	je	t2, t1, .LBB36_9
-	jmp	.LBB36_7
-.LBB36_7:                               // %.preheader6
+	jl	rax, r6, .LBB38_9
+	jmp	.LBB38_6
+.LBB38_6:                               // %.preheader6
+                                        //   in Loop: Header=BB38_5 Depth=1
+	je	t2, t1, .LBB38_9
+	jmp	.LBB38_7
+.LBB38_7:                               // %.preheader6
 	mov	r0, 43
-	je	t2, r0, .LBB36_11
-	jmp	.LBB36_8
-.LBB36_8:                               // %.preheader6
+	je	t2, r0, .LBB38_11
+	jmp	.LBB38_8
+.LBB38_8:                               // %.preheader6
 	mov	r0, 45
-	je	t2, r0, .LBB36_10
-	jmp	.LBB36_13
-.LBB36_9:                               // %.preheader6.backedge
-                                        //   in Loop: Header=BB36_5 Depth=1
+	je	t2, r0, .LBB38_10
+	jmp	.LBB38_13
+.LBB38_9:                               // %.preheader6.backedge
+                                        //   in Loop: Header=BB38_5 Depth=1
 	add	r5, 1
-	jmp	.LBB36_5
-.LBB36_10:                              // %.loopexit8.loopexit
+	jmp	.LBB38_5
+.LBB38_10:                              // %.loopexit8.loopexit
 	mov	r4, 1
-	jmp	.LBB36_12
-.LBB36_11:                              // %.loopexit8.loopexit1
+	jmp	.LBB38_12
+.LBB38_11:                              // %.loopexit8.loopexit1
 	mov	r4, 0
-.LBB36_12:                              // %.loopexit8
+.LBB38_12:                              // %.loopexit8
 	mov	t1, r5
 	mov	r1, 2
 	add	t1, 1
@@ -27758,17 +27290,17 @@ strtol:                                 // @strtol
 	call	__bit_and
 	mov	t2, rax
 	mov	r5, t1
-	jmp	.LBB36_14
-.LBB36_13:                              // %.loopexit7.loopexit
+	jmp	.LBB38_14
+.LBB38_13:                              // %.loopexit7.loopexit
 	mov	r4, 0
-.LBB36_14:                              // %.loopexit7
+.LBB38_14:                              // %.loopexit7
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
 	mov	r0, 48
-	jne	rax, r0, .LBB36_20
-	jmp	.LBB36_15
-.LBB36_15:
+	jne	rax, r0, .LBB38_20
+	jmp	.LBB38_15
+.LBB38_15:
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -27790,16 +27322,16 @@ strtol:                                 // @strtol
 	mov	r6, rax
 	mov	r0, r7
 	call	__bit_and
-	jnz	rax, .LBB36_18
-	jmp	.LBB36_16
-.LBB36_16:
+	jnz	rax, .LBB38_18
+	jmp	.LBB38_16
+.LBB38_16:
 	mov	r1, 255
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, 88
-	jne	rax, r0, .LBB36_18
-	jmp	.LBB36_17
-.LBB36_17:
+	jne	rax, r0, .LBB38_18
+	jmp	.LBB38_17
+.LBB38_17:
 	mov	r0, r5
 	add	r0, 1
 	mov	r1, 2
@@ -27820,26 +27352,26 @@ strtol:                                 // @strtol
 	add	t4, 2
 	mov	r6, 16
 	mov	r2, r5
-	jmp	.LBB36_22
-.LBB36_18:
+	jmp	.LBB38_22
+.LBB38_18:
 	mov	r6, 8
 	mov	t2, 48
 	mov	t4, r5
-	jz	r7, .LBB36_22
-	jmp	.LBB36_19
-.LBB36_19:
+	jz	r7, .LBB38_22
+	jmp	.LBB38_19
+.LBB38_19:
 	mov	t4, r5
 	mov	r6, r7
-	jmp	.LBB36_22
-.LBB36_20:
+	jmp	.LBB38_22
+.LBB38_20:
 	mov	r6, 10
 	mov	t4, r5
-	jz	r7, .LBB36_22
-	jmp	.LBB36_21
-.LBB36_21:
+	jz	r7, .LBB38_22
+	jmp	.LBB38_21
+.LBB38_21:
 	mov	t4, r5
 	mov	r6, r7
-.LBB36_22:
+.LBB38_22:
 	mov	r5, r4
 	add	r5, 2147483647
 	mov	r0, r5
@@ -27860,11 +27392,11 @@ strtol:                                 // @strtol
 	mov	r0, r7
 	call	__bit_xor
 	mov	r0, -2147483591
-	jg	rax, r0, .LBB36_24
-	jmp	.LBB36_23
-.LBB36_23:
+	jg	rax, r0, .LBB38_24
+	jmp	.LBB38_23
+.LBB38_23:
 	mov	t3, r7
-.LBB36_24:
+.LBB38_24:
 	add	t3, -48
 	mov	r7, 0
 	mov	r0, r6
@@ -27872,9 +27404,9 @@ strtol:                                 // @strtol
 	mov	t2, rax
 	mov	r0, t3
 	call	__bit_xor
-	jge	rax, t2, .LBB36_34
-	jmp	.LBB36_25
-.LBB36_25:                              // %.preheader.preheader
+	jge	rax, t2, .LBB38_34
+	jmp	.LBB38_25
+.LBB38_25:                              // %.preheader.preheader
 	mov	r0, t1
 	mul	r0, r6
 	mov	t2, r5
@@ -27882,7 +27414,7 @@ strtol:                                 // @strtol
 	add	t4, -1
 	mov	t5, -2147483591
 	mov	r2, t4
-.LBB36_26:                              // %.preheader
+.LBB38_26:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, -2147483648
 	mov	r0, t1
@@ -27890,29 +27422,29 @@ strtol:                                 // @strtol
 	mov	t4, rax
 	mov	r0, r7
 	call	__bit_xor
-	jg	rax, t4, .LBB36_29
-	jmp	.LBB36_27
-.LBB36_27:                              //   in Loop: Header=BB36_26 Depth=1
+	jg	rax, t4, .LBB38_29
+	jmp	.LBB38_27
+.LBB38_27:                              //   in Loop: Header=BB38_26 Depth=1
 	mov	r0, t2
 	call	__bit_xor
 	mov	t4, rax
 	mov	r0, t3
 	call	__bit_xor
-	jle	rax, t4, .LBB36_30
-	jmp	.LBB36_28
-.LBB36_28:                              //   in Loop: Header=BB36_26 Depth=1
-	jne	r7, t1, .LBB36_30
-	jmp	.LBB36_29
-.LBB36_29:                              //   in Loop: Header=BB36_26 Depth=1
+	jle	rax, t4, .LBB38_30
+	jmp	.LBB38_28
+.LBB38_28:                              //   in Loop: Header=BB38_26 Depth=1
+	jne	r7, t1, .LBB38_30
+	jmp	.LBB38_29
+.LBB38_29:                              //   in Loop: Header=BB38_26 Depth=1
 	mov	r1, 2
 	mov	r0, r4
 	call	__bit_or
 	mov	r4, rax
-	jmp	.LBB36_31
-.LBB36_30:                              //   in Loop: Header=BB36_26 Depth=1
+	jmp	.LBB38_31
+.LBB38_30:                              //   in Loop: Header=BB38_26 Depth=1
 	mul	r7, r6
 	add	r7, t3
-.LBB36_31:                              //   in Loop: Header=BB36_26 Depth=1
+.LBB38_31:                              //   in Loop: Header=BB38_26 Depth=1
 	add	r2, 1
 	mov	r1, 2
 	mov	r0, r2
@@ -27938,47 +27470,47 @@ strtol:                                 // @strtol
 	add	t3, -38
 	mov	r0, t4
 	call	__bit_xor
-	jg	rax, t5, .LBB36_33
-	jmp	.LBB36_32
-.LBB36_32:                              //   in Loop: Header=BB36_26 Depth=1
+	jg	rax, t5, .LBB38_33
+	jmp	.LBB38_32
+.LBB38_32:                              //   in Loop: Header=BB38_26 Depth=1
 	mov	t3, t4
-.LBB36_33:                              //   in Loop: Header=BB36_26 Depth=1
+.LBB38_33:                              //   in Loop: Header=BB38_26 Depth=1
 	add	t3, -48
 	mov	r0, r6
 	call	__bit_xor
 	mov	t4, rax
 	mov	r0, t3
 	call	__bit_xor
-	jl	rax, t4, .LBB36_26
-	jmp	.LBB36_34
-.LBB36_34:                              // %.loopexit
-	jz	r3, .LBB36_36
-	jmp	.LBB36_35
-.LBB36_35:
+	jl	rax, t4, .LBB38_26
+	jmp	.LBB38_34
+.LBB38_34:                              // %.loopexit
+	jz	r3, .LBB38_36
+	jmp	.LBB38_35
+.LBB38_35:
 	mov	[r3], r2
-.LBB36_36:
+.LBB38_36:
 	mov	r1, 255
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB36_38
-	jmp	.LBB36_37
-.LBB36_37:
+	jz	rax, .LBB38_38
+	jmp	.LBB38_37
+.LBB38_37:
 	mov	r1, 0
 	sub	r1, r7
 	mov	r7, r1
-.LBB36_38:
+.LBB38_38:
 	mov	r1, 2
 	call	__bit_and
-	jz	rax, .LBB36_40
-	jmp	.LBB36_39
-.LBB36_39:
-	mov	r0, mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2
+	jz	rax, .LBB38_40
+	jmp	.LBB38_39
+.LBB38_39:
+	mov	r0, mcasm_static_719163f5f9eae4be69e01d67d1a83915
 	mov	[r0], 34
 	mov	r7, r5
-.LBB36_40:
+.LBB38_40:
 	mov	rax, r7
 	ret
 // -- End function
@@ -27992,28 +27524,28 @@ strtoul:                                // @strtoul
 	mov	r0, r7
 	call	__bit_xor
 	mov	r0, -2147483612
-	jg	rax, r0, .LBB37_3
-	jmp	.LBB37_1
-.LBB37_1:
+	jg	rax, r0, .LBB39_3
+	jmp	.LBB39_1
+.LBB39_1:
 	mov	r0, 1
-	je	r7, r0, .LBB37_3
-	jmp	.LBB37_2
-.LBB37_2:                               // %.preheader6.preheader
+	je	r7, r0, .LBB39_3
+	jmp	.LBB39_2
+.LBB39_2:                               // %.preheader6.preheader
 	mov	r6, r2
 	add	r6, 1
 	mov	r5, -2147483643
 	mov	t1, 32
-	jmp	.LBB37_5
-.LBB37_3:
-	mov	r0, mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2
+	jmp	.LBB39_5
+.LBB39_3:
+	mov	r0, mcasm_static_719163f5f9eae4be69e01d67d1a83915
 	mov	[r0], 22
 	mov	r6, 0
-	jz	r3, .LBB37_40
-	jmp	.LBB37_4
-.LBB37_4:
+	jz	r3, .LBB39_40
+	jmp	.LBB39_4
+.LBB39_4:
 	mov	[r3], r2
-	jmp	.LBB37_40
-.LBB37_5:                               // %.preheader6
+	jmp	.LBB39_40
+.LBB39_5:                               // %.preheader6
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r6
 	add	r0, -1
@@ -28035,30 +27567,30 @@ strtoul:                                // @strtoul
 	add	r0, -9
 	mov	r1, -2147483648
 	call	__bit_xor
-	jl	rax, r5, .LBB37_9
-	jmp	.LBB37_6
-.LBB37_6:                               // %.preheader6
-                                        //   in Loop: Header=BB37_5 Depth=1
-	je	t2, t1, .LBB37_9
-	jmp	.LBB37_7
-.LBB37_7:                               // %.preheader6
+	jl	rax, r5, .LBB39_9
+	jmp	.LBB39_6
+.LBB39_6:                               // %.preheader6
+                                        //   in Loop: Header=BB39_5 Depth=1
+	je	t2, t1, .LBB39_9
+	jmp	.LBB39_7
+.LBB39_7:                               // %.preheader6
 	mov	r0, 43
-	je	t2, r0, .LBB37_11
-	jmp	.LBB37_8
-.LBB37_8:                               // %.preheader6
+	je	t2, r0, .LBB39_11
+	jmp	.LBB39_8
+.LBB39_8:                               // %.preheader6
 	mov	r0, 45
-	je	t2, r0, .LBB37_10
-	jmp	.LBB37_13
-.LBB37_9:                               // %.preheader6.backedge
-                                        //   in Loop: Header=BB37_5 Depth=1
+	je	t2, r0, .LBB39_10
+	jmp	.LBB39_13
+.LBB39_9:                               // %.preheader6.backedge
+                                        //   in Loop: Header=BB39_5 Depth=1
 	add	r6, 1
-	jmp	.LBB37_5
-.LBB37_10:                              // %.loopexit8.loopexit
+	jmp	.LBB39_5
+.LBB39_10:                              // %.loopexit8.loopexit
 	mov	r4, 1
-	jmp	.LBB37_12
-.LBB37_11:                              // %.loopexit8.loopexit1
+	jmp	.LBB39_12
+.LBB39_11:                              // %.loopexit8.loopexit1
 	mov	r4, 0
-.LBB37_12:                              // %.loopexit8
+.LBB39_12:                              // %.loopexit8
 	mov	t1, r6
 	mov	r1, 2
 	add	t1, 1
@@ -28077,17 +27609,17 @@ strtoul:                                // @strtoul
 	call	__bit_and
 	mov	t2, rax
 	mov	r6, t1
-	jmp	.LBB37_14
-.LBB37_13:                              // %.loopexit7.loopexit
+	jmp	.LBB39_14
+.LBB39_13:                              // %.loopexit7.loopexit
 	mov	r4, 0
-.LBB37_14:                              // %.loopexit7
+.LBB39_14:                              // %.loopexit7
 	mov	r1, 255
 	mov	r0, t2
 	call	__bit_and
 	mov	r0, 48
-	jne	rax, r0, .LBB37_20
-	jmp	.LBB37_15
-.LBB37_15:
+	jne	rax, r0, .LBB39_20
+	jmp	.LBB39_15
+.LBB39_15:
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -28109,16 +27641,16 @@ strtoul:                                // @strtoul
 	mov	r5, rax
 	mov	r0, r7
 	call	__bit_and
-	jnz	rax, .LBB37_18
-	jmp	.LBB37_16
-.LBB37_16:
+	jnz	rax, .LBB39_18
+	jmp	.LBB39_16
+.LBB39_16:
 	mov	r1, 255
 	mov	r0, r5
 	call	__bit_and
 	mov	r0, 88
-	jne	rax, r0, .LBB37_18
-	jmp	.LBB37_17
-.LBB37_17:
+	jne	rax, r0, .LBB39_18
+	jmp	.LBB39_17
+.LBB39_17:
 	mov	r0, r6
 	add	r0, 1
 	mov	r1, 2
@@ -28139,26 +27671,26 @@ strtoul:                                // @strtoul
 	add	t5, 2
 	mov	r5, 16
 	mov	r2, r6
-	jmp	.LBB37_22
-.LBB37_18:
+	jmp	.LBB39_22
+.LBB39_18:
 	mov	t2, 48
 	mov	r5, 8
 	mov	t5, r6
-	jz	r7, .LBB37_22
-	jmp	.LBB37_19
-.LBB37_19:
+	jz	r7, .LBB39_22
+	jmp	.LBB39_19
+.LBB39_19:
 	mov	r5, r7
 	mov	t5, r6
-	jmp	.LBB37_22
-.LBB37_20:
+	jmp	.LBB39_22
+.LBB39_20:
 	mov	r5, 10
 	mov	t5, r6
-	jz	r7, .LBB37_22
-	jmp	.LBB37_21
-.LBB37_21:
+	jz	r7, .LBB39_22
+	jmp	.LBB39_21
+.LBB39_21:
 	mov	r5, r7
 	mov	t5, r6
-.LBB37_22:
+.LBB39_22:
 	mov	r0, -1
 	mov	r1, r5
 	call	__udivsi3
@@ -28181,11 +27713,11 @@ strtoul:                                // @strtoul
 	mov	r0, r6
 	call	__bit_xor
 	mov	r0, -2147483591
-	jg	rax, r0, .LBB37_24
-	jmp	.LBB37_23
-.LBB37_23:
+	jg	rax, r0, .LBB39_24
+	jmp	.LBB39_23
+.LBB39_23:
 	mov	t2, r6
-.LBB37_24:
+.LBB39_24:
 	add	t2, -48
 	mov	r6, 0
 	mov	r0, r5
@@ -28193,13 +27725,13 @@ strtoul:                                // @strtoul
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t3, .LBB37_34
-	jmp	.LBB37_25
-.LBB37_25:                              // %.preheader.preheader
+	jge	rax, t3, .LBB39_34
+	jmp	.LBB39_25
+.LBB39_25:                              // %.preheader.preheader
 	add	t5, -1
 	mov	t4, -2147483591
 	mov	r2, t5
-.LBB37_26:                              // %.preheader
+.LBB39_26:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, -2147483648
 	mov	r0, r7
@@ -28207,29 +27739,29 @@ strtoul:                                // @strtoul
 	mov	t3, rax
 	mov	r0, r6
 	call	__bit_xor
-	jg	rax, t3, .LBB37_29
-	jmp	.LBB37_27
-.LBB37_27:                              //   in Loop: Header=BB37_26 Depth=1
+	jg	rax, t3, .LBB39_29
+	jmp	.LBB39_27
+.LBB39_27:                              //   in Loop: Header=BB39_26 Depth=1
 	mov	r0, t1
 	call	__bit_xor
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jle	rax, t3, .LBB37_30
-	jmp	.LBB37_28
-.LBB37_28:                              //   in Loop: Header=BB37_26 Depth=1
-	jne	r6, r7, .LBB37_30
-	jmp	.LBB37_29
-.LBB37_29:                              //   in Loop: Header=BB37_26 Depth=1
+	jle	rax, t3, .LBB39_30
+	jmp	.LBB39_28
+.LBB39_28:                              //   in Loop: Header=BB39_26 Depth=1
+	jne	r6, r7, .LBB39_30
+	jmp	.LBB39_29
+.LBB39_29:                              //   in Loop: Header=BB39_26 Depth=1
 	mov	r1, 2
 	mov	r0, r4
 	call	__bit_or
 	mov	r4, rax
-	jmp	.LBB37_31
-.LBB37_30:                              //   in Loop: Header=BB37_26 Depth=1
+	jmp	.LBB39_31
+.LBB39_30:                              //   in Loop: Header=BB39_26 Depth=1
 	mul	r6, r5
 	add	r6, t2
-.LBB37_31:                              //   in Loop: Header=BB37_26 Depth=1
+.LBB39_31:                              //   in Loop: Header=BB39_26 Depth=1
 	add	r2, 1
 	mov	r1, 2
 	mov	r0, r2
@@ -28255,47 +27787,47 @@ strtoul:                                // @strtoul
 	add	t2, -38
 	mov	r0, t3
 	call	__bit_xor
-	jg	rax, t4, .LBB37_33
-	jmp	.LBB37_32
-.LBB37_32:                              //   in Loop: Header=BB37_26 Depth=1
+	jg	rax, t4, .LBB39_33
+	jmp	.LBB39_32
+.LBB39_32:                              //   in Loop: Header=BB39_26 Depth=1
 	mov	t2, t3
-.LBB37_33:                              //   in Loop: Header=BB37_26 Depth=1
+.LBB39_33:                              //   in Loop: Header=BB39_26 Depth=1
 	add	t2, -48
 	mov	r0, r5
 	call	__bit_xor
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jl	rax, t3, .LBB37_26
-	jmp	.LBB37_34
-.LBB37_34:                              // %.loopexit
-	jz	r3, .LBB37_36
-	jmp	.LBB37_35
-.LBB37_35:
+	jl	rax, t3, .LBB39_26
+	jmp	.LBB39_34
+.LBB39_34:                              // %.loopexit
+	jz	r3, .LBB39_36
+	jmp	.LBB39_35
+.LBB39_35:
 	mov	[r3], r2
-.LBB37_36:
+.LBB39_36:
 	mov	r1, 255
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 1
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB37_38
-	jmp	.LBB37_37
-.LBB37_37:
+	jz	rax, .LBB39_38
+	jmp	.LBB39_37
+.LBB39_37:
 	mov	r1, 0
 	sub	r1, r6
 	mov	r6, r1
-.LBB37_38:
+.LBB39_38:
 	mov	r1, 2
 	call	__bit_and
-	jz	rax, .LBB37_40
-	jmp	.LBB37_39
-.LBB37_39:
-	mov	r0, mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2
+	jz	rax, .LBB39_40
+	jmp	.LBB39_39
+.LBB39_39:
+	mov	r0, mcasm_static_719163f5f9eae4be69e01d67d1a83915
 	mov	[r0], 34
 	mov	r6, -1
-.LBB37_40:
+.LBB39_40:
 	mov	rax, r6
 	ret
 // -- End function
@@ -28308,40 +27840,40 @@ bcmp:                                   // @bcmp
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB38_5
-	jmp	.LBB38_1
-.LBB38_1:
+	jl	rax, r0, .LBB40_5
+	jmp	.LBB40_1
+.LBB40_1:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB38_6
-	jmp	.LBB38_2
-.LBB38_2:                               // %.preheader.i.preheader
+	jnz	rax, .LBB40_6
+	jmp	.LBB40_2
+.LBB40_2:                               // %.preheader.i.preheader
 	mov	r5, -2147483645
-.LBB38_3:                               // %.preheader.i
+.LBB40_3:                               // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, [r3]
-	jne	r0, r1, .LBB38_6
-	jmp	.LBB38_4
-.LBB38_4:                               //   in Loop: Header=BB38_3 Depth=1
+	jne	r0, r1, .LBB40_6
+	jmp	.LBB40_4
+.LBB40_4:                               //   in Loop: Header=BB40_3 Depth=1
 	add	r4, 4
 	add	r2, -4
 	mov	r1, -2147483648
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB38_3
-	jmp	.LBB38_5
-.LBB38_5:                               // %.loopexit8.i
+	jg	rax, r5, .LBB40_3
+	jmp	.LBB40_5
+.LBB40_5:                               // %.loopexit8.i
 	mov	rax, 0
-	jz	r2, .LBB38_10
-	jmp	.LBB38_6
-.LBB38_6:                               // %.loopexit7.i.preheader
-.LBB38_7:                               // %.loopexit7.i
+	jz	r2, .LBB40_10
+	jmp	.LBB40_6
+.LBB40_6:                               // %.loopexit7.i.preheader
+.LBB40_7:                               // %.loopexit7.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r4
@@ -28372,24 +27904,24 @@ bcmp:                                   // @bcmp
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	r5, rax, .LBB38_9
-	jmp	.LBB38_8
-.LBB38_8:
+	je	r5, rax, .LBB40_9
+	jmp	.LBB40_8
+.LBB40_8:
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, rax
 	mov	r0, r5
 	call	__bit_and
 	sub	rax, r2
-	jmp	.LBB38_10
-.LBB38_9:                               //   in Loop: Header=BB38_7 Depth=1
+	jmp	.LBB40_10
+.LBB40_9:                               //   in Loop: Header=BB40_7 Depth=1
 	add	r2, -1
 	add	r4, 1
 	add	r3, 1
 	mov	rax, 0
-	jnz	r2, .LBB38_7
-	jmp	.LBB38_10
-.LBB38_10:                              // %memcmp.exit
+	jnz	r2, .LBB40_7
+	jmp	.LBB40_10
+.LBB40_10:                              // %memcmp.exit
 	ret
 // -- End function
 // -- Begin function bcopy
@@ -28403,9 +27935,9 @@ bcopy:                                  // @bcopy
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_xor
-	jge	rax, r5, .LBB39_10
-	jmp	.LBB39_1
-.LBB39_1:
+	jge	rax, r5, .LBB41_10
+	jmp	.LBB41_1
+.LBB41_1:
 	mov	r5, r4
 	add	r5, r2
 	mov	r0, r5
@@ -28413,29 +27945,29 @@ bcopy:                                  // @bcopy
 	mov	r6, rax
 	mov	r0, r3
 	call	__bit_xor
-	jge	rax, r6, .LBB39_10
-	jmp	.LBB39_2
-.LBB39_2:
+	jge	rax, r6, .LBB41_10
+	jmp	.LBB41_2
+.LBB41_2:
 	mov	r6, r3
 	add	r6, r2
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB39_7
-	jmp	.LBB39_3
-.LBB39_3:
+	jl	rax, r0, .LBB41_7
+	jmp	.LBB41_3
+.LBB41_3:
 	mov	r0, r5
 	mov	r1, r6
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB39_8
-	jmp	.LBB39_4
-.LBB39_4:                               // %.preheader.i.preheader
+	jnz	rax, .LBB41_8
+	jmp	.LBB41_4
+.LBB41_4:                               // %.preheader.i.preheader
 	mov	r5, -2147483645
 	mov	r1, -2147483648
-.LBB39_5:                               // %.preheader.i
+.LBB41_5:                               // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r4
 	add	r0, r2
@@ -28448,20 +27980,20 @@ bcopy:                                  // @bcopy
 	mov	[r6], r0
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB39_5
-	jmp	.LBB39_6
-.LBB39_6:                               // %.loopexit9.i.loopexit
+	jg	rax, r5, .LBB41_5
+	jmp	.LBB41_6
+.LBB41_6:                               // %.loopexit9.i.loopexit
 	add	r4, r2
 	add	r3, r2
 	mov	r6, r3
 	mov	r5, r4
-.LBB39_7:                               // %.loopexit9.i
-	jz	r2, .LBB39_21
-	jmp	.LBB39_8
-.LBB39_8:                               // %.preheader
+.LBB41_7:                               // %.loopexit9.i
+	jz	r2, .LBB41_21
+	jmp	.LBB41_8
+.LBB41_8:                               // %.preheader
 	add	r5, -1
 	add	r6, -1
-.LBB39_9:                               // =>This Inner Loop Header: Depth=1
+.LBB41_9:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	add	r2, -1
 	mov	r0, r5
@@ -28512,41 +28044,41 @@ bcopy:                                  // @bcopy
 	mov	[r7], rax
 	add	r5, -1
 	add	r6, -1
-	jz	r2, .LBB39_21
-	jmp	.LBB39_9
-.LBB39_10:
+	jz	r2, .LBB41_21
+	jmp	.LBB41_9
+.LBB41_10:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB39_18
-	jmp	.LBB39_11
-.LBB39_11:
+	jl	rax, r0, .LBB41_18
+	jmp	.LBB41_11
+.LBB41_11:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB39_19
-	jmp	.LBB39_12
-.LBB39_12:
+	jnz	rax, .LBB41_19
+	jmp	.LBB41_12
+.LBB41_12:
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB39_14
-	jmp	.LBB39_13
-.LBB39_13:                              // %.preheader12.i.preheader
+	jl	rax, r0, .LBB41_14
+	jmp	.LBB41_13
+.LBB41_13:                              // %.preheader12.i.preheader
 	mov	r5, -2147483633
-	jmp	.LBB39_16
-.LBB39_14:                              // %.preheader54
+	jmp	.LBB41_16
+.LBB41_14:                              // %.preheader54
 	mov	r5, -2147483645
-	jmp	.LBB39_17
-.LBB39_15:
+	jmp	.LBB41_17
+.LBB41_15:
 	mov	r0, 3
-	jg	r2, r0, .LBB39_14
-	jmp	.LBB39_18
-.LBB39_16:                              // %.preheader12.i
+	jg	r2, r0, .LBB41_14
+	jmp	.LBB41_18
+.LBB41_16:                              // %.preheader12.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, r4
@@ -28574,9 +28106,9 @@ bcopy:                                  // @bcopy
 	mov	[r6], r0
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB39_16
-	jmp	.LBB39_15
-.LBB39_17:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB41_16
+	jmp	.LBB41_15
+.LBB41_17:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	add	r4, 4
 	mov	[r3], r0
@@ -28584,15 +28116,15 @@ bcopy:                                  // @bcopy
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB39_17
-	jmp	.LBB39_18
-.LBB39_18:                              // %.loopexit11.i
-	jz	r2, .LBB39_21
-	jmp	.LBB39_19
-.LBB39_19:                              // %.preheader49
+	jg	rax, r5, .LBB41_17
+	jmp	.LBB41_18
+.LBB41_18:                              // %.loopexit11.i
+	jz	r2, .LBB41_21
+	jmp	.LBB41_19
+.LBB41_19:                              // %.preheader49
 	mov	r7, r4
 	mov	t1, r3
-.LBB39_20:                              // =>This Inner Loop Header: Depth=1
+.LBB41_20:                              // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 2
 	add	r7, 1
@@ -28645,9 +28177,9 @@ bcopy:                                  // @bcopy
 	mov	[r3], rax
 	mov	r4, r7
 	mov	r3, t1
-	jnz	r2, .LBB39_20
-	jmp	.LBB39_21
-.LBB39_21:                              // %memmove.exit
+	jnz	r2, .LBB41_20
+	jmp	.LBB41_21
+.LBB41_21:                              // %memmove.exit
 	ret
 // -- End function
 // -- Begin function bzero
@@ -28657,17 +28189,17 @@ bzero:                                  // @bzero
 	mov	r1, 3
 	mov	r3, r0
 	call	__bit_and
-	jz	rax, .LBB40_4
-	jmp	.LBB40_1
-.LBB40_1:                               // %.preheader1.preheader
+	jz	rax, .LBB42_4
+	jmp	.LBB42_1
+.LBB42_1:                               // %.preheader1.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r0, r3
-.LBB40_2:                               // %.preheader1
+.LBB42_2:                               // %.preheader1
                                         // =>This Inner Loop Header: Depth=1
-	jz	r2, .LBB40_14
-	jmp	.LBB40_3
-.LBB40_3:                               //   in Loop: Header=BB40_2 Depth=1
+	jz	r2, .LBB42_14
+	jmp	.LBB42_3
+.LBB42_3:                               //   in Loop: Header=BB42_2 Depth=1
 	add	r2, -1
 	mov	r3, r0
 	mov	r1, 3
@@ -28704,32 +28236,32 @@ bzero:                                  // @bzero
 	call	__bit_and
 	add	r4, 1
 	mov	r0, r3
-	jnz	rax, .LBB40_2
-	jmp	.LBB40_4
-.LBB40_4:                               // %.loopexit7.i
+	jnz	rax, .LBB42_2
+	jmp	.LBB42_4
+.LBB42_4:                               // %.loopexit7.i
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB40_11
-	jmp	.LBB40_5
-.LBB40_5:
+	jl	rax, r0, .LBB42_11
+	jmp	.LBB42_5
+.LBB42_5:
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB40_7
-	jmp	.LBB40_6
-.LBB40_6:                               // %.preheader.i.preheader
+	jl	rax, r0, .LBB42_7
+	jmp	.LBB42_6
+.LBB42_6:                               // %.preheader.i.preheader
 	mov	r4, -2147483633
-	jmp	.LBB40_9
-.LBB40_7:                               // %.preheader30
+	jmp	.LBB42_9
+.LBB42_7:                               // %.preheader30
 	mov	r4, -2147483645
-	jmp	.LBB40_10
-.LBB40_8:
+	jmp	.LBB42_10
+.LBB42_8:
 	mov	r0, 3
-	jg	r2, r0, .LBB40_7
-	jmp	.LBB40_11
-.LBB40_9:                               // %.preheader.i
+	jg	r2, r0, .LBB42_7
+	jmp	.LBB42_11
+.LBB42_9:                               // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 4
@@ -28746,22 +28278,22 @@ bzero:                                  // @bzero
 	mov	[r0], 0
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r4, .LBB40_9
-	jmp	.LBB40_8
-.LBB40_10:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r4, .LBB42_9
+	jmp	.LBB42_8
+.LBB42_10:                              // =>This Inner Loop Header: Depth=1
 	mov	[r3], 0
 	add	r2, -4
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r4, .LBB40_10
-	jmp	.LBB40_11
-.LBB40_11:                              // %.loopexit5.i
-	jz	r2, .LBB40_14
-	jmp	.LBB40_12
-.LBB40_12:                              // %.preheader.preheader
+	jg	rax, r4, .LBB42_10
+	jmp	.LBB42_11
+.LBB42_11:                              // %.loopexit5.i
+	jz	r2, .LBB42_14
+	jmp	.LBB42_12
+.LBB42_12:                              // %.preheader.preheader
 	mov	r6, r3
-.LBB40_13:                              // %.preheader
+.LBB42_13:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, -1
 	mov	r1, 3
@@ -28795,9 +28327,9 @@ bzero:                                  // @bzero
 	call	__bit_or
 	mov	[r3], rax
 	mov	r3, r6
-	jnz	r2, .LBB40_13
-	jmp	.LBB40_14
-.LBB40_14:                              // %memset.exit
+	jnz	r2, .LBB42_13
+	jmp	.LBB42_14
+.LBB42_14:                              // %memset.exit
 	ret
 // -- End function
 // -- Begin function index
@@ -28812,24 +28344,24 @@ index:                                  // @index
 	mov	r4, rax
 	mov	r0, r2
 	call	__bit_and
-	jz	r4, .LBB41_3
-	jmp	.LBB41_1
-.LBB41_1:
-	jz	rax, .LBB41_11
-	jmp	.LBB41_2
-.LBB41_2:
+	jz	r4, .LBB43_3
+	jmp	.LBB43_1
+.LBB43_1:
+	jz	rax, .LBB43_11
+	jmp	.LBB43_2
+.LBB43_2:
 	mov	r6, r2
 	add	r6, 1
-	jmp	.LBB41_13
-.LBB41_3:
+	jmp	.LBB43_13
+.LBB43_3:
 	mov	r5, r2
-	jz	rax, .LBB41_7
-	jmp	.LBB41_4
-.LBB41_4:                               // %.preheader2.i.preheader
+	jz	rax, .LBB43_7
+	jmp	.LBB43_4
+.LBB43_4:                               // %.preheader2.i.preheader
 	mov	r3, r2
 	add	r3, 1
 	mov	r5, r2
-.LBB41_5:                               // %.preheader2.i
+.LBB43_5:                               // %.preheader2.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r5
@@ -28845,20 +28377,20 @@ index:                                  // @index
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB41_22
-	jmp	.LBB41_6
-.LBB41_6:                               //   in Loop: Header=BB41_5 Depth=1
+	jz	rax, .LBB43_22
+	jmp	.LBB43_6
+.LBB43_6:                               //   in Loop: Header=BB43_5 Depth=1
 	mov	r1, 3
 	add	r5, 1
 	mov	r0, r3
 	call	__bit_and
 	add	r3, 1
-	jnz	rax, .LBB41_5
-	jmp	.LBB41_7
-.LBB41_7:                               // %.loopexit4.i.preheader
+	jnz	rax, .LBB43_5
+	jmp	.LBB43_7
+.LBB43_7:                               // %.loopexit4.i.preheader
 	add	r5, -5
 	mov	r2, -2139062144
-.LBB41_8:                               // %.loopexit4.i
+.LBB43_8:                               // %.loopexit4.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 5
@@ -28870,10 +28402,10 @@ index:                                  // @index
 	mov	r0, rax
 	call	__bit_and
 	add	r5, 4
-	je	rax, r2, .LBB41_8
-	jmp	.LBB41_9
-.LBB41_9:                               // %.preheader.i.preheader
-.LBB41_10:                              // %.preheader.i
+	je	rax, r2, .LBB43_8
+	jmp	.LBB43_9
+.LBB43_9:                               // %.preheader.i.preheader
+.LBB43_10:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, 1
 	mov	r1, 2
@@ -28890,9 +28422,9 @@ index:                                  // @index
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB41_22
-	jmp	.LBB41_10
-.LBB41_11:                              // %.loopexit9.i
+	jz	rax, .LBB43_22
+	jmp	.LBB43_10
+.LBB43_11:                              // %.loopexit9.i
 	mov	r5, [r2]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -28902,12 +28434,12 @@ index:                                  // @index
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB41_18
-	jmp	.LBB41_12
-.LBB41_12:                              // %.preheader5.i.preheader
+	jne	rax, r6, .LBB43_18
+	jmp	.LBB43_12
+.LBB43_12:                              // %.preheader5.i.preheader
 	mul	r4, 16843009
-	jmp	.LBB41_16
-.LBB41_13:                              // =>This Inner Loop Header: Depth=1
+	jmp	.LBB43_16
+.LBB43_13:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -28924,26 +28456,26 @@ index:                                  // @index
 	call	__bit_and
 	mov	r7, rax
 	mov	r5, 0
-	jz	r7, .LBB41_22
-	jmp	.LBB41_14
-.LBB41_14:                              //   in Loop: Header=BB41_13 Depth=1
+	jz	r7, .LBB43_22
+	jmp	.LBB43_14
+.LBB43_14:                              //   in Loop: Header=BB43_13 Depth=1
 	mov	r0, r3
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r7
 	call	__bit_and
 	mov	r5, r2
-	je	rax, t1, .LBB41_22
-	jmp	.LBB41_15
-.LBB41_15:                              //   in Loop: Header=BB41_13 Depth=1
+	je	rax, t1, .LBB43_22
+	jmp	.LBB43_15
+.LBB43_15:                              //   in Loop: Header=BB43_13 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB41_11
-	jmp	.LBB41_13
-.LBB41_16:                              // %.preheader5.i
+	jz	rax, .LBB43_11
+	jmp	.LBB43_13
+.LBB43_16:                              // %.preheader5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	mov	r1, r4
@@ -28955,9 +28487,9 @@ index:                                  // @index
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB41_18
-	jmp	.LBB41_17
-.LBB41_17:                              //   in Loop: Header=BB41_16 Depth=1
+	jne	rax, r6, .LBB43_18
+	jmp	.LBB43_17
+.LBB43_17:                              //   in Loop: Header=BB43_16 Depth=1
 	add	r2, 4
 	mov	r5, [r2]
 	mov	r0, 16843008
@@ -28967,11 +28499,11 @@ index:                                  // @index
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB41_16
-	jmp	.LBB41_18
-.LBB41_18:                              // %.loopexit6.i
+	je	rax, r6, .LBB43_16
+	jmp	.LBB43_18
+.LBB43_18:                              // %.loopexit6.i
 	add	r2, -1
-.LBB41_19:                              // =>This Inner Loop Header: Depth=1
+.LBB43_19:                              // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
 	mov	r0, r2
@@ -28988,17 +28520,17 @@ index:                                  // @index
 	mov	r0, rax
 	call	__bit_and
 	mov	r4, rax
-	jz	r4, .LBB41_21
-	jmp	.LBB41_20
-.LBB41_20:                              //   in Loop: Header=BB41_19 Depth=1
+	jz	r4, .LBB43_21
+	jmp	.LBB43_20
+.LBB43_20:                              //   in Loop: Header=BB43_19 Depth=1
 	mov	r0, r3
 	call	__bit_and
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_and
-	jne	rax, r5, .LBB41_19
-	jmp	.LBB41_21
-.LBB41_21:
+	jne	rax, r5, .LBB43_19
+	jmp	.LBB43_21
+.LBB43_21:
 	mov	r0, r3
 	call	__bit_and
 	mov	r3, rax
@@ -29025,7 +28557,7 @@ index:                                  // @index
 	mov	r1, r2
 	call	__bit_and
 	mov	r5, rax
-.LBB41_22:                              // %strchr.exit
+.LBB43_22:                              // %strchr.exit
 	mov	rax, r5
 	ret
 // -- End function
@@ -29038,18 +28570,18 @@ memccpy:                                // @memccpy
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB42_5
-	jmp	.LBB42_1
-.LBB42_1:
+	jl	rax, r0, .LBB44_5
+	jmp	.LBB44_1
+.LBB44_1:
 	mov	r0, r5
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB42_5
-	jmp	.LBB42_2
-.LBB42_2:
+	jnz	rax, .LBB44_5
+	jmp	.LBB44_2
+.LBB44_2:
 	mov	r1, 255
 	mov	r0, r2
 	call	__bit_and
@@ -29057,7 +28589,7 @@ memccpy:                                // @memccpy
 	mul	r6, 16843009
 	mov	t1, -2139062144
 	mov	t2, -2147483645
-.LBB42_3:                               // =>This Inner Loop Header: Depth=1
+.LBB44_3:                               // =>This Inner Loop Header: Depth=1
 	mov	r7, [r5]
 	mov	r0, r7
 	mov	r1, r6
@@ -29069,9 +28601,9 @@ memccpy:                                // @memccpy
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t1, .LBB42_5
-	jmp	.LBB42_4
-.LBB42_4:                               //   in Loop: Header=BB42_3 Depth=1
+	jne	rax, t1, .LBB44_5
+	jmp	.LBB44_4
+.LBB44_4:                               //   in Loop: Header=BB44_3 Depth=1
 	add	r5, 4
 	mov	[r4], r7
 	add	r3, -4
@@ -29079,14 +28611,14 @@ memccpy:                                // @memccpy
 	add	r4, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, t2, .LBB42_3
-	jmp	.LBB42_5
-.LBB42_5:                               // %.loopexit
-.LBB42_6:                               // =>This Inner Loop Header: Depth=1
+	jg	rax, t2, .LBB44_3
+	jmp	.LBB44_5
+.LBB44_5:                               // %.loopexit
+.LBB44_6:                               // =>This Inner Loop Header: Depth=1
 	mov	r7, 0
-	jz	r3, .LBB42_8
-	jmp	.LBB42_7
-.LBB42_7:                               //   in Loop: Header=BB42_6 Depth=1
+	jz	r3, .LBB44_8
+	jmp	.LBB44_7
+.LBB44_7:                               //   in Loop: Header=BB44_6 Depth=1
 	mov	r1, 255
 	mov	r0, r2
 	call	__bit_and
@@ -29145,9 +28677,9 @@ memccpy:                                // @memccpy
 	mov	[r4], rax
 	mov	r4, r7
 	mov	r5, t3
-	jne	t1, r6, .LBB42_6
-	jmp	.LBB42_8
-.LBB42_8:
+	jne	t1, r6, .LBB44_6
+	jmp	.LBB44_8
+.LBB44_8:
 	mov	rax, r7
 	ret
 // -- End function
@@ -29158,16 +28690,16 @@ memchr:                                 // @memchr
 	mov	r1, 3
 	mov	r4, r0
 	call	__bit_and
-	jz	rax, .LBB43_5
-	jmp	.LBB43_1
-.LBB43_1:
+	jz	rax, .LBB45_5
+	jmp	.LBB45_1
+.LBB45_1:
 	mov	r5, r4
 	add	r5, 1
-.LBB43_2:                               // =>This Inner Loop Header: Depth=1
+.LBB45_2:                               // =>This Inner Loop Header: Depth=1
 	mov	rax, 0
-	jz	r2, .LBB43_13
-	jmp	.LBB43_3
-.LBB43_3:                               //   in Loop: Header=BB43_2 Depth=1
+	jz	r2, .LBB45_13
+	jmp	.LBB45_3
+.LBB45_3:                               //   in Loop: Header=BB45_2 Depth=1
 	mov	r1, 255
 	mov	r0, r3
 	call	__bit_and
@@ -29188,25 +28720,25 @@ memchr:                                 // @memchr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r4
-	je	r0, r6, .LBB43_13
-	jmp	.LBB43_4
-.LBB43_4:                               //   in Loop: Header=BB43_2 Depth=1
+	je	r0, r6, .LBB45_13
+	jmp	.LBB45_4
+.LBB45_4:                               //   in Loop: Header=BB45_2 Depth=1
 	mov	r1, 3
 	add	r4, 1
 	mov	r0, r5
 	call	__bit_and
 	add	r5, 1
 	add	r2, -1
-	jnz	rax, .LBB43_2
-	jmp	.LBB43_5
-.LBB43_5:                               // %.loopexit9
+	jnz	rax, .LBB45_2
+	jmp	.LBB45_5
+.LBB45_5:                               // %.loopexit9
 	mov	r1, -2147483648
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB43_9
-	jmp	.LBB43_6
-.LBB43_6:
+	jl	rax, r0, .LBB45_9
+	jmp	.LBB45_6
+.LBB45_6:
 	mov	r1, 255
 	mov	r0, r3
 	call	__bit_and
@@ -29214,7 +28746,7 @@ memchr:                                 // @memchr
 	mul	r5, 16843009
 	mov	r6, -2139062144
 	mov	r7, -2147483645
-.LBB43_7:                               // =>This Inner Loop Header: Depth=1
+.LBB45_7:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, r5
 	call	__bit_xor
@@ -29225,22 +28757,22 @@ memchr:                                 // @memchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB43_10
-	jmp	.LBB43_8
-.LBB43_8:                               //   in Loop: Header=BB43_7 Depth=1
+	jne	rax, r6, .LBB45_10
+	jmp	.LBB45_8
+.LBB45_8:                               //   in Loop: Header=BB45_7 Depth=1
 	add	r2, -4
 	mov	r1, -2147483648
 	add	r4, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r7, .LBB43_7
-	jmp	.LBB43_9
-.LBB43_9:                               // %.loopexit6
+	jg	rax, r7, .LBB45_7
+	jmp	.LBB45_9
+.LBB45_9:                               // %.loopexit6
 	mov	rax, 0
-	jz	r2, .LBB43_13
-	jmp	.LBB43_10
-.LBB43_10:                              // %.loopexit5
-.LBB43_11:                              // =>This Inner Loop Header: Depth=1
+	jz	r2, .LBB45_13
+	jmp	.LBB45_10
+.LBB45_10:                              // %.loopexit5
+.LBB45_11:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, r3
 	call	__bit_and
@@ -29261,15 +28793,15 @@ memchr:                                 // @memchr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r4
-	je	r0, r5, .LBB43_13
-	jmp	.LBB43_12
-.LBB43_12:                              //   in Loop: Header=BB43_11 Depth=1
+	je	r0, r5, .LBB45_13
+	jmp	.LBB45_12
+.LBB45_12:                              //   in Loop: Header=BB45_11 Depth=1
 	add	r2, -1
 	add	r4, 1
 	mov	rax, 0
-	jnz	r2, .LBB43_11
-	jmp	.LBB43_13
-.LBB43_13:                              // %.loopexit
+	jnz	r2, .LBB45_11
+	jmp	.LBB45_13
+.LBB45_13:                              // %.loopexit
 	ret
 // -- End function
 // -- Begin function memcmp
@@ -29281,40 +28813,40 @@ memcmp:                                 // @memcmp
 	mov	r0, r2
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB44_5
-	jmp	.LBB44_1
-.LBB44_1:
+	jl	rax, r0, .LBB46_5
+	jmp	.LBB46_1
+.LBB46_1:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB44_6
-	jmp	.LBB44_2
-.LBB44_2:                               // %.preheader.preheader
+	jnz	rax, .LBB46_6
+	jmp	.LBB46_2
+.LBB46_2:                               // %.preheader.preheader
 	mov	r5, -2147483645
-.LBB44_3:                               // %.preheader
+.LBB46_3:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, [r3]
-	jne	r0, r1, .LBB44_6
-	jmp	.LBB44_4
-.LBB44_4:                               //   in Loop: Header=BB44_3 Depth=1
+	jne	r0, r1, .LBB46_6
+	jmp	.LBB46_4
+.LBB46_4:                               //   in Loop: Header=BB46_3 Depth=1
 	add	r4, 4
 	add	r2, -4
 	mov	r1, -2147483648
 	add	r3, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r5, .LBB44_3
-	jmp	.LBB44_5
-.LBB44_5:                               // %.loopexit8
+	jg	rax, r5, .LBB46_3
+	jmp	.LBB46_5
+.LBB46_5:                               // %.loopexit8
 	mov	rax, 0
-	jz	r2, .LBB44_10
-	jmp	.LBB44_6
-.LBB44_6:                               // %.loopexit7.preheader
-.LBB44_7:                               // %.loopexit7
+	jz	r2, .LBB46_10
+	jmp	.LBB46_6
+.LBB46_6:                               // %.loopexit7.preheader
+.LBB46_7:                               // %.loopexit7
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r4
@@ -29345,24 +28877,24 @@ memcmp:                                 // @memcmp
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	r5, rax, .LBB44_9
-	jmp	.LBB44_8
-.LBB44_8:
+	je	r5, rax, .LBB46_9
+	jmp	.LBB46_8
+.LBB46_8:
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, rax
 	mov	r0, r5
 	call	__bit_and
 	sub	rax, r2
-	jmp	.LBB44_10
-.LBB44_9:                               //   in Loop: Header=BB44_7 Depth=1
+	jmp	.LBB46_10
+.LBB46_9:                               //   in Loop: Header=BB46_7 Depth=1
 	add	r2, -1
 	add	r4, 1
 	add	r3, 1
 	mov	rax, 0
-	jnz	r2, .LBB44_7
-	jmp	.LBB44_10
-.LBB44_10:                              // %.loopexit
+	jnz	r2, .LBB46_7
+	jmp	.LBB46_10
+.LBB46_10:                              // %.loopexit
 	ret
 // -- End function
 // -- Begin function memcpy
@@ -29378,9 +28910,9 @@ memcpy:                                 // @memcpy
 	mov	r0, -2147483632
 	mov	r5, r2
 	mov	r4, r7
-	jl	rax, r0, .LBB45_13
-	jmp	.LBB45_1
-.LBB45_1:
+	jl	rax, r0, .LBB47_13
+	jmp	.LBB47_1
+.LBB47_1:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -29389,7 +28921,7 @@ memcpy:                                 // @memcpy
 	sub	t4, r4
 	mov	t5, 0
 	mov	r5, r3
-.LBB45_2:                               // =>This Inner Loop Header: Depth=1
+.LBB47_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r6, r2
 	mov	r0, r3
 	add	r0, t5
@@ -29442,9 +28974,9 @@ memcpy:                                 // @memcpy
 	mov	[r6], rax
 	add	t5, 1
 	add	r5, 1
-	jne	t4, t5, .LBB45_2
-	jmp	.LBB45_3
-.LBB45_3:
+	jne	t4, t5, .LBB47_2
+	jmp	.LBB47_3
+.LBB47_3:
 	mov	r1, -8
 	mov	r0, r4
 	call	__bit_or
@@ -29456,36 +28988,36 @@ memcpy:                                 // @memcpy
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, rax
-	jnz	r0, .LBB45_10
-	jmp	.LBB45_4
-.LBB45_4:
+	jnz	r0, .LBB47_10
+	jmp	.LBB47_4
+.LBB47_4:
 	mov	r5, r2
 	mov	r1, -2147483648
 	add	r5, t5
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB45_6
-	jmp	.LBB45_5
-.LBB45_5:                               // %.preheader.preheader
+	jl	rax, r0, .LBB47_6
+	jmp	.LBB47_5
+.LBB47_5:                               // %.preheader.preheader
 	mov	r5, r2
 	add	r5, t5
 	add	r3, t5
 	mov	r6, 0
 	mov	r7, -2147483633
-	jmp	.LBB45_8
-.LBB45_6:                               // %.preheader59
+	jmp	.LBB47_8
+.LBB47_6:                               // %.preheader59
 	mov	r7, -2147483645
 	mov	r3, r6
-	jmp	.LBB45_9
-.LBB45_7:
+	jmp	.LBB47_9
+.LBB47_7:
 	add	r3, r6
 	mov	r0, 3
 	add	r5, r6
 	mov	r6, r3
-	jg	r4, r0, .LBB45_6
-	jmp	.LBB45_13
-.LBB45_8:                               // %.preheader
+	jg	r4, r0, .LBB47_6
+	jmp	.LBB47_13
+.LBB47_8:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, r6
@@ -29514,9 +29046,9 @@ memcpy:                                 // @memcpy
 	add	r6, 16
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r7, .LBB45_8
-	jmp	.LBB45_7
-.LBB45_9:                               // =>This Inner Loop Header: Depth=1
+	jg	rax, r7, .LBB47_8
+	jmp	.LBB47_7
+.LBB47_9:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, [r3]
 	add	r3, 4
 	mov	[r5], r0
@@ -29524,9 +29056,9 @@ memcpy:                                 // @memcpy
 	add	r5, 4
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r7, .LBB45_9
-	jmp	.LBB45_13
-.LBB45_10:
+	jg	rax, r7, .LBB47_9
+	jmp	.LBB47_13
+.LBB47_10:
 	call	__bit_shl
 	mov	r7, rax
 	mov	t1, 8
@@ -29540,7 +29072,7 @@ memcpy:                                 // @memcpy
 	mov	t2, [r0]
 	add	t7, 4
 	mov	t6, 0
-.LBB45_11:                              // =>This Inner Loop Header: Depth=1
+.LBB47_11:                              // =>This Inner Loop Header: Depth=1
 	mov	x0, r2
 	mov	r0, t5
 	add	r0, t6
@@ -29580,9 +29112,9 @@ memcpy:                                 // @memcpy
 	mov	r0, r4
 	call	__bit_xor
 	mov	t2, t3
-	jge	rax, t4, .LBB45_11
-	jmp	.LBB45_12
-.LBB45_12:
+	jge	rax, t4, .LBB47_11
+	jmp	.LBB47_12
+.LBB47_12:
 	mov	r1, -4
 	mov	r0, r6
 	call	__bit_or
@@ -29598,14 +29130,14 @@ memcpy:                                 // @memcpy
 	add	t5, t6
 	add	r3, 4
 	mov	r5, t5
-	jmp	.LBB45_14
-.LBB45_13:                              // %.loopexit8
-	jz	r4, .LBB45_16
-	jmp	.LBB45_14
-.LBB45_14:                              // %.preheader56
+	jmp	.LBB47_14
+.LBB47_13:                              // %.loopexit8
+	jz	r4, .LBB47_16
+	jmp	.LBB47_14
+.LBB47_14:                              // %.preheader56
 	mov	t1, r3
 	mov	t2, r5
-.LBB45_15:                              // =>This Inner Loop Header: Depth=1
+.LBB47_15:                              // =>This Inner Loop Header: Depth=1
 	add	r4, -1
 	mov	r1, 2
 	add	t1, 1
@@ -29658,9 +29190,9 @@ memcpy:                                 // @memcpy
 	mov	[r5], rax
 	mov	r5, t2
 	mov	r3, t1
-	jnz	r4, .LBB45_15
-	jmp	.LBB45_16
-.LBB45_16:                              // %.loopexit
+	jnz	r4, .LBB47_15
+	jmp	.LBB47_16
+.LBB47_16:                              // %.loopexit
 	mov	rax, r2
 	mov	x0, [rsp-1]
 	ret
@@ -29685,14 +29217,14 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_xor
 	mov	r0, -2147483646
 	mov	r7, 0
-	jl	rax, r0, .LBB46_22
-	jmp	.LBB46_1
-.LBB46_1:                               // %.preheader30.preheader
+	jl	rax, r0, .LBB48_22
+	jmp	.LBB48_1
+.LBB48_1:                               // %.preheader30.preheader
 	mov	t1, -1
 	mov	t7, 0
 	mov	r7, 1
 	mov	t5, 1
-.LBB46_2:                               // %.preheader30
+.LBB48_2:                               // %.preheader30
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, r7
@@ -29733,41 +29265,41 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t4, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t4, .LBB46_4
-	jmp	.LBB46_3
-.LBB46_3:                               //   in Loop: Header=BB46_2 Depth=1
+	jge	rax, t4, .LBB48_4
+	jmp	.LBB48_3
+.LBB48_3:                               //   in Loop: Header=BB48_2 Depth=1
 	mov	r6, r7
 	sub	r6, t1
 	mov	t5, 1
-	jmp	.LBB46_9
-.LBB46_4:                               //   in Loop: Header=BB46_2 Depth=1
+	jmp	.LBB48_9
+.LBB48_4:                               //   in Loop: Header=BB48_2 Depth=1
 	mov	r1, 255
 	mov	r0, t3
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, t2
 	call	__bit_and
-	jne	rax, r7, .LBB46_8
-	jmp	.LBB46_5
-.LBB46_5:                               //   in Loop: Header=BB46_2 Depth=1
-	je	t5, r6, .LBB46_7
-	jmp	.LBB46_6
-.LBB46_6:                               //   in Loop: Header=BB46_2 Depth=1
+	jne	rax, r7, .LBB48_8
+	jmp	.LBB48_5
+.LBB48_5:                               //   in Loop: Header=BB48_2 Depth=1
+	je	t5, r6, .LBB48_7
+	jmp	.LBB48_6
+.LBB48_6:                               //   in Loop: Header=BB48_2 Depth=1
 	add	t5, 1
 	mov	r7, t7
-	jmp	.LBB46_9
-.LBB46_7:                               //   in Loop: Header=BB46_2 Depth=1
+	jmp	.LBB48_9
+.LBB48_7:                               //   in Loop: Header=BB48_2 Depth=1
 	add	t7, r6
 	mov	t5, 1
 	mov	r7, t7
-	jmp	.LBB46_9
-.LBB46_8:                               //   in Loop: Header=BB46_2 Depth=1
+	jmp	.LBB48_9
+.LBB48_8:                               //   in Loop: Header=BB48_2 Depth=1
 	mov	r7, t7
 	add	r7, 1
 	mov	t5, 1
 	mov	t1, t7
 	mov	r6, 1
-.LBB46_9:                               //   in Loop: Header=BB46_2 Depth=1
+.LBB48_9:                               //   in Loop: Header=BB48_2 Depth=1
 	mov	t7, r7
 	mov	r7, t5
 	mov	r1, -2147483648
@@ -29777,15 +29309,15 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t2, rax
 	mov	r0, r7
 	call	__bit_xor
-	jl	rax, t2, .LBB46_2
-	jmp	.LBB46_10
-.LBB46_10:                              // %.preheader29.preheader
+	jl	rax, t2, .LBB48_2
+	jmp	.LBB48_10
+.LBB48_10:                              // %.preheader29.preheader
 	mov	r7, -1
 	mov	x1, 0
 	mov	t2, 1
 	mov	t7, 1
 	mov	x0, 1
-.LBB46_11:                              // %.preheader29
+.LBB48_11:                              // %.preheader29
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, t2
@@ -29826,41 +29358,41 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t5, rax
 	mov	r0, t4
 	call	__bit_xor
-	jge	rax, t5, .LBB46_13
-	jmp	.LBB46_12
-.LBB46_12:                              //   in Loop: Header=BB46_11 Depth=1
+	jge	rax, t5, .LBB48_13
+	jmp	.LBB48_12
+.LBB48_12:                              //   in Loop: Header=BB48_11 Depth=1
 	mov	t7, t2
 	sub	t7, r7
 	mov	x0, 1
-	jmp	.LBB46_18
-.LBB46_13:                              //   in Loop: Header=BB46_11 Depth=1
+	jmp	.LBB48_18
+.LBB48_13:                              //   in Loop: Header=BB48_11 Depth=1
 	mov	r1, 255
 	mov	r0, t4
 	call	__bit_and
 	mov	t2, rax
 	mov	r0, t3
 	call	__bit_and
-	jne	rax, t2, .LBB46_17
-	jmp	.LBB46_14
-.LBB46_14:                              //   in Loop: Header=BB46_11 Depth=1
-	je	x0, t7, .LBB46_16
-	jmp	.LBB46_15
-.LBB46_15:                              //   in Loop: Header=BB46_11 Depth=1
+	jne	rax, t2, .LBB48_17
+	jmp	.LBB48_14
+.LBB48_14:                              //   in Loop: Header=BB48_11 Depth=1
+	je	x0, t7, .LBB48_16
+	jmp	.LBB48_15
+.LBB48_15:                              //   in Loop: Header=BB48_11 Depth=1
 	add	x0, 1
 	mov	t2, x1
-	jmp	.LBB46_18
-.LBB46_16:                              //   in Loop: Header=BB46_11 Depth=1
+	jmp	.LBB48_18
+.LBB48_16:                              //   in Loop: Header=BB48_11 Depth=1
 	add	x1, t7
 	mov	x0, 1
 	mov	t2, x1
-	jmp	.LBB46_18
-.LBB46_17:                              //   in Loop: Header=BB46_11 Depth=1
+	jmp	.LBB48_18
+.LBB48_17:                              //   in Loop: Header=BB48_11 Depth=1
 	mov	t2, x1
 	add	t2, 1
 	mov	x0, 1
 	mov	r7, x1
 	mov	t7, 1
-.LBB46_18:                              //   in Loop: Header=BB46_11 Depth=1
+.LBB48_18:                              //   in Loop: Header=BB48_11 Depth=1
 	mov	x1, t2
 	mov	t2, x0
 	mov	r1, -2147483648
@@ -29870,9 +29402,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jl	rax, t3, .LBB46_11
-	jmp	.LBB46_19
-.LBB46_19:
+	jl	rax, t3, .LBB48_11
+	jmp	.LBB48_19
+.LBB48_19:
 	add	t1, 1
 	add	r7, 1
 	mov	r0, t1
@@ -29880,11 +29412,11 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t2, rax
 	mov	r0, r7
 	call	__bit_xor
-	jl	rax, t2, .LBB46_21
-	jmp	.LBB46_20
-.LBB46_20:
+	jl	rax, t2, .LBB48_21
+	jmp	.LBB48_20
+.LBB48_20:
 	mov	r6, t7
-.LBB46_21:
+.LBB48_21:
 	mov	r0, t1
 	sub	r0, r7
 	mov	r1, 31
@@ -29901,26 +29433,26 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_and
 	mov	r7, rax
 	add	r7, t1
-.LBB46_22:
+.LBB48_22:
 	mov	r0, 1024
-	jmp	.LBB46_25
-.LBB46_23:
-	jz	r3, .LBB46_27
-	jmp	.LBB46_24
-.LBB46_24:                              // %.preheader27.preheader
+	jmp	.LBB48_25
+.LBB48_23:
+	jz	r3, .LBB48_27
+	jmp	.LBB48_24
+.LBB48_24:                              // %.preheader27.preheader
 	mov	t3, r3
 	add	t3, -1
 	mov	t4, -1
 	mov	t1, r2
-	jmp	.LBB46_26
-.LBB46_25:                              // =>This Inner Loop Header: Depth=1
+	jmp	.LBB48_26
+.LBB48_25:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, rsp
 	add	r1, t6
 	add	t6, 4
 	mov	[r1], r3
-	je	t6, r0, .LBB46_23
-	jmp	.LBB46_25
-.LBB46_26:                              // %.preheader27
+	je	t6, r0, .LBB48_23
+	jmp	.LBB48_25
+.LBB48_26:                              // %.preheader27
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t1
@@ -29943,9 +29475,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	[rax], t3
 	add	t3, -1
 	add	t1, 1
-	jne	t3, t4, .LBB46_26
-	jmp	.LBB46_27
-.LBB46_27:                              // %.loopexit28
+	jne	t3, t4, .LBB48_26
+	jmp	.LBB48_27
+.LBB48_27:                              // %.loopexit28
 	mov	t1, r2
 	mov	r1, -2147483648
 	add	t1, r6
@@ -29954,9 +29486,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r0, -2147483644
 	mov	t2, r7
 	mov	t3, r2
-	jl	rax, r0, .LBB46_33
-	jmp	.LBB46_28
-.LBB46_28:
+	jl	rax, r0, .LBB48_33
+	jmp	.LBB48_28
+.LBB48_28:
 	mov	r0, t1
 	mov	r1, r2
 	call	__bit_or
@@ -29965,37 +29497,37 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_and
 	mov	t2, r7
 	mov	t3, r2
-	jnz	rax, .LBB46_35
-	jmp	.LBB46_29
-.LBB46_29:                              // %.preheader.i.preheader
+	jnz	rax, .LBB48_35
+	jmp	.LBB48_29
+.LBB48_29:                              // %.preheader.i.preheader
 	mov	t4, -2147483645
 	mov	t3, r2
 	mov	t2, r7
-.LBB46_30:                              // %.preheader.i
+.LBB48_30:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	t1, t3
 	add	t1, r6
 	mov	r0, [t3]
 	mov	r1, [t1]
-	jne	r0, r1, .LBB46_34
-	jmp	.LBB46_31
-.LBB46_31:                              //   in Loop: Header=BB46_30 Depth=1
+	jne	r0, r1, .LBB48_34
+	jmp	.LBB48_31
+.LBB48_31:                              //   in Loop: Header=BB48_30 Depth=1
 	add	t2, -4
 	mov	r1, -2147483648
 	add	t3, 4
 	mov	r0, t2
 	call	__bit_xor
-	jg	rax, t4, .LBB46_30
-	jmp	.LBB46_32
-.LBB46_32:                              // %.loopexit8.i.loopexit
+	jg	rax, t4, .LBB48_30
+	jmp	.LBB48_32
+.LBB48_32:                              // %.loopexit8.i.loopexit
 	mov	t1, t3
 	add	t1, r6
-.LBB46_33:                              // %.loopexit8.i
-	jz	t2, .LBB46_38
-	jmp	.LBB46_35
-.LBB46_34:                              // %.loopexit7.i.preheader.loopexit
-.LBB46_35:                              // %.loopexit7.i.preheader
-.LBB46_36:                              // %.loopexit7.i
+.LBB48_33:                              // %.loopexit8.i
+	jz	t2, .LBB48_38
+	jmp	.LBB48_35
+.LBB48_34:                              // %.loopexit7.i.preheader.loopexit
+.LBB48_35:                              // %.loopexit7.i.preheader
+.LBB48_36:                              // %.loopexit7.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t3
@@ -30026,15 +29558,15 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t4, rax, .LBB46_53
-	jmp	.LBB46_37
-.LBB46_37:                              //   in Loop: Header=BB46_36 Depth=1
+	jne	t4, rax, .LBB48_53
+	jmp	.LBB48_37
+.LBB48_37:                              //   in Loop: Header=BB48_36 Depth=1
 	add	t2, -1
 	add	t3, 1
 	add	t1, 1
-	jnz	t2, .LBB46_36
-	jmp	.LBB46_38
-.LBB46_38:                              // %memcmp.exit.thread
+	jnz	t2, .LBB48_36
+	jmp	.LBB48_38
+.LBB48_38:                              // %memcmp.exit.thread
 	sub	r4, r3
 	mov	x3, r3
 	sub	x3, r6
@@ -30048,9 +29580,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	add	x6, -1
 	mov	t4, 0
 	mov	t3, 0
-.LBB46_39:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB46_47 Depth 2
-                                        //     Child Loop BB46_49 Depth 2
+.LBB48_39:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB48_47 Depth 2
+                                        //     Child Loop BB48_49 Depth 2
 	mov	t1, r5
 	add	t1, t3
 	mov	r0, t1
@@ -30074,24 +29606,24 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_shl
 	add	rax, rsp
 	mov	t6, [rax]
-	jz	t6, .LBB46_44
-	jmp	.LBB46_40
-.LBB46_40:                              //   in Loop: Header=BB46_39 Depth=1
+	jz	t6, .LBB48_44
+	jmp	.LBB48_40
+.LBB48_40:                              //   in Loop: Header=BB48_39 Depth=1
 	mov	x2, 0
-	jz	t4, .LBB46_43
-	jmp	.LBB46_41
-.LBB46_41:                              //   in Loop: Header=BB46_39 Depth=1
+	jz	t4, .LBB48_43
+	jmp	.LBB48_41
+.LBB48_41:                              //   in Loop: Header=BB48_39 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r6
 	call	__bit_xor
 	mov	t1, rax
 	mov	r0, t6
 	call	__bit_xor
-	jge	rax, t1, .LBB46_43
-	jmp	.LBB46_42
-.LBB46_42:                              //   in Loop: Header=BB46_39 Depth=1
+	jge	rax, t1, .LBB48_43
+	jmp	.LBB48_42
+.LBB48_42:                              //   in Loop: Header=BB48_39 Depth=1
 	mov	t6, x3
-.LBB46_43:                              //   in Loop: Header=BB46_39 Depth=1
+.LBB48_43:                              //   in Loop: Header=BB48_39 Depth=1
 	add	t3, t6
 	mov	r1, -2147483648
 	mov	t1, 0
@@ -30101,9 +29633,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r0, t3
 	call	__bit_xor
 	mov	t4, x2
-	jg	rax, t5, .LBB46_65
-	jmp	.LBB46_39
-.LBB46_44:                              //   in Loop: Header=BB46_39 Depth=1
+	jg	rax, t5, .LBB48_65
+	jmp	.LBB48_39
+.LBB48_44:                              //   in Loop: Header=BB48_39 Depth=1
 	mov	t5, t4
 	sub	t5, r7
 	mov	r1, 31
@@ -30127,10 +29659,10 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t6, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	t6, rax, .LBB46_46
-	jmp	.LBB46_45
-.LBB46_45:                              // %.preheader.preheader
-                                        //   in Loop: Header=BB46_39 Depth=1
+	jge	t6, rax, .LBB48_46
+	jmp	.LBB48_45
+.LBB48_45:                              // %.preheader.preheader
+                                        //   in Loop: Header=BB48_39 Depth=1
 	mov	t6, x4
 	add	t6, t7
 	mov	x7, t2
@@ -30139,9 +29671,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	add	x0, t7
 	add	x0, r5
 	add	t7, r2
-	jmp	.LBB46_47
-.LBB46_46:                              // %.loopexit
-                                        //   in Loop: Header=BB46_39 Depth=1
+	jmp	.LBB48_47
+.LBB48_46:                              // %.loopexit
+                                        //   in Loop: Header=BB48_39 Depth=1
 	mov	r1, 31
 	mov	r0, t5
 	call	__bit_shr
@@ -30159,9 +29691,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	x1, x5
 	add	x1, t3
 	mov	t6, r7
-	jmp	.LBB46_49
-.LBB46_47:                              // %.preheader
-                                        //   Parent Loop BB46_39 Depth=1
+	jmp	.LBB48_49
+.LBB48_47:                              // %.preheader
+                                        //   Parent Loop BB48_39 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, t7
@@ -30193,16 +29725,16 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r0, rax
 	call	__bit_and
 	mov	x2, 0
-	jne	x1, rax, .LBB46_43
-	jmp	.LBB46_48
-.LBB46_48:                              //   in Loop: Header=BB46_47 Depth=2
+	jne	x1, rax, .LBB48_43
+	jmp	.LBB48_48
+.LBB48_48:                              //   in Loop: Header=BB48_47 Depth=2
 	add	t6, 1
 	add	x7, -1
 	add	x0, 1
 	add	t7, 1
-	jz	x7, .LBB46_46
-	jmp	.LBB46_47
-.LBB46_49:                              //   Parent Loop BB46_39 Depth=1
+	jz	x7, .LBB48_46
+	jmp	.LBB48_47
+.LBB48_49:                              //   Parent Loop BB48_39 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	mov	r0, t6
@@ -30210,9 +29742,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t7, rax
 	mov	r0, t4
 	call	__bit_xor
-	jge	rax, t7, .LBB46_52
-	jmp	.LBB46_50
-.LBB46_50:                              //   in Loop: Header=BB46_49 Depth=2
+	jge	rax, t7, .LBB48_52
+	jmp	.LBB48_50
+.LBB48_50:                              //   in Loop: Header=BB48_49 Depth=2
 	mov	x2, t6
 	mov	r0, x6
 	add	r0, t6
@@ -30247,13 +29779,13 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r0, rax
 	call	__bit_and
 	mov	t6, x2
-	je	t7, rax, .LBB46_49
-	jmp	.LBB46_51
-.LBB46_51:                              // %._crit_edge
-                                        //   in Loop: Header=BB46_39 Depth=1
+	je	t7, rax, .LBB48_49
+	jmp	.LBB48_51
+.LBB48_51:                              // %._crit_edge
+                                        //   in Loop: Header=BB48_39 Depth=1
 	add	x2, 1
 	mov	t5, x2
-.LBB46_52:                              //   in Loop: Header=BB46_39 Depth=1
+.LBB48_52:                              //   in Loop: Header=BB48_39 Depth=1
 	add	t4, 1
 	mov	r1, -2147483648
 	mov	r0, t4
@@ -30263,9 +29795,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_xor
 	mov	t6, r6
 	mov	x2, x3
-	jl	rax, t4, .LBB46_65
-	jmp	.LBB46_43
-.LBB46_53:                              // %memcmp.exit
+	jl	rax, t4, .LBB48_65
+	jmp	.LBB48_43
+.LBB48_53:                              // %memcmp.exit
 	mov	t1, r3
 	sub	t1, r7
 	mov	r0, t1
@@ -30297,9 +29829,9 @@ two_way_long_needle:                    // @two_way_long_needle
 	add	x2, -1
 	add	r2, -1
 	mov	t3, 0
-.LBB46_54:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB46_59 Depth 2
-                                        //     Child Loop BB46_62 Depth 2
+.LBB48_54:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB48_59 Depth 2
+                                        //     Child Loop BB48_62 Depth 2
 	mov	t1, r5
 	add	t1, t3
 	mov	r0, t1
@@ -30323,26 +29855,26 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_shl
 	add	rax, rsp
 	mov	r0, [rax]
-	jnz	r0, .LBB46_57
-	jmp	.LBB46_55
-.LBB46_55:                              //   in Loop: Header=BB46_54 Depth=1
+	jnz	r0, .LBB48_57
+	jmp	.LBB48_55
+.LBB48_55:                              //   in Loop: Header=BB48_54 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r7
 	call	__bit_xor
 	mov	t4, rax
 	mov	r0, t2
 	call	__bit_xor
-	jle	rax, t4, .LBB46_61
-	jmp	.LBB46_56
-.LBB46_56:                              // %.preheader24.preheader
-                                        //   in Loop: Header=BB46_54 Depth=1
+	jle	rax, t4, .LBB48_61
+	jmp	.LBB48_56
+.LBB48_56:                              // %.preheader24.preheader
+                                        //   in Loop: Header=BB48_54 Depth=1
 	mov	x3, x0
 	add	x3, t3
 	mov	t6, 0
-	jmp	.LBB46_59
-.LBB46_57:                              //   in Loop: Header=BB46_54 Depth=1
+	jmp	.LBB48_59
+.LBB48_57:                              //   in Loop: Header=BB48_54 Depth=1
 	add	t3, r0
-.LBB46_58:                              //   in Loop: Header=BB46_54 Depth=1
+.LBB48_58:                              //   in Loop: Header=BB48_54 Depth=1
 	mov	r1, -2147483648
 	mov	t1, 0
 	mov	r0, r4
@@ -30350,10 +29882,10 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	t4, rax
 	mov	r0, t3
 	call	__bit_xor
-	jg	rax, t4, .LBB46_65
-	jmp	.LBB46_54
-.LBB46_59:                              // %.preheader24
-                                        //   Parent Loop BB46_54 Depth=1
+	jg	rax, t4, .LBB48_65
+	jmp	.LBB48_54
+.LBB48_59:                              // %.preheader24
+                                        //   Parent Loop BB48_54 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, x1
 	add	r0, t6
@@ -30386,23 +29918,23 @@ two_way_long_needle:                    // @two_way_long_needle
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t4, rax, .LBB46_64
-	jmp	.LBB46_60
-.LBB46_60:                              //   in Loop: Header=BB46_59 Depth=2
+	jne	t4, rax, .LBB48_64
+	jmp	.LBB48_60
+.LBB48_60:                              //   in Loop: Header=BB48_59 Depth=2
 	add	t6, 1
-	jne	t7, t6, .LBB46_59
-	jmp	.LBB46_61
-.LBB46_61:                              // %.loopexit25.preheader
-                                        //   in Loop: Header=BB46_54 Depth=1
+	jne	t7, t6, .LBB48_59
+	jmp	.LBB48_61
+.LBB48_61:                              // %.loopexit25.preheader
+                                        //   in Loop: Header=BB48_54 Depth=1
 	mov	x3, x2
 	add	x3, t3
 	mov	t4, r7
-.LBB46_62:                              // %.loopexit25
-                                        //   Parent Loop BB46_54 Depth=1
+.LBB48_62:                              // %.loopexit25
+                                        //   Parent Loop BB48_54 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
-	jz	t4, .LBB46_65
-	jmp	.LBB46_63
-.LBB46_63:                              //   in Loop: Header=BB46_62 Depth=2
+	jz	t4, .LBB48_65
+	jmp	.LBB48_63
+.LBB48_63:                              //   in Loop: Header=BB48_62 Depth=2
 	mov	x4, t4
 	mov	r0, r2
 	add	r0, t4
@@ -30438,14 +29970,14 @@ two_way_long_needle:                    // @two_way_long_needle
 	call	__bit_and
 	mov	t4, x4
 	mov	t6, r6
-	je	t5, rax, .LBB46_62
-	jmp	.LBB46_64
-.LBB46_64:                              // %.loopexit23
-                                        //   in Loop: Header=BB46_54 Depth=1
+	je	t5, rax, .LBB48_62
+	jmp	.LBB48_64
+.LBB48_64:                              // %.loopexit23
+                                        //   in Loop: Header=BB48_54 Depth=1
 	add	t3, t6
 	add	t3, 1
-	jmp	.LBB46_58
-.LBB46_65:                              // %.loopexit21
+	jmp	.LBB48_58
+.LBB48_65:                              // %.loopexit21
 	mov	rax, t1
 	mov	x7, [rsp-8]
 	mov	x6, [rsp-7]
@@ -30465,13 +29997,13 @@ memmem:                                 // @memmem
 	mov	r5, r1
 	mov	r6, r0
 	mov	r7, r6
-	jz	r3, .LBB47_78
-	jmp	.LBB47_1
-.LBB47_1:
+	jz	r3, .LBB49_78
+	jmp	.LBB49_1
+.LBB49_1:
 	mov	r0, 1
-	jne	r3, r0, .LBB47_15
-	jmp	.LBB47_2
-.LBB47_2:
+	jne	r3, r0, .LBB49_15
+	jmp	.LBB49_2
+.LBB49_2:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -30490,17 +30022,17 @@ memmem:                                 // @memmem
 	mov	r2, rax
 	mov	r0, r6
 	call	__bit_and
-	jz	rax, .LBB47_7
-	jmp	.LBB47_3
-.LBB47_3:                               // %.preheader25.preheader
+	jz	rax, .LBB49_7
+	jmp	.LBB49_3
+.LBB49_3:                               // %.preheader25.preheader
 	mov	r3, r6
 	add	r3, 1
-.LBB47_4:                               // %.preheader25
+.LBB49_4:                               // %.preheader25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r7, 0
-	jz	r5, .LBB47_78
-	jmp	.LBB47_5
-.LBB47_5:                               //   in Loop: Header=BB47_4 Depth=1
+	jz	r5, .LBB49_78
+	jmp	.LBB49_5
+.LBB49_5:                               //   in Loop: Header=BB49_4 Depth=1
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -30519,30 +30051,30 @@ memmem:                                 // @memmem
 	mov	r0, r2
 	call	__bit_and
 	mov	r7, r6
-	je	r4, rax, .LBB47_78
-	jmp	.LBB47_6
-.LBB47_6:                               //   in Loop: Header=BB47_4 Depth=1
+	je	r4, rax, .LBB49_78
+	jmp	.LBB49_6
+.LBB49_6:                               //   in Loop: Header=BB49_4 Depth=1
 	mov	r1, 3
 	add	r6, 1
 	mov	r0, r3
 	call	__bit_and
 	add	r3, 1
 	add	r5, -1
-	jnz	rax, .LBB47_4
-	jmp	.LBB47_7
-.LBB47_7:                               // %.loopexit9.i
+	jnz	rax, .LBB49_4
+	jmp	.LBB49_7
+.LBB49_7:                               // %.loopexit9.i
 	mov	r1, -2147483648
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB47_11
-	jmp	.LBB47_8
-.LBB47_8:
+	jl	rax, r0, .LBB49_11
+	jmp	.LBB49_8
+.LBB49_8:
 	mov	r3, r2
 	mul	r3, 16843009
 	mov	r4, -2139062144
 	mov	r7, -2147483645
-.LBB47_9:                               // =>This Inner Loop Header: Depth=1
+.LBB49_9:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, [r6]
 	mov	r1, r3
 	call	__bit_xor
@@ -30553,22 +30085,22 @@ memmem:                                 // @memmem
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r4, .LBB47_12
-	jmp	.LBB47_10
-.LBB47_10:                              //   in Loop: Header=BB47_9 Depth=1
+	jne	rax, r4, .LBB49_12
+	jmp	.LBB49_10
+.LBB49_10:                              //   in Loop: Header=BB49_9 Depth=1
 	add	r5, -4
 	mov	r1, -2147483648
 	add	r6, 4
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, r7, .LBB47_9
-	jmp	.LBB47_11
-.LBB47_11:                              // %.loopexit6.i
+	jg	rax, r7, .LBB49_9
+	jmp	.LBB49_11
+.LBB49_11:                              // %.loopexit6.i
 	mov	r7, 0
-	jz	r5, .LBB47_78
-	jmp	.LBB47_12
-.LBB47_12:                              // %.loopexit5.i.preheader
-.LBB47_13:                              // %.loopexit5.i
+	jz	r5, .LBB49_78
+	jmp	.LBB49_12
+.LBB49_12:                              // %.loopexit5.i.preheader
+.LBB49_13:                              // %.loopexit5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r6
@@ -30588,15 +30120,15 @@ memmem:                                 // @memmem
 	mov	r0, r2
 	call	__bit_and
 	mov	r7, r6
-	je	r3, rax, .LBB47_78
-	jmp	.LBB47_14
-.LBB47_14:                              //   in Loop: Header=BB47_13 Depth=1
+	je	r3, rax, .LBB49_78
+	jmp	.LBB49_14
+.LBB49_14:                              //   in Loop: Header=BB49_13 Depth=1
 	add	r5, -1
 	add	r6, 1
 	mov	r7, 0
-	jz	r5, .LBB47_78
-	jmp	.LBB47_13
-.LBB47_15:
+	jz	r5, .LBB49_78
+	jmp	.LBB49_13
+.LBB49_15:
 	mov	r1, -2147483648
 	mov	r7, 0
 	mov	r0, r3
@@ -30604,17 +30136,17 @@ memmem:                                 // @memmem
 	mov	r4, rax
 	mov	r0, r5
 	call	__bit_xor
-	jl	rax, r4, .LBB47_78
-	jmp	.LBB47_16
-.LBB47_16:
+	jl	rax, r4, .LBB49_78
+	jmp	.LBB49_16
+.LBB49_16:
 	mov	t4, r5
 	sub	t4, r3
 	mov	r4, r6
 	mov	r0, 2
 	add	r4, t4
-	jne	r3, r0, .LBB47_24
-	jmp	.LBB47_17
-.LBB47_17:
+	jne	r3, r0, .LBB49_24
+	jmp	.LBB49_17
+.LBB49_17:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -30690,14 +30222,14 @@ memmem:                                 // @memmem
 	call	__bit_or
 	mov	r0, 1
 	mov	r3, rax
-	jl	t4, r0, .LBB47_23
-	jmp	.LBB47_18
-.LBB47_18:
-	je	r3, r2, .LBB47_23
-	jmp	.LBB47_19
-.LBB47_19:                              // %.preheader.preheader
+	jl	t4, r0, .LBB49_23
+	jmp	.LBB49_18
+.LBB49_18:
+	je	r3, r2, .LBB49_23
+	jmp	.LBB49_19
+.LBB49_19:                              // %.preheader.preheader
 	add	r6, 2
-.LBB47_20:                              // %.preheader
+.LBB49_20:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 16
 	mov	r5, r6
@@ -30729,15 +30261,15 @@ memmem:                                 // @memmem
 	mov	r7, rax
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, r7, .LBB47_22
-	jmp	.LBB47_21
-.LBB47_21:                              // %.preheader
-                                        //   in Loop: Header=BB47_20 Depth=1
-	jne	r3, r2, .LBB47_20
-	jmp	.LBB47_22
-.LBB47_22:                              // %.loopexit.loopexit
+	jg	rax, r7, .LBB49_22
+	jmp	.LBB49_21
+.LBB49_21:                              // %.preheader
+                                        //   in Loop: Header=BB49_20 Depth=1
+	jne	r3, r2, .LBB49_20
+	jmp	.LBB49_22
+.LBB49_22:                              // %.loopexit.loopexit
 	add	r6, -2
-.LBB47_23:                              // %.loopexit
+.LBB49_23:                              // %.loopexit
 	mov	r0, r3
 	mov	r1, r2
 	call	__bit_xor
@@ -30759,35 +30291,35 @@ memmem:                                 // @memmem
 	mov	r1, r6
 	call	__bit_and
 	mov	r7, rax
-	jmp	.LBB47_78
-.LBB47_24:
+	jmp	.LBB49_78
+.LBB49_24:
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483391
-	jl	rax, r0, .LBB47_26
-	jmp	.LBB47_25
-.LBB47_25:
+	jl	rax, r0, .LBB49_26
+	jmp	.LBB49_25
+.LBB49_25:
 	mov	r0, r6
 	mov	r1, r5
 	call	two_way_long_needle
 	mov	r7, rax
-	jmp	.LBB47_78
-.LBB47_26:
+	jmp	.LBB49_78
+.LBB49_26:
 	mov	r1, 3
 	mov	r0, rsp
 	call	__bit_and
 	mov	r7, rsp
 	mov	r5, 256
-	jz	rax, .LBB47_31
-	jmp	.LBB47_27
-.LBB47_27:                              // %.preheader22.preheader
+	jz	rax, .LBB49_31
+	jmp	.LBB49_27
+.LBB49_27:                              // %.preheader22.preheader
 	call	__bit_and
 	mov	r0, rax
 	call	__bit_xor
 	mov	r5, rax
 	add	r5, 1
 	mov	t3, 0
-.LBB47_28:                              // =>This Inner Loop Header: Depth=1
+.LBB49_28:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, rsp
 	add	r0, t3
 	mov	r1, 3
@@ -30819,9 +30351,9 @@ memmem:                                 // @memmem
 	call	__bit_or
 	add	t3, 1
 	mov	[t1], rax
-	jne	r5, t3, .LBB47_28
-	jmp	.LBB47_29
-.LBB47_29:                              // %.loopexit7.i
+	jne	r5, t3, .LBB49_28
+	jmp	.LBB49_29
+.LBB49_29:                              // %.loopexit7.i
 	mov	r7, rsp
 	mov	r0, 257
 	sub	r0, t3
@@ -30831,28 +30363,28 @@ memmem:                                 // @memmem
 	sub	r5, t3
 	call	__bit_xor
 	mov	r0, -2147483643
-	jl	rax, r0, .LBB47_36
-	jmp	.LBB47_30
-.LBB47_30:                              // %.loopexit7.i.thread
+	jl	rax, r0, .LBB49_36
+	jmp	.LBB49_30
+.LBB49_30:                              // %.loopexit7.i.thread
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB47_32
-	jmp	.LBB47_31
-.LBB47_31:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB49_32
+	jmp	.LBB49_31
+.LBB49_31:                              // %.preheader.i.preheader
 	mov	t1, -2147483633
-	jmp	.LBB47_34
-.LBB47_32:                              // %.preheader239
+	jmp	.LBB49_34
+.LBB49_32:                              // %.preheader239
 	mov	t1, -2147483645
 	mov	r1, -2147483648
-	jmp	.LBB47_35
-.LBB47_33:
+	jmp	.LBB49_35
+.LBB49_33:
 	mov	r0, r5
 	add	r0, 16
 	mov	r1, 19
-	jg	r0, r1, .LBB47_32
-	jmp	.LBB47_36
-.LBB47_34:                              // %.preheader.i
+	jg	r0, r1, .LBB49_32
+	jmp	.LBB49_36
+.LBB49_34:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r7
 	add	r0, 4
@@ -30869,22 +30401,22 @@ memmem:                                 // @memmem
 	mov	[r0], 0
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB47_34
-	jmp	.LBB47_33
-.LBB47_35:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, t1, .LBB49_34
+	jmp	.LBB49_33
+.LBB49_35:                              // =>This Inner Loop Header: Depth=1
 	mov	[r7], 0
 	add	r5, -4
 	add	r7, 4
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB47_35
-	jmp	.LBB47_36
-.LBB47_36:                              // %.loopexit5.i6
-	jz	r5, .LBB47_39
-	jmp	.LBB47_37
-.LBB47_37:                              // %.preheader21.preheader
+	jg	rax, t1, .LBB49_35
+	jmp	.LBB49_36
+.LBB49_36:                              // %.loopexit5.i6
+	jz	r5, .LBB49_39
+	jmp	.LBB49_37
+.LBB49_37:                              // %.preheader21.preheader
 	mov	t3, r7
-.LBB47_38:                              // %.preheader21
+.LBB49_38:                              // %.preheader21
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, -1
 	mov	r1, 3
@@ -30918,15 +30450,15 @@ memmem:                                 // @memmem
 	call	__bit_or
 	mov	[r7], rax
 	mov	r7, t3
-	jnz	r5, .LBB47_38
-	jmp	.LBB47_39
-.LBB47_39:                              // %memset.exit.preheader
+	jnz	r5, .LBB49_38
+	jmp	.LBB49_39
+.LBB49_39:                              // %memset.exit.preheader
 	mov	r5, r3
 	add	r5, -1
 	mov	t5, r3
 	add	t5, -2
 	mov	r7, 0
-.LBB47_40:                              // %memset.exit
+.LBB49_40:                              // %memset.exit
                                         // =>This Inner Loop Header: Depth=1
 	mov	t1, r2
 	add	t1, r7
@@ -31001,9 +30533,9 @@ memmem:                                 // @memmem
 	mov	r1, rax
 	call	__bit_or
 	mov	[t2], rax
-	jne	t5, r7, .LBB47_40
-	jmp	.LBB47_41
-.LBB47_41:
+	jne	t5, r7, .LBB49_40
+	jmp	.LBB49_41
+.LBB49_41:
 	mov	r7, r2
 	add	r7, r5
 	mov	r1, 2
@@ -31094,23 +30626,23 @@ memmem:                                 // @memmem
 	call	__bit_or
 	mov	r0, 17
 	mov	[r7], rax
-	jl	r3, r0, .LBB47_43
-	jmp	.LBB47_42
-.LBB47_42:                              // %.preheader19.preheader
+	jl	r3, r0, .LBB49_43
+	jmp	.LBB49_42
+.LBB49_42:                              // %.preheader19.preheader
 	mov	r3, 0
 	mov	x0, -2147483645
-	jmp	.LBB47_59
-.LBB47_43:                              // %.preheader14
+	jmp	.LBB49_59
+.LBB49_43:                              // %.preheader14
 	mov	r7, 0
-	jl	t4, r7, .LBB47_77
-	jmp	.LBB47_44
-.LBB47_44:                              // %.preheader13.lr.ph
+	jl	t4, r7, .LBB49_77
+	jmp	.LBB49_44
+.LBB49_44:                              // %.preheader13.lr.ph
 	mov	t5, -2147483643
 	mov	t6, -2147483645
-.LBB47_45:                              // %.preheader13
+.LBB49_45:                              // %.preheader13
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB47_52 Depth 2
-                                        //     Child Loop BB47_56 Depth 2
+                                        //     Child Loop BB49_52 Depth 2
+                                        //     Child Loop BB49_56 Depth 2
 	mov	r7, r6
 	add	r7, r5
 	mov	r1, 2
@@ -31172,17 +30704,17 @@ memmem:                                 // @memmem
 	mov	r6, rax
 	mov	r0, r7
 	call	__bit_xor
-	jg	rax, r6, .LBB47_47
-	jmp	.LBB47_46
-.LBB47_46:                              // %.preheader13
-                                        //   in Loop: Header=BB47_45 Depth=1
+	jg	rax, r6, .LBB49_47
+	jmp	.LBB49_46
+.LBB49_46:                              // %.preheader13
+                                        //   in Loop: Header=BB49_45 Depth=1
 	mov	r1, 255
 	mov	r0, t1
 	call	__bit_and
 	mov	r6, r7
-	jz	rax, .LBB47_45
-	jmp	.LBB47_47
-.LBB47_47:                              //   in Loop: Header=BB47_45 Depth=1
+	jz	rax, .LBB49_45
+	jmp	.LBB49_47
+.LBB49_47:                              //   in Loop: Header=BB49_45 Depth=1
 	mov	r1, 255
 	mov	r0, t1
 	call	__bit_and
@@ -31193,9 +30725,9 @@ memmem:                                 // @memmem
 	mov	r6, rax
 	mov	r0, r5
 	call	__bit_xor
-	jle	rax, r6, .LBB47_49
-	jmp	.LBB47_48
-.LBB47_48:                              //   in Loop: Header=BB47_45 Depth=1
+	jle	rax, r6, .LBB49_49
+	jmp	.LBB49_48
+.LBB49_48:                              //   in Loop: Header=BB49_45 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r4
 	call	__bit_xor
@@ -31204,17 +30736,17 @@ memmem:                                 // @memmem
 	call	__bit_xor
 	mov	r6, r7
 	mov	r7, 0
-	jg	rax, t1, .LBB47_77
-	jmp	.LBB47_45
-.LBB47_49:                              //   in Loop: Header=BB47_45 Depth=1
+	jg	rax, t1, .LBB49_77
+	jmp	.LBB49_45
+.LBB49_49:                              //   in Loop: Header=BB49_45 Depth=1
 	mov	r0, r3
 	call	__bit_xor
 	mov	r6, r5
 	mov	t2, r7
 	mov	t1, r2
-	jl	rax, t5, .LBB47_54
-	jmp	.LBB47_50
-.LBB47_50:                              //   in Loop: Header=BB47_45 Depth=1
+	jl	rax, t5, .LBB49_54
+	jmp	.LBB49_50
+.LBB49_50:                              //   in Loop: Header=BB49_45 Depth=1
 	mov	r0, r7
 	mov	r1, r2
 	call	__bit_or
@@ -31224,37 +30756,37 @@ memmem:                                 // @memmem
 	mov	r6, r5
 	mov	t1, r2
 	mov	t2, r7
-	jnz	rax, .LBB47_55
-	jmp	.LBB47_51
-.LBB47_51:                              // %.preheader.i8.preheader
-                                        //   in Loop: Header=BB47_45 Depth=1
+	jnz	rax, .LBB49_55
+	jmp	.LBB49_51
+.LBB49_51:                              // %.preheader.i8.preheader
+                                        //   in Loop: Header=BB49_45 Depth=1
 	mov	t1, r2
 	mov	t2, r7
 	mov	r6, r5
-.LBB47_52:                              // %.preheader.i8
-                                        //   Parent Loop BB47_45 Depth=1
+.LBB49_52:                              // %.preheader.i8
+                                        //   Parent Loop BB49_45 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, [t2]
 	mov	r1, [t1]
-	jne	r0, r1, .LBB47_55
-	jmp	.LBB47_53
-.LBB47_53:                              //   in Loop: Header=BB47_52 Depth=2
+	jne	r0, r1, .LBB49_55
+	jmp	.LBB49_53
+.LBB49_53:                              //   in Loop: Header=BB49_52 Depth=2
 	add	t2, 4
 	add	r6, -4
 	mov	r1, -2147483648
 	add	t1, 4
 	mov	r0, r6
 	call	__bit_xor
-	jg	rax, t6, .LBB47_52
-	jmp	.LBB47_54
-.LBB47_54:                              // %.loopexit8.i
-                                        //   in Loop: Header=BB47_45 Depth=1
-	jz	r6, .LBB47_77
-	jmp	.LBB47_55
-.LBB47_55:                              // %.loopexit7.i7.preheader
-                                        //   in Loop: Header=BB47_45 Depth=1
-.LBB47_56:                              // %.loopexit7.i7
-                                        //   Parent Loop BB47_45 Depth=1
+	jg	rax, t6, .LBB49_52
+	jmp	.LBB49_54
+.LBB49_54:                              // %.loopexit8.i
+                                        //   in Loop: Header=BB49_45 Depth=1
+	jz	r6, .LBB49_77
+	jmp	.LBB49_55
+.LBB49_55:                              // %.loopexit7.i7.preheader
+                                        //   in Loop: Header=BB49_45 Depth=1
+.LBB49_56:                              // %.loopexit7.i7
+                                        //   Parent Loop BB49_45 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, t2
@@ -31285,26 +30817,26 @@ memmem:                                 // @memmem
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t3, rax, .LBB47_58
-	jmp	.LBB47_57
-.LBB47_57:                              //   in Loop: Header=BB47_56 Depth=2
+	jne	t3, rax, .LBB49_58
+	jmp	.LBB49_57
+.LBB49_57:                              //   in Loop: Header=BB49_56 Depth=2
 	add	r6, -1
 	add	t2, 1
 	add	t1, 1
-	jz	r6, .LBB47_77
-	jmp	.LBB47_56
-.LBB47_58:                              // %memcmp.exit
-                                        //   in Loop: Header=BB47_45 Depth=1
+	jz	r6, .LBB49_77
+	jmp	.LBB49_56
+.LBB49_58:                              // %memcmp.exit
+                                        //   in Loop: Header=BB49_45 Depth=1
 	add	r7, t7
-	jmp	.LBB47_48
-.LBB47_59:                              // %.preheader19
+	jmp	.LBB49_48
+.LBB49_59:                              // %.preheader19
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB47_60 Depth 2
-                                        //       Child Loop BB47_62 Depth 3
+                                        //     Child Loop BB49_60 Depth 2
+                                        //       Child Loop BB49_62 Depth 3
 	mov	t2, r6
-.LBB47_60:                              //   Parent Loop BB47_59 Depth=1
+.LBB49_60:                              //   Parent Loop BB49_59 Depth=1
                                         // =>  This Loop Header: Depth=2
-                                        //       Child Loop BB47_62 Depth 3
+                                        //       Child Loop BB49_62 Depth 3
 	mov	r6, t2
 	mov	r1, -2147483648
 	mov	r7, 0
@@ -31313,16 +30845,16 @@ memmem:                                 // @memmem
 	mov	t1, rax
 	mov	r0, r6
 	call	__bit_xor
-	jg	rax, t1, .LBB47_77
-	jmp	.LBB47_61
-.LBB47_61:                              // %.preheader16.preheader
-                                        //   in Loop: Header=BB47_60 Depth=2
+	jg	rax, t1, .LBB49_77
+	jmp	.LBB49_61
+.LBB49_61:                              // %.preheader16.preheader
+                                        //   in Loop: Header=BB49_60 Depth=2
 	mov	t3, r6
 	add	t3, r5
 	mov	x1, 0
-.LBB47_62:                              // %.preheader16
-                                        //   Parent Loop BB47_59 Depth=1
-                                        //     Parent Loop BB47_60 Depth=2
+.LBB49_62:                              // %.preheader16
+                                        //   Parent Loop BB49_59 Depth=1
+                                        //     Parent Loop BB49_60 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
 	mov	t1, t3
 	add	t1, x1
@@ -31386,16 +30918,16 @@ memmem:                                 // @memmem
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_xor
-	jg	rax, t2, .LBB47_64
-	jmp	.LBB47_63
-.LBB47_63:                              // %.preheader16
-                                        //   in Loop: Header=BB47_62 Depth=3
+	jg	rax, t2, .LBB49_64
+	jmp	.LBB49_63
+.LBB49_63:                              // %.preheader16
+                                        //   in Loop: Header=BB49_62 Depth=3
 	mov	r1, 255
 	mov	r0, r7
 	call	__bit_and
-	jz	rax, .LBB47_62
-	jmp	.LBB47_64
-.LBB47_64:                              //   in Loop: Header=BB47_60 Depth=2
+	jz	rax, .LBB49_62
+	jmp	.LBB49_64
+.LBB49_64:                              //   in Loop: Header=BB49_60 Depth=2
 	mov	r1, 255
 	mov	r0, r7
 	call	__bit_and
@@ -31408,9 +30940,9 @@ memmem:                                 // @memmem
 	mov	t1, rax
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB47_60
-	jmp	.LBB47_65
-.LBB47_65:                              //   in Loop: Header=BB47_59 Depth=1
+	jg	rax, t1, .LBB49_60
+	jmp	.LBB49_65
+.LBB49_65:                              //   in Loop: Header=BB49_59 Depth=1
 	mov	r1, 255
 	mov	r0, r7
 	call	__bit_and
@@ -31428,16 +30960,16 @@ memmem:                                 // @memmem
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB47_67
-	jmp	.LBB47_66
-.LBB47_66:                              // %.preheader.i10.preheader
-                                        //   in Loop: Header=BB47_59 Depth=1
+	jnz	rax, .LBB49_67
+	jmp	.LBB49_66
+.LBB49_66:                              // %.preheader.i10.preheader
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r0, [t4]
 	mov	r1, [t2]
-	je	r0, r1, .LBB47_71
-	jmp	.LBB47_67
-.LBB47_67:                              // %.loopexit7.i9
-                                        //   in Loop: Header=BB47_59 Depth=1
+	je	r0, r1, .LBB49_71
+	jmp	.LBB49_67
+.LBB49_67:                              // %.loopexit7.i9
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r1, 2
 	mov	r0, t4
 	call	__bit_shr
@@ -31467,10 +30999,10 @@ memmem:                                 // @memmem
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t4, rax, .LBB47_75
-	jmp	.LBB47_68
-.LBB47_68:                              // %.loopexit7.i9.1
-                                        //   in Loop: Header=BB47_59 Depth=1
+	jne	t4, rax, .LBB49_75
+	jmp	.LBB49_68
+.LBB49_68:                              // %.loopexit7.i9.1
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r0, r7
 	call	__bit_and
 	mov	r0, t3
@@ -31507,10 +31039,10 @@ memmem:                                 // @memmem
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t5, rax, .LBB47_75
-	jmp	.LBB47_69
-.LBB47_69:                              // %.loopexit7.i9.2
-                                        //   in Loop: Header=BB47_59 Depth=1
+	jne	t5, rax, .LBB49_75
+	jmp	.LBB49_69
+.LBB49_69:                              // %.loopexit7.i9.2
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r0, r7
 	call	__bit_and
 	mov	r0, t3
@@ -31547,10 +31079,10 @@ memmem:                                 // @memmem
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t5, rax, .LBB47_75
-	jmp	.LBB47_70
-.LBB47_70:                              // %.loopexit7.i9.3
-                                        //   in Loop: Header=BB47_59 Depth=1
+	jne	t5, rax, .LBB49_75
+	jmp	.LBB49_70
+.LBB49_70:                              // %.loopexit7.i9.3
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r0, r7
 	call	__bit_and
 	sub	t3, rax
@@ -31586,10 +31118,10 @@ memmem:                                 // @memmem
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t3, rax, .LBB47_75
-	jmp	.LBB47_71
-.LBB47_71:                              // %memcmp.exit12.thread
-                                        //   in Loop: Header=BB47_59 Depth=1
+	jne	t3, rax, .LBB49_75
+	jmp	.LBB49_71
+.LBB49_71:                              // %memcmp.exit12.thread
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r0, r6
 	sub	r0, t1
 	add	r0, x1
@@ -31597,37 +31129,37 @@ memmem:                                 // @memmem
 	mov	r1, r2
 	mov	r2, r5
 	call	memcmp
-	jz	rax, .LBB47_76
-	jmp	.LBB47_72
-.LBB47_72:                              //   in Loop: Header=BB47_59 Depth=1
+	jz	rax, .LBB49_76
+	jmp	.LBB49_72
+.LBB49_72:                              //   in Loop: Header=BB49_59 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, x0, .LBB47_74
-	jmp	.LBB47_73
-.LBB47_73:                              //   in Loop: Header=BB47_59 Depth=1
+	jg	rax, x0, .LBB49_74
+	jmp	.LBB49_73
+.LBB49_73:                              //   in Loop: Header=BB49_59 Depth=1
 	mov	r3, r5
-.LBB47_74:                              //   in Loop: Header=BB47_59 Depth=1
+.LBB49_74:                              //   in Loop: Header=BB49_59 Depth=1
 	add	r3, -4
 	mov	r2, t1
-.LBB47_75:                              // %memcmp.exit12
-                                        //   in Loop: Header=BB47_59 Depth=1
+.LBB49_75:                              // %memcmp.exit12
+                                        //   in Loop: Header=BB49_59 Depth=1
 	mov	r1, 255
 	mov	r0, r7
 	call	__bit_and
 	add	r6, t7
 	sub	r6, rax
 	add	r6, x1
-	jmp	.LBB47_59
-.LBB47_76:                              // %memcmp.exit.thread.loopexit4
+	jmp	.LBB49_59
+.LBB49_76:                              // %memcmp.exit.thread.loopexit4
 	mov	r1, 255
 	mov	r0, r7
 	call	__bit_and
 	sub	r6, rax
 	add	r6, x1
 	mov	r7, r6
-.LBB47_77:                              // %memcmp.exit.thread
-.LBB47_78:                              // %memchr.exit
+.LBB49_77:                              // %memcmp.exit.thread
+.LBB49_78:                              // %memchr.exit
 	mov	rax, r7
 	mov	x1, [rsp-2]
 	mov	x0, [rsp-1]
@@ -31644,9 +31176,9 @@ memmove:                                // @memmove
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_xor
-	jge	rax, r5, .LBB48_10
-	jmp	.LBB48_1
-.LBB48_1:
+	jge	rax, r5, .LBB50_10
+	jmp	.LBB50_1
+.LBB50_1:
 	mov	r5, r4
 	add	r5, r3
 	mov	r0, r5
@@ -31654,29 +31186,29 @@ memmove:                                // @memmove
 	mov	r6, rax
 	mov	r0, r2
 	call	__bit_xor
-	jge	rax, r6, .LBB48_10
-	jmp	.LBB48_2
-.LBB48_2:
+	jge	rax, r6, .LBB50_10
+	jmp	.LBB50_2
+.LBB50_2:
 	mov	r6, r2
 	add	r6, r3
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB48_7
-	jmp	.LBB48_3
-.LBB48_3:
+	jl	rax, r0, .LBB50_7
+	jmp	.LBB50_3
+.LBB50_3:
 	mov	r0, r5
 	mov	r1, r6
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB48_8
-	jmp	.LBB48_4
-.LBB48_4:                               // %.preheader.preheader
+	jnz	rax, .LBB50_8
+	jmp	.LBB50_4
+.LBB50_4:                               // %.preheader.preheader
 	mov	r5, -2147483645
 	mov	r1, -2147483648
-.LBB48_5:                               // %.preheader
+.LBB50_5:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r4
 	add	r0, r3
@@ -31689,20 +31221,20 @@ memmove:                                // @memmove
 	mov	[r6], r0
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r5, .LBB48_5
-	jmp	.LBB48_6
-.LBB48_6:                               // %.loopexit9.loopexit
+	jg	rax, r5, .LBB50_5
+	jmp	.LBB50_6
+.LBB50_6:                               // %.loopexit9.loopexit
 	add	r4, r3
 	mov	r6, r2
 	add	r6, r3
 	mov	r5, r4
-.LBB48_7:                               // %.loopexit9
-	jz	r3, .LBB48_21
-	jmp	.LBB48_8
-.LBB48_8:                               // %.preheader56
+.LBB50_7:                               // %.loopexit9
+	jz	r3, .LBB50_21
+	jmp	.LBB50_8
+.LBB50_8:                               // %.preheader56
 	add	r5, -1
 	add	r6, -1
-.LBB48_9:                               // =>This Inner Loop Header: Depth=1
+.LBB50_9:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	add	r3, -1
 	mov	r0, r5
@@ -31753,16 +31285,16 @@ memmove:                                // @memmove
 	mov	[t1], rax
 	add	r5, -1
 	add	r6, -1
-	jz	r3, .LBB48_21
-	jmp	.LBB48_9
-.LBB48_10:
+	jz	r3, .LBB50_21
+	jmp	.LBB50_9
+.LBB50_10:
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
 	mov	r5, r2
-	jl	rax, r0, .LBB48_18
-	jmp	.LBB48_11
-.LBB48_11:
+	jl	rax, r0, .LBB50_18
+	jmp	.LBB50_11
+.LBB50_11:
 	mov	r0, r4
 	mov	r1, r2
 	call	__bit_or
@@ -31770,28 +31302,28 @@ memmove:                                // @memmove
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, r2
-	jnz	rax, .LBB48_19
-	jmp	.LBB48_12
-.LBB48_12:
+	jnz	rax, .LBB50_19
+	jmp	.LBB50_12
+.LBB50_12:
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
 	mov	r5, r2
-	jl	rax, r0, .LBB48_14
-	jmp	.LBB48_13
-.LBB48_13:                              // %.preheader12.preheader
+	jl	rax, r0, .LBB50_14
+	jmp	.LBB50_13
+.LBB50_13:                              // %.preheader12.preheader
 	mov	r6, -2147483633
 	mov	r5, r2
-	jmp	.LBB48_16
-.LBB48_14:                              // %.preheader66
+	jmp	.LBB50_16
+.LBB50_14:                              // %.preheader66
 	mov	r6, -2147483645
-	jmp	.LBB48_17
-.LBB48_15:
+	jmp	.LBB50_17
+.LBB50_15:
 	mov	r0, 3
-	jg	r3, r0, .LBB48_14
-	jmp	.LBB48_18
-.LBB48_16:                              // %.preheader12
+	jg	r3, r0, .LBB50_14
+	jmp	.LBB50_18
+.LBB50_16:                              // %.preheader12
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, r4
@@ -31819,9 +31351,9 @@ memmove:                                // @memmove
 	mov	[r7], r0
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r6, .LBB48_16
-	jmp	.LBB48_15
-.LBB48_17:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r6, .LBB50_16
+	jmp	.LBB50_15
+.LBB50_17:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	add	r4, 4
 	mov	[r5], r0
@@ -31829,15 +31361,15 @@ memmove:                                // @memmove
 	add	r5, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r6, .LBB48_17
-	jmp	.LBB48_18
-.LBB48_18:                              // %.loopexit11
-	jz	r3, .LBB48_21
-	jmp	.LBB48_19
-.LBB48_19:                              // %.preheader61
+	jg	rax, r6, .LBB50_17
+	jmp	.LBB50_18
+.LBB50_18:                              // %.loopexit11
+	jz	r3, .LBB50_21
+	jmp	.LBB50_19
+.LBB50_19:                              // %.preheader61
 	mov	t1, r4
 	mov	t2, r5
-.LBB48_20:                              // =>This Inner Loop Header: Depth=1
+.LBB50_20:                              // =>This Inner Loop Header: Depth=1
 	add	r3, -1
 	mov	r1, 2
 	add	t1, 1
@@ -31890,9 +31422,9 @@ memmove:                                // @memmove
 	mov	[r5], rax
 	mov	r4, t1
 	mov	r5, t2
-	jnz	r3, .LBB48_20
-	jmp	.LBB48_21
-.LBB48_21:                              // %.loopexit
+	jnz	r3, .LBB50_20
+	jmp	.LBB50_21
+.LBB50_21:                              // %.loopexit
 	mov	rax, r2
 	ret
 // -- End function
@@ -31906,35 +31438,35 @@ mempcpy:                                // @mempcpy
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB49_8
-	jmp	.LBB49_1
-.LBB49_1:
+	jl	rax, r0, .LBB51_8
+	jmp	.LBB51_1
+.LBB51_1:
 	mov	r0, r4
 	mov	r1, r2
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB49_9
-	jmp	.LBB49_2
-.LBB49_2:
+	jnz	rax, .LBB51_9
+	jmp	.LBB51_2
+.LBB51_2:
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB49_4
-	jmp	.LBB49_3
-.LBB49_3:                               // %.preheader.preheader
+	jl	rax, r0, .LBB51_4
+	jmp	.LBB51_3
+.LBB51_3:                               // %.preheader.preheader
 	mov	r5, -2147483633
-	jmp	.LBB49_6
-.LBB49_4:                               // %.preheader35
+	jmp	.LBB51_6
+.LBB51_4:                               // %.preheader35
 	mov	r5, -2147483645
-	jmp	.LBB49_7
-.LBB49_5:
+	jmp	.LBB51_7
+.LBB51_5:
 	mov	r0, 3
-	jg	r3, r0, .LBB49_4
-	jmp	.LBB49_8
-.LBB49_6:                               // %.preheader
+	jg	r3, r0, .LBB51_4
+	jmp	.LBB51_8
+.LBB51_6:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	mov	r1, r4
@@ -31962,9 +31494,9 @@ mempcpy:                                // @mempcpy
 	mov	[r6], r0
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r5, .LBB49_6
-	jmp	.LBB49_5
-.LBB49_7:                               // =>This Inner Loop Header: Depth=1
+	jg	rax, r5, .LBB51_6
+	jmp	.LBB51_5
+.LBB51_7:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	add	r4, 4
 	mov	[r2], r0
@@ -31972,15 +31504,15 @@ mempcpy:                                // @mempcpy
 	add	r2, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r5, .LBB49_7
-	jmp	.LBB49_8
-.LBB49_8:                               // %.loopexit4
-	jz	r3, .LBB49_11
-	jmp	.LBB49_9
-.LBB49_9:                               // %.preheader32
+	jg	rax, r5, .LBB51_7
+	jmp	.LBB51_8
+.LBB51_8:                               // %.loopexit4
+	jz	r3, .LBB51_11
+	jmp	.LBB51_9
+.LBB51_9:                               // %.preheader32
 	mov	r5, r2
 	mov	t1, r4
-.LBB49_10:                              // =>This Inner Loop Header: Depth=1
+.LBB51_10:                              // =>This Inner Loop Header: Depth=1
 	add	r3, -1
 	mov	r1, 2
 	add	t1, 1
@@ -32033,9 +31565,9 @@ mempcpy:                                // @mempcpy
 	mov	[r5], rax
 	mov	r4, t1
 	mov	r5, r2
-	jnz	r3, .LBB49_10
-	jmp	.LBB49_11
-.LBB49_11:                              // %.loopexit
+	jnz	r3, .LBB51_10
+	jmp	.LBB51_11
+.LBB51_11:                              // %.loopexit
 	mov	rax, r2
 	ret
 // -- End function
@@ -32052,20 +31584,20 @@ memrchr:                                // @memrchr
 	sub	r3, rax
 	mov	t2, 0
 	mov	t3, r5
-.LBB50_1:                               // =>This Inner Loop Header: Depth=1
+.LBB52_1:                               // =>This Inner Loop Header: Depth=1
 	mov	r6, r5
 	mov	r0, r2
 	add	r0, t3
 	mov	r1, 3
 	add	r6, r2
 	call	__bit_and
-	jz	rax, .LBB50_4
-	jmp	.LBB50_2
-.LBB50_2:                               //   in Loop: Header=BB50_1 Depth=1
+	jz	rax, .LBB52_4
+	jmp	.LBB52_2
+.LBB52_2:                               //   in Loop: Header=BB52_1 Depth=1
 	mov	rax, 0
-	je	r2, t2, .LBB50_16
-	jmp	.LBB50_3
-.LBB50_3:                               //   in Loop: Header=BB50_1 Depth=1
+	je	r2, t2, .LBB52_16
+	jmp	.LBB52_3
+.LBB52_3:                               //   in Loop: Header=BB52_1 Depth=1
 	mov	r1, 255
 	mov	r0, r4
 	call	__bit_and
@@ -32088,18 +31620,18 @@ memrchr:                                // @memrchr
 	add	t2, 1
 	add	r5, -1
 	add	t3, -1
-	je	rax, r7, .LBB50_15
-	jmp	.LBB50_1
-.LBB50_4:
+	je	rax, r7, .LBB52_15
+	jmp	.LBB52_1
+.LBB52_4:
 	mov	r7, r6
 	mov	r1, -2147483648
 	add	r7, -1
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB50_11
-	jmp	.LBB50_5
-.LBB50_5:
+	jl	rax, r0, .LBB52_11
+	jmp	.LBB52_5
+.LBB52_5:
 	mov	r1, 255
 	mov	r0, r4
 	call	__bit_and
@@ -32108,7 +31640,7 @@ memrchr:                                // @memrchr
 	mov	t1, 0
 	mov	t2, -2139062144
 	mov	t3, -2147483645
-.LBB50_6:                               // =>This Inner Loop Header: Depth=1
+.LBB52_6:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, t1
 	add	r0, r5
@@ -32123,33 +31655,33 @@ memrchr:                                // @memrchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB50_9
-	jmp	.LBB50_7
-.LBB50_7:                               //   in Loop: Header=BB50_6 Depth=1
+	jne	rax, t2, .LBB52_9
+	jmp	.LBB52_7
+.LBB52_7:                               //   in Loop: Header=BB52_6 Depth=1
 	add	t1, -4
 	mov	r0, r3
 	add	r0, t1
 	mov	r1, -2147483648
 	call	__bit_xor
-	jg	rax, t3, .LBB50_6
-	jmp	.LBB50_8
-.LBB50_8:                               // %split
+	jg	rax, t3, .LBB52_6
+	jmp	.LBB52_8
+.LBB52_8:                               // %split
 	add	r6, t1
 	mov	r7, r6
 	mov	r3, r0
-	jmp	.LBB50_10
-.LBB50_9:                               // %._crit_edge
+	jmp	.LBB52_10
+.LBB52_9:                               // %._crit_edge
 	add	r6, t1
 	add	r3, t1
 	mov	r7, r6
-.LBB50_10:
+.LBB52_10:
 	add	r7, -1
-.LBB50_11:
+.LBB52_11:
 	mov	rax, 0
-	jz	r3, .LBB50_16
-	jmp	.LBB50_12
-.LBB50_12:                              // %.preheader.preheader
-.LBB50_13:                              // %.preheader
+	jz	r3, .LBB52_16
+	jmp	.LBB52_12
+.LBB52_12:                              // %.preheader.preheader
+.LBB52_13:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, r4
@@ -32171,18 +31703,18 @@ memrchr:                                // @memrchr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r7
-	je	r0, r2, .LBB50_16
-	jmp	.LBB50_14
-.LBB50_14:                              //   in Loop: Header=BB50_13 Depth=1
+	je	r0, r2, .LBB52_16
+	jmp	.LBB52_14
+.LBB52_14:                              //   in Loop: Header=BB52_13 Depth=1
 	add	r3, -1
 	add	r7, -1
 	mov	rax, 0
-	jz	r3, .LBB50_16
-	jmp	.LBB50_13
-.LBB50_15:                              // %..loopexit.loopexit1_crit_edge
+	jz	r3, .LBB52_16
+	jmp	.LBB52_13
+.LBB52_15:                              // %..loopexit.loopexit1_crit_edge
 	add	r5, r2
 	mov	rax, r5
-.LBB50_16:                              // %.loopexit
+.LBB52_16:                              // %.loopexit
 	ret
 // -- End function
 // -- Begin function memset
@@ -32199,16 +31731,16 @@ memset:                                 // @memset
 	mov	r0, r2
 	call	__bit_and
 	mov	r5, r2
-	jz	rax, .LBB51_4
-	jmp	.LBB51_1
-.LBB51_1:
+	jz	rax, .LBB53_4
+	jmp	.LBB53_1
+.LBB53_1:
 	mov	r7, r2
 	add	r7, 1
 	mov	r0, r2
-.LBB51_2:                               // =>This Inner Loop Header: Depth=1
-	jz	r4, .LBB51_14
-	jmp	.LBB51_3
-.LBB51_3:                               //   in Loop: Header=BB51_2 Depth=1
+.LBB53_2:                               // =>This Inner Loop Header: Depth=1
+	jz	r4, .LBB53_14
+	jmp	.LBB53_3
+.LBB53_3:                               //   in Loop: Header=BB53_2 Depth=1
 	add	r4, -1
 	mov	r5, r0
 	mov	r1, 3
@@ -32252,33 +31784,33 @@ memset:                                 // @memset
 	call	__bit_and
 	add	r7, 1
 	mov	r0, r5
-	jnz	rax, .LBB51_2
-	jmp	.LBB51_4
-.LBB51_4:                               // %.loopexit7
+	jnz	rax, .LBB53_2
+	jmp	.LBB53_4
+.LBB53_4:                               // %.loopexit7
 	mov	r1, -2147483648
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB51_11
-	jmp	.LBB51_5
-.LBB51_5:
+	jl	rax, r0, .LBB53_11
+	jmp	.LBB53_5
+.LBB53_5:
 	mul	r6, 16843009
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB51_7
-	jmp	.LBB51_6
-.LBB51_6:                               // %.preheader.preheader
+	jl	rax, r0, .LBB53_7
+	jmp	.LBB53_6
+.LBB53_6:                               // %.preheader.preheader
 	mov	r7, -2147483633
-	jmp	.LBB51_9
-.LBB51_7:                               // %.preheader35
+	jmp	.LBB53_9
+.LBB53_7:                               // %.preheader35
 	mov	r7, -2147483645
-	jmp	.LBB51_10
-.LBB51_8:
+	jmp	.LBB53_10
+.LBB53_8:
 	mov	r0, 3
-	jg	r4, r0, .LBB51_7
-	jmp	.LBB51_11
-.LBB51_9:                               // %.preheader
+	jg	r4, r0, .LBB53_7
+	jmp	.LBB53_11
+.LBB53_9:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 4
@@ -32295,22 +31827,22 @@ memset:                                 // @memset
 	mov	[r0], r6
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r7, .LBB51_9
-	jmp	.LBB51_8
-.LBB51_10:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r7, .LBB53_9
+	jmp	.LBB53_8
+.LBB53_10:                              // =>This Inner Loop Header: Depth=1
 	mov	[r5], r6
 	add	r4, -4
 	add	r5, 4
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r7, .LBB51_10
-	jmp	.LBB51_11
-.LBB51_11:                              // %.loopexit5
-	jz	r4, .LBB51_14
-	jmp	.LBB51_12
-.LBB51_12:
+	jg	rax, r7, .LBB53_10
+	jmp	.LBB53_11
+.LBB53_11:                              // %.loopexit5
+	jz	r4, .LBB53_14
+	jmp	.LBB53_12
+.LBB53_12:
 	mov	t2, r5
-.LBB51_13:                              // =>This Inner Loop Header: Depth=1
+.LBB53_13:                              // =>This Inner Loop Header: Depth=1
 	add	r4, -1
 	mov	r1, 3
 	add	t2, 1
@@ -32350,9 +31882,9 @@ memset:                                 // @memset
 	call	__bit_or
 	mov	[r5], rax
 	mov	r5, t2
-	jnz	r4, .LBB51_13
-	jmp	.LBB51_14
-.LBB51_14:                              // %.loopexit
+	jnz	r4, .LBB53_13
+	jmp	.LBB53_14
+.LBB53_14:                              // %.loopexit
 	mov	rax, r2
 	ret
 // -- End function
@@ -32363,12 +31895,12 @@ rawmemchr:                              // @rawmemchr
 	mov	r1, 3
 	mov	r3, r0
 	call	__bit_and
-	jz	rax, .LBB52_4
-	jmp	.LBB52_1
-.LBB52_1:
+	jz	rax, .LBB54_4
+	jmp	.LBB54_1
+.LBB54_1:
 	mov	r4, r3
 	add	r4, 1
-.LBB52_2:                               // =>This Inner Loop Header: Depth=1
+.LBB54_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, r2
 	call	__bit_and
@@ -32387,17 +31919,17 @@ rawmemchr:                              // @rawmemchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r5, .LBB52_8
-	jmp	.LBB52_3
-.LBB52_3:                               //   in Loop: Header=BB52_2 Depth=1
+	je	rax, r5, .LBB54_8
+	jmp	.LBB54_3
+.LBB54_3:                               //   in Loop: Header=BB54_2 Depth=1
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jnz	rax, .LBB52_2
-	jmp	.LBB52_4
-.LBB52_4:                               // %.loopexit2
+	jnz	rax, .LBB54_2
+	jmp	.LBB54_4
+.LBB54_4:                               // %.loopexit2
 	mov	r1, 255
 	mov	r0, r2
 	call	__bit_and
@@ -32405,7 +31937,7 @@ rawmemchr:                              // @rawmemchr
 	mul	r4, 16843009
 	add	r3, -5
 	mov	r5, -2139062144
-.LBB52_5:                               // =>This Inner Loop Header: Depth=1
+.LBB54_5:                               // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 5
 	mov	r0, [r0]
@@ -32419,10 +31951,10 @@ rawmemchr:                              // @rawmemchr
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 4
-	je	rax, r5, .LBB52_5
-	jmp	.LBB52_6
-.LBB52_6:
-.LBB52_7:                               // =>This Inner Loop Header: Depth=1
+	je	rax, r5, .LBB54_5
+	jmp	.LBB54_6
+.LBB54_6:
+.LBB54_7:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, r2
 	call	__bit_and
@@ -32442,9 +31974,9 @@ rawmemchr:                              // @rawmemchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r4, .LBB52_7
-	jmp	.LBB52_8
-.LBB52_8:                               // %.loopexit
+	jne	rax, r4, .LBB54_7
+	jmp	.LBB54_8
+.LBB54_8:                               // %.loopexit
 	mov	rax, r3
 	ret
 // -- End function
@@ -32457,29 +31989,29 @@ rindex:                                 // @rindex
 	mov	r0, r4
 	call	__bit_and
 	mov	r5, rax
-	jz	r5, .LBB53_16
-	jmp	.LBB53_1
-.LBB53_1:                               // %.preheader.split.preheader.i
+	jz	r5, .LBB55_16
+	jmp	.LBB55_1
+.LBB55_1:                               // %.preheader.split.preheader.i
 	mul	r5, 16843009
 	mov	r2, 0
 	mov	t2, -2139062144
-.LBB53_2:                               // %.preheader.split.i
+.LBB55_2:                               // %.preheader.split.i
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB53_6 Depth 2
-                                        //     Child Loop BB53_9 Depth 2
-                                        //     Child Loop BB53_12 Depth 2
+                                        //     Child Loop BB55_6 Depth 2
+                                        //     Child Loop BB55_9 Depth 2
+                                        //     Child Loop BB55_12 Depth 2
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
-	jz	rax, .LBB53_4
-	jmp	.LBB53_3
-.LBB53_3:                               // %.preheader29.i.preheader
-                                        //   in Loop: Header=BB53_2 Depth=1
+	jz	rax, .LBB55_4
+	jmp	.LBB55_3
+.LBB55_3:                               // %.preheader29.i.preheader
+                                        //   in Loop: Header=BB55_2 Depth=1
 	mov	r6, r3
 	add	r6, 1
-	jmp	.LBB53_6
-.LBB53_4:                               // %.loopexit9.i.i
-                                        //   in Loop: Header=BB53_2 Depth=1
+	jmp	.LBB55_6
+.LBB55_4:                               // %.loopexit9.i.i
+                                        //   in Loop: Header=BB55_2 Depth=1
 	mov	r6, [r3]
 	mov	r0, 16843008
 	sub	r0, r6
@@ -32488,13 +32020,13 @@ rindex:                                 // @rindex
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB53_11
-	jmp	.LBB53_5
-.LBB53_5:                               // %.preheader5.i.i.preheader
-                                        //   in Loop: Header=BB53_2 Depth=1
-	jmp	.LBB53_9
-.LBB53_6:                               // %.preheader29.i
-                                        //   Parent Loop BB53_2 Depth=1
+	jne	rax, t2, .LBB55_11
+	jmp	.LBB55_5
+.LBB55_5:                               // %.preheader5.i.i.preheader
+                                        //   in Loop: Header=BB55_2 Depth=1
+	jmp	.LBB55_9
+.LBB55_6:                               // %.preheader29.i
+                                        //   Parent Loop BB55_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r3
@@ -32511,26 +32043,26 @@ rindex:                                 // @rindex
 	mov	r0, rax
 	call	__bit_and
 	mov	r7, rax
-	jz	r7, .LBB53_24
-	jmp	.LBB53_7
-.LBB53_7:                               //   in Loop: Header=BB53_6 Depth=2
+	jz	r7, .LBB55_24
+	jmp	.LBB55_7
+.LBB55_7:                               //   in Loop: Header=BB55_6 Depth=2
 	mov	r0, r4
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r7
 	call	__bit_and
-	je	rax, t1, .LBB53_15
-	jmp	.LBB53_8
-.LBB53_8:                               //   in Loop: Header=BB53_6 Depth=2
+	je	rax, t1, .LBB55_15
+	jmp	.LBB55_8
+.LBB55_8:                               //   in Loop: Header=BB55_6 Depth=2
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB53_4
-	jmp	.LBB53_6
-.LBB53_9:                               // %.preheader5.i.i
-                                        //   Parent Loop BB53_2 Depth=1
+	jz	rax, .LBB55_4
+	jmp	.LBB55_6
+.LBB55_9:                               // %.preheader5.i.i
+                                        //   Parent Loop BB55_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, r6
 	mov	r1, r5
@@ -32542,9 +32074,9 @@ rindex:                                 // @rindex
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB53_11
-	jmp	.LBB53_10
-.LBB53_10:                              //   in Loop: Header=BB53_9 Depth=2
+	jne	rax, t2, .LBB55_11
+	jmp	.LBB55_10
+.LBB55_10:                              //   in Loop: Header=BB55_9 Depth=2
 	add	r3, 4
 	mov	r6, [r3]
 	mov	r0, 16843008
@@ -32554,13 +32086,13 @@ rindex:                                 // @rindex
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, t2, .LBB53_9
-	jmp	.LBB53_11
-.LBB53_11:                              // %.loopexit6.i.i.preheader
-                                        //   in Loop: Header=BB53_2 Depth=1
+	je	rax, t2, .LBB55_9
+	jmp	.LBB55_11
+.LBB55_11:                              // %.loopexit6.i.i.preheader
+                                        //   in Loop: Header=BB55_2 Depth=1
 	add	r3, -1
-.LBB53_12:                              // %.loopexit6.i.i
-                                        //   Parent Loop BB53_2 Depth=1
+.LBB55_12:                              // %.loopexit6.i.i
+                                        //   Parent Loop BB55_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	r3, 1
 	mov	r1, 2
@@ -32578,44 +32110,44 @@ rindex:                                 // @rindex
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jz	r6, .LBB53_14
-	jmp	.LBB53_13
-.LBB53_13:                              // %.loopexit6.i.i
-                                        //   in Loop: Header=BB53_12 Depth=2
+	jz	r6, .LBB55_14
+	jmp	.LBB55_13
+.LBB55_13:                              // %.loopexit6.i.i
+                                        //   in Loop: Header=BB55_12 Depth=2
 	mov	r0, r4
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	rax, r7, .LBB53_12
-	jmp	.LBB53_14
-.LBB53_14:                              //   in Loop: Header=BB53_2 Depth=1
+	jne	rax, r7, .LBB55_12
+	jmp	.LBB55_14
+.LBB55_14:                              //   in Loop: Header=BB55_2 Depth=1
 	mov	r0, r4
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	rax, r7, .LBB53_24
-	jmp	.LBB53_15
-.LBB53_15:                              // %strchr.exit.i
-                                        //   in Loop: Header=BB53_2 Depth=1
+	jne	rax, r7, .LBB55_24
+	jmp	.LBB55_15
+.LBB55_15:                              // %strchr.exit.i
+                                        //   in Loop: Header=BB55_2 Depth=1
 	mov	r0, r3
 	add	r0, 1
 	mov	r2, r3
 	mov	r3, r0
-	jmp	.LBB53_2
-.LBB53_16:
+	jmp	.LBB55_2
+.LBB55_16:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r2, r3
-	jz	rax, .LBB53_20
-	jmp	.LBB53_17
-.LBB53_17:                              // %.preheader2.i1.i.preheader
+	jz	rax, .LBB55_20
+	jmp	.LBB55_17
+.LBB55_17:                              // %.preheader2.i1.i.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r2, r3
-.LBB53_18:                              // %.preheader2.i1.i
+.LBB55_18:                              // %.preheader2.i1.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -32631,20 +32163,20 @@ rindex:                                 // @rindex
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB53_24
-	jmp	.LBB53_19
-.LBB53_19:                              //   in Loop: Header=BB53_18 Depth=1
+	jz	rax, .LBB55_24
+	jmp	.LBB55_19
+.LBB55_19:                              //   in Loop: Header=BB55_18 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jnz	rax, .LBB53_18
-	jmp	.LBB53_20
-.LBB53_20:                              // %.loopexit4.i2.i.preheader
+	jnz	rax, .LBB55_18
+	jmp	.LBB55_20
+.LBB55_20:                              // %.loopexit4.i2.i.preheader
 	add	r2, -5
 	mov	r3, -2139062144
-.LBB53_21:                              // %.loopexit4.i2.i
+.LBB55_21:                              // %.loopexit4.i2.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, 5
@@ -32656,10 +32188,10 @@ rindex:                                 // @rindex
 	mov	r0, rax
 	call	__bit_and
 	add	r2, 4
-	je	rax, r3, .LBB53_21
-	jmp	.LBB53_22
-.LBB53_22:                              // %.preheader.i3.i.preheader
-.LBB53_23:                              // %.preheader.i3.i
+	je	rax, r3, .LBB55_21
+	jmp	.LBB55_22
+.LBB55_22:                              // %.preheader.i3.i.preheader
+.LBB55_23:                              // %.preheader.i3.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -32676,9 +32208,9 @@ rindex:                                 // @rindex
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB53_23
-	jmp	.LBB53_24
-.LBB53_24:                              // %strrchr.exit
+	jnz	rax, .LBB55_23
+	jmp	.LBB55_24
+.LBB55_24:                              // %strrchr.exit
 	mov	rax, r2
 	ret
 // -- End function
@@ -32693,9 +32225,9 @@ stpcpy:                                 // @stpcpy
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB54_4
-	jmp	.LBB54_1
-.LBB54_1:
+	jnz	rax, .LBB56_4
+	jmp	.LBB56_1
+.LBB56_1:
 	mov	r4, [r3]
 	mov	r0, 16843008
 	sub	r0, r4
@@ -32705,10 +32237,10 @@ stpcpy:                                 // @stpcpy
 	mov	r5, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB54_4
-	jmp	.LBB54_2
-.LBB54_2:                               // %.preheader.preheader
-.LBB54_3:                               // %.preheader
+	jne	rax, r5, .LBB56_4
+	jmp	.LBB56_2
+.LBB56_2:                               // %.preheader.preheader
+.LBB56_3:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 4
 	mov	[r2], r4
@@ -32721,12 +32253,12 @@ stpcpy:                                 // @stpcpy
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r5, .LBB54_3
-	jmp	.LBB54_4
-.LBB54_4:                               // %.loopexit.preheader
+	je	rax, r5, .LBB56_3
+	jmp	.LBB56_4
+.LBB56_4:                               // %.loopexit.preheader
 	add	r2, -1
 	mov	r7, r3
-.LBB54_5:                               // %.loopexit
+.LBB56_5:                               // %.loopexit
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -32778,9 +32310,9 @@ stpcpy:                                 // @stpcpy
 	call	__bit_or
 	mov	[r5], rax
 	mov	r3, r7
-	jnz	r4, .LBB54_5
-	jmp	.LBB54_6
-.LBB54_6:
+	jnz	r4, .LBB56_5
+	jmp	.LBB56_6
+.LBB56_6:
 	mov	rax, r2
 	ret
 // -- End function
@@ -32801,15 +32333,15 @@ stpncpy:                                // @stpncpy
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB55_5
-	jmp	.LBB55_1
-.LBB55_1:
-	jnz	r5, .LBB55_5
-	jmp	.LBB55_2
-.LBB55_2:                               // %.preheader5.preheader
+	jl	rax, r0, .LBB57_5
+	jmp	.LBB57_1
+.LBB57_1:
+	jnz	r5, .LBB57_5
+	jmp	.LBB57_2
+.LBB57_2:                               // %.preheader5.preheader
 	mov	r6, -2139062144
 	mov	r7, -2147483645
-.LBB55_3:                               // %.preheader5
+.LBB57_3:                               // %.preheader5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r5, [r4]
 	mov	r0, 16843008
@@ -32819,9 +32351,9 @@ stpncpy:                                // @stpncpy
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB55_5
-	jmp	.LBB55_4
-.LBB55_4:                               //   in Loop: Header=BB55_3 Depth=1
+	jne	rax, r6, .LBB57_5
+	jmp	.LBB57_4
+.LBB57_4:                               //   in Loop: Header=BB57_3 Depth=1
 	add	r3, -4
 	add	r4, 4
 	mov	[r2], r5
@@ -32829,17 +32361,17 @@ stpncpy:                                // @stpncpy
 	add	r2, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r7, .LBB55_3
-	jmp	.LBB55_5
-.LBB55_5:                               // %.loopexit6.preheader
+	jg	rax, r7, .LBB57_3
+	jmp	.LBB57_5
+.LBB57_5:                               // %.loopexit6.preheader
 	mov	t2, 0
-.LBB55_6:                               // %.loopexit6
+.LBB57_6:                               // %.loopexit6
                                         // =>This Inner Loop Header: Depth=1
 	mov	r5, r2
 	add	r5, t2
-	je	r3, t2, .LBB55_12
-	jmp	.LBB55_7
-.LBB55_7:                               //   in Loop: Header=BB55_6 Depth=1
+	je	r3, t2, .LBB57_12
+	jmp	.LBB57_7
+.LBB57_7:                               //   in Loop: Header=BB57_6 Depth=1
 	mov	r0, r4
 	add	r0, t2
 	mov	r1, 2
@@ -32889,19 +32421,19 @@ stpncpy:                                // @stpncpy
 	call	__bit_or
 	mov	[r5], rax
 	add	t2, 1
-	jnz	r6, .LBB55_6
-	jmp	.LBB55_8
-.LBB55_8:
+	jnz	r6, .LBB57_6
+	jmp	.LBB57_8
+.LBB57_8:
 	mov	r5, r2
 	add	r5, t2
 	mov	r4, r5
 	add	r4, -1
-	je	r3, t2, .LBB55_13
-	jmp	.LBB55_9
-.LBB55_9:                               // %.preheader.preheader
+	je	r3, t2, .LBB57_13
+	jmp	.LBB57_9
+.LBB57_9:                               // %.preheader.preheader
 	sub	r3, t2
 	mov	t1, 0
-.LBB55_10:                              // %.preheader
+.LBB57_10:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, t1
@@ -32935,16 +32467,16 @@ stpncpy:                                // @stpncpy
 	call	__bit_or
 	add	t1, 1
 	mov	[r6], rax
-	jne	r3, t1, .LBB55_10
-	jmp	.LBB55_11
-.LBB55_11:                              // %.loopexit.loopexit
+	jne	r3, t1, .LBB57_10
+	jmp	.LBB57_11
+.LBB57_11:                              // %.loopexit.loopexit
 	add	r2, t2
 	add	r2, t1
 	mov	r5, r2
-	jmp	.LBB55_13
-.LBB55_12:                              // %.loopexit.loopexit1
+	jmp	.LBB57_13
+.LBB57_12:                              // %.loopexit.loopexit1
 	mov	r4, 0
-.LBB55_13:                              // %.loopexit
+.LBB57_13:                              // %.loopexit
 	mov	r0, r4
 	call	__bit_not
 	add	rax, 1
@@ -32974,13 +32506,13 @@ strcat:                                 // @strcat
 	mov	r2, r0
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB56_4
-	jmp	.LBB56_1
-.LBB56_1:                               // %.preheader2.preheader
+	jz	rax, .LBB58_4
+	jmp	.LBB58_1
+.LBB58_1:                               // %.preheader2.preheader
 	mov	r5, r2
 	add	r5, 1
 	mov	r3, r2
-.LBB56_2:                               // %.preheader2
+.LBB58_2:                               // %.preheader2
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r3
@@ -32996,17 +32528,17 @@ strcat:                                 // @strcat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB56_9
-	jmp	.LBB56_3
-.LBB56_3:                               //   in Loop: Header=BB56_2 Depth=1
+	jz	rax, .LBB58_9
+	jmp	.LBB58_3
+.LBB58_3:                               //   in Loop: Header=BB58_2 Depth=1
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r5
 	call	__bit_and
 	add	r5, 1
-	jnz	rax, .LBB56_2
-	jmp	.LBB56_4
-.LBB56_4:                               // %.loopexit4
+	jnz	rax, .LBB58_2
+	jmp	.LBB58_4
+.LBB58_4:                               // %.loopexit4
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -33021,12 +32553,12 @@ strcat:                                 // @strcat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB56_9
-	jmp	.LBB56_5
-.LBB56_5:                               // %.preheader1.preheader
+	jz	rax, .LBB58_9
+	jmp	.LBB58_5
+.LBB58_5:                               // %.preheader1.preheader
 	add	r3, -5
 	mov	r5, -2139062144
-.LBB56_6:                               // %.preheader1
+.LBB58_6:                               // %.preheader1
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, 5
@@ -33038,10 +32570,10 @@ strcat:                                 // @strcat
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 4
-	je	rax, r5, .LBB56_6
-	jmp	.LBB56_7
-.LBB56_7:                               // %.preheader.preheader
-.LBB56_8:                               // %.preheader
+	je	rax, r5, .LBB58_6
+	jmp	.LBB58_7
+.LBB58_7:                               // %.preheader.preheader
+.LBB58_8:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r3, 1
 	mov	r1, 2
@@ -33058,18 +32590,18 @@ strcat:                                 // @strcat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB56_8
-	jmp	.LBB56_9
-.LBB56_9:                               // %.loopexit
+	jnz	rax, .LBB58_8
+	jmp	.LBB58_9
+.LBB58_9:                               // %.loopexit
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_or
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB56_13
-	jmp	.LBB56_10
-.LBB56_10:
+	jnz	rax, .LBB58_13
+	jmp	.LBB58_10
+.LBB58_10:
 	mov	r5, [r4]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -33079,10 +32611,10 @@ strcat:                                 // @strcat
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB56_13
-	jmp	.LBB56_11
-.LBB56_11:                              // %.preheader.i.preheader
-.LBB56_12:                              // %.preheader.i
+	jne	rax, r6, .LBB58_13
+	jmp	.LBB58_11
+.LBB58_11:                              // %.preheader.i.preheader
+.LBB58_12:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r4, 4
 	mov	[r3], r5
@@ -33095,12 +32627,12 @@ strcat:                                 // @strcat
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB56_12
-	jmp	.LBB56_13
-.LBB56_13:                              // %.loopexit.i.preheader
+	je	rax, r6, .LBB58_12
+	jmp	.LBB58_13
+.LBB58_13:                              // %.loopexit.i.preheader
 	mov	r7, r4
 	mov	t1, r3
-.LBB56_14:                              // %.loopexit.i
+.LBB58_14:                              // %.loopexit.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	add	r7, 1
@@ -33153,9 +32685,9 @@ strcat:                                 // @strcat
 	mov	[r3], rax
 	mov	r3, t1
 	mov	r4, r7
-	jnz	r5, .LBB56_14
-	jmp	.LBB56_15
-.LBB56_15:                              // %strcpy.exit
+	jnz	r5, .LBB58_14
+	jmp	.LBB58_15
+.LBB58_15:                              // %strcpy.exit
 	mov	rax, r2
 	ret
 // -- End function
@@ -33171,24 +32703,24 @@ strchr:                                 // @strchr
 	mov	r4, rax
 	mov	r0, r2
 	call	__bit_and
-	jz	r4, .LBB57_3
-	jmp	.LBB57_1
-.LBB57_1:
-	jz	rax, .LBB57_11
-	jmp	.LBB57_2
-.LBB57_2:
+	jz	r4, .LBB59_3
+	jmp	.LBB59_1
+.LBB59_1:
+	jz	rax, .LBB59_11
+	jmp	.LBB59_2
+.LBB59_2:
 	mov	r6, r2
 	add	r6, 1
-	jmp	.LBB57_13
-.LBB57_3:
+	jmp	.LBB59_13
+.LBB59_3:
 	mov	r5, r2
-	jz	rax, .LBB57_7
-	jmp	.LBB57_4
-.LBB57_4:                               // %.preheader2.preheader
+	jz	rax, .LBB59_7
+	jmp	.LBB59_4
+.LBB59_4:                               // %.preheader2.preheader
 	mov	r3, r2
 	add	r3, 1
 	mov	r5, r2
-.LBB57_5:                               // %.preheader2
+.LBB59_5:                               // %.preheader2
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r5
@@ -33204,20 +32736,20 @@ strchr:                                 // @strchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB57_22
-	jmp	.LBB57_6
-.LBB57_6:                               //   in Loop: Header=BB57_5 Depth=1
+	jz	rax, .LBB59_22
+	jmp	.LBB59_6
+.LBB59_6:                               //   in Loop: Header=BB59_5 Depth=1
 	mov	r1, 3
 	add	r5, 1
 	mov	r0, r3
 	call	__bit_and
 	add	r3, 1
-	jnz	rax, .LBB57_5
-	jmp	.LBB57_7
-.LBB57_7:                               // %.loopexit4.preheader
+	jnz	rax, .LBB59_5
+	jmp	.LBB59_7
+.LBB59_7:                               // %.loopexit4.preheader
 	add	r5, -5
 	mov	r2, -2139062144
-.LBB57_8:                               // %.loopexit4
+.LBB59_8:                               // %.loopexit4
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 5
@@ -33229,10 +32761,10 @@ strchr:                                 // @strchr
 	mov	r0, rax
 	call	__bit_and
 	add	r5, 4
-	je	rax, r2, .LBB57_8
-	jmp	.LBB57_9
-.LBB57_9:                               // %.preheader.preheader
-.LBB57_10:                              // %.preheader
+	je	rax, r2, .LBB59_8
+	jmp	.LBB59_9
+.LBB59_9:                               // %.preheader.preheader
+.LBB59_10:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, 1
 	mov	r1, 2
@@ -33249,9 +32781,9 @@ strchr:                                 // @strchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB57_22
-	jmp	.LBB57_10
-.LBB57_11:                              // %.loopexit9
+	jz	rax, .LBB59_22
+	jmp	.LBB59_10
+.LBB59_11:                              // %.loopexit9
 	mov	r5, [r2]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -33261,12 +32793,12 @@ strchr:                                 // @strchr
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB57_18
-	jmp	.LBB57_12
-.LBB57_12:                              // %.preheader5.preheader
+	jne	rax, r6, .LBB59_18
+	jmp	.LBB59_12
+.LBB59_12:                              // %.preheader5.preheader
 	mul	r4, 16843009
-	jmp	.LBB57_16
-.LBB57_13:                              // =>This Inner Loop Header: Depth=1
+	jmp	.LBB59_16
+.LBB59_13:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -33283,26 +32815,26 @@ strchr:                                 // @strchr
 	call	__bit_and
 	mov	r7, rax
 	mov	r5, 0
-	jz	r7, .LBB57_22
-	jmp	.LBB57_14
-.LBB57_14:                              //   in Loop: Header=BB57_13 Depth=1
+	jz	r7, .LBB59_22
+	jmp	.LBB59_14
+.LBB59_14:                              //   in Loop: Header=BB59_13 Depth=1
 	mov	r0, r3
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r7
 	call	__bit_and
 	mov	r5, r2
-	je	rax, t1, .LBB57_22
-	jmp	.LBB57_15
-.LBB57_15:                              //   in Loop: Header=BB57_13 Depth=1
+	je	rax, t1, .LBB59_22
+	jmp	.LBB59_15
+.LBB59_15:                              //   in Loop: Header=BB59_13 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB57_11
-	jmp	.LBB57_13
-.LBB57_16:                              // %.preheader5
+	jz	rax, .LBB59_11
+	jmp	.LBB59_13
+.LBB59_16:                              // %.preheader5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	mov	r1, r4
@@ -33314,9 +32846,9 @@ strchr:                                 // @strchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB57_18
-	jmp	.LBB57_17
-.LBB57_17:                              //   in Loop: Header=BB57_16 Depth=1
+	jne	rax, r6, .LBB59_18
+	jmp	.LBB59_17
+.LBB59_17:                              //   in Loop: Header=BB59_16 Depth=1
 	add	r2, 4
 	mov	r5, [r2]
 	mov	r0, 16843008
@@ -33326,11 +32858,11 @@ strchr:                                 // @strchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB57_16
-	jmp	.LBB57_18
-.LBB57_18:                              // %.loopexit6
+	je	rax, r6, .LBB59_16
+	jmp	.LBB59_18
+.LBB59_18:                              // %.loopexit6
 	add	r2, -1
-.LBB57_19:                              // =>This Inner Loop Header: Depth=1
+.LBB59_19:                              // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
 	mov	r0, r2
@@ -33347,17 +32879,17 @@ strchr:                                 // @strchr
 	mov	r0, rax
 	call	__bit_and
 	mov	r4, rax
-	jz	r4, .LBB57_21
-	jmp	.LBB57_20
-.LBB57_20:                              //   in Loop: Header=BB57_19 Depth=1
+	jz	r4, .LBB59_21
+	jmp	.LBB59_20
+.LBB59_20:                              //   in Loop: Header=BB59_19 Depth=1
 	mov	r0, r3
 	call	__bit_and
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_and
-	jne	rax, r5, .LBB57_19
-	jmp	.LBB57_21
-.LBB57_21:
+	jne	rax, r5, .LBB59_19
+	jmp	.LBB59_21
+.LBB59_21:
 	mov	r0, r3
 	call	__bit_and
 	mov	r3, rax
@@ -33384,7 +32916,7 @@ strchr:                                 // @strchr
 	mov	r1, r2
 	call	__bit_and
 	mov	r5, rax
-.LBB57_22:                              // %.loopexit
+.LBB59_22:                              // %.loopexit
 	mov	rax, r5
 	ret
 // -- End function
@@ -33401,26 +32933,26 @@ strchrnul:                              // @strchrnul
 	mov	r0, r3
 	call	__bit_and
 	mov	r4, rax
-	jz	r6, .LBB58_3
-	jmp	.LBB58_1
-.LBB58_1:
+	jz	r6, .LBB60_3
+	jmp	.LBB60_1
+.LBB60_1:
 	mov	r2, r3
-	jz	r4, .LBB58_11
-	jmp	.LBB58_2
-.LBB58_2:
+	jz	r4, .LBB60_11
+	jmp	.LBB60_2
+.LBB60_2:
 	mov	r7, r3
 	add	r7, 1
 	mov	r2, r3
-	jmp	.LBB58_13
-.LBB58_3:
+	jmp	.LBB60_13
+.LBB60_3:
 	mov	r2, r3
-	jz	r4, .LBB58_7
-	jmp	.LBB58_4
-.LBB58_4:                               // %.preheader2.i.preheader
+	jz	r4, .LBB60_7
+	jmp	.LBB60_4
+.LBB60_4:                               // %.preheader2.i.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r2, r3
-.LBB58_5:                               // %.preheader2.i
+.LBB60_5:                               // %.preheader2.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -33436,20 +32968,20 @@ strchrnul:                              // @strchrnul
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB58_32
-	jmp	.LBB58_6
-.LBB58_6:                               //   in Loop: Header=BB58_5 Depth=1
+	jz	rax, .LBB60_32
+	jmp	.LBB60_6
+.LBB60_6:                               //   in Loop: Header=BB60_5 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jnz	rax, .LBB58_5
-	jmp	.LBB58_7
-.LBB58_7:                               // %.loopexit4.i.preheader
+	jnz	rax, .LBB60_5
+	jmp	.LBB60_7
+.LBB60_7:                               // %.loopexit4.i.preheader
 	add	r2, -5
 	mov	r3, -2139062144
-.LBB58_8:                               // %.loopexit4.i
+.LBB60_8:                               // %.loopexit4.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, 5
@@ -33461,10 +32993,10 @@ strchrnul:                              // @strchrnul
 	mov	r0, rax
 	call	__bit_and
 	add	r2, 4
-	je	rax, r3, .LBB58_8
-	jmp	.LBB58_9
-.LBB58_9:                               // %.preheader.i.preheader
-.LBB58_10:                              // %.preheader.i
+	je	rax, r3, .LBB60_8
+	jmp	.LBB60_9
+.LBB60_9:                               // %.preheader.i.preheader
+.LBB60_10:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -33481,9 +33013,9 @@ strchrnul:                              // @strchrnul
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB58_32
-	jmp	.LBB58_10
-.LBB58_11:                              // %.loopexit9.i
+	jz	rax, .LBB60_32
+	jmp	.LBB60_10
+.LBB60_11:                              // %.loopexit9.i
 	mov	r7, [r2]
 	mov	r0, 16843008
 	sub	r0, r7
@@ -33493,12 +33025,12 @@ strchrnul:                              // @strchrnul
 	mov	t1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t1, .LBB58_18
-	jmp	.LBB58_12
-.LBB58_12:                              // %.preheader5.i.preheader
+	jne	rax, t1, .LBB60_18
+	jmp	.LBB60_12
+.LBB60_12:                              // %.preheader5.i.preheader
 	mul	r6, 16843009
-	jmp	.LBB58_16
-.LBB58_13:                              // =>This Inner Loop Header: Depth=1
+	jmp	.LBB60_16
+.LBB60_13:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -33514,25 +33046,25 @@ strchrnul:                              // @strchrnul
 	mov	r0, rax
 	call	__bit_and
 	mov	t1, rax
-	jz	t1, .LBB58_22
-	jmp	.LBB58_14
-.LBB58_14:                              //   in Loop: Header=BB58_13 Depth=1
+	jz	t1, .LBB60_22
+	jmp	.LBB60_14
+.LBB60_14:                              //   in Loop: Header=BB60_13 Depth=1
 	mov	r0, r5
 	call	__bit_and
 	mov	t2, rax
 	mov	r0, t1
 	call	__bit_and
-	je	rax, t2, .LBB58_32
-	jmp	.LBB58_15
-.LBB58_15:                              //   in Loop: Header=BB58_13 Depth=1
+	je	rax, t2, .LBB60_32
+	jmp	.LBB60_15
+.LBB60_15:                              //   in Loop: Header=BB60_13 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r7
 	call	__bit_and
 	add	r7, 1
-	jz	rax, .LBB58_11
-	jmp	.LBB58_13
-.LBB58_16:                              // %.preheader5.i
+	jz	rax, .LBB60_11
+	jmp	.LBB60_13
+.LBB60_16:                              // %.preheader5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r7
 	mov	r1, r6
@@ -33544,9 +33076,9 @@ strchrnul:                              // @strchrnul
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t1, .LBB58_18
-	jmp	.LBB58_17
-.LBB58_17:                              //   in Loop: Header=BB58_16 Depth=1
+	jne	rax, t1, .LBB60_18
+	jmp	.LBB60_17
+.LBB60_17:                              //   in Loop: Header=BB60_16 Depth=1
 	add	r2, 4
 	mov	r7, [r2]
 	mov	r0, 16843008
@@ -33556,11 +33088,11 @@ strchrnul:                              // @strchrnul
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, t1, .LBB58_16
-	jmp	.LBB58_18
-.LBB58_18:                              // %.loopexit6.i
+	je	rax, t1, .LBB60_16
+	jmp	.LBB60_18
+.LBB60_18:                              // %.loopexit6.i
 	add	r2, -1
-.LBB58_19:                              // =>This Inner Loop Header: Depth=1
+.LBB60_19:                              // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
 	mov	r0, r2
@@ -33577,28 +33109,28 @@ strchrnul:                              // @strchrnul
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jz	r6, .LBB58_21
-	jmp	.LBB58_20
-.LBB58_20:                              //   in Loop: Header=BB58_19 Depth=1
+	jz	r6, .LBB60_21
+	jmp	.LBB60_20
+.LBB60_20:                              //   in Loop: Header=BB60_19 Depth=1
 	mov	r0, r5
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	rax, r7, .LBB58_19
-	jmp	.LBB58_21
-.LBB58_21:
+	jne	rax, r7, .LBB60_19
+	jmp	.LBB60_21
+.LBB60_21:
 	mov	r0, r5
 	call	__bit_and
 	mov	r5, rax
 	mov	r0, r6
 	call	__bit_and
-	je	rax, r5, .LBB58_32
-	jmp	.LBB58_22
-.LBB58_22:                              // %strchr.exit
-	jz	r4, .LBB58_27
-	jmp	.LBB58_23
-.LBB58_23:
+	je	rax, r5, .LBB60_32
+	jmp	.LBB60_22
+.LBB60_22:                              // %strchr.exit
+	jz	r4, .LBB60_27
+	jmp	.LBB60_23
+.LBB60_23:
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -33614,15 +33146,15 @@ strchrnul:                              // @strchrnul
 	mov	r0, rax
 	call	__bit_and
 	mov	r2, r3
-	jz	rax, .LBB58_31
-	jmp	.LBB58_24
-.LBB58_24:                              // %.preheader1.i.preheader
+	jz	rax, .LBB60_31
+	jmp	.LBB60_24
+.LBB60_24:                              // %.preheader1.i.preheader
 	mov	r0, r3
 	add	r0, 1
 	mov	r2, r3
 	mov	r3, r0
-	jmp	.LBB58_26
-.LBB58_25:                              //   in Loop: Header=BB58_26 Depth=1
+	jmp	.LBB60_26
+.LBB60_25:                              //   in Loop: Header=BB60_26 Depth=1
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -33638,21 +33170,21 @@ strchrnul:                              // @strchrnul
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 1
-	jz	rax, .LBB58_31
-	jmp	.LBB58_26
-.LBB58_26:                              // %.preheader1.i
+	jz	rax, .LBB60_31
+	jmp	.LBB60_26
+.LBB60_26:                              // %.preheader1.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
-	jnz	rax, .LBB58_25
-	jmp	.LBB58_27
-.LBB58_27:                              // %.loopexit.i.preheader
+	jnz	rax, .LBB60_25
+	jmp	.LBB60_27
+.LBB60_27:                              // %.loopexit.i.preheader
 	mov	r4, r3
 	add	r4, -1
 	mov	r5, -2139062144
-.LBB58_28:                              // %.loopexit.i
+.LBB60_28:                              // %.loopexit.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r3]
 	mov	r0, 16843008
@@ -33664,11 +33196,11 @@ strchrnul:                              // @strchrnul
 	call	__bit_and
 	add	r3, 4
 	add	r4, 4
-	je	rax, r5, .LBB58_28
-	jmp	.LBB58_29
-.LBB58_29:                              // %.preheader.i1.preheader
+	je	rax, r5, .LBB60_28
+	jmp	.LBB60_29
+.LBB60_29:                              // %.preheader.i1.preheader
 	mov	r5, -4
-.LBB58_30:                              // %.preheader.i1
+.LBB60_30:                              // %.preheader.i1
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, r5
@@ -33687,10 +33219,10 @@ strchrnul:                              // @strchrnul
 	call	__bit_and
 	add	r2, 1
 	add	r5, 1
-	jnz	rax, .LBB58_30
-	jmp	.LBB58_31
-.LBB58_31:                              // %strlen.exit
-.LBB58_32:                              // %strchr.exit.thread
+	jnz	rax, .LBB60_30
+	jmp	.LBB60_31
+.LBB60_31:                              // %strlen.exit
+.LBB60_32:                              // %strchr.exit.thread
 	mov	rax, r2
 	ret
 // -- End function
@@ -33705,9 +33237,9 @@ strcmp:                                 // @strcmp
 	mov	r1, 3
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB59_2
-	jmp	.LBB59_1
-.LBB59_1:
+	jz	rax, .LBB61_2
+	jmp	.LBB61_1
+.LBB61_1:
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -33723,16 +33255,16 @@ strcmp:                                 // @strcmp
 	mov	r0, rax
 	call	__bit_and
 	mov	r4, rax
-	jmp	.LBB59_7
-.LBB59_2:
+	jmp	.LBB61_7
+.LBB61_2:
 	mov	r4, [r3]
 	mov	r0, [r2]
-	jne	r4, r0, .LBB59_7
-	jmp	.LBB59_3
-.LBB59_3:                               // %.preheader5.preheader
+	jne	r4, r0, .LBB61_7
+	jmp	.LBB61_3
+.LBB61_3:                               // %.preheader5.preheader
 	mov	r6, -2139062144
 	mov	r5, 0
-.LBB59_4:                               // %.preheader5
+.LBB61_4:                               // %.preheader5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, 16843008
 	sub	r0, r4
@@ -33741,26 +33273,26 @@ strcmp:                                 // @strcmp
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB59_13
-	jmp	.LBB59_5
-.LBB59_5:                               //   in Loop: Header=BB59_4 Depth=1
+	jne	rax, r6, .LBB61_13
+	jmp	.LBB61_5
+.LBB61_5:                               //   in Loop: Header=BB61_4 Depth=1
 	add	r3, 4
 	add	r2, 4
 	mov	r4, [r3]
 	mov	r0, [r2]
-	je	r4, r0, .LBB59_4
-	jmp	.LBB59_6
-.LBB59_6:
-.LBB59_7:
+	je	r4, r0, .LBB61_4
+	jmp	.LBB61_6
+.LBB61_6:
+.LBB61_7:
 	mov	r1, 255
 	mov	r0, r4
 	call	__bit_and
 	mov	r5, 0
-	jz	rax, .LBB59_12
-	jmp	.LBB59_8
-.LBB59_8:                               // %.preheader.preheader
+	jz	rax, .LBB61_12
+	jmp	.LBB61_8
+.LBB61_8:                               // %.preheader.preheader
 	add	r3, 1
-.LBB59_9:                               // %.preheader
+.LBB61_9:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -33779,9 +33311,9 @@ strcmp:                                 // @strcmp
 	mov	r5, rax
 	mov	r0, r4
 	call	__bit_and
-	jne	rax, r5, .LBB59_11
-	jmp	.LBB59_10
-.LBB59_10:                              //   in Loop: Header=BB59_9 Depth=1
+	jne	rax, r5, .LBB61_11
+	jmp	.LBB61_10
+.LBB61_10:                              //   in Loop: Header=BB61_9 Depth=1
 	mov	r1, 2
 	add	r2, 1
 	mov	r0, r3
@@ -33800,12 +33332,12 @@ strcmp:                                 // @strcmp
 	mov	r4, rax
 	add	r3, 1
 	mov	r0, 0
-	jnz	r4, .LBB59_9
-	jmp	.LBB59_11
-.LBB59_11:
+	jnz	r4, .LBB61_9
+	jmp	.LBB61_11
+.LBB61_11:
 	call	__bit_and
 	mov	r5, rax
-.LBB59_12:
+.LBB61_12:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -33821,7 +33353,7 @@ strcmp:                                 // @strcmp
 	mov	r0, rax
 	call	__bit_and
 	sub	r5, rax
-.LBB59_13:                              // %.loopexit
+.LBB61_13:                              // %.loopexit
 	mov	rax, r5
 	ret
 // -- End function
@@ -33837,9 +33369,9 @@ strcpy:                                 // @strcpy
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, r2
-	jnz	rax, .LBB60_4
-	jmp	.LBB60_1
-.LBB60_1:
+	jnz	rax, .LBB62_4
+	jmp	.LBB62_1
+.LBB62_1:
 	mov	r5, [r4]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -33850,11 +33382,11 @@ strcpy:                                 // @strcpy
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, r2
-	jne	rax, r6, .LBB60_4
-	jmp	.LBB60_2
-.LBB60_2:                               // %.preheader.preheader
+	jne	rax, r6, .LBB62_4
+	jmp	.LBB62_2
+.LBB62_2:                               // %.preheader.preheader
 	mov	r3, r2
-.LBB60_3:                               // %.preheader
+.LBB62_3:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r4, 4
 	mov	[r3], r5
@@ -33867,12 +33399,12 @@ strcpy:                                 // @strcpy
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB60_3
-	jmp	.LBB60_4
-.LBB60_4:                               // %.loopexit.preheader
+	je	rax, r6, .LBB62_3
+	jmp	.LBB62_4
+.LBB62_4:                               // %.loopexit.preheader
 	mov	r7, r4
 	mov	t1, r3
-.LBB60_5:                               // %.loopexit
+.LBB62_5:                               // %.loopexit
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	add	r7, 1
@@ -33925,9 +33457,9 @@ strcpy:                                 // @strcpy
 	mov	[r3], rax
 	mov	r3, t1
 	mov	r4, r7
-	jnz	r5, .LBB60_5
-	jmp	.LBB60_6
-.LBB60_6:
+	jnz	r5, .LBB62_5
+	jmp	.LBB62_6
+.LBB62_6:
 	mov	rax, r2
 	ret
 // -- End function
@@ -33951,9 +33483,9 @@ strcspn:                                // @strcspn
 	call	__bit_and
 	mov	r5, rax
 	mov	r4, r2
-	jz	r5, .LBB61_9
-	jmp	.LBB61_1
-.LBB61_1:
+	jz	r5, .LBB63_9
+	jmp	.LBB63_1
+.LBB63_1:
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -33969,15 +33501,15 @@ strcspn:                                // @strcspn
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jz	r6, .LBB61_3
-	jmp	.LBB61_2
-.LBB61_2:                               // %.preheader4.preheader
+	jz	r6, .LBB63_3
+	jmp	.LBB63_2
+.LBB63_2:                               // %.preheader4.preheader
 	add	r3, 1
 	mov	r4, r2
-	jmp	.LBB61_5
-.LBB61_3:                               // %.preheader.preheader
+	jmp	.LBB63_5
+.LBB63_3:                               // %.preheader.preheader
 	mov	r4, r2
-.LBB61_4:                               // %.preheader
+.LBB63_4:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	add	r4, 1
 	mov	r1, 2
@@ -33994,15 +33526,15 @@ strcspn:                                // @strcspn
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB61_9
-	jmp	.LBB61_4
-.LBB61_5:                               // %.preheader4
+	jz	rax, .LBB63_9
+	jmp	.LBB63_4
+.LBB63_5:                               // %.preheader4
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB61_7 Depth 2
+                                        //     Child Loop BB63_7 Depth 2
 	mov	r7, r3
 	mov	rax, r6
-	jmp	.LBB61_7
-.LBB61_6:                               //   in Loop: Header=BB61_7 Depth=2
+	jmp	.LBB63_7
+.LBB63_6:                               //   in Loop: Header=BB63_7 Depth=2
 	mov	r1, 2
 	mov	r0, r7
 	call	__bit_shr
@@ -34018,9 +33550,9 @@ strcspn:                                // @strcspn
 	mov	r0, rax
 	call	__bit_and
 	add	r7, 1
-	jz	rax, .LBB61_8
-	jmp	.LBB61_7
-.LBB61_7:                               //   Parent Loop BB61_5 Depth=1
+	jz	rax, .LBB63_8
+	jmp	.LBB63_7
+.LBB63_7:                               //   Parent Loop BB63_5 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 255
 	mov	r0, rax
@@ -34028,9 +33560,9 @@ strcspn:                                // @strcspn
 	mov	t1, rax
 	mov	r0, r5
 	call	__bit_and
-	je	rax, t1, .LBB61_9
-	jmp	.LBB61_6
-.LBB61_8:                               //   in Loop: Header=BB61_5 Depth=1
+	je	rax, t1, .LBB63_9
+	jmp	.LBB63_6
+.LBB63_8:                               //   in Loop: Header=BB63_5 Depth=1
 	add	r4, 1
 	mov	r1, 2
 	mov	r0, r4
@@ -34047,9 +33579,9 @@ strcspn:                                // @strcspn
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, rax
-	jnz	r5, .LBB61_5
-	jmp	.LBB61_9
-.LBB61_9:                               // %.loopexit
+	jnz	r5, .LBB63_5
+	jmp	.LBB63_9
+.LBB63_9:                               // %.loopexit
 	sub	r4, r2
 	mov	rax, r4
 	ret
@@ -34062,9 +33594,9 @@ strdup:                                 // @strdup
 	mov	r2, r0
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB62_5
-	jmp	.LBB62_1
-.LBB62_1:
+	jz	rax, .LBB64_5
+	jmp	.LBB64_1
+.LBB64_1:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -34080,14 +33612,14 @@ strdup:                                 // @strdup
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, r2
-	jz	rax, .LBB62_9
-	jmp	.LBB62_2
-.LBB62_2:                               // %.preheader1.i.preheader
+	jz	rax, .LBB64_9
+	jmp	.LBB64_2
+.LBB64_2:                               // %.preheader1.i.preheader
 	mov	r3, r2
 	add	r3, 1
 	mov	r5, r2
-	jmp	.LBB62_4
-.LBB62_3:                               //   in Loop: Header=BB62_4 Depth=1
+	jmp	.LBB64_4
+.LBB64_3:                               //   in Loop: Header=BB64_4 Depth=1
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -34103,21 +33635,21 @@ strdup:                                 // @strdup
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 1
-	jz	rax, .LBB62_9
-	jmp	.LBB62_4
-.LBB62_4:                               // %.preheader1.i
+	jz	rax, .LBB64_9
+	jmp	.LBB64_4
+.LBB64_4:                               // %.preheader1.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, 1
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
-	jnz	rax, .LBB62_3
-	jmp	.LBB62_5
-.LBB62_5:                               // %.loopexit.i.preheader
+	jnz	rax, .LBB64_3
+	jmp	.LBB64_5
+.LBB64_5:                               // %.loopexit.i.preheader
 	mov	r4, r3
 	add	r4, -1
 	mov	r6, -2139062144
-.LBB62_6:                               // %.loopexit.i
+.LBB64_6:                               // %.loopexit.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r3]
 	mov	r0, 16843008
@@ -34129,11 +33661,11 @@ strdup:                                 // @strdup
 	call	__bit_and
 	add	r3, 4
 	add	r4, 4
-	je	rax, r6, .LBB62_6
-	jmp	.LBB62_7
-.LBB62_7:                               // %.preheader.i.preheader
+	je	rax, r6, .LBB64_6
+	jmp	.LBB64_7
+.LBB64_7:                               // %.preheader.i.preheader
 	mov	r6, -4
-.LBB62_8:                               // %.preheader.i
+.LBB64_8:                               // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, r6
@@ -34152,25 +33684,25 @@ strdup:                                 // @strdup
 	call	__bit_and
 	add	r5, 1
 	add	r6, 1
-	jnz	rax, .LBB62_8
-	jmp	.LBB62_9
-.LBB62_9:                               // %strlen.exit
+	jnz	rax, .LBB64_8
+	jmp	.LBB64_9
+.LBB64_9:                               // %strlen.exit
 	sub	r5, r2
 	add	r5, 1
 	mov	r0, r5
 	call	malloc
 	mov	r3, rax
-	jz	r3, .LBB62_26
-	jmp	.LBB62_10
-.LBB62_10:
+	jz	r3, .LBB64_26
+	jmp	.LBB64_10
+.LBB64_10:
 	mov	r1, -2147483648
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483632
 	mov	r6, r3
-	jl	rax, r0, .LBB62_23
-	jmp	.LBB62_11
-.LBB62_11:
+	jl	rax, r0, .LBB64_23
+	jmp	.LBB64_11
+.LBB64_11:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
@@ -34179,7 +33711,7 @@ strdup:                                 // @strdup
 	sub	t4, r4
 	mov	t5, 0
 	mov	r6, r2
-.LBB62_12:                              // =>This Inner Loop Header: Depth=1
+.LBB64_12:                              // =>This Inner Loop Header: Depth=1
 	mov	r7, r3
 	mov	r0, r2
 	add	r0, t5
@@ -34232,9 +33764,9 @@ strdup:                                 // @strdup
 	mov	[r7], rax
 	add	t5, 1
 	add	r6, 1
-	jne	t4, t5, .LBB62_12
-	jmp	.LBB62_13
-.LBB62_13:
+	jne	t4, t5, .LBB64_12
+	jmp	.LBB64_13
+.LBB64_13:
 	mov	r1, -8
 	mov	r0, r4
 	call	__bit_or
@@ -34246,38 +33778,38 @@ strdup:                                 // @strdup
 	mov	r0, r7
 	call	__bit_and
 	mov	r0, rax
-	jnz	r0, .LBB62_20
-	jmp	.LBB62_14
-.LBB62_14:
+	jnz	r0, .LBB64_20
+	jmp	.LBB64_14
+.LBB64_14:
 	mov	r6, r3
 	mov	r1, -2147483648
 	add	r6, t5
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB62_16
-	jmp	.LBB62_15
-.LBB62_15:                              // %.preheader.i2.preheader
+	jl	rax, r0, .LBB64_16
+	jmp	.LBB64_15
+.LBB64_15:                              // %.preheader.i2.preheader
 	mov	r6, r3
 	add	r6, t5
 	add	r2, t5
 	mov	r5, 0
 	mov	r7, -2147483633
-	jmp	.LBB62_18
-.LBB62_16:                              // %.preheader77
+	jmp	.LBB64_18
+.LBB64_16:                              // %.preheader77
 	mov	t1, -2147483645
 	mov	r5, r4
 	mov	r2, r7
-	jmp	.LBB62_19
-.LBB62_17:
+	jmp	.LBB64_19
+.LBB64_17:
 	add	r2, r5
 	mov	r0, 3
 	add	r6, r5
 	mov	r7, r2
 	mov	r5, r4
-	jg	r4, r0, .LBB62_16
-	jmp	.LBB62_23
-.LBB62_18:                              // %.preheader.i2
+	jg	r4, r0, .LBB64_16
+	jmp	.LBB64_23
+.LBB64_18:                              // %.preheader.i2
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, r5
@@ -34306,9 +33838,9 @@ strdup:                                 // @strdup
 	add	r5, 16
 	mov	r0, r4
 	call	__bit_xor
-	jg	rax, r7, .LBB62_18
-	jmp	.LBB62_17
-.LBB62_19:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, r7, .LBB64_18
+	jmp	.LBB64_17
+.LBB64_19:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r2]
 	add	r2, 4
 	mov	[r6], r0
@@ -34316,9 +33848,9 @@ strdup:                                 // @strdup
 	add	r6, 4
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB62_19
-	jmp	.LBB62_23
-.LBB62_20:
+	jg	rax, t1, .LBB64_19
+	jmp	.LBB64_23
+.LBB64_20:
 	call	__bit_shl
 	mov	r5, rax
 	mov	t1, 8
@@ -34332,7 +33864,7 @@ strdup:                                 // @strdup
 	mov	t2, [r0]
 	add	t7, 4
 	mov	t6, 0
-.LBB62_21:                              // =>This Inner Loop Header: Depth=1
+.LBB64_21:                              // =>This Inner Loop Header: Depth=1
 	mov	x0, r3
 	mov	r0, t5
 	add	r0, t6
@@ -34372,9 +33904,9 @@ strdup:                                 // @strdup
 	mov	r0, r4
 	call	__bit_xor
 	mov	t2, t3
-	jge	rax, t4, .LBB62_21
-	jmp	.LBB62_22
-.LBB62_22:
+	jge	rax, t4, .LBB64_21
+	jmp	.LBB64_22
+.LBB64_22:
 	mov	r1, -4
 	mov	r0, r7
 	call	__bit_or
@@ -34390,15 +33922,15 @@ strdup:                                 // @strdup
 	mov	r6, r3
 	add	r6, t5
 	add	r6, t6
-	jmp	.LBB62_24
-.LBB62_23:                              // %.loopexit8.i
+	jmp	.LBB64_24
+.LBB64_23:                              // %.loopexit8.i
 	mov	r4, r5
-	jz	r5, .LBB62_26
-	jmp	.LBB62_24
-.LBB62_24:                              // %.preheader
+	jz	r5, .LBB64_26
+	jmp	.LBB64_24
+.LBB64_24:                              // %.preheader
 	mov	t1, r2
 	mov	t2, r6
-.LBB62_25:                              // =>This Inner Loop Header: Depth=1
+.LBB64_25:                              // =>This Inner Loop Header: Depth=1
 	add	r4, -1
 	mov	r1, 2
 	add	t1, 1
@@ -34451,9 +33983,9 @@ strdup:                                 // @strdup
 	mov	[r6], rax
 	mov	r6, t2
 	mov	r2, t1
-	jnz	r4, .LBB62_25
-	jmp	.LBB62_26
-.LBB62_26:                              // %memcpy.exit
+	jnz	r4, .LBB64_25
+	jmp	.LBB64_26
+.LBB64_26:                              // %memcpy.exit
 	mov	rax, r3
 	mov	x0, [rsp-1]
 	ret
@@ -34465,9 +33997,9 @@ strlen:                                 // @strlen
 	mov	r2, r0
 	call	__bit_and
 	mov	r3, r2
-	jz	rax, .LBB63_5
-	jmp	.LBB63_1
-.LBB63_1:
+	jz	rax, .LBB65_5
+	jmp	.LBB65_1
+.LBB65_1:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -34483,14 +34015,14 @@ strlen:                                 // @strlen
 	mov	r0, rax
 	call	__bit_and
 	mov	r4, r2
-	jz	rax, .LBB63_9
-	jmp	.LBB63_2
-.LBB63_2:                               // %.preheader1.preheader
+	jz	rax, .LBB65_9
+	jmp	.LBB65_2
+.LBB65_2:                               // %.preheader1.preheader
 	mov	r3, r2
 	add	r3, 1
 	mov	r4, r2
-	jmp	.LBB63_4
-.LBB63_3:                               //   in Loop: Header=BB63_4 Depth=1
+	jmp	.LBB65_4
+.LBB65_3:                               //   in Loop: Header=BB65_4 Depth=1
 	mov	r1, 2
 	mov	r0, r3
 	call	__bit_shr
@@ -34506,21 +34038,21 @@ strlen:                                 // @strlen
 	mov	r0, rax
 	call	__bit_and
 	add	r3, 1
-	jz	rax, .LBB63_9
-	jmp	.LBB63_4
-.LBB63_4:                               // %.preheader1
+	jz	rax, .LBB65_9
+	jmp	.LBB65_4
+.LBB65_4:                               // %.preheader1
                                         // =>This Inner Loop Header: Depth=1
 	add	r4, 1
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
-	jnz	rax, .LBB63_3
-	jmp	.LBB63_5
-.LBB63_5:                               // %.loopexit.preheader
+	jnz	rax, .LBB65_3
+	jmp	.LBB65_5
+.LBB65_5:                               // %.loopexit.preheader
 	mov	r5, r3
 	add	r5, -1
 	mov	r6, -2139062144
-.LBB63_6:                               // %.loopexit
+.LBB65_6:                               // %.loopexit
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r3]
 	mov	r0, 16843008
@@ -34532,11 +34064,11 @@ strlen:                                 // @strlen
 	call	__bit_and
 	add	r3, 4
 	add	r5, 4
-	je	rax, r6, .LBB63_6
-	jmp	.LBB63_7
-.LBB63_7:                               // %.preheader.preheader
+	je	rax, r6, .LBB65_6
+	jmp	.LBB65_7
+.LBB65_7:                               // %.preheader.preheader
 	mov	r6, -4
-.LBB63_8:                               // %.preheader
+.LBB65_8:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r3
 	add	r0, r6
@@ -34555,9 +34087,9 @@ strlen:                                 // @strlen
 	call	__bit_and
 	add	r4, 1
 	add	r6, 1
-	jnz	rax, .LBB63_8
-	jmp	.LBB63_9
-.LBB63_9:                               // %.loopexit2
+	jnz	rax, .LBB65_8
+	jmp	.LBB65_9
+.LBB65_9:                               // %.loopexit2
 	sub	r4, r2
 	mov	rax, r4
 	ret
@@ -34570,13 +34102,13 @@ strncat:                                // @strncat
 	mov	r4, r0
 	call	__bit_and
 	mov	r5, r4
-	jz	rax, .LBB64_4
-	jmp	.LBB64_1
-.LBB64_1:                               // %.preheader5.preheader
+	jz	rax, .LBB66_4
+	jmp	.LBB66_1
+.LBB66_1:                               // %.preheader5.preheader
 	mov	r6, r4
 	add	r6, 1
 	mov	r5, r4
-.LBB64_2:                               // %.preheader5
+.LBB66_2:                               // %.preheader5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r5
@@ -34592,17 +34124,17 @@ strncat:                                // @strncat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB64_9
-	jmp	.LBB64_3
-.LBB64_3:                               //   in Loop: Header=BB64_2 Depth=1
+	jz	rax, .LBB66_9
+	jmp	.LBB66_3
+.LBB66_3:                               //   in Loop: Header=BB66_2 Depth=1
 	mov	r1, 3
 	add	r5, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jnz	rax, .LBB64_2
-	jmp	.LBB64_4
-.LBB64_4:                               // %.loopexit7
+	jnz	rax, .LBB66_2
+	jmp	.LBB66_4
+.LBB66_4:                               // %.loopexit7
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -34617,12 +34149,12 @@ strncat:                                // @strncat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB64_9
-	jmp	.LBB64_5
-.LBB64_5:                               // %.preheader4.preheader
+	jz	rax, .LBB66_9
+	jmp	.LBB66_5
+.LBB66_5:                               // %.preheader4.preheader
 	add	r5, -5
 	mov	r6, -2139062144
-.LBB64_6:                               // %.preheader4
+.LBB66_6:                               // %.preheader4
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, 5
@@ -34634,10 +34166,10 @@ strncat:                                // @strncat
 	mov	r0, rax
 	call	__bit_and
 	add	r5, 4
-	je	rax, r6, .LBB64_6
-	jmp	.LBB64_7
-.LBB64_7:                               // %.preheader2.preheader
-.LBB64_8:                               // %.preheader2
+	je	rax, r6, .LBB66_6
+	jmp	.LBB66_7
+.LBB66_7:                               // %.preheader2.preheader
+.LBB66_8:                               // %.preheader2
                                         // =>This Inner Loop Header: Depth=1
 	add	r5, 1
 	mov	r1, 2
@@ -34654,13 +34186,13 @@ strncat:                                // @strncat
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB64_8
-	jmp	.LBB64_9
-.LBB64_9:                               // %.loopexit3
-	jz	r2, .LBB64_14
-	jmp	.LBB64_10
-.LBB64_10:                              // %.preheader.preheader
-.LBB64_11:                              // %.preheader
+	jnz	rax, .LBB66_8
+	jmp	.LBB66_9
+.LBB66_9:                               // %.loopexit3
+	jz	r2, .LBB66_14
+	jmp	.LBB66_10
+.LBB66_10:                              // %.preheader.preheader
+.LBB66_11:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r3
@@ -34709,15 +34241,15 @@ strncat:                                // @strncat
 	mov	r1, rax
 	call	__bit_or
 	mov	[t1], rax
-	jz	r6, .LBB64_14
-	jmp	.LBB64_12
-.LBB64_12:                              //   in Loop: Header=BB64_11 Depth=1
+	jz	r6, .LBB66_14
+	jmp	.LBB66_12
+.LBB66_12:                              //   in Loop: Header=BB66_11 Depth=1
 	add	r5, 1
 	add	r2, -1
 	add	r3, 1
-	jnz	r2, .LBB64_11
-	jmp	.LBB64_13
-.LBB64_13:
+	jnz	r2, .LBB66_11
+	jmp	.LBB66_13
+.LBB66_13:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -34747,7 +34279,7 @@ strncat:                                // @strncat
 	mov	r1, rax
 	call	__bit_or
 	mov	[r3], rax
-.LBB64_14:                              // %.loopexit
+.LBB66_14:                              // %.loopexit
 	mov	rax, r4
 	ret
 // -- End function
@@ -34758,9 +34290,9 @@ strncmp:                                // @strncmp
 	mov	r4, r1
 	mov	r5, r0
 	mov	r2, 0
-	jz	r3, .LBB65_14
-	jmp	.LBB65_1
-.LBB65_1:
+	jz	r3, .LBB67_14
+	jmp	.LBB67_1
+.LBB67_1:
 	mov	r0, r4
 	mov	r1, r5
 	call	__bit_or
@@ -34772,43 +34304,43 @@ strncmp:                                // @strncmp
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB65_8
-	jmp	.LBB65_2
-.LBB65_2:
-	jnz	r6, .LBB65_8
-	jmp	.LBB65_3
-.LBB65_3:                               // %.preheader10.preheader
+	jl	rax, r0, .LBB67_8
+	jmp	.LBB67_2
+.LBB67_2:
+	jnz	r6, .LBB67_8
+	jmp	.LBB67_3
+.LBB67_3:                               // %.preheader10.preheader
 	mov	r6, 4
 	mov	r7, -2139062144
 	mov	t1, -2147483645
-.LBB65_4:                               // %.preheader10
+.LBB67_4:                               // %.preheader10
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r5]
 	mov	r0, [r4]
-	jne	r1, r0, .LBB65_8
-	jmp	.LBB65_5
-.LBB65_5:                               //   in Loop: Header=BB65_4 Depth=1
-	je	r3, r6, .LBB65_14
-	jmp	.LBB65_6
-.LBB65_6:                               //   in Loop: Header=BB65_4 Depth=1
+	jne	r1, r0, .LBB67_8
+	jmp	.LBB67_5
+.LBB67_5:                               //   in Loop: Header=BB67_4 Depth=1
+	je	r3, r6, .LBB67_14
+	jmp	.LBB67_6
+.LBB67_6:                               //   in Loop: Header=BB67_4 Depth=1
 	mov	r0, 16843008
 	sub	r0, r1
 	call	__bit_or
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r7, .LBB65_14
-	jmp	.LBB65_7
-.LBB65_7:                               //   in Loop: Header=BB65_4 Depth=1
+	jne	rax, r7, .LBB67_14
+	jmp	.LBB67_7
+.LBB67_7:                               //   in Loop: Header=BB67_4 Depth=1
 	add	r3, -4
 	add	r5, 4
 	mov	r1, -2147483648
 	add	r4, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, t1, .LBB65_4
-	jmp	.LBB65_8
-.LBB65_8:                               // %.loopexit11
+	jg	rax, t1, .LBB67_4
+	jmp	.LBB67_8
+.LBB67_8:                               // %.loopexit11
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -34838,24 +34370,24 @@ strncmp:                                // @strncmp
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	r6, rax, .LBB65_13
-	jmp	.LBB65_9
-.LBB65_9:                               // %.preheader.preheader
+	jne	r6, rax, .LBB67_13
+	jmp	.LBB67_9
+.LBB67_9:                               // %.preheader.preheader
 	add	r3, -1
 	add	r4, 1
 	add	r5, 1
-.LBB65_10:                              // %.preheader
+.LBB67_10:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, r6
 	call	__bit_and
-	jz	rax, .LBB65_14
-	jmp	.LBB65_11
-.LBB65_11:                              // %.preheader
-                                        //   in Loop: Header=BB65_10 Depth=1
-	jz	r3, .LBB65_14
-	jmp	.LBB65_12
-.LBB65_12:                              //   in Loop: Header=BB65_10 Depth=1
+	jz	rax, .LBB67_14
+	jmp	.LBB67_11
+.LBB67_11:                              // %.preheader
+                                        //   in Loop: Header=BB67_10 Depth=1
+	jz	r3, .LBB67_14
+	jmp	.LBB67_12
+.LBB67_12:                              //   in Loop: Header=BB67_10 Depth=1
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -34888,9 +34420,9 @@ strncmp:                                // @strncmp
 	add	r3, -1
 	add	r4, 1
 	add	r5, 1
-	je	r6, rax, .LBB65_10
-	jmp	.LBB65_13
-.LBB65_13:                              // %.loopexit9
+	je	r6, rax, .LBB67_10
+	jmp	.LBB67_13
+.LBB67_13:                              // %.loopexit9
 	mov	r0, r6
 	mov	r3, rax
 	call	__bit_and
@@ -34898,7 +34430,7 @@ strncmp:                                // @strncmp
 	mov	r0, r3
 	call	__bit_and
 	sub	r2, rax
-.LBB65_14:                              // %.loopexit
+.LBB67_14:                              // %.loopexit
 	mov	rax, r2
 	ret
 // -- End function
@@ -34919,17 +34451,17 @@ strncpy:                                // @strncpy
 	call	__bit_xor
 	mov	r0, -2147483644
 	mov	t2, r3
-	jl	rax, r0, .LBB66_5
-	jmp	.LBB66_1
-.LBB66_1:
+	jl	rax, r0, .LBB68_5
+	jmp	.LBB68_1
+.LBB68_1:
 	mov	t2, r3
-	jnz	r5, .LBB66_5
-	jmp	.LBB66_2
-.LBB66_2:                               // %.preheader4.preheader
+	jnz	r5, .LBB68_5
+	jmp	.LBB68_2
+.LBB68_2:                               // %.preheader4.preheader
 	mov	r6, -2139062144
 	mov	r7, -2147483645
 	mov	t2, r3
-.LBB66_3:                               // %.preheader4
+.LBB68_3:                               // %.preheader4
                                         // =>This Inner Loop Header: Depth=1
 	mov	r5, [r4]
 	mov	r0, 16843008
@@ -34939,9 +34471,9 @@ strncpy:                                // @strncpy
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB66_6
-	jmp	.LBB66_4
-.LBB66_4:                               //   in Loop: Header=BB66_3 Depth=1
+	jne	rax, r6, .LBB68_6
+	jmp	.LBB68_4
+.LBB68_4:                               //   in Loop: Header=BB68_3 Depth=1
 	add	r2, -4
 	add	r4, 4
 	mov	[t2], r5
@@ -34949,14 +34481,14 @@ strncpy:                                // @strncpy
 	add	t2, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, r7, .LBB66_3
-	jmp	.LBB66_5
-.LBB66_5:                               // %.loopexit6
-	jz	r2, .LBB66_12
-	jmp	.LBB66_6
-.LBB66_6:                               // %.loopexit5.preheader
+	jg	rax, r7, .LBB68_3
+	jmp	.LBB68_5
+.LBB68_5:                               // %.loopexit6
+	jz	r2, .LBB68_12
+	jmp	.LBB68_6
+.LBB68_6:                               // %.loopexit5.preheader
 	mov	t3, 1
-.LBB66_7:                               // %.loopexit5
+.LBB68_7:                               // %.loopexit5
                                         // =>This Inner Loop Header: Depth=1
 	mov	r5, t2
 	mov	t4, r2
@@ -35009,19 +34541,19 @@ strncpy:                                // @strncpy
 	mov	r1, rax
 	call	__bit_or
 	mov	[r5], rax
-	jz	r6, .LBB66_9
-	jmp	.LBB66_8
-.LBB66_8:                               // %.loopexit5
-                                        //   in Loop: Header=BB66_7 Depth=1
+	jz	r6, .LBB68_9
+	jmp	.LBB68_8
+.LBB68_8:                               // %.loopexit5
+                                        //   in Loop: Header=BB68_7 Depth=1
 	add	r4, 1
-	jne	t4, t3, .LBB66_7
-	jmp	.LBB66_9
-.LBB66_9:
-	jz	r2, .LBB66_12
-	jmp	.LBB66_10
-.LBB66_10:                              // %.preheader.preheader
+	jne	t4, t3, .LBB68_7
+	jmp	.LBB68_9
+.LBB68_9:
+	jz	r2, .LBB68_12
+	jmp	.LBB68_10
+.LBB68_10:                              // %.preheader.preheader
 	mov	r7, 0
-.LBB66_11:                              // %.preheader
+.LBB68_11:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, t2
 	add	r0, r7
@@ -35054,9 +34586,9 @@ strncpy:                                // @strncpy
 	call	__bit_or
 	add	r7, 1
 	mov	[r5], rax
-	jne	r2, r7, .LBB66_11
-	jmp	.LBB66_12
-.LBB66_12:                              // %.loopexit
+	jne	r2, r7, .LBB68_11
+	jmp	.LBB68_12
+.LBB68_12:                              // %.loopexit
 	mov	rax, r3
 	ret
 // -- End function
@@ -35068,13 +34600,13 @@ strndup:                                // @strndup
 	mov	r2, r1
 	mov	r4, r0
 	mov	r3, r4
-	jz	r2, .LBB67_4
-	jmp	.LBB67_1
-.LBB67_1:
+	jz	r2, .LBB69_4
+	jmp	.LBB69_1
+.LBB69_1:
 	mov	r6, r4
 	add	r6, r2
 	mov	r5, r4
-.LBB67_2:                               // =>This Inner Loop Header: Depth=1
+.LBB69_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -35090,32 +34622,32 @@ strndup:                                // @strndup
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, r5
-	jz	rax, .LBB67_4
-	jmp	.LBB67_3
-.LBB67_3:                               //   in Loop: Header=BB67_2 Depth=1
+	jz	rax, .LBB69_4
+	jmp	.LBB69_3
+.LBB69_3:                               //   in Loop: Header=BB69_2 Depth=1
 	add	r2, -1
 	add	r5, 1
 	mov	r3, r6
-	jnz	r2, .LBB67_2
-	jmp	.LBB67_4
-.LBB67_4:                               // %.loopexit
+	jnz	r2, .LBB69_2
+	jmp	.LBB69_4
+.LBB69_4:                               // %.loopexit
 	sub	r3, r4
 	mov	r0, r3
 	add	r0, 1
 	call	malloc
 	mov	r2, rax
-	jz	r2, .LBB67_22
-	jmp	.LBB67_5
-.LBB67_5:
+	jz	r2, .LBB69_22
+	jmp	.LBB69_5
+.LBB69_5:
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483632
 	mov	r6, r2
 	mov	r5, r3
-	jl	rax, r0, .LBB67_18
-	jmp	.LBB67_6
-.LBB67_6:
+	jl	rax, r0, .LBB69_18
+	jmp	.LBB69_6
+.LBB69_6:
 	mov	r1, 3
 	mov	r0, r2
 	call	__bit_and
@@ -35124,7 +34656,7 @@ strndup:                                // @strndup
 	sub	t4, r5
 	mov	t6, 0
 	mov	r6, r4
-.LBB67_7:                               // =>This Inner Loop Header: Depth=1
+.LBB69_7:                               // =>This Inner Loop Header: Depth=1
 	mov	r7, r2
 	mov	r0, r4
 	add	r0, t6
@@ -35177,9 +34709,9 @@ strndup:                                // @strndup
 	mov	[r7], rax
 	add	t6, 1
 	add	r6, 1
-	jne	t4, t6, .LBB67_7
-	jmp	.LBB67_8
-.LBB67_8:
+	jne	t4, t6, .LBB69_7
+	jmp	.LBB69_8
+.LBB69_8:
 	mov	r1, -8
 	mov	r0, r5
 	call	__bit_or
@@ -35191,36 +34723,36 @@ strndup:                                // @strndup
 	mov	r0, r7
 	call	__bit_and
 	mov	r0, rax
-	jnz	r0, .LBB67_15
-	jmp	.LBB67_9
-.LBB67_9:
+	jnz	r0, .LBB69_15
+	jmp	.LBB69_9
+.LBB69_9:
 	mov	r6, r2
 	mov	r1, -2147483648
 	add	r6, t6
 	mov	r0, r5
 	call	__bit_xor
 	mov	r0, -2147483632
-	jl	rax, r0, .LBB67_11
-	jmp	.LBB67_10
-.LBB67_10:                              // %.preheader.i.preheader
+	jl	rax, r0, .LBB69_11
+	jmp	.LBB69_10
+.LBB69_10:                              // %.preheader.i.preheader
 	mov	r6, r2
 	add	r6, t6
 	add	r4, t6
 	mov	r7, 0
 	mov	t1, -2147483633
-	jmp	.LBB67_13
-.LBB67_11:                              // %.preheader55
+	jmp	.LBB69_13
+.LBB69_11:                              // %.preheader55
 	mov	t1, -2147483645
 	mov	r4, r7
-	jmp	.LBB67_14
-.LBB67_12:
+	jmp	.LBB69_14
+.LBB69_12:
 	add	r4, r7
 	mov	r0, 3
 	add	r6, r7
 	mov	r7, r4
-	jg	r5, r0, .LBB67_11
-	jmp	.LBB67_18
-.LBB67_13:                              // %.preheader.i
+	jg	r5, r0, .LBB69_11
+	jmp	.LBB69_18
+.LBB69_13:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r4
 	add	r0, r7
@@ -35249,9 +34781,9 @@ strndup:                                // @strndup
 	add	r7, 16
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB67_13
-	jmp	.LBB67_12
-.LBB67_14:                              // =>This Inner Loop Header: Depth=1
+	jg	rax, t1, .LBB69_13
+	jmp	.LBB69_12
+.LBB69_14:                              // =>This Inner Loop Header: Depth=1
 	mov	r0, [r4]
 	add	r4, 4
 	mov	[r6], r0
@@ -35259,9 +34791,9 @@ strndup:                                // @strndup
 	add	r6, 4
 	mov	r0, r5
 	call	__bit_xor
-	jg	rax, t1, .LBB67_14
-	jmp	.LBB67_18
-.LBB67_15:
+	jg	rax, t1, .LBB69_14
+	jmp	.LBB69_18
+.LBB69_15:
 	call	__bit_shl
 	mov	t1, rax
 	mov	t2, 8
@@ -35275,7 +34807,7 @@ strndup:                                // @strndup
 	mov	t3, [r0]
 	add	x0, 4
 	mov	t7, 0
-.LBB67_16:                              // =>This Inner Loop Header: Depth=1
+.LBB69_16:                              // =>This Inner Loop Header: Depth=1
 	mov	x1, r2
 	mov	r0, t6
 	add	r0, t7
@@ -35315,9 +34847,9 @@ strndup:                                // @strndup
 	mov	r0, r5
 	call	__bit_xor
 	mov	t3, t4
-	jge	rax, t5, .LBB67_16
-	jmp	.LBB67_17
-.LBB67_17:
+	jge	rax, t5, .LBB69_16
+	jmp	.LBB69_17
+.LBB69_17:
 	mov	r1, -4
 	mov	r0, r7
 	call	__bit_or
@@ -35333,14 +34865,14 @@ strndup:                                // @strndup
 	add	t6, t7
 	add	r4, 4
 	mov	r6, t6
-	jmp	.LBB67_19
-.LBB67_18:                              // %.loopexit8.i
-	jz	r5, .LBB67_21
-	jmp	.LBB67_19
-.LBB67_19:                              // %.preheader
+	jmp	.LBB69_19
+.LBB69_18:                              // %.loopexit8.i
+	jz	r5, .LBB69_21
+	jmp	.LBB69_19
+.LBB69_19:                              // %.preheader
 	mov	t2, r4
 	mov	t3, r6
-.LBB67_20:                              // =>This Inner Loop Header: Depth=1
+.LBB69_20:                              // =>This Inner Loop Header: Depth=1
 	add	r5, -1
 	mov	r1, 2
 	add	t2, 1
@@ -35393,9 +34925,9 @@ strndup:                                // @strndup
 	mov	[r6], rax
 	mov	r6, t3
 	mov	r4, t2
-	jnz	r5, .LBB67_20
-	jmp	.LBB67_21
-.LBB67_21:                              // %memcpy.exit
+	jnz	r5, .LBB69_20
+	jmp	.LBB69_21
+.LBB69_21:                              // %memcpy.exit
 	mov	r0, r2
 	add	r0, r3
 	mov	r1, 3
@@ -35426,7 +34958,7 @@ strndup:                                // @strndup
 	mov	r1, rax
 	call	__bit_or
 	mov	[r4], rax
-.LBB67_22:
+.LBB69_22:
 	mov	rax, r2
 	mov	x1, [rsp-2]
 	mov	x0, [rsp-1]
@@ -35438,13 +34970,13 @@ strnlen:                                // @strnlen
 	mov	r3, r1
 	mov	r2, r0
 	mov	rax, r2
-	jz	r3, .LBB68_4
-	jmp	.LBB68_1
-.LBB68_1:
+	jz	r3, .LBB70_4
+	jmp	.LBB70_1
+.LBB70_1:
 	mov	r6, r2
 	add	r6, r3
 	mov	r4, r2
-.LBB68_2:                               // =>This Inner Loop Header: Depth=1
+.LBB70_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r4
 	call	__bit_shr
@@ -35461,15 +34993,15 @@ strnlen:                                // @strnlen
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r4
-	jz	r0, .LBB68_4
-	jmp	.LBB68_3
-.LBB68_3:                               //   in Loop: Header=BB68_2 Depth=1
+	jz	r0, .LBB70_4
+	jmp	.LBB70_3
+.LBB70_3:                               //   in Loop: Header=BB70_2 Depth=1
 	add	r3, -1
 	add	r4, 1
 	mov	rax, r6
-	jnz	r3, .LBB68_2
-	jmp	.LBB68_4
-.LBB68_4:                               // %.loopexit
+	jnz	r3, .LBB70_2
+	jmp	.LBB70_4
+.LBB70_4:                               // %.loopexit
 	sub	rax, r2
 	ret
 // -- End function
@@ -35480,14 +35012,14 @@ strnstr:                                // @strnstr
 	mov	r2, r1
 	mov	r4, r0
 	mov	r5, r2
-	jz	r3, .LBB69_4
-	jmp	.LBB69_1
-.LBB69_1:
+	jz	r3, .LBB71_4
+	jmp	.LBB71_1
+.LBB71_1:
 	mov	r7, r2
 	add	r7, r3
 	mov	t1, r3
 	mov	r6, r2
-.LBB69_2:                               // =>This Inner Loop Header: Depth=1
+.LBB71_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -35503,15 +35035,15 @@ strnstr:                                // @strnstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, r6
-	jz	rax, .LBB69_4
-	jmp	.LBB69_3
-.LBB69_3:                               //   in Loop: Header=BB69_2 Depth=1
+	jz	rax, .LBB71_4
+	jmp	.LBB71_3
+.LBB71_3:                               //   in Loop: Header=BB71_2 Depth=1
 	add	t1, -1
 	add	r6, 1
 	mov	r5, r7
-	jnz	t1, .LBB69_2
-	jmp	.LBB69_4
-.LBB69_4:                               // %strnlen.exit
+	jnz	t1, .LBB71_2
+	jmp	.LBB71_4
+.LBB71_4:                               // %strnlen.exit
 	mov	r1, -2147483648
 	sub	r5, r2
 	mov	r0, r3
@@ -35519,9 +35051,9 @@ strnstr:                                // @strnstr
 	mov	r6, rax
 	mov	r0, r5
 	call	__bit_xor
-	jl	rax, r6, .LBB69_6
-	jmp	.LBB69_5
-.LBB69_5:
+	jl	rax, r6, .LBB71_6
+	jmp	.LBB71_5
+.LBB71_5:
 	mov	r0, r2
 	add	r0, r5
 	mov	r1, 2
@@ -35539,33 +35071,33 @@ strnstr:                                // @strnstr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, 0
-	jnz	r0, .LBB69_21
-	jmp	.LBB69_6
-.LBB69_6:
+	jnz	r0, .LBB71_21
+	jmp	.LBB71_6
+.LBB71_6:
 	mov	r0, r4
 	mov	r1, r3
 	mov	r3, r5
 	call	memmem
 	mov	r2, rax
 	mov	rax, 0
-	jz	r2, .LBB69_21
-	jmp	.LBB69_7
-.LBB69_7:
+	jz	r2, .LBB71_21
+	jmp	.LBB71_7
+.LBB71_7:
 	mov	r3, r2
 	mov	r1, 3
 	sub	r3, r4
 	mov	r0, r4
 	call	__bit_and
-	jz	rax, .LBB69_13
-	jmp	.LBB69_8
-.LBB69_8:                               // %.preheader2.preheader
+	jz	rax, .LBB71_13
+	jmp	.LBB71_8
+.LBB71_8:                               // %.preheader2.preheader
 	mov	r5, r4
-.LBB69_9:                               // %.preheader2
+.LBB71_9:                               // %.preheader2
                                         // =>This Inner Loop Header: Depth=1
 	mov	rax, r2
-	je	r2, r5, .LBB69_21
-	jmp	.LBB69_10
-.LBB69_10:                              //   in Loop: Header=BB69_9 Depth=1
+	je	r2, r5, .LBB71_21
+	jmp	.LBB71_10
+.LBB71_10:                              //   in Loop: Header=BB71_9 Depth=1
 	mov	r1, 2
 	mov	r0, r4
 	call	__bit_shr
@@ -35582,30 +35114,30 @@ strnstr:                                // @strnstr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, 0
-	jz	r0, .LBB69_21
-	jmp	.LBB69_11
-.LBB69_11:                              //   in Loop: Header=BB69_9 Depth=1
+	jz	r0, .LBB71_21
+	jmp	.LBB71_11
+.LBB71_11:                              //   in Loop: Header=BB71_9 Depth=1
 	add	r5, 1
 	mov	r1, 3
 	add	r4, 1
 	mov	r0, r5
 	call	__bit_and
-	jnz	rax, .LBB69_9
-	jmp	.LBB69_12
-.LBB69_12:                              // %.loopexit9.i.loopexit
+	jnz	rax, .LBB71_9
+	jmp	.LBB71_12
+.LBB71_12:                              // %.loopexit9.i.loopexit
 	mov	r3, r2
 	sub	r3, r5
-.LBB69_13:                              // %.loopexit9.i
+.LBB71_13:                              // %.loopexit9.i
 	mov	r1, -2147483648
 	mov	r0, r3
 	call	__bit_xor
 	mov	r0, -2147483644
-	jl	rax, r0, .LBB69_17
-	jmp	.LBB69_14
-.LBB69_14:                              // %.preheader.preheader
+	jl	rax, r0, .LBB71_17
+	jmp	.LBB71_14
+.LBB71_14:                              // %.preheader.preheader
 	mov	r5, -2139062144
 	mov	r6, -2147483645
-.LBB69_15:                              // %.preheader
+.LBB71_15:                              // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r4]
 	mov	r0, 16843008
@@ -35614,22 +35146,22 @@ strnstr:                                // @strnstr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r5, .LBB69_18
-	jmp	.LBB69_16
-.LBB69_16:                              //   in Loop: Header=BB69_15 Depth=1
+	jne	rax, r5, .LBB71_18
+	jmp	.LBB71_16
+.LBB71_16:                              //   in Loop: Header=BB71_15 Depth=1
 	add	r3, -4
 	mov	r1, -2147483648
 	add	r4, 4
 	mov	r0, r3
 	call	__bit_xor
-	jg	rax, r6, .LBB69_15
-	jmp	.LBB69_17
-.LBB69_17:                              // %.loopexit6.i
+	jg	rax, r6, .LBB71_15
+	jmp	.LBB71_17
+.LBB71_17:                              // %.loopexit6.i
 	mov	rax, r2
-	jz	r3, .LBB69_21
-	jmp	.LBB69_18
-.LBB69_18:                              // %.loopexit5.i.preheader
-.LBB69_19:                              // %.loopexit5.i
+	jz	r3, .LBB71_21
+	jmp	.LBB71_18
+.LBB71_18:                              // %.loopexit5.i.preheader
+.LBB71_19:                              // %.loopexit5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r4
@@ -35647,15 +35179,15 @@ strnstr:                                // @strnstr
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, 0
-	jz	r0, .LBB69_21
-	jmp	.LBB69_20
-.LBB69_20:                              //   in Loop: Header=BB69_19 Depth=1
+	jz	r0, .LBB71_21
+	jmp	.LBB71_20
+.LBB71_20:                              //   in Loop: Header=BB71_19 Depth=1
 	add	r3, -1
 	add	r4, 1
 	mov	rax, r2
-	jnz	r3, .LBB69_19
-	jmp	.LBB69_21
-.LBB69_21:                              // %memchr.exit
+	jnz	r3, .LBB71_19
+	jmp	.LBB71_21
+.LBB71_21:                              // %memchr.exit
 	ret
 // -- End function
 // -- Begin function strpbrk
@@ -35678,9 +35210,9 @@ strpbrk:                                // @strpbrk
 	call	__bit_and
 	mov	r4, rax
 	mov	r3, 0
-	jz	r4, .LBB70_7
-	jmp	.LBB70_1
-.LBB70_1:
+	jz	r4, .LBB72_7
+	jmp	.LBB72_1
+.LBB72_1:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -35696,18 +35228,18 @@ strpbrk:                                // @strpbrk
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, rax
-	jz	r5, .LBB70_7
-	jmp	.LBB70_2
-.LBB70_2:                               // %.preheader.preheader
+	jz	r5, .LBB72_7
+	jmp	.LBB72_2
+.LBB72_2:                               // %.preheader.preheader
 	add	r2, 1
-.LBB70_3:                               // %.preheader
+.LBB72_3:                               // %.preheader
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB70_5 Depth 2
+                                        //     Child Loop BB72_5 Depth 2
 	mov	r3, r6
 	mov	r6, r2
 	mov	rax, r5
-	jmp	.LBB70_5
-.LBB70_4:                               //   in Loop: Header=BB70_5 Depth=2
+	jmp	.LBB72_5
+.LBB72_4:                               //   in Loop: Header=BB72_5 Depth=2
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -35723,9 +35255,9 @@ strpbrk:                                // @strpbrk
 	mov	r0, rax
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB70_6
-	jmp	.LBB70_5
-.LBB70_5:                               //   Parent Loop BB70_3 Depth=1
+	jz	rax, .LBB72_6
+	jmp	.LBB72_5
+.LBB72_5:                               //   Parent Loop BB72_3 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 255
 	mov	r0, rax
@@ -35733,9 +35265,9 @@ strpbrk:                                // @strpbrk
 	mov	r7, rax
 	mov	r0, r4
 	call	__bit_and
-	je	rax, r7, .LBB70_7
-	jmp	.LBB70_4
-.LBB70_6:                               //   in Loop: Header=BB70_3 Depth=1
+	je	rax, r7, .LBB72_7
+	jmp	.LBB72_4
+.LBB72_6:                               //   in Loop: Header=BB72_3 Depth=1
 	add	r3, 1
 	mov	r1, 2
 	mov	r0, r3
@@ -35754,9 +35286,9 @@ strpbrk:                                // @strpbrk
 	mov	r4, rax
 	mov	r6, r3
 	mov	r3, 0
-	jnz	r4, .LBB70_3
-	jmp	.LBB70_7
-.LBB70_7:                               // %.loopexit
+	jnz	r4, .LBB72_3
+	jmp	.LBB72_7
+.LBB72_7:                               // %.loopexit
 	mov	rax, r3
 	ret
 // -- End function
@@ -35769,29 +35301,29 @@ strrchr:                                // @strrchr
 	mov	r0, r4
 	call	__bit_and
 	mov	r5, rax
-	jz	r5, .LBB71_16
-	jmp	.LBB71_1
-.LBB71_1:                               // %.preheader.split.preheader
+	jz	r5, .LBB73_16
+	jmp	.LBB73_1
+.LBB73_1:                               // %.preheader.split.preheader
 	mul	r5, 16843009
 	mov	r2, 0
 	mov	t2, -2139062144
-.LBB71_2:                               // %.preheader.split
+.LBB73_2:                               // %.preheader.split
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB71_6 Depth 2
-                                        //     Child Loop BB71_9 Depth 2
-                                        //     Child Loop BB71_12 Depth 2
+                                        //     Child Loop BB73_6 Depth 2
+                                        //     Child Loop BB73_9 Depth 2
+                                        //     Child Loop BB73_12 Depth 2
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
-	jz	rax, .LBB71_4
-	jmp	.LBB71_3
-.LBB71_3:                               // %.preheader29.preheader
-                                        //   in Loop: Header=BB71_2 Depth=1
+	jz	rax, .LBB73_4
+	jmp	.LBB73_3
+.LBB73_3:                               // %.preheader29.preheader
+                                        //   in Loop: Header=BB73_2 Depth=1
 	mov	r6, r3
 	add	r6, 1
-	jmp	.LBB71_6
-.LBB71_4:                               // %.loopexit9.i
-                                        //   in Loop: Header=BB71_2 Depth=1
+	jmp	.LBB73_6
+.LBB73_4:                               // %.loopexit9.i
+                                        //   in Loop: Header=BB73_2 Depth=1
 	mov	r6, [r3]
 	mov	r0, 16843008
 	sub	r0, r6
@@ -35800,13 +35332,13 @@ strrchr:                                // @strrchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB71_11
-	jmp	.LBB71_5
-.LBB71_5:                               // %.preheader5.i.preheader
-                                        //   in Loop: Header=BB71_2 Depth=1
-	jmp	.LBB71_9
-.LBB71_6:                               // %.preheader29
-                                        //   Parent Loop BB71_2 Depth=1
+	jne	rax, t2, .LBB73_11
+	jmp	.LBB73_5
+.LBB73_5:                               // %.preheader5.i.preheader
+                                        //   in Loop: Header=BB73_2 Depth=1
+	jmp	.LBB73_9
+.LBB73_6:                               // %.preheader29
+                                        //   Parent Loop BB73_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r3
@@ -35823,26 +35355,26 @@ strrchr:                                // @strrchr
 	mov	r0, rax
 	call	__bit_and
 	mov	r7, rax
-	jz	r7, .LBB71_24
-	jmp	.LBB71_7
-.LBB71_7:                               //   in Loop: Header=BB71_6 Depth=2
+	jz	r7, .LBB73_24
+	jmp	.LBB73_7
+.LBB73_7:                               //   in Loop: Header=BB73_6 Depth=2
 	mov	r0, r4
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r7
 	call	__bit_and
-	je	rax, t1, .LBB71_15
-	jmp	.LBB71_8
-.LBB71_8:                               //   in Loop: Header=BB71_6 Depth=2
+	je	rax, t1, .LBB73_15
+	jmp	.LBB73_8
+.LBB73_8:                               //   in Loop: Header=BB73_6 Depth=2
 	mov	r1, 3
 	add	r3, 1
 	mov	r0, r6
 	call	__bit_and
 	add	r6, 1
-	jz	rax, .LBB71_4
-	jmp	.LBB71_6
-.LBB71_9:                               // %.preheader5.i
-                                        //   Parent Loop BB71_2 Depth=1
+	jz	rax, .LBB73_4
+	jmp	.LBB73_6
+.LBB73_9:                               // %.preheader5.i
+                                        //   Parent Loop BB73_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, r6
 	mov	r1, r5
@@ -35854,9 +35386,9 @@ strrchr:                                // @strrchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, t2, .LBB71_11
-	jmp	.LBB71_10
-.LBB71_10:                              //   in Loop: Header=BB71_9 Depth=2
+	jne	rax, t2, .LBB73_11
+	jmp	.LBB73_10
+.LBB73_10:                              //   in Loop: Header=BB73_9 Depth=2
 	add	r3, 4
 	mov	r6, [r3]
 	mov	r0, 16843008
@@ -35866,13 +35398,13 @@ strrchr:                                // @strrchr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, t2, .LBB71_9
-	jmp	.LBB71_11
-.LBB71_11:                              // %.loopexit6.i.preheader
-                                        //   in Loop: Header=BB71_2 Depth=1
+	je	rax, t2, .LBB73_9
+	jmp	.LBB73_11
+.LBB73_11:                              // %.loopexit6.i.preheader
+                                        //   in Loop: Header=BB73_2 Depth=1
 	add	r3, -1
-.LBB71_12:                              // %.loopexit6.i
-                                        //   Parent Loop BB71_2 Depth=1
+.LBB73_12:                              // %.loopexit6.i
+                                        //   Parent Loop BB73_2 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	add	r3, 1
 	mov	r1, 2
@@ -35890,44 +35422,44 @@ strrchr:                                // @strrchr
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, rax
-	jz	r6, .LBB71_14
-	jmp	.LBB71_13
-.LBB71_13:                              // %.loopexit6.i
-                                        //   in Loop: Header=BB71_12 Depth=2
+	jz	r6, .LBB73_14
+	jmp	.LBB73_13
+.LBB73_13:                              // %.loopexit6.i
+                                        //   in Loop: Header=BB73_12 Depth=2
 	mov	r0, r4
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	rax, r7, .LBB71_12
-	jmp	.LBB71_14
-.LBB71_14:                              //   in Loop: Header=BB71_2 Depth=1
+	jne	rax, r7, .LBB73_12
+	jmp	.LBB73_14
+.LBB73_14:                              //   in Loop: Header=BB73_2 Depth=1
 	mov	r0, r4
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	rax, r7, .LBB71_24
-	jmp	.LBB71_15
-.LBB71_15:                              // %strchr.exit
-                                        //   in Loop: Header=BB71_2 Depth=1
+	jne	rax, r7, .LBB73_24
+	jmp	.LBB73_15
+.LBB73_15:                              // %strchr.exit
+                                        //   in Loop: Header=BB73_2 Depth=1
 	mov	r0, r3
 	add	r0, 1
 	mov	r2, r3
 	mov	r3, r0
-	jmp	.LBB71_2
-.LBB71_16:
+	jmp	.LBB73_2
+.LBB73_16:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r2, r3
-	jz	rax, .LBB71_20
-	jmp	.LBB71_17
-.LBB71_17:                              // %.preheader2.i1.preheader
+	jz	rax, .LBB73_20
+	jmp	.LBB73_17
+.LBB73_17:                              // %.preheader2.i1.preheader
 	mov	r4, r3
 	add	r4, 1
 	mov	r2, r3
-.LBB71_18:                              // %.preheader2.i1
+.LBB73_18:                              // %.preheader2.i1
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -35943,20 +35475,20 @@ strrchr:                                // @strrchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB71_24
-	jmp	.LBB71_19
-.LBB71_19:                              //   in Loop: Header=BB71_18 Depth=1
+	jz	rax, .LBB73_24
+	jmp	.LBB73_19
+.LBB73_19:                              //   in Loop: Header=BB73_18 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r4
 	call	__bit_and
 	add	r4, 1
-	jnz	rax, .LBB71_18
-	jmp	.LBB71_20
-.LBB71_20:                              // %.loopexit4.i2.preheader
+	jnz	rax, .LBB73_18
+	jmp	.LBB73_20
+.LBB73_20:                              // %.loopexit4.i2.preheader
 	add	r2, -5
 	mov	r3, -2139062144
-.LBB71_21:                              // %.loopexit4.i2
+.LBB73_21:                              // %.loopexit4.i2
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, 5
@@ -35968,10 +35500,10 @@ strrchr:                                // @strrchr
 	mov	r0, rax
 	call	__bit_and
 	add	r2, 4
-	je	rax, r3, .LBB71_21
-	jmp	.LBB71_22
-.LBB71_22:                              // %.preheader.i3.preheader
-.LBB71_23:                              // %.preheader.i3
+	je	rax, r3, .LBB73_21
+	jmp	.LBB73_22
+.LBB73_22:                              // %.preheader.i3.preheader
+.LBB73_23:                              // %.preheader.i3
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -35988,9 +35520,9 @@ strrchr:                                // @strrchr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB71_23
-	jmp	.LBB71_24
-.LBB71_24:                              // %strchr.exit4
+	jnz	rax, .LBB73_23
+	jmp	.LBB73_24
+.LBB73_24:                              // %strchr.exit4
 	mov	rax, r2
 	ret
 // -- End function
@@ -36001,9 +35533,9 @@ strsep:                                 // @strsep
 	mov	r2, [r3]
 	mov	r4, r1
 	mov	rax, 0
-	jz	r2, .LBB72_14
-	jmp	.LBB72_1
-.LBB72_1:
+	jz	r2, .LBB74_14
+	jmp	.LBB74_1
+.LBB74_1:
 	mov	t2, r2
 	mov	r1, 2
 	add	t2, 1
@@ -36022,7 +35554,7 @@ strsep:                                 // @strsep
 	call	__bit_and
 	mov	r5, rax
 	mov	r6, r4
-.LBB72_2:                               // =>This Inner Loop Header: Depth=1
+.LBB74_2:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -36037,18 +35569,18 @@ strsep:                                 // @strsep
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB72_5
-	jmp	.LBB72_3
-.LBB72_3:                               //   in Loop: Header=BB72_2 Depth=1
+	jz	rax, .LBB74_5
+	jmp	.LBB74_3
+.LBB74_3:                               //   in Loop: Header=BB74_2 Depth=1
 	add	r6, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r5
 	call	__bit_and
-	jne	rax, r7, .LBB72_2
-	jmp	.LBB72_4
-.LBB72_4:
+	jne	rax, r7, .LBB74_2
+	jmp	.LBB74_4
+.LBB74_4:
 	mov	r1, 3
 	mov	[r3], t2
 	mov	r0, r2
@@ -36080,21 +35612,21 @@ strsep:                                 // @strsep
 	call	__bit_or
 	mov	[r4], rax
 	mov	rax, r2
-	jmp	.LBB72_14
-.LBB72_5:                               // %.loopexit.i
+	jmp	.LBB74_14
+.LBB74_5:                               // %.loopexit.i
 	mov	r0, r5
 	call	__bit_and
-	jz	rax, .LBB72_7
-	jmp	.LBB72_6
-.LBB72_6:                               // %.preheader.i.preheader
-	jmp	.LBB72_8
-.LBB72_7:
+	jz	rax, .LBB74_7
+	jmp	.LBB74_6
+.LBB74_6:                               // %.preheader.i.preheader
+	jmp	.LBB74_8
+.LBB74_7:
 	mov	[r3], 0
 	mov	rax, 0
-	jmp	.LBB72_14
-.LBB72_8:                               // %.preheader.i
+	jmp	.LBB74_14
+.LBB74_8:                               // %.preheader.i
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB72_9 Depth 2
+                                        //     Child Loop BB74_9 Depth 2
 	mov	r5, t2
 	mov	r1, 2
 	add	t2, 1
@@ -36113,7 +35645,7 @@ strsep:                                 // @strsep
 	call	__bit_and
 	mov	r6, rax
 	mov	r7, r4
-.LBB72_9:                               //   Parent Loop BB72_8 Depth=1
+.LBB74_9:                               //   Parent Loop BB74_8 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r7
@@ -36132,15 +35664,15 @@ strsep:                                 // @strsep
 	mov	t1, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	t1, rax, .LBB72_13
-	jmp	.LBB72_10
-.LBB72_10:
+	jne	t1, rax, .LBB74_13
+	jmp	.LBB74_10
+.LBB74_10:
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, 0
-	jz	rax, .LBB72_12
-	jmp	.LBB72_11
-.LBB72_11:
+	jz	rax, .LBB74_12
+	jmp	.LBB74_11
+.LBB74_11:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -36171,17 +35703,17 @@ strsep:                                 // @strsep
 	call	__bit_or
 	mov	[r5], rax
 	mov	r0, t2
-.LBB72_12:
+.LBB74_12:
 	mov	[r3], r0
 	mov	rax, r2
-	jmp	.LBB72_14
-.LBB72_13:                              //   in Loop: Header=BB72_9 Depth=2
+	jmp	.LBB74_14
+.LBB74_13:                              //   in Loop: Header=BB74_9 Depth=2
 	add	r7, 1
 	mov	r0, t1
 	call	__bit_and
-	jz	rax, .LBB72_8
-	jmp	.LBB72_9
-.LBB72_14:                              // %__strtok_r.exit
+	jz	rax, .LBB74_8
+	jmp	.LBB74_9
+.LBB74_14:                              // %__strtok_r.exit
 	ret
 // -- End function
 // -- Begin function strspn
@@ -36204,9 +35736,9 @@ strspn:                                 // @strspn
 	call	__bit_and
 	mov	r4, rax
 	mov	r6, r3
-	jz	r4, .LBB73_7
-	jmp	.LBB73_1
-.LBB73_1:
+	jz	r4, .LBB75_7
+	jmp	.LBB75_1
+.LBB75_1:
 	mov	r1, 2
 	mov	r0, r2
 	call	__bit_shr
@@ -36223,18 +35755,18 @@ strspn:                                 // @strspn
 	call	__bit_and
 	mov	r5, rax
 	mov	r6, r3
-	jz	r5, .LBB73_7
-	jmp	.LBB73_2
-.LBB73_2:                               // %.preheader.preheader
+	jz	r5, .LBB75_7
+	jmp	.LBB75_2
+.LBB75_2:                               // %.preheader.preheader
 	add	r2, 1
 	mov	r6, r3
-.LBB73_3:                               // %.preheader
+.LBB75_3:                               // %.preheader
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB73_5 Depth 2
+                                        //     Child Loop BB75_5 Depth 2
 	mov	r7, r2
 	mov	rax, r5
-	jmp	.LBB73_5
-.LBB73_4:                               //   in Loop: Header=BB73_5 Depth=2
+	jmp	.LBB75_5
+.LBB75_4:                               //   in Loop: Header=BB75_5 Depth=2
 	mov	r1, 2
 	mov	r0, r7
 	call	__bit_shr
@@ -36250,9 +35782,9 @@ strspn:                                 // @strspn
 	mov	r0, rax
 	call	__bit_and
 	add	r7, 1
-	jz	rax, .LBB73_7
-	jmp	.LBB73_5
-.LBB73_5:                               //   Parent Loop BB73_3 Depth=1
+	jz	rax, .LBB75_7
+	jmp	.LBB75_5
+.LBB75_5:                               //   Parent Loop BB75_3 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 255
 	mov	r0, rax
@@ -36260,9 +35792,9 @@ strspn:                                 // @strspn
 	mov	t1, rax
 	mov	r0, r4
 	call	__bit_and
-	jne	rax, t1, .LBB73_4
-	jmp	.LBB73_6
-.LBB73_6:                               //   in Loop: Header=BB73_3 Depth=1
+	jne	rax, t1, .LBB75_4
+	jmp	.LBB75_6
+.LBB75_6:                               //   in Loop: Header=BB75_3 Depth=1
 	add	r6, 1
 	mov	r1, 2
 	mov	r0, r6
@@ -36279,15 +35811,15 @@ strspn:                                 // @strspn
 	mov	r0, rax
 	call	__bit_and
 	mov	r4, rax
-	jnz	r4, .LBB73_3
-	jmp	.LBB73_7
-.LBB73_7:                               // %.loopexit
+	jnz	r4, .LBB75_3
+	jmp	.LBB75_7
+.LBB75_7:                               // %.loopexit
 	sub	r6, r3
 	mov	rax, r6
 	ret
 // -- End function
-// -- Begin function two_way_long_needle.48
-two_way_long_needle.48:                 // @two_way_long_needle.48
+// -- Begin function two_way_long_needle.49
+two_way_long_needle.49:                 // @two_way_long_needle.49
 // %bb.0:
 	mov	[rsp-1], x0
 	mov	[rsp-2], x1
@@ -36307,14 +35839,14 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_xor
 	mov	r0, -2147483646
 	mov	r6, 0
-	jl	rax, r0, .LBB74_22
-	jmp	.LBB74_1
-.LBB74_1:                               // %.preheader31.preheader
+	jl	rax, r0, .LBB76_22
+	jmp	.LBB76_1
+.LBB76_1:                               // %.preheader31.preheader
 	mov	t1, -1
 	mov	t7, 0
 	mov	r6, 1
 	mov	t5, 1
-.LBB74_2:                               // %.preheader31
+.LBB76_2:                               // %.preheader31
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, r6
@@ -36355,41 +35887,41 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t4, rax
 	mov	r0, t2
 	call	__bit_xor
-	jge	rax, t4, .LBB74_4
-	jmp	.LBB74_3
-.LBB74_3:                               //   in Loop: Header=BB74_2 Depth=1
+	jge	rax, t4, .LBB76_4
+	jmp	.LBB76_3
+.LBB76_3:                               //   in Loop: Header=BB76_2 Depth=1
 	mov	r7, r6
 	sub	r7, t1
 	mov	t5, 1
-	jmp	.LBB74_9
-.LBB74_4:                               //   in Loop: Header=BB74_2 Depth=1
+	jmp	.LBB76_9
+.LBB76_4:                               //   in Loop: Header=BB76_2 Depth=1
 	mov	r1, 255
 	mov	r0, t3
 	call	__bit_and
 	mov	r6, rax
 	mov	r0, t2
 	call	__bit_and
-	jne	rax, r6, .LBB74_8
-	jmp	.LBB74_5
-.LBB74_5:                               //   in Loop: Header=BB74_2 Depth=1
-	je	t5, r7, .LBB74_7
-	jmp	.LBB74_6
-.LBB74_6:                               //   in Loop: Header=BB74_2 Depth=1
+	jne	rax, r6, .LBB76_8
+	jmp	.LBB76_5
+.LBB76_5:                               //   in Loop: Header=BB76_2 Depth=1
+	je	t5, r7, .LBB76_7
+	jmp	.LBB76_6
+.LBB76_6:                               //   in Loop: Header=BB76_2 Depth=1
 	add	t5, 1
 	mov	r6, t7
-	jmp	.LBB74_9
-.LBB74_7:                               //   in Loop: Header=BB74_2 Depth=1
+	jmp	.LBB76_9
+.LBB76_7:                               //   in Loop: Header=BB76_2 Depth=1
 	add	t7, r7
 	mov	t5, 1
 	mov	r6, t7
-	jmp	.LBB74_9
-.LBB74_8:                               //   in Loop: Header=BB74_2 Depth=1
+	jmp	.LBB76_9
+.LBB76_8:                               //   in Loop: Header=BB76_2 Depth=1
 	mov	r6, t7
 	add	r6, 1
 	mov	t5, 1
 	mov	t1, t7
 	mov	r7, 1
-.LBB74_9:                               //   in Loop: Header=BB74_2 Depth=1
+.LBB76_9:                               //   in Loop: Header=BB76_2 Depth=1
 	mov	t7, r6
 	mov	r6, t5
 	mov	r1, -2147483648
@@ -36399,15 +35931,15 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t2, rax
 	mov	r0, r6
 	call	__bit_xor
-	jl	rax, t2, .LBB74_2
-	jmp	.LBB74_10
-.LBB74_10:                              // %.preheader30.preheader
+	jl	rax, t2, .LBB76_2
+	jmp	.LBB76_10
+.LBB76_10:                              // %.preheader30.preheader
 	mov	r6, -1
 	mov	x1, 0
 	mov	t2, 1
 	mov	t7, 1
 	mov	x0, 1
-.LBB74_11:                              // %.preheader30
+.LBB76_11:                              // %.preheader30
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r2
 	add	r0, t2
@@ -36448,41 +35980,41 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t5, rax
 	mov	r0, t4
 	call	__bit_xor
-	jge	rax, t5, .LBB74_13
-	jmp	.LBB74_12
-.LBB74_12:                              //   in Loop: Header=BB74_11 Depth=1
+	jge	rax, t5, .LBB76_13
+	jmp	.LBB76_12
+.LBB76_12:                              //   in Loop: Header=BB76_11 Depth=1
 	mov	t7, t2
 	sub	t7, r6
 	mov	x0, 1
-	jmp	.LBB74_18
-.LBB74_13:                              //   in Loop: Header=BB74_11 Depth=1
+	jmp	.LBB76_18
+.LBB76_13:                              //   in Loop: Header=BB76_11 Depth=1
 	mov	r1, 255
 	mov	r0, t4
 	call	__bit_and
 	mov	t2, rax
 	mov	r0, t3
 	call	__bit_and
-	jne	rax, t2, .LBB74_17
-	jmp	.LBB74_14
-.LBB74_14:                              //   in Loop: Header=BB74_11 Depth=1
-	je	x0, t7, .LBB74_16
-	jmp	.LBB74_15
-.LBB74_15:                              //   in Loop: Header=BB74_11 Depth=1
+	jne	rax, t2, .LBB76_17
+	jmp	.LBB76_14
+.LBB76_14:                              //   in Loop: Header=BB76_11 Depth=1
+	je	x0, t7, .LBB76_16
+	jmp	.LBB76_15
+.LBB76_15:                              //   in Loop: Header=BB76_11 Depth=1
 	add	x0, 1
 	mov	t2, x1
-	jmp	.LBB74_18
-.LBB74_16:                              //   in Loop: Header=BB74_11 Depth=1
+	jmp	.LBB76_18
+.LBB76_16:                              //   in Loop: Header=BB76_11 Depth=1
 	add	x1, t7
 	mov	x0, 1
 	mov	t2, x1
-	jmp	.LBB74_18
-.LBB74_17:                              //   in Loop: Header=BB74_11 Depth=1
+	jmp	.LBB76_18
+.LBB76_17:                              //   in Loop: Header=BB76_11 Depth=1
 	mov	t2, x1
 	add	t2, 1
 	mov	x0, 1
 	mov	r6, x1
 	mov	t7, 1
-.LBB74_18:                              //   in Loop: Header=BB74_11 Depth=1
+.LBB76_18:                              //   in Loop: Header=BB76_11 Depth=1
 	mov	x1, t2
 	mov	t2, x0
 	mov	r1, -2147483648
@@ -36492,9 +36024,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t3, rax
 	mov	r0, t2
 	call	__bit_xor
-	jl	rax, t3, .LBB74_11
-	jmp	.LBB74_19
-.LBB74_19:
+	jl	rax, t3, .LBB76_11
+	jmp	.LBB76_19
+.LBB76_19:
 	add	t1, 1
 	add	r6, 1
 	mov	r0, t1
@@ -36502,11 +36034,11 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t2, rax
 	mov	r0, r6
 	call	__bit_xor
-	jl	rax, t2, .LBB74_21
-	jmp	.LBB74_20
-.LBB74_20:
+	jl	rax, t2, .LBB76_21
+	jmp	.LBB76_20
+.LBB76_20:
 	mov	r7, t7
-.LBB74_21:
+.LBB76_21:
 	mov	r0, t1
 	sub	r0, r6
 	mov	r1, 31
@@ -36523,26 +36055,26 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_and
 	mov	r6, rax
 	add	r6, t1
-.LBB74_22:
+.LBB76_22:
 	mov	r0, 1024
-	jmp	.LBB74_25
-.LBB74_23:
-	jz	r3, .LBB74_27
-	jmp	.LBB74_24
-.LBB74_24:                              // %.preheader28.preheader
+	jmp	.LBB76_25
+.LBB76_23:
+	jz	r3, .LBB76_27
+	jmp	.LBB76_24
+.LBB76_24:                              // %.preheader28.preheader
 	mov	t3, r3
 	add	t3, -1
 	mov	t4, -1
 	mov	t1, r2
-	jmp	.LBB74_26
-.LBB74_25:                              // =>This Inner Loop Header: Depth=1
+	jmp	.LBB76_26
+.LBB76_25:                              // =>This Inner Loop Header: Depth=1
 	mov	r1, rsp
 	add	r1, t6
 	add	t6, 4
 	mov	[r1], r3
-	je	t6, r0, .LBB74_23
-	jmp	.LBB74_25
-.LBB74_26:                              // %.preheader28
+	je	t6, r0, .LBB76_23
+	jmp	.LBB76_25
+.LBB76_26:                              // %.preheader28
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t1
@@ -36565,9 +36097,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	[rax], t3
 	add	t3, -1
 	add	t1, 1
-	jne	t3, t4, .LBB74_26
-	jmp	.LBB74_27
-.LBB74_27:                              // %.loopexit29
+	jne	t3, t4, .LBB76_26
+	jmp	.LBB76_27
+.LBB76_27:                              // %.loopexit29
 	mov	t1, r2
 	mov	r1, -2147483648
 	add	t1, r7
@@ -36576,9 +36108,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r0, -2147483644
 	mov	t2, r6
 	mov	t3, r2
-	jl	rax, r0, .LBB74_33
-	jmp	.LBB74_28
-.LBB74_28:
+	jl	rax, r0, .LBB76_33
+	jmp	.LBB76_28
+.LBB76_28:
 	mov	r0, t1
 	mov	r1, r2
 	call	__bit_or
@@ -36587,37 +36119,37 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_and
 	mov	t2, r6
 	mov	t3, r2
-	jnz	rax, .LBB74_35
-	jmp	.LBB74_29
-.LBB74_29:                              // %.preheader.i.preheader
+	jnz	rax, .LBB76_35
+	jmp	.LBB76_29
+.LBB76_29:                              // %.preheader.i.preheader
 	mov	t4, -2147483645
 	mov	t3, r2
 	mov	t2, r6
-.LBB74_30:                              // %.preheader.i
+.LBB76_30:                              // %.preheader.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	t1, t3
 	add	t1, r7
 	mov	r0, [t3]
 	mov	r1, [t1]
-	jne	r0, r1, .LBB74_34
-	jmp	.LBB74_31
-.LBB74_31:                              //   in Loop: Header=BB74_30 Depth=1
+	jne	r0, r1, .LBB76_34
+	jmp	.LBB76_31
+.LBB76_31:                              //   in Loop: Header=BB76_30 Depth=1
 	add	t2, -4
 	mov	r1, -2147483648
 	add	t3, 4
 	mov	r0, t2
 	call	__bit_xor
-	jg	rax, t4, .LBB74_30
-	jmp	.LBB74_32
-.LBB74_32:                              // %.loopexit8.i.loopexit
+	jg	rax, t4, .LBB76_30
+	jmp	.LBB76_32
+.LBB76_32:                              // %.loopexit8.i.loopexit
 	mov	t1, t3
 	add	t1, r7
-.LBB74_33:                              // %.loopexit8.i
-	jz	t2, .LBB74_38
-	jmp	.LBB74_35
-.LBB74_34:                              // %.loopexit7.i.preheader.loopexit
-.LBB74_35:                              // %.loopexit7.i.preheader
-.LBB74_36:                              // %.loopexit7.i
+.LBB76_33:                              // %.loopexit8.i
+	jz	t2, .LBB76_38
+	jmp	.LBB76_35
+.LBB76_34:                              // %.loopexit7.i.preheader.loopexit
+.LBB76_35:                              // %.loopexit7.i.preheader
+.LBB76_36:                              // %.loopexit7.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, t3
@@ -36648,15 +36180,15 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t4, rax, .LBB74_58
-	jmp	.LBB74_37
-.LBB74_37:                              //   in Loop: Header=BB74_36 Depth=1
+	jne	t4, rax, .LBB76_58
+	jmp	.LBB76_37
+.LBB76_37:                              //   in Loop: Header=BB76_36 Depth=1
 	add	t2, -1
 	add	t3, 1
 	add	t1, 1
-	jnz	t2, .LBB74_36
-	jmp	.LBB74_38
-.LBB74_38:                              // %memcmp.exit.thread
+	jnz	t2, .LBB76_36
+	jmp	.LBB76_38
+.LBB76_38:                              // %memcmp.exit.thread
 	mov	r1, 2048
 	mov	r0, r3
 	call	__bit_or
@@ -36673,10 +36205,10 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	add	x7, -1
 	mov	t4, 0
 	mov	t5, 0
-.LBB74_39:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB74_41 Depth 2
-                                        //     Child Loop BB74_52 Depth 2
-                                        //     Child Loop BB74_54 Depth 2
+.LBB76_39:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB76_41 Depth 2
+                                        //     Child Loop BB76_52 Depth 2
+                                        //     Child Loop BB76_54 Depth 2
 	mov	r0, r4
 	sub	r0, r3
 	mov	r1, -2147483648
@@ -36684,16 +36216,16 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t1, rax
 	mov	r0, t4
 	call	__bit_xor
-	jle	rax, t1, .LBB74_44
-	jmp	.LBB74_40
-.LBB74_40:                              //   in Loop: Header=BB74_39 Depth=1
+	jle	rax, t1, .LBB76_44
+	jmp	.LBB76_40
+.LBB76_40:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	t7, r5
 	add	t7, r4
 	mov	x0, t7
 	add	x0, t2
 	mov	x1, t2
 	mov	t1, t7
-.LBB74_41:                              //   Parent Loop BB74_39 Depth=1
+.LBB76_41:                              //   Parent Loop BB76_39 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, t1
@@ -36710,16 +36242,16 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, t1
-	jz	rax, .LBB74_43
-	jmp	.LBB74_42
-.LBB74_42:                              //   in Loop: Header=BB74_41 Depth=2
+	jz	rax, .LBB76_43
+	jmp	.LBB76_42
+.LBB76_42:                              //   in Loop: Header=BB76_41 Depth=2
 	add	x1, -1
 	add	t1, 1
 	mov	r0, x0
-	jnz	x1, .LBB74_41
-	jmp	.LBB74_43
-.LBB74_43:                              // %strnlen.exit
-                                        //   in Loop: Header=BB74_39 Depth=1
+	jnz	x1, .LBB76_41
+	jmp	.LBB76_43
+.LBB76_43:                              // %strnlen.exit
+                                        //   in Loop: Header=BB76_39 Depth=1
 	sub	r0, t7
 	add	r4, r0
 	mov	r0, r4
@@ -36730,9 +36262,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t6, rax
 	mov	r0, t4
 	call	__bit_xor
-	jg	rax, t6, .LBB74_74
-	jmp	.LBB74_44
-.LBB74_44:                              //   in Loop: Header=BB74_39 Depth=1
+	jg	rax, t6, .LBB76_74
+	jmp	.LBB76_44
+.LBB76_44:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	t1, r5
 	add	t1, t4
 	mov	r0, t1
@@ -36756,28 +36288,28 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_shl
 	add	rax, rsp
 	mov	t7, [rax]
-	jz	t7, .LBB74_49
-	jmp	.LBB74_45
-.LBB74_45:                              //   in Loop: Header=BB74_39 Depth=1
+	jz	t7, .LBB76_49
+	jmp	.LBB76_45
+.LBB76_45:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	x3, 0
-	jz	t5, .LBB74_48
-	jmp	.LBB74_46
-.LBB74_46:                              //   in Loop: Header=BB74_39 Depth=1
+	jz	t5, .LBB76_48
+	jmp	.LBB76_46
+.LBB76_46:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r7
 	call	__bit_xor
 	mov	t1, rax
 	mov	r0, t7
 	call	__bit_xor
-	jge	rax, t1, .LBB74_48
-	jmp	.LBB74_47
-.LBB74_47:                              //   in Loop: Header=BB74_39 Depth=1
+	jge	rax, t1, .LBB76_48
+	jmp	.LBB76_47
+.LBB76_47:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	t7, x4
-.LBB74_48:                              //   in Loop: Header=BB74_39 Depth=1
+.LBB76_48:                              //   in Loop: Header=BB76_39 Depth=1
 	add	t4, t7
 	mov	t5, x3
-	jmp	.LBB74_39
-.LBB74_49:                              //   in Loop: Header=BB74_39 Depth=1
+	jmp	.LBB76_39
+.LBB76_49:                              //   in Loop: Header=BB76_39 Depth=1
 	mov	t6, t5
 	sub	t6, r6
 	mov	r1, 31
@@ -36801,10 +36333,10 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t7, rax
 	mov	r0, t3
 	call	__bit_xor
-	jge	t7, rax, .LBB74_51
-	jmp	.LBB74_50
-.LBB74_50:                              // %.preheader.preheader
-                                        //   in Loop: Header=BB74_39 Depth=1
+	jge	t7, rax, .LBB76_51
+	jmp	.LBB76_50
+.LBB76_50:                              // %.preheader.preheader
+                                        //   in Loop: Header=BB76_39 Depth=1
 	mov	t7, x5
 	add	t7, x0
 	mov	x8, t3
@@ -36813,9 +36345,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	add	x1, x0
 	add	x1, r5
 	add	x0, r2
-	jmp	.LBB74_52
-.LBB74_51:                              // %.loopexit
-                                        //   in Loop: Header=BB74_39 Depth=1
+	jmp	.LBB76_52
+.LBB76_51:                              // %.loopexit
+                                        //   in Loop: Header=BB76_39 Depth=1
 	mov	r1, 31
 	mov	r0, t6
 	call	__bit_shr
@@ -36833,9 +36365,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	x2, x6
 	add	x2, t4
 	mov	t7, r6
-	jmp	.LBB74_54
-.LBB74_52:                              // %.preheader
-                                        //   Parent Loop BB74_39 Depth=1
+	jmp	.LBB76_54
+.LBB76_52:                              // %.preheader
+                                        //   Parent Loop BB76_39 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, x0
@@ -36867,16 +36399,16 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r0, rax
 	call	__bit_and
 	mov	x3, 0
-	jne	x2, rax, .LBB74_48
-	jmp	.LBB74_53
-.LBB74_53:                              //   in Loop: Header=BB74_52 Depth=2
+	jne	x2, rax, .LBB76_48
+	jmp	.LBB76_53
+.LBB76_53:                              //   in Loop: Header=BB76_52 Depth=2
 	add	t7, 1
 	add	x8, -1
 	add	x1, 1
 	add	x0, 1
-	jz	x8, .LBB74_51
-	jmp	.LBB74_52
-.LBB74_54:                              //   Parent Loop BB74_39 Depth=1
+	jz	x8, .LBB76_51
+	jmp	.LBB76_52
+.LBB76_54:                              //   Parent Loop BB76_39 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, -2147483648
 	mov	r0, t7
@@ -36884,9 +36416,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	x0, rax
 	mov	r0, t5
 	call	__bit_xor
-	jge	rax, x0, .LBB74_57
-	jmp	.LBB74_55
-.LBB74_55:                              //   in Loop: Header=BB74_54 Depth=2
+	jge	rax, x0, .LBB76_57
+	jmp	.LBB76_55
+.LBB76_55:                              //   in Loop: Header=BB76_54 Depth=2
 	mov	x3, t7
 	mov	r0, x7
 	add	r0, t7
@@ -36921,13 +36453,13 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r0, rax
 	call	__bit_and
 	mov	t7, x3
-	je	x0, rax, .LBB74_54
-	jmp	.LBB74_56
-.LBB74_56:                              // %._crit_edge
-                                        //   in Loop: Header=BB74_39 Depth=1
+	je	x0, rax, .LBB76_54
+	jmp	.LBB76_56
+.LBB76_56:                              // %._crit_edge
+                                        //   in Loop: Header=BB76_39 Depth=1
 	add	x3, 1
 	mov	t6, x3
-.LBB74_57:                              //   in Loop: Header=BB74_39 Depth=1
+.LBB76_57:                              //   in Loop: Header=BB76_39 Depth=1
 	add	t5, 1
 	mov	r1, -2147483648
 	mov	r0, t5
@@ -36937,9 +36469,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_xor
 	mov	t7, r7
 	mov	x3, x4
-	jl	rax, t5, .LBB74_74
-	jmp	.LBB74_48
-.LBB74_58:                              // %memcmp.exit
+	jl	rax, t5, .LBB76_74
+	jmp	.LBB76_48
+.LBB76_58:                              // %memcmp.exit
 	mov	t1, r3
 	sub	t1, r6
 	mov	r0, t1
@@ -36974,10 +36506,10 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	add	x3, -1
 	add	r2, -1
 	mov	t4, 0
-.LBB74_59:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB74_61 Depth 2
-                                        //     Child Loop BB74_68 Depth 2
-                                        //     Child Loop BB74_71 Depth 2
+.LBB76_59:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB76_61 Depth 2
+                                        //     Child Loop BB76_68 Depth 2
+                                        //     Child Loop BB76_71 Depth 2
 	mov	r0, r4
 	sub	r0, r3
 	mov	r1, -2147483648
@@ -36985,16 +36517,16 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t1, rax
 	mov	r0, t4
 	call	__bit_xor
-	jle	rax, t1, .LBB74_64
-	jmp	.LBB74_60
-.LBB74_60:                              //   in Loop: Header=BB74_59 Depth=1
+	jle	rax, t1, .LBB76_64
+	jmp	.LBB76_60
+.LBB76_60:                              //   in Loop: Header=BB76_59 Depth=1
 	mov	t6, r5
 	add	t6, r4
 	mov	t7, t6
 	add	t7, t3
 	mov	x4, t3
 	mov	t1, t6
-.LBB74_61:                              //   Parent Loop BB74_59 Depth=1
+.LBB76_61:                              //   Parent Loop BB76_59 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, t1
@@ -37011,16 +36543,16 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r0, rax
 	call	__bit_and
 	mov	r0, t1
-	jz	rax, .LBB74_63
-	jmp	.LBB74_62
-.LBB74_62:                              //   in Loop: Header=BB74_61 Depth=2
+	jz	rax, .LBB76_63
+	jmp	.LBB76_62
+.LBB76_62:                              //   in Loop: Header=BB76_61 Depth=2
 	add	x4, -1
 	add	t1, 1
 	mov	r0, t7
-	jnz	x4, .LBB74_61
-	jmp	.LBB74_63
-.LBB74_63:                              // %strnlen.exit21
-                                        //   in Loop: Header=BB74_59 Depth=1
+	jnz	x4, .LBB76_61
+	jmp	.LBB76_63
+.LBB76_63:                              // %strnlen.exit21
+                                        //   in Loop: Header=BB76_59 Depth=1
 	sub	r0, t6
 	add	r4, r0
 	mov	r0, r4
@@ -37031,9 +36563,9 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	t5, rax
 	mov	r0, t4
 	call	__bit_xor
-	jg	rax, t5, .LBB74_74
-	jmp	.LBB74_64
-.LBB74_64:                              //   in Loop: Header=BB74_59 Depth=1
+	jg	rax, t5, .LBB76_74
+	jmp	.LBB76_64
+.LBB76_64:                              //   in Loop: Header=BB76_59 Depth=1
 	mov	t1, r5
 	add	t1, t4
 	mov	r0, t1
@@ -37057,28 +36589,28 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_shl
 	add	rax, rsp
 	mov	r0, [rax]
-	jnz	r0, .LBB74_67
-	jmp	.LBB74_65
-.LBB74_65:                              //   in Loop: Header=BB74_59 Depth=1
+	jnz	r0, .LBB76_67
+	jmp	.LBB76_65
+.LBB76_65:                              //   in Loop: Header=BB76_59 Depth=1
 	mov	r1, -2147483648
 	mov	r0, r6
 	call	__bit_xor
 	mov	t5, rax
 	mov	r0, t2
 	call	__bit_xor
-	jle	rax, t5, .LBB74_70
-	jmp	.LBB74_66
-.LBB74_66:                              // %.preheader25.preheader
-                                        //   in Loop: Header=BB74_59 Depth=1
+	jle	rax, t5, .LBB76_70
+	jmp	.LBB76_66
+.LBB76_66:                              // %.preheader25.preheader
+                                        //   in Loop: Header=BB76_59 Depth=1
 	mov	x4, x1
 	add	x4, t4
 	mov	t7, 0
-	jmp	.LBB74_68
-.LBB74_67:                              //   in Loop: Header=BB74_59 Depth=1
+	jmp	.LBB76_68
+.LBB76_67:                              //   in Loop: Header=BB76_59 Depth=1
 	add	t4, r0
-	jmp	.LBB74_59
-.LBB74_68:                              // %.preheader25
-                                        //   Parent Loop BB74_59 Depth=1
+	jmp	.LBB76_59
+.LBB76_68:                              // %.preheader25
+                                        //   Parent Loop BB76_59 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r0, x2
 	add	r0, t7
@@ -37111,23 +36643,23 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t5, rax, .LBB74_73
-	jmp	.LBB74_69
-.LBB74_69:                              //   in Loop: Header=BB74_68 Depth=2
+	jne	t5, rax, .LBB76_73
+	jmp	.LBB76_69
+.LBB76_69:                              //   in Loop: Header=BB76_68 Depth=2
 	add	t7, 1
-	jne	x0, t7, .LBB74_68
-	jmp	.LBB74_70
-.LBB74_70:                              // %.loopexit26.preheader
-                                        //   in Loop: Header=BB74_59 Depth=1
+	jne	x0, t7, .LBB76_68
+	jmp	.LBB76_70
+.LBB76_70:                              // %.loopexit26.preheader
+                                        //   in Loop: Header=BB76_59 Depth=1
 	mov	x4, x3
 	add	x4, t4
 	mov	t5, r6
-.LBB74_71:                              // %.loopexit26
-                                        //   Parent Loop BB74_59 Depth=1
+.LBB76_71:                              // %.loopexit26
+                                        //   Parent Loop BB76_59 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
-	jz	t5, .LBB74_74
-	jmp	.LBB74_72
-.LBB74_72:                              //   in Loop: Header=BB74_71 Depth=2
+	jz	t5, .LBB76_74
+	jmp	.LBB76_72
+.LBB76_72:                              //   in Loop: Header=BB76_71 Depth=2
 	mov	x5, t5
 	mov	r0, r2
 	add	r0, t5
@@ -37163,14 +36695,14 @@ two_way_long_needle.48:                 // @two_way_long_needle.48
 	call	__bit_and
 	mov	t5, x5
 	mov	t7, r7
-	je	t6, rax, .LBB74_71
-	jmp	.LBB74_73
-.LBB74_73:                              // %.loopexit24
-                                        //   in Loop: Header=BB74_59 Depth=1
+	je	t6, rax, .LBB76_71
+	jmp	.LBB76_73
+.LBB76_73:                              // %.loopexit24
+                                        //   in Loop: Header=BB76_59 Depth=1
 	add	t4, t7
 	add	t4, 1
-	jmp	.LBB74_59
-.LBB74_74:                              // %.loopexit22
+	jmp	.LBB76_59
+.LBB76_74:                              // %.loopexit22
 	mov	rax, t1
 	mov	x8, [rsp-9]
 	mov	x7, [rsp-8]
@@ -37204,9 +36736,9 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r4, rax
 	mov	r6, r2
-	jz	r4, .LBB75_91
-	jmp	.LBB75_1
-.LBB75_1:
+	jz	r4, .LBB77_91
+	jmp	.LBB77_1
+.LBB77_1:
 	mov	r6, r3
 	add	r6, 1
 	mov	r1, 2
@@ -37224,22 +36756,22 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r5, rax
-	jnz	r5, .LBB75_15
-	jmp	.LBB75_2
-.LBB75_2:
+	jnz	r5, .LBB77_15
+	jmp	.LBB77_2
+.LBB77_2:
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 3
 	mov	r3, rax
 	mov	r0, r2
 	call	__bit_and
-	jz	rax, .LBB75_4
-	jmp	.LBB75_3
-.LBB75_3:                               // %.preheader.preheader
+	jz	rax, .LBB77_4
+	jmp	.LBB77_3
+.LBB77_3:                               // %.preheader.preheader
 	mov	r5, r2
 	add	r5, 1
-	jmp	.LBB75_6
-.LBB75_4:                               // %.loopexit9.i
+	jmp	.LBB77_6
+.LBB77_4:                               // %.loopexit9.i
 	mov	r5, [r2]
 	mov	r0, 16843008
 	sub	r0, r5
@@ -37249,12 +36781,12 @@ strstr:                                 // @strstr
 	mov	r6, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB75_11
-	jmp	.LBB75_5
-.LBB75_5:                               // %.preheader5.i.preheader
+	jne	rax, r6, .LBB77_11
+	jmp	.LBB77_5
+.LBB77_5:                               // %.preheader5.i.preheader
 	mul	r3, 16843009
-	jmp	.LBB75_9
-.LBB75_6:                               // %.preheader
+	jmp	.LBB77_9
+.LBB77_6:                               // %.preheader
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r2
@@ -37272,26 +36804,26 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r7, rax
 	mov	r6, 0
-	jz	r7, .LBB75_91
-	jmp	.LBB75_7
-.LBB75_7:                               //   in Loop: Header=BB75_6 Depth=1
+	jz	r7, .LBB77_91
+	jmp	.LBB77_7
+.LBB77_7:                               //   in Loop: Header=BB77_6 Depth=1
 	mov	r0, r4
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r7
 	call	__bit_and
 	mov	r6, r2
-	je	rax, t1, .LBB75_91
-	jmp	.LBB75_8
-.LBB75_8:                               //   in Loop: Header=BB75_6 Depth=1
+	je	rax, t1, .LBB77_91
+	jmp	.LBB77_8
+.LBB77_8:                               //   in Loop: Header=BB77_6 Depth=1
 	mov	r1, 3
 	add	r2, 1
 	mov	r0, r5
 	call	__bit_and
 	add	r5, 1
-	jz	rax, .LBB75_4
-	jmp	.LBB75_6
-.LBB75_9:                               // %.preheader5.i
+	jz	rax, .LBB77_4
+	jmp	.LBB77_6
+.LBB77_9:                               // %.preheader5.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	mov	r1, r3
@@ -37303,9 +36835,9 @@ strstr:                                 // @strstr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	jne	rax, r6, .LBB75_11
-	jmp	.LBB75_10
-.LBB75_10:                              //   in Loop: Header=BB75_9 Depth=1
+	jne	rax, r6, .LBB77_11
+	jmp	.LBB77_10
+.LBB77_10:                              //   in Loop: Header=BB77_9 Depth=1
 	add	r2, 4
 	mov	r5, [r2]
 	mov	r0, 16843008
@@ -37315,11 +36847,11 @@ strstr:                                 // @strstr
 	mov	r1, -2139062144
 	mov	r0, rax
 	call	__bit_and
-	je	rax, r6, .LBB75_9
-	jmp	.LBB75_11
-.LBB75_11:                              // %.loopexit6.i.preheader
+	je	rax, r6, .LBB77_9
+	jmp	.LBB77_11
+.LBB77_11:                              // %.loopexit6.i.preheader
 	add	r2, -1
-.LBB75_12:                              // %.loopexit6.i
+.LBB77_12:                              // %.loopexit6.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r2, 1
 	mov	r1, 2
@@ -37337,18 +36869,18 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, rax
-	jz	r3, .LBB75_14
-	jmp	.LBB75_13
-.LBB75_13:                              // %.loopexit6.i
-                                        //   in Loop: Header=BB75_12 Depth=1
+	jz	r3, .LBB77_14
+	jmp	.LBB77_13
+.LBB77_13:                              // %.loopexit6.i
+                                        //   in Loop: Header=BB77_12 Depth=1
 	mov	r0, r4
 	call	__bit_and
 	mov	r5, rax
 	mov	r0, r3
 	call	__bit_and
-	jne	rax, r5, .LBB75_12
-	jmp	.LBB75_14
-.LBB75_14:
+	jne	rax, r5, .LBB77_12
+	jmp	.LBB77_14
+.LBB77_14:
 	mov	r0, r3
 	call	__bit_and
 	mov	r3, rax
@@ -37375,8 +36907,8 @@ strstr:                                 // @strstr
 	mov	r1, r2
 	call	__bit_and
 	mov	r6, rax
-	jmp	.LBB75_91
-.LBB75_15:
+	jmp	.LBB77_91
+.LBB77_15:
 	mov	r0, r3
 	add	r0, 2
 	mov	r1, 2
@@ -37393,9 +36925,9 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r7, rax
-	jnz	r7, .LBB75_21
-	jmp	.LBB75_16
-.LBB75_16:
+	jnz	r7, .LBB77_21
+	jmp	.LBB77_16
+.LBB77_16:
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 16
@@ -37425,12 +36957,12 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r0, rax
 	mov	r6, 0
-	jz	r0, .LBB75_91
-	jmp	.LBB75_17
-.LBB75_17:                              // %.preheader24.preheader
+	jz	r0, .LBB77_91
+	jmp	.LBB77_17
+.LBB77_17:                              // %.preheader24.preheader
 	add	r2, -2
 	mov	r4, 0
-.LBB75_18:                              // %.preheader24
+.LBB77_18:                              // %.preheader24
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	call	__bit_and
@@ -37459,14 +36991,14 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r0, rax
 	add	r2, 1
-	je	r3, r4, .LBB75_20
-	jmp	.LBB75_19
-.LBB75_19:                              // %.preheader24
-                                        //   in Loop: Header=BB75_18 Depth=1
+	je	r3, r4, .LBB77_20
+	jmp	.LBB77_19
+.LBB77_19:                              // %.preheader24
+                                        //   in Loop: Header=BB77_18 Depth=1
 	call	__bit_and
-	jnz	rax, .LBB75_18
-	jmp	.LBB75_20
-.LBB75_20:
+	jnz	rax, .LBB77_18
+	jmp	.LBB77_20
+.LBB77_20:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_xor
@@ -37488,8 +37020,8 @@ strstr:                                 // @strstr
 	mov	r1, r2
 	call	__bit_and
 	mov	r6, rax
-	jmp	.LBB75_91
-.LBB75_21:
+	jmp	.LBB77_91
+.LBB77_21:
 	mov	r0, r3
 	add	r0, 3
 	mov	r1, 2
@@ -37506,9 +37038,9 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	t1, rax
-	jnz	t1, .LBB75_27
-	jmp	.LBB75_22
-.LBB75_22:
+	jnz	t1, .LBB77_27
+	jmp	.LBB77_22
+.LBB77_22:
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 24
@@ -37551,12 +37083,12 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r0, rax
 	mov	r6, 0
-	jz	r0, .LBB75_91
-	jmp	.LBB75_23
-.LBB75_23:                              // %.preheader25.preheader
+	jz	r0, .LBB77_91
+	jmp	.LBB77_23
+.LBB77_23:                              // %.preheader25.preheader
 	add	r2, -3
 	mov	r4, 0
-.LBB75_24:                              // %.preheader25
+.LBB77_24:                              // %.preheader25
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	call	__bit_and
@@ -37584,14 +37116,14 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r0, rax
 	add	r2, 1
-	je	r3, r4, .LBB75_26
-	jmp	.LBB75_25
-.LBB75_25:                              // %.preheader25
-                                        //   in Loop: Header=BB75_24 Depth=1
+	je	r3, r4, .LBB77_26
+	jmp	.LBB77_25
+.LBB77_25:                              // %.preheader25
+                                        //   in Loop: Header=BB77_24 Depth=1
 	call	__bit_and
-	jnz	rax, .LBB75_24
-	jmp	.LBB75_26
-.LBB75_26:
+	jnz	rax, .LBB77_24
+	jmp	.LBB77_26
+.LBB77_26:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_xor
@@ -37613,8 +37145,8 @@ strstr:                                 // @strstr
 	mov	r1, r2
 	call	__bit_and
 	mov	r6, rax
-	jmp	.LBB75_91
-.LBB75_27:
+	jmp	.LBB77_91
+.LBB77_27:
 	mov	r0, r3
 	add	r0, 4
 	mov	r1, 2
@@ -37630,9 +37162,9 @@ strstr:                                 // @strstr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jnz	rax, .LBB75_33
-	jmp	.LBB75_28
-.LBB75_28:
+	jnz	rax, .LBB77_33
+	jmp	.LBB77_28
+.LBB77_28:
 	mov	r0, r4
 	call	__bit_and
 	mov	r1, 24
@@ -37681,12 +37213,12 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, 0
-	jz	rax, .LBB75_91
-	jmp	.LBB75_29
-.LBB75_29:                              // %.preheader26.preheader
+	jz	rax, .LBB77_91
+	jmp	.LBB77_29
+.LBB77_29:                              // %.preheader26.preheader
 	add	r2, -4
 	mov	r4, 0
-.LBB75_30:                              // %.preheader26
+.LBB77_30:                              // %.preheader26
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 255
 	mov	r0, rax
@@ -37715,13 +37247,13 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	add	r2, 1
-	jz	rax, .LBB75_32
-	jmp	.LBB75_31
-.LBB75_31:                              // %.preheader26
-                                        //   in Loop: Header=BB75_30 Depth=1
-	jne	r3, r4, .LBB75_30
-	jmp	.LBB75_32
-.LBB75_32:
+	jz	rax, .LBB77_32
+	jmp	.LBB77_31
+.LBB77_31:                              // %.preheader26
+                                        //   in Loop: Header=BB77_30 Depth=1
+	jne	r3, r4, .LBB77_30
+	jmp	.LBB77_32
+.LBB77_32:
 	mov	r0, r3
 	mov	r1, r4
 	call	__bit_xor
@@ -37743,19 +37275,19 @@ strstr:                                 // @strstr
 	mov	r1, r2
 	call	__bit_and
 	mov	r6, rax
-	jmp	.LBB75_91
-.LBB75_33:
+	jmp	.LBB77_91
+.LBB77_33:
 	mov	r1, 3
 	mov	r0, r3
 	call	__bit_and
 	mov	r5, r3
-	jz	rax, .LBB75_37
-	jmp	.LBB75_34
-.LBB75_34:                              // %.preheader1.i.preheader
+	jz	rax, .LBB77_37
+	jmp	.LBB77_34
+.LBB77_34:                              // %.preheader1.i.preheader
 	mov	r4, r3
 	mov	r5, r6
-	jmp	.LBB75_36
-.LBB75_35:                              //   in Loop: Header=BB75_36 Depth=1
+	jmp	.LBB77_36
+.LBB77_35:                              //   in Loop: Header=BB77_36 Depth=1
 	mov	r1, 2
 	mov	r0, r5
 	call	__bit_shr
@@ -37771,21 +37303,21 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	add	r5, 1
-	jz	rax, .LBB75_41
-	jmp	.LBB75_36
-.LBB75_36:                              // %.preheader1.i
+	jz	rax, .LBB77_41
+	jmp	.LBB77_36
+.LBB77_36:                              // %.preheader1.i
                                         // =>This Inner Loop Header: Depth=1
 	add	r4, 1
 	mov	r1, 3
 	mov	r0, r4
 	call	__bit_and
-	jnz	rax, .LBB75_35
-	jmp	.LBB75_37
-.LBB75_37:                              // %.loopexit.i.preheader
+	jnz	rax, .LBB77_35
+	jmp	.LBB77_37
+.LBB77_37:                              // %.loopexit.i.preheader
 	mov	r6, r5
 	add	r6, -1
 	mov	r7, -2139062144
-.LBB75_38:                              // %.loopexit.i
+.LBB77_38:                              // %.loopexit.i
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, [r5]
 	mov	r0, 16843008
@@ -37797,11 +37329,11 @@ strstr:                                 // @strstr
 	call	__bit_and
 	add	r5, 4
 	add	r6, 4
-	je	rax, r7, .LBB75_38
-	jmp	.LBB75_39
-.LBB75_39:                              // %.preheader.i14.preheader
+	je	rax, r7, .LBB77_38
+	jmp	.LBB77_39
+.LBB77_39:                              // %.preheader.i14.preheader
 	mov	r7, -4
-.LBB75_40:                              // %.preheader.i14
+.LBB77_40:                              // %.preheader.i14
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r5
 	add	r0, r7
@@ -37820,9 +37352,9 @@ strstr:                                 // @strstr
 	call	__bit_and
 	add	r4, 1
 	add	r7, 1
-	jnz	rax, .LBB75_40
-	jmp	.LBB75_41
-.LBB75_41:                              // %strlen.exit
+	jnz	rax, .LBB77_40
+	jmp	.LBB77_41
+.LBB77_41:                              // %strlen.exit
 	sub	r4, r3
 	mov	r1, 512
 	mov	r0, r4
@@ -37831,7 +37363,7 @@ strstr:                                 // @strstr
 	mov	t1, r5
 	add	r5, r2
 	mov	t2, 0
-.LBB75_42:                              // =>This Inner Loop Header: Depth=1
+.LBB77_42:                              // =>This Inner Loop Header: Depth=1
 	mov	r6, r2
 	add	r6, t2
 	mov	r1, 2
@@ -37848,15 +37380,15 @@ strstr:                                 // @strstr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB75_44
-	jmp	.LBB75_43
-.LBB75_43:                              //   in Loop: Header=BB75_42 Depth=1
+	jz	rax, .LBB77_44
+	jmp	.LBB77_43
+.LBB77_43:                              //   in Loop: Header=BB77_42 Depth=1
 	add	t2, 1
-	je	t1, t2, .LBB75_45
-	jmp	.LBB75_42
-.LBB75_44:                              // %.strnlen.exit_crit_edge
+	je	t1, t2, .LBB77_45
+	jmp	.LBB77_42
+.LBB77_44:                              // %.strnlen.exit_crit_edge
 	mov	r5, r6
-.LBB75_45:                              // %strnlen.exit
+.LBB77_45:                              // %strnlen.exit
 	sub	r5, r2
 	mov	r1, -2147483648
 	mov	r6, 0
@@ -37865,15 +37397,15 @@ strstr:                                 // @strstr
 	mov	r7, rax
 	mov	r0, r5
 	call	__bit_xor
-	jl	rax, r7, .LBB75_91
-	jmp	.LBB75_46
-.LBB75_46:
+	jl	rax, r7, .LBB77_91
+	jmp	.LBB77_46
+.LBB77_46:
 	mov	r0, r4
 	call	__bit_xor
 	mov	r0, -2147483394
-	jg	rax, r0, .LBB75_90
-	jmp	.LBB75_47
-.LBB75_47:
+	jg	rax, r0, .LBB77_90
+	jmp	.LBB77_47
+.LBB77_47:
 	add	r5, r2
 	mov	r6, r4
 	add	r6, 1
@@ -37883,9 +37415,9 @@ strstr:                                 // @strstr
 	call	__bit_and
 	mov	r7, rsp
 	mov	t2, 64
-	jz	rax, .LBB75_52
-	jmp	.LBB75_48
-.LBB75_48:
+	jz	rax, .LBB77_52
+	jmp	.LBB77_48
+.LBB77_48:
 	call	__bit_and
 	mov	t1, rax
 	add	r7, 1
@@ -37920,9 +37452,9 @@ strstr:                                 // @strstr
 	call	__bit_or
 	mov	[t3], rax
 	mov	t2, 63
-	je	t1, t5, .LBB75_52
-	jmp	.LBB75_49
-.LBB75_49:
+	je	t1, t5, .LBB77_52
+	jmp	.LBB77_49
+.LBB77_49:
 	mov	t3, rsp
 	mov	r1, 3
 	add	t3, 2
@@ -37960,9 +37492,9 @@ strstr:                                 // @strstr
 	mov	r0, 2
 	mov	t2, 62
 	mov	r7, t3
-	je	t1, r0, .LBB75_52
-	jmp	.LBB75_50
-.LBB75_50:
+	je	t1, r0, .LBB77_52
+	jmp	.LBB77_50
+.LBB77_50:
 	mov	r7, rsp
 	mov	r1, 3
 	add	r7, 3
@@ -37999,9 +37531,9 @@ strstr:                                 // @strstr
 	mov	[t3], rax
 	mov	r0, 1
 	mov	t2, 61
-	je	t1, r0, .LBB75_52
-	jmp	.LBB75_51
-.LBB75_51:
+	je	t1, r0, .LBB77_52
+	jmp	.LBB77_51
+.LBB77_51:
 	mov	t3, rsp
 	mov	r1, 3
 	add	t3, 4
@@ -38038,23 +37570,23 @@ strstr:                                 // @strstr
 	mov	[r7], rax
 	mov	t2, 60
 	mov	r7, t3
-.LBB75_52:                              // %.preheader.i17.preheader
+.LBB77_52:                              // %.preheader.i17.preheader
 	sub	r5, r4
 	mov	t1, r6
 	mul	t1, 16843009
 	mov	t3, -2147483633
-	jmp	.LBB75_55
-.LBB75_53:
+	jmp	.LBB77_55
+.LBB77_53:
 	mov	r0, t2
 	add	r0, 16
 	mov	r1, 20
-	jl	r0, r1, .LBB75_57
-	jmp	.LBB75_54
-.LBB75_54:                              // %.preheader194.preheader
+	jl	r0, r1, .LBB77_57
+	jmp	.LBB77_54
+.LBB77_54:                              // %.preheader194.preheader
 	mov	t3, -2147483645
 	mov	r1, -2147483648
-	jmp	.LBB75_56
-.LBB75_55:                              // %.preheader.i17
+	jmp	.LBB77_56
+.LBB77_55:                              // %.preheader.i17
                                         // =>This Inner Loop Header: Depth=1
 	mov	r0, r7
 	add	r0, 4
@@ -38071,23 +37603,23 @@ strstr:                                 // @strstr
 	mov	[r0], t1
 	mov	r0, t2
 	call	__bit_xor
-	jg	rax, t3, .LBB75_55
-	jmp	.LBB75_53
-.LBB75_56:                              // %.preheader194
+	jg	rax, t3, .LBB77_55
+	jmp	.LBB77_53
+.LBB77_56:                              // %.preheader194
                                         // =>This Inner Loop Header: Depth=1
 	mov	[r7], t1
 	add	t2, -4
 	add	r7, 4
 	mov	r0, t2
 	call	__bit_xor
-	jg	rax, t3, .LBB75_56
-	jmp	.LBB75_57
-.LBB75_57:                              // %.loopexit5.i
-	jz	t2, .LBB75_60
-	jmp	.LBB75_58
-.LBB75_58:
+	jg	rax, t3, .LBB77_56
+	jmp	.LBB77_57
+.LBB77_57:                              // %.loopexit5.i
+	jz	t2, .LBB77_60
+	jmp	.LBB77_58
+.LBB77_58:
 	mov	t4, r7
-.LBB75_59:                              // =>This Inner Loop Header: Depth=1
+.LBB77_59:                              // =>This Inner Loop Header: Depth=1
 	add	t2, -1
 	mov	r1, 3
 	add	t4, 1
@@ -38123,15 +37655,15 @@ strstr:                                 // @strstr
 	call	__bit_or
 	mov	[r7], rax
 	mov	r7, t4
-	jnz	t2, .LBB75_59
-	jmp	.LBB75_60
-.LBB75_60:                              // %memset.exit
-	jz	r4, .LBB75_63
-	jmp	.LBB75_61
-.LBB75_61:                              // %.preheader30.preheader
+	jnz	t2, .LBB77_59
+	jmp	.LBB77_60
+.LBB77_60:                              // %memset.exit
+	jz	r4, .LBB77_63
+	jmp	.LBB77_61
+.LBB77_61:                              // %.preheader30.preheader
 	mov	r6, r3
 	mov	r7, r4
-.LBB75_62:                              // %.preheader30
+.LBB77_62:                              // %.preheader30
                                         // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r6
@@ -38185,19 +37717,19 @@ strstr:                                 // @strstr
 	mov	[t2], rax
 	add	r7, -1
 	add	r6, 1
-	jnz	r7, .LBB75_62
-	jmp	.LBB75_63
-.LBB75_63:                              // %.loopexit31
+	jnz	r7, .LBB77_62
+	jmp	.LBB77_63
+.LBB77_63:                              // %.loopexit31
 	mov	t4, 2047
 	mov	t5, -2147483644
 	mov	t6, -2147483645
-.LBB75_64:                              // =>This Loop Header: Depth=1
-                                        //     Child Loop BB75_73 Depth 2
-                                        //       Child Loop BB75_75 Depth 3
-                                        //       Child Loop BB75_80 Depth 3
-                                        //     Child Loop BB75_69 Depth 2
-                                        //       Child Loop BB75_70 Depth 3
-                                        //     Child Loop BB75_86 Depth 2
+.LBB77_64:                              // =>This Loop Header: Depth=1
+                                        //     Child Loop BB77_73 Depth 2
+                                        //       Child Loop BB77_75 Depth 3
+                                        //       Child Loop BB77_80 Depth 3
+                                        //     Child Loop BB77_69 Depth 2
+                                        //       Child Loop BB77_70 Depth 3
+                                        //     Child Loop BB77_86 Depth 2
 	add	r2, -1
 	mov	r0, r2
 	add	r0, r4
@@ -38240,30 +37772,30 @@ strstr:                                 // @strstr
 	mov	r2, rax
 	mov	r0, r5
 	call	__bit_xor
-	jg	r2, rax, .LBB75_83
-	jmp	.LBB75_65
-.LBB75_65:                              // %.preheader27
-                                        //   in Loop: Header=BB75_64 Depth=1
+	jg	r2, rax, .LBB77_83
+	jmp	.LBB77_65
+.LBB77_65:                              // %.preheader27
+                                        //   in Loop: Header=BB77_64 Depth=1
 	mov	r0, r4
 	call	__bit_xor
-	jl	rax, t5, .LBB75_67
-	jmp	.LBB75_66
-.LBB75_66:                              // %.preheader27.split.preheader
-                                        //   in Loop: Header=BB75_64 Depth=1
-	jmp	.LBB75_73
-.LBB75_67:                              // %.preheader27.split.us
-                                        //   in Loop: Header=BB75_64 Depth=1
-	jz	r4, .LBB75_89
-	jmp	.LBB75_68
-.LBB75_68:                              // %.loopexit8.i.us.preheader
-                                        //   in Loop: Header=BB75_64 Depth=1
-.LBB75_69:                              // %.loopexit8.i.us
-                                        //   Parent Loop BB75_64 Depth=1
+	jl	rax, t5, .LBB77_67
+	jmp	.LBB77_66
+.LBB77_66:                              // %.preheader27.split.preheader
+                                        //   in Loop: Header=BB77_64 Depth=1
+	jmp	.LBB77_73
+.LBB77_67:                              // %.preheader27.split.us
+                                        //   in Loop: Header=BB77_64 Depth=1
+	jz	r4, .LBB77_89
+	jmp	.LBB77_68
+.LBB77_68:                              // %.loopexit8.i.us.preheader
+                                        //   in Loop: Header=BB77_64 Depth=1
+.LBB77_69:                              // %.loopexit8.i.us
+                                        //   Parent Loop BB77_64 Depth=1
                                         // =>  This Loop Header: Depth=2
-                                        //       Child Loop BB75_70 Depth 3
+                                        //       Child Loop BB77_70 Depth 3
 	mov	t2, 0
-.LBB75_70:                              //   Parent Loop BB75_64 Depth=1
-                                        //     Parent Loop BB75_69 Depth=2
+.LBB77_70:                              //   Parent Loop BB77_64 Depth=1
+                                        //     Parent Loop BB77_69 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
 	mov	r2, r3
 	mov	r0, r6
@@ -38297,10 +37829,10 @@ strstr:                                 // @strstr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	je	r7, rax, .LBB75_72
-	jmp	.LBB75_71
-.LBB75_71:                              // %memcmp.exit.us
-                                        //   in Loop: Header=BB75_69 Depth=2
+	je	r7, rax, .LBB77_72
+	jmp	.LBB77_71
+.LBB77_71:                              // %memcmp.exit.us
+                                        //   in Loop: Header=BB77_69 Depth=2
 	mov	r0, r6
 	add	r0, r4
 	mov	r1, 2
@@ -38341,17 +37873,17 @@ strstr:                                 // @strstr
 	mov	r2, rax
 	mov	r0, r5
 	call	__bit_xor
-	jg	r2, rax, .LBB75_83
-	jmp	.LBB75_69
-.LBB75_72:                              //   in Loop: Header=BB75_70 Depth=3
+	jg	r2, rax, .LBB77_83
+	jmp	.LBB77_69
+.LBB77_72:                              //   in Loop: Header=BB77_70 Depth=3
 	add	t2, 1
-	je	r4, t2, .LBB75_89
-	jmp	.LBB75_70
-.LBB75_73:                              // %.preheader27.split
-                                        //   Parent Loop BB75_64 Depth=1
+	je	r4, t2, .LBB77_89
+	jmp	.LBB77_70
+.LBB77_73:                              // %.preheader27.split
+                                        //   Parent Loop BB77_64 Depth=1
                                         // =>  This Loop Header: Depth=2
-                                        //       Child Loop BB75_75 Depth 3
-                                        //       Child Loop BB75_80 Depth 3
+                                        //       Child Loop BB77_75 Depth 3
+                                        //       Child Loop BB77_80 Depth 3
 	mov	r0, r6
 	mov	r1, r3
 	call	__bit_or
@@ -38361,15 +37893,15 @@ strstr:                                 // @strstr
 	mov	r2, r4
 	mov	r7, r3
 	mov	t1, r6
-	jnz	rax, .LBB75_79
-	jmp	.LBB75_74
-.LBB75_74:                              // %.preheader.i20.preheader
-                                        //   in Loop: Header=BB75_73 Depth=2
+	jnz	rax, .LBB77_79
+	jmp	.LBB77_74
+.LBB77_74:                              // %.preheader.i20.preheader
+                                        //   in Loop: Header=BB77_73 Depth=2
 	mov	t2, 0
 	mov	r2, r4
-.LBB75_75:                              // %.preheader.i20
-                                        //   Parent Loop BB75_64 Depth=1
-                                        //     Parent Loop BB75_73 Depth=2
+.LBB77_75:                              // %.preheader.i20
+                                        //   Parent Loop BB77_64 Depth=1
+                                        //     Parent Loop BB77_73 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
 	mov	r7, r3
 	add	r7, t2
@@ -38377,31 +37909,31 @@ strstr:                                 // @strstr
 	add	t1, t2
 	mov	r0, [t1]
 	mov	r1, [r7]
-	jne	r0, r1, .LBB75_78
-	jmp	.LBB75_76
-.LBB75_76:                              //   in Loop: Header=BB75_75 Depth=3
+	jne	r0, r1, .LBB77_78
+	jmp	.LBB77_76
+.LBB77_76:                              //   in Loop: Header=BB77_75 Depth=3
 	add	r2, -4
 	mov	r1, -2147483648
 	add	t2, 4
 	mov	r0, r2
 	call	__bit_xor
-	jg	rax, t6, .LBB75_75
-	jmp	.LBB75_77
-.LBB75_77:                              // %.loopexit8.i.loopexit
-                                        //   in Loop: Header=BB75_73 Depth=2
+	jg	rax, t6, .LBB77_75
+	jmp	.LBB77_77
+.LBB77_77:                              // %.loopexit8.i.loopexit
+                                        //   in Loop: Header=BB77_73 Depth=2
 	mov	r7, r3
 	add	r7, t2
 	add	t2, r6
 	mov	t1, t2
-	jz	r2, .LBB75_89
-	jmp	.LBB75_79
-.LBB75_78:                              // %.loopexit7.i18.preheader.loopexit
-                                        //   in Loop: Header=BB75_73 Depth=2
-.LBB75_79:                              // %.loopexit7.i18.preheader
-                                        //   in Loop: Header=BB75_73 Depth=2
-.LBB75_80:                              // %.loopexit7.i18
-                                        //   Parent Loop BB75_64 Depth=1
-                                        //     Parent Loop BB75_73 Depth=2
+	jz	r2, .LBB77_89
+	jmp	.LBB77_79
+.LBB77_78:                              // %.loopexit7.i18.preheader.loopexit
+                                        //   in Loop: Header=BB77_73 Depth=2
+.LBB77_79:                              // %.loopexit7.i18.preheader
+                                        //   in Loop: Header=BB77_73 Depth=2
+.LBB77_80:                              // %.loopexit7.i18
+                                        //   Parent Loop BB77_64 Depth=1
+                                        //     Parent Loop BB77_73 Depth=2
                                         // =>    This Inner Loop Header: Depth=3
 	mov	r1, 2
 	mov	r0, t1
@@ -38432,16 +37964,16 @@ strstr:                                 // @strstr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jne	t2, rax, .LBB75_82
-	jmp	.LBB75_81
-.LBB75_81:                              //   in Loop: Header=BB75_80 Depth=3
+	jne	t2, rax, .LBB77_82
+	jmp	.LBB77_81
+.LBB77_81:                              //   in Loop: Header=BB77_80 Depth=3
 	add	r2, -1
 	add	t1, 1
 	add	r7, 1
-	jz	r2, .LBB75_89
-	jmp	.LBB75_80
-.LBB75_82:                              // %memcmp.exit
-                                        //   in Loop: Header=BB75_73 Depth=2
+	jz	r2, .LBB77_89
+	jmp	.LBB77_80
+.LBB77_82:                              // %memcmp.exit
+                                        //   in Loop: Header=BB77_73 Depth=2
 	mov	r0, r6
 	add	r0, r4
 	mov	r1, 2
@@ -38482,10 +38014,10 @@ strstr:                                 // @strstr
 	mov	r2, rax
 	mov	r0, r5
 	call	__bit_xor
-	jle	r2, rax, .LBB75_73
-	jmp	.LBB75_83
-.LBB75_83:                              // %.loopexit
-                                        //   in Loop: Header=BB75_64 Depth=1
+	jle	r2, rax, .LBB77_73
+	jmp	.LBB77_83
+.LBB77_83:                              // %.loopexit
+                                        //   in Loop: Header=BB77_64 Depth=1
 	mov	r7, r5
 	add	r7, r4
 	mov	r1, 2
@@ -38504,15 +38036,15 @@ strstr:                                 // @strstr
 	mov	r0, rax
 	call	__bit_and
 	mov	r6, 0
-	jz	rax, .LBB75_89
-	jmp	.LBB75_84
-.LBB75_84:                              //   in Loop: Header=BB75_64 Depth=1
+	jz	rax, .LBB77_89
+	jmp	.LBB77_84
+.LBB77_84:                              //   in Loop: Header=BB77_64 Depth=1
 	mov	t2, r7
 	add	t2, 2048
 	mov	t3, 0
-	jmp	.LBB75_86
-.LBB75_85:                              // %thread-pre-split
-                                        //   in Loop: Header=BB75_86 Depth=2
+	jmp	.LBB77_86
+.LBB77_85:                              // %thread-pre-split
+                                        //   in Loop: Header=BB77_86 Depth=2
 	add	t3, 1
 	mov	r6, t3
 	add	r6, r7
@@ -38530,17 +38062,17 @@ strstr:                                 // @strstr
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB75_87
-	jmp	.LBB75_86
-.LBB75_86:                              //   Parent Loop BB75_64 Depth=1
+	jz	rax, .LBB77_87
+	jmp	.LBB77_86
+.LBB77_86:                              //   Parent Loop BB77_64 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
-	je	t3, t4, .LBB75_88
-	jmp	.LBB75_85
-.LBB75_87:                              // %thread-pre-split.strnlen.exit22_crit_edge
-                                        //   in Loop: Header=BB75_64 Depth=1
+	je	t3, t4, .LBB77_88
+	jmp	.LBB77_85
+.LBB77_87:                              // %thread-pre-split.strnlen.exit22_crit_edge
+                                        //   in Loop: Header=BB77_64 Depth=1
 	mov	t2, r6
-.LBB75_88:                              // %strnlen.exit22
-                                        //   in Loop: Header=BB75_64 Depth=1
+.LBB77_88:                              // %strnlen.exit22
+                                        //   in Loop: Header=BB77_64 Depth=1
 	sub	t2, r7
 	add	r5, t2
 	mov	r1, -2147483648
@@ -38550,18 +38082,18 @@ strstr:                                 // @strstr
 	mov	r7, rax
 	mov	r0, r2
 	call	__bit_xor
-	jle	rax, r7, .LBB75_64
-	jmp	.LBB75_89
-.LBB75_89:                              // %memcmp.exit.thread
-	jmp	.LBB75_91
-.LBB75_90:
+	jle	rax, r7, .LBB77_64
+	jmp	.LBB77_89
+.LBB77_89:                              // %memcmp.exit.thread
+	jmp	.LBB77_91
+.LBB77_90:
 	mov	r0, r2
 	mov	r1, r5
 	mov	r2, r3
 	mov	r3, r4
-	call	two_way_long_needle.48
+	call	two_way_long_needle.49
 	mov	r6, rax
-.LBB75_91:                              // %strchr.exit
+.LBB77_91:                              // %strchr.exit
 	mov	rax, r6
 	ret
 // -- End function
@@ -38570,18 +38102,18 @@ strtok:                                 // @strtok
 // %bb.0:
 	mov	r4, r1
 	mov	r2, r0
-	jnz	r2, .LBB76_2
-	jmp	.LBB76_1
-.LBB76_1:
-	mov	r0, mcasm_static_e8c37d81a58f40e548273539425c09d1
+	jnz	r2, .LBB78_2
+	jmp	.LBB78_1
+.LBB78_1:
+	mov	r0, mcasm_static_e485a634bef569d42aea6620e428a365
 	mov	r2, [r0]
 	mov	rax, 0
-	jz	r2, .LBB76_14
-	jmp	.LBB76_2
-.LBB76_2:                               // %.preheader7.i.preheader
-.LBB76_3:                               // %.preheader7.i
+	jz	r2, .LBB78_14
+	jmp	.LBB78_2
+.LBB78_2:                               // %.preheader7.i.preheader
+.LBB78_3:                               // %.preheader7.i
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB76_4 Depth 2
+                                        //     Child Loop BB78_4 Depth 2
 	mov	r3, r2
 	mov	r1, 2
 	add	r2, 1
@@ -38600,7 +38132,7 @@ strtok:                                 // @strtok
 	call	__bit_and
 	mov	r5, rax
 	mov	r6, r4
-.LBB76_4:                               //   Parent Loop BB76_3 Depth=1
+.LBB78_4:                               //   Parent Loop BB78_3 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r6
@@ -38616,29 +38148,29 @@ strtok:                                 // @strtok
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB76_6
-	jmp	.LBB76_5
-.LBB76_5:                               //   in Loop: Header=BB76_4 Depth=2
+	jz	rax, .LBB78_6
+	jmp	.LBB78_5
+.LBB78_5:                               //   in Loop: Header=BB78_4 Depth=2
 	add	r6, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r7, rax
 	mov	r0, r5
 	call	__bit_and
-	je	rax, r7, .LBB76_3
-	jmp	.LBB76_4
-.LBB76_6:                               // %.loopexit.i
+	je	rax, r7, .LBB78_3
+	jmp	.LBB78_4
+.LBB78_6:                               // %.loopexit.i
 	mov	r0, r5
 	call	__bit_and
 	mov	r0, rax
 	mov	t2, 0
 	mov	rax, 0
-	jz	r0, .LBB76_13
-	jmp	.LBB76_7
-.LBB76_7:                               // %.preheader.i.preheader
-.LBB76_8:                               // %.preheader.i
+	jz	r0, .LBB78_13
+	jmp	.LBB78_7
+.LBB78_7:                               // %.preheader.i.preheader
+.LBB78_8:                               // %.preheader.i
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB76_9 Depth 2
+                                        //     Child Loop BB78_9 Depth 2
 	mov	r5, r2
 	mov	r1, 2
 	add	r2, 1
@@ -38657,7 +38189,7 @@ strtok:                                 // @strtok
 	call	__bit_and
 	mov	r6, rax
 	mov	r7, r4
-.LBB76_9:                               //   Parent Loop BB76_8 Depth=1
+.LBB78_9:                               //   Parent Loop BB78_8 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r7
@@ -38676,16 +38208,16 @@ strtok:                                 // @strtok
 	mov	t1, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	t1, rax, .LBB76_12
-	jmp	.LBB76_10
-.LBB76_10:
+	jne	t1, rax, .LBB78_12
+	jmp	.LBB78_10
+.LBB78_10:
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r3
-	jz	r0, .LBB76_13
-	jmp	.LBB76_11
-.LBB76_11:
+	jz	r0, .LBB78_13
+	jmp	.LBB78_11
+.LBB78_11:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -38717,17 +38249,17 @@ strtok:                                 // @strtok
 	mov	[r5], rax
 	mov	t2, r2
 	mov	rax, r3
-	jmp	.LBB76_13
-.LBB76_12:                              //   in Loop: Header=BB76_9 Depth=2
+	jmp	.LBB78_13
+.LBB78_12:                              //   in Loop: Header=BB78_9 Depth=2
 	add	r7, 1
 	mov	r0, t1
 	call	__bit_and
-	jz	rax, .LBB76_8
-	jmp	.LBB76_9
-.LBB76_13:                              // %__strtok_r.exit.sink.split
-	mov	r0, mcasm_static_e8c37d81a58f40e548273539425c09d1
+	jz	rax, .LBB78_8
+	jmp	.LBB78_9
+.LBB78_13:                              // %__strtok_r.exit.sink.split
+	mov	r0, mcasm_static_e485a634bef569d42aea6620e428a365
 	mov	[r0], t2
-.LBB76_14:                              // %__strtok_r.exit
+.LBB78_14:                              // %__strtok_r.exit
 	ret
 // -- End function
 // -- Begin function __strtok_r
@@ -38735,20 +38267,20 @@ __strtok_r:                             // @__strtok_r
 // %bb.0:
 	mov	r4, r1
 	mov	t1, r0
-	jnz	t1, .LBB77_2
-	jmp	.LBB77_1
-.LBB77_1:
+	jnz	t1, .LBB79_2
+	jmp	.LBB79_1
+.LBB79_1:
 	mov	t1, [r2]
 	mov	rax, 0
-	jz	t1, .LBB77_20
-	jmp	.LBB77_2
-.LBB77_2:
-	jz	r3, .LBB77_4
-	jmp	.LBB77_3
-.LBB77_3:                               // %.preheader7.preheader
+	jz	t1, .LBB79_20
+	jmp	.LBB79_2
+.LBB79_2:
+	jz	r3, .LBB79_4
+	jmp	.LBB79_3
+.LBB79_3:                               // %.preheader7.preheader
 	mov	t2, t1
-	jmp	.LBB77_7
-.LBB77_4:
+	jmp	.LBB79_7
+.LBB79_4:
 	mov	t2, t1
 	mov	r1, 2
 	add	t2, 1
@@ -38767,7 +38299,7 @@ __strtok_r:                             // @__strtok_r
 	call	__bit_and
 	mov	r5, rax
 	mov	r6, r4
-.LBB77_5:                               // =>This Inner Loop Header: Depth=1
+.LBB79_5:                               // =>This Inner Loop Header: Depth=1
 	mov	r1, 2
 	mov	r0, r6
 	call	__bit_shr
@@ -38782,20 +38314,20 @@ __strtok_r:                             // @__strtok_r
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB77_11
-	jmp	.LBB77_6
-.LBB77_6:                               //   in Loop: Header=BB77_5 Depth=1
+	jz	rax, .LBB79_11
+	jmp	.LBB79_6
+.LBB79_6:                               //   in Loop: Header=BB79_5 Depth=1
 	add	r6, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, rax
 	mov	r0, r5
 	call	__bit_and
-	je	rax, r3, .LBB77_10
-	jmp	.LBB77_5
-.LBB77_7:                               // %.preheader7
+	je	rax, r3, .LBB79_10
+	jmp	.LBB79_5
+.LBB79_7:                               // %.preheader7
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB77_8 Depth 2
+                                        //     Child Loop BB79_8 Depth 2
 	mov	t1, t2
 	mov	r1, 2
 	add	t2, 1
@@ -38814,7 +38346,7 @@ __strtok_r:                             // @__strtok_r
 	call	__bit_and
 	mov	r5, rax
 	mov	r6, r4
-.LBB77_8:                               //   Parent Loop BB77_7 Depth=1
+.LBB79_8:                               //   Parent Loop BB79_7 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r6
@@ -38830,18 +38362,18 @@ __strtok_r:                             // @__strtok_r
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB77_11
-	jmp	.LBB77_9
-.LBB77_9:                               //   in Loop: Header=BB77_8 Depth=2
+	jz	rax, .LBB79_11
+	jmp	.LBB79_9
+.LBB79_9:                               //   in Loop: Header=BB79_8 Depth=2
 	add	r6, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	r3, rax
 	mov	r0, r5
 	call	__bit_and
-	je	rax, r3, .LBB77_7
-	jmp	.LBB77_8
-.LBB77_10:
+	je	rax, r3, .LBB79_7
+	jmp	.LBB79_8
+.LBB79_10:
 	mov	r1, 3
 	mov	[r2], t2
 	mov	r0, t1
@@ -38873,21 +38405,21 @@ __strtok_r:                             // @__strtok_r
 	call	__bit_or
 	mov	[r3], rax
 	mov	rax, t1
-	jmp	.LBB77_20
-.LBB77_11:                              // %.loopexit
+	jmp	.LBB79_20
+.LBB79_11:                              // %.loopexit
 	mov	r0, r5
 	call	__bit_and
-	jz	rax, .LBB77_13
-	jmp	.LBB77_12
-.LBB77_12:                              // %.preheader.preheader
-	jmp	.LBB77_14
-.LBB77_13:
+	jz	rax, .LBB79_13
+	jmp	.LBB79_12
+.LBB79_12:                              // %.preheader.preheader
+	jmp	.LBB79_14
+.LBB79_13:
 	mov	[r2], 0
 	mov	rax, 0
-	jmp	.LBB77_20
-.LBB77_14:                              // %.preheader
+	jmp	.LBB79_20
+.LBB79_14:                              // %.preheader
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB77_15 Depth 2
+                                        //     Child Loop BB79_15 Depth 2
 	mov	r5, t2
 	mov	r1, 2
 	add	t2, 1
@@ -38906,7 +38438,7 @@ __strtok_r:                             // @__strtok_r
 	call	__bit_and
 	mov	r6, rax
 	mov	r7, r4
-.LBB77_15:                              //   Parent Loop BB77_14 Depth=1
+.LBB79_15:                              //   Parent Loop BB79_14 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r7
@@ -38925,15 +38457,15 @@ __strtok_r:                             // @__strtok_r
 	mov	r3, rax
 	mov	r0, r6
 	call	__bit_and
-	jne	r3, rax, .LBB77_19
-	jmp	.LBB77_16
-.LBB77_16:
+	jne	r3, rax, .LBB79_19
+	jmp	.LBB79_16
+.LBB79_16:
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, 0
-	jz	rax, .LBB77_18
-	jmp	.LBB77_17
-.LBB77_17:
+	jz	rax, .LBB79_18
+	jmp	.LBB79_17
+.LBB79_17:
 	mov	r1, 3
 	mov	r0, r5
 	call	__bit_and
@@ -38964,17 +38496,17 @@ __strtok_r:                             // @__strtok_r
 	call	__bit_or
 	mov	[r4], rax
 	mov	r0, t2
-.LBB77_18:
+.LBB79_18:
 	mov	[r2], r0
 	mov	rax, t1
-	jmp	.LBB77_20
-.LBB77_19:                              //   in Loop: Header=BB77_15 Depth=2
+	jmp	.LBB79_20
+.LBB79_19:                              //   in Loop: Header=BB79_15 Depth=2
 	add	r7, 1
 	mov	r0, r3
 	call	__bit_and
-	jz	rax, .LBB77_14
-	jmp	.LBB77_15
-.LBB77_20:
+	jz	rax, .LBB79_14
+	jmp	.LBB79_15
+.LBB79_20:
 	ret
 // -- End function
 // -- Begin function strtok_r
@@ -38982,16 +38514,16 @@ strtok_r:                               // @strtok_r
 // %bb.0:
 	mov	r5, r1
 	mov	r3, r0
-	jnz	r3, .LBB78_2
-	jmp	.LBB78_1
-.LBB78_1:
+	jnz	r3, .LBB80_2
+	jmp	.LBB80_1
+.LBB80_1:
 	mov	r3, [r2]
 	mov	rax, 0
-	jz	r3, .LBB78_14
-	jmp	.LBB78_2
-.LBB78_2:                               // %.preheader31
-.LBB78_3:                               // =>This Loop Header: Depth=1
-                                        //     Child Loop BB78_4 Depth 2
+	jz	r3, .LBB80_14
+	jmp	.LBB80_2
+.LBB80_2:                               // %.preheader31
+.LBB80_3:                               // =>This Loop Header: Depth=1
+                                        //     Child Loop BB80_4 Depth 2
 	mov	r4, r3
 	mov	r1, 2
 	add	r3, 1
@@ -39010,7 +38542,7 @@ strtok_r:                               // @strtok_r
 	call	__bit_and
 	mov	r6, rax
 	mov	r7, r5
-.LBB78_4:                               //   Parent Loop BB78_3 Depth=1
+.LBB80_4:                               //   Parent Loop BB80_3 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, r7
@@ -39026,29 +38558,29 @@ strtok_r:                               // @strtok_r
 	mov	r1, 255
 	mov	r0, rax
 	call	__bit_and
-	jz	rax, .LBB78_6
-	jmp	.LBB78_5
-.LBB78_5:                               //   in Loop: Header=BB78_4 Depth=2
+	jz	rax, .LBB80_6
+	jmp	.LBB80_5
+.LBB80_5:                               //   in Loop: Header=BB80_4 Depth=2
 	add	r7, 1
 	mov	r0, rax
 	call	__bit_and
 	mov	t1, rax
 	mov	r0, r6
 	call	__bit_and
-	je	rax, t1, .LBB78_3
-	jmp	.LBB78_4
-.LBB78_6:
+	je	rax, t1, .LBB80_3
+	jmp	.LBB80_4
+.LBB80_6:
 	mov	r0, r6
 	call	__bit_and
 	mov	r0, rax
 	mov	t3, 0
 	mov	rax, 0
-	jz	r0, .LBB78_13
-	jmp	.LBB78_7
-.LBB78_7:                               // %.preheader.preheader
-.LBB78_8:                               // %.preheader
+	jz	r0, .LBB80_13
+	jmp	.LBB80_7
+.LBB80_7:                               // %.preheader.preheader
+.LBB80_8:                               // %.preheader
                                         // =>This Loop Header: Depth=1
-                                        //     Child Loop BB78_9 Depth 2
+                                        //     Child Loop BB80_9 Depth 2
 	mov	r6, r3
 	mov	r1, 2
 	add	r3, 1
@@ -39067,7 +38599,7 @@ strtok_r:                               // @strtok_r
 	call	__bit_and
 	mov	r7, rax
 	mov	t1, r5
-.LBB78_9:                               //   Parent Loop BB78_8 Depth=1
+.LBB80_9:                               //   Parent Loop BB80_8 Depth=1
                                         // =>  This Inner Loop Header: Depth=2
 	mov	r1, 2
 	mov	r0, t1
@@ -39086,16 +38618,16 @@ strtok_r:                               // @strtok_r
 	mov	t2, rax
 	mov	r0, r7
 	call	__bit_and
-	jne	t2, rax, .LBB78_12
-	jmp	.LBB78_10
-.LBB78_10:
+	jne	t2, rax, .LBB80_12
+	jmp	.LBB80_10
+.LBB80_10:
 	mov	r0, r7
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, r4
-	jz	r0, .LBB78_13
-	jmp	.LBB78_11
-.LBB78_11:
+	jz	r0, .LBB80_13
+	jmp	.LBB80_11
+.LBB80_11:
 	mov	r1, 3
 	mov	r0, r6
 	call	__bit_and
@@ -39127,40 +38659,81 @@ strtok_r:                               // @strtok_r
 	mov	[r6], rax
 	mov	t3, r3
 	mov	rax, r4
-	jmp	.LBB78_13
-.LBB78_12:                              //   in Loop: Header=BB78_9 Depth=2
+	jmp	.LBB80_13
+.LBB80_12:                              //   in Loop: Header=BB80_9 Depth=2
 	add	t1, 1
 	mov	r0, t2
 	call	__bit_and
-	jz	rax, .LBB78_8
-	jmp	.LBB78_9
-.LBB78_13:
+	jz	rax, .LBB80_8
+	jmp	.LBB80_9
+.LBB80_13:
 	mov	[r2], t3
-.LBB78_14:
+.LBB80_14:
 	ret
 // -- End function
-static mcasm_static_c46c05d349cce2c7896e2bfb38996f6d [0]
-static mcasm_static_7085fa36a0ce757711a01556f4ffcc66 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-static mcasm_static_df8641fcbf151e7121b4f038994d6e19 [1819635240, 10604]
-static mcasm_static_cca5ae94cd1f843a235050e439d1e8a5 [858927408, 926299444, 1111570744, 1178944579, 1246316615, 1313688651, 1381060687, 1448432723, 1515804759, 0]
-static mcasm_static_2fd13c3a9e4491b11fa75f01d9c7bdb0 [5136718]
-static mcasm_static_22bccf914533863f7a8c0c30be408c14 [7233902]
-static mcasm_static_1a9c25e22170b3bda823ccd488a6cbf2 [1768320585, 2037672302, 0]
-static mcasm_static_c2a517646abb9f7f18defce2571178a7 [6712937]
-static mcasm_static_99c702943d690b06928d14d3f094852f [1718503725, 1953066601, 121]
-static mcasm_static_e46774058807d332d626bf00148daf6e [1718511917, 0]
-static mcasm_static_92917a51047e9c5473b9f087288fdab8 [825241648, 858796592, 892351536, 925906480, 959461424, 825307185, 858862129, 892417073, 925972017, 959526961, 825372722, 858927666, 892482610, 926037554, 959592498, 825438259, 858993203, 892548147, 926103091, 959658035, 825503796, 859058740, 892613684, 926168628, 959723572, 825569333, 859124277, 892679221, 926234165, 959789109, 825634870, 859189814, 892744758, 926299702, 959854646, 825700407, 859255351, 892810295, 926365239, 959920183, 825765944, 859320888, 892875832, 926430776, 959985720, 825831481, 859386425, 892941369, 926496313, 960051257, 0]
-static mcasm_static_33a7899256dc59416c82d429680e7cfe [858927408, 926299444, 1650538808, 1717920867, 1785292903, 1852664939, 1920036975, 1987409011, 2054781047, 0]
-static mcasm_static_2de58166cf8331e41d2a5b19e324f343 [825241648, 858796592, 892351536, 925906480, 959461424, 825307185, 858862129, 892417073, 925972017, 959526961, 825372722, 858927666, 892482610, 926037554, 959592498, 825438259, 858993203, 892548147, 926103091, 959658035, 825503796, 859058740, 892613684, 926168628, 959723572, 825569333, 859124277, 892679221, 926234165, 959789109, 825634870, 859189814, 892744758, 926299702, 959854646, 825700407, 859255351, 892810295, 926365239, 959920183, 825765944, 859320888, 892875832, 926430776, 959985720, 825831481, 859386425, 892941369, 926496313, 960051257]
-static mcasm_static_5a03effb9bcb477a3d02d221d7a76cf2 [0]
-static mcasm_static_e8c37d81a58f40e548273539425c09d1 [0]
-static mcasm_static_74e9ffd624a691755fd95e846b5053c4 [0, 0]
+static mcasm_static_f630eac0c7abfe5fc5d239ba48e65458 [0]
+static mcasm_static_b6a660bbde72203e160a805153582f96 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+static mcasm_static_9c8edc6888262f14a502ca58f7ec2049 [1819635240, 10604]
+static mcasm_static_5300d1bc602cebe9cc06f8a5dbd154ff [858927408, 926299444, 1111570744, 1178944579, 1246316615, 1313688651, 1381060687, 1448432723, 1515804759, 0]
+static mcasm_static_2dcf2c52c9c4989eb1d1edcd66777ea0 [5136718]
+static mcasm_static_a576e628ccce7d9f3a7a751e8482252b [7233902]
+static mcasm_static_33c0bc0aebd755f222c09aab13174b8a [1768320585, 2037672302, 0]
+static mcasm_static_aee5601175a1ec2ca6e3a4325b7c8241 [6712937]
+static mcasm_static_acced75c0450be778b18b0328f7269aa [1718503725, 1953066601, 121]
+static mcasm_static_460954a9761fde43e9b55e9d5e91598a [1718511917, 0]
+static mcasm_static_b7b83498ebf29d53a2dd2a18a0a51c3a [825241648, 858796592, 892351536, 925906480, 959461424, 825307185, 858862129, 892417073, 925972017, 959526961, 825372722, 858927666, 892482610, 926037554, 959592498, 825438259, 858993203, 892548147, 926103091, 959658035, 825503796, 859058740, 892613684, 926168628, 959723572, 825569333, 859124277, 892679221, 926234165, 959789109, 825634870, 859189814, 892744758, 926299702, 959854646, 825700407, 859255351, 892810295, 926365239, 959920183, 825765944, 859320888, 892875832, 926430776, 959985720, 825831481, 859386425, 892941369, 926496313, 960051257, 0]
+static mcasm_static_81a1c06102d7a90b5192a628c3bc5112 [858927408, 926299444, 1650538808, 1717920867, 1785292903, 1852664939, 1920036975, 1987409011, 2054781047, 0]
+static mcasm_static_29af82f542537f86f33d7b3d416ba898 [825241648, 858796592, 892351536, 925906480, 959461424, 825307185, 858862129, 892417073, 925972017, 959526961, 825372722, 858927666, 892482610, 926037554, 959592498, 825438259, 858993203, 892548147, 926103091, 959658035, 825503796, 859058740, 892613684, 926168628, 959723572, 825569333, 859124277, 892679221, 926234165, 959789109, 825634870, 859189814, 892744758, 926299702, 959854646, 825700407, 859255351, 892810295, 926365239, 959920183, 825765944, 859320888, 892875832, 926430776, 959985720, 825831481, 859386425, 892941369, 926496313, 960051257]
+static mcasm_static_719163f5f9eae4be69e01d67d1a83915 [0]
+static mcasm_static_e485a634bef569d42aea6620e428a365 [0]
+static mcasm_static_9566fd0a059f01f8cbd3da85eff2d1e9 [0, 0, 0, 0]
 
-export _ll_shared:z/putchar_0:
-    inline data modify storage std:vm s1 set value {str: "", next: ""}
-    inline $data modify storage std:vm s1.str set from storage std:vm char2str_map[$(a)]
+export _ll_shared:z/__ll_puts_char0_0:
+    inline $data modify storage std:vm s1.str set from storage std:vm char2str_map."$(a)"
 	ret
 
-export _ll_shared:z/putchar_1:
-    inline $data modify storage std:vm s1.next set from storage std:vm char2str_map[$(a)]
+export _ll_shared:z/__ll_puts_char1_0:
+    inline $data modify storage std:vm s1.next set from storage std:vm char2str_map."$(a)"
+	ret
+
+export _ll_shared:z/puts_0:
+    inline $scoreboard players set r0 vm_regs $(a)
+    mov r1, 2
+    call __bit_shl
+    inline scoreboard players operation puts_ptr vm_regs = rax vm_regs
+    inline data modify storage std:vm s1 set value {str: "", next: ""}
+    .Lputs_loop:
+    inline scoreboard players operation r0 vm_regs = puts_ptr vm_regs
+    mov r1, 2
+    call __bit_shr
+    inline scoreboard players operation puts_word vm_regs = rax vm_regs
+    inline scoreboard players operation r0 vm_regs = puts_ptr vm_regs
+    mov r1, 3
+    call __bit_and
+    mov r0, rax
+    mov r1, 3
+    call __bit_shl
+    inline scoreboard players operation puts_shift vm_regs = rax vm_regs
+    inline data modify storage std:vm s2 set value {result: "r0", ptr: -1}
+    inline execute store result storage std:vm s2.ptr int 1 run scoreboard players get puts_word vm_regs
+    inline function std:_internal/load_heap_custom with storage std:vm s2
+    inline scoreboard players operation r1 vm_regs = puts_shift vm_regs
+    call __bit_shr
+    mov r0, rax
+    mov r1, 255
+    call __bit_and
+    mov r0, rax
+    jz r0, .Lputs_done
+    inline data modify storage std:vm s0 set value {a: -1}
+    inline execute store result storage std:vm s0.a int 1 run scoreboard players get r0 vm_regs
+    inline function _ll_shared:z/__ll_puts_char1_0 with storage std:vm s0
+    inline data modify storage std:vm s3 set value {left: "", right: ""}
+    inline data modify storage std:vm s3.left set from storage std:vm s1.str
+    inline data modify storage std:vm s3.right set from storage std:vm s1.next
+    inline function std:_internal/merge_string2 with storage std:vm s3
+    inline data modify storage std:vm s1.str set from storage std:vm s3.string
+    inline scoreboard players add puts_ptr vm_regs 1
+    jmp .Lputs_loop
+    .Lputs_done:
+    inline tellraw @a {"storage": "std:vm", "nbt": "s1.str"}
 	ret

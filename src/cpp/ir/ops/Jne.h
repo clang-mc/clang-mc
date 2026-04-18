@@ -15,22 +15,13 @@
 class Jne : public JmpLike, public CmpLike {
 private:
     static inline std::string cmp(const std::string_view &command, Register *left, Register *right) {
-        return fmt::format("execute if score {} vm_regs > {} vm_regs run return run {}\nexecute if score {} vm_regs < {} vm_regs run return run {}",
-                           left->getName(), right->getName(), command, left->getName(), right->getName(), command);
+        return fmt::format("execute unless score {} vm_regs = {} vm_regs run return run {}",
+                           left->getName(), right->getName(), command);
     }
 
     static inline std::string cmp(const std::string_view &command, Register *left, Immediate *right) {
-        if (!right->getValue().checkAdd(1)) {
-            return fmt::format("execute if score {} vm_regs matches ..{} run return run {}",
-                                       left->getName(), right->getValue() - 1, command);
-        }
-        if (!right->getValue().checkSub(1)) {
-            return fmt::format("execute if score {} vm_regs matches {}.. run return run {}",
-                               left->getName(), right->getValue() + 1, command);
-        }
-
-        return fmt::format("execute if score {} vm_regs matches {}.. run return run {}\nexecute if score {} vm_regs matches ..{} run return run {}",
-                           left->getName(), right->getValue() + 1, command, left->getName(), right->getValue() - 1, command);
+        return fmt::format("execute unless score {} vm_regs matches {} run return run {}",
+                           left->getName(), static_cast<i32>(right->getValue()), command);
     }
 
     static inline std::string cmp(const std::string_view &command, Register *left, Ptr *right) {
