@@ -50,6 +50,7 @@ bin/
 /generated/
 /cache/
 /.tmp/
+/versions/
 /cmake-build-debug/
 /cmake-build-release/
 /build/

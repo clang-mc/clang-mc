@@ -1,6 +1,20 @@
-typedef Vec3;
-typedef Block;
-typedef SetblockMode;
+#pragma once
 
+#include "block/Block.h"
+#include "util/math/vec.h"
 
-int setblock(int x, int y, int z, Block block, ...);
+typedef enum {
+    DESTROY,
+    KEEP,
+    REPLACE
+} SetBlockMode;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int setblock(Vec3i pos, Block block, SetBlockMode mode);
+
+#ifdef __cplusplus
+}
+#endif
