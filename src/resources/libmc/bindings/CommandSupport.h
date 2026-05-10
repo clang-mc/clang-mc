@@ -5,47 +5,47 @@
 #include "util/Target.h"
 #include "util/math/vec.h"
 
-static inline McfString
+static inline McfStrRef
 _Command_NewLiteral(const char *literal)
 {
-    return McfString_FromLiteral(literal);
+    return McfStrRef_FromLiteral(literal);
 }
 
-static inline McfString
-_Command_RequireStringMcf(String src)
+static inline McfStrRef
+_Command_RequireStringRef(String src)
 {
-    if (String_EnsureMcf(src) != 0) {
+    if (String_EnsureMcfStrRef(src) != 0) {
         return NULL;
     }
-    return _String_GetMcf(src);
+    return String_GetMcfStrRef(src);
 }
 
-static inline McfString
-_Command_RequireTargetMcf(Target target)
+static inline McfStrRef
+_Command_RequireTargetRef(Target target)
 {
-    return Target_GetMcf(target);
+    return Target_GetMcfStrRef(target);
 }
 
-static inline McfString
-_Command_FormatDouble(double value)
+static inline McfStrRef
+_Command_FormatDoubleRef(double value)
 {
-    return McfString_FromDouble(value);
+    return McfStrRef_FromDouble(value);
 }
 
-static inline McfString
-_Command_FormatFloat(float value)
+static inline McfStrRef
+_Command_FormatFloatRef(float value)
 {
-    return McfString_FromFloat(value);
+    return McfStrRef_FromFloat(value);
 }
 
 static inline int
-_Command_AppendStringLiteral(McfString dst, const char *literal)
+_Command_AppendStringLiteral(McfStrRef dst, const char *literal)
 {
-    return McfString_AppendLiteral(dst, literal);
+    return McfStrRef_AppendLiteral(dst, literal);
 }
 
 static inline int
-_Command_AppendStringObject(McfString dst, String src)
+_Command_AppendStringObject(McfStrRef dst, String src)
 {
     const char *text;
 
@@ -56,11 +56,11 @@ _Command_AppendStringObject(McfString dst, String src)
     if (text == NULL) {
         return -1;
     }
-    return McfString_AppendCString(dst, text);
+    return McfStrRef_AppendCString(dst, text);
 }
 
 static inline int
-_Command_AppendTarget(McfString dst, Target target)
+_Command_AppendTarget(McfStrRef dst, Target target)
 {
     const char *text;
 
@@ -71,105 +71,105 @@ _Command_AppendTarget(McfString dst, Target target)
     if (text == NULL) {
         return -1;
     }
-    return McfString_AppendCString(dst, text);
+    return McfStrRef_AppendCString(dst, text);
 }
 
 static inline int
-_Command_AppendBlock(McfString dst, Block block)
+_Command_AppendBlock(McfStrRef dst, Block block)
 {
-    McfString block_name;
+    const Identifier *id;
 
     if (dst == NULL) {
         return -1;
     }
-    block_name = Block_EnsureMcfName(block);
-    if (block_name == NULL) {
+    id = Block_GetIdentifier(block);
+    if (id == NULL) {
         return -1;
     }
-    return McfString_AppendCString(dst, McfString_CStr(block_name));
+    return McfStrRef_AppendIdentifier(dst, id);
 }
 
 static inline int
-_Command_AppendEntityType(McfString dst, EntityType type)
+_Command_AppendEntityType(McfStrRef dst, EntityType type)
 {
-    McfString type_name;
+    const Identifier *id;
 
     if (dst == NULL) {
         return -1;
     }
-    type_name = EntityType_EnsureMcfName(type);
-    if (type_name == NULL) {
+    id = EntityType_GetIdentifier(type);
+    if (id == NULL) {
         return -1;
     }
-    return McfString_AppendCString(dst, McfString_CStr(type_name));
+    return McfStrRef_AppendIdentifier(dst, id);
 }
 
 static inline int
-_Command_AppendVec3i(McfString dst, Vec3i value)
+_Command_AppendVec3i(McfStrRef dst, Vec3i value)
 {
     if (dst == NULL) {
         return -1;
     }
-    if (McfString_AppendInt(dst, value.x) != 0) {
+    if (McfStrRef_AppendInt(dst, value.x) != 0) {
         return -1;
     }
-    if (McfString_AppendLiteral(dst, " ") != 0) {
+    if (McfStrRef_AppendLiteral(dst, " ") != 0) {
         return -1;
     }
-    if (McfString_AppendInt(dst, value.y) != 0) {
+    if (McfStrRef_AppendInt(dst, value.y) != 0) {
         return -1;
     }
-    if (McfString_AppendLiteral(dst, " ") != 0) {
+    if (McfStrRef_AppendLiteral(dst, " ") != 0) {
         return -1;
     }
-    return McfString_AppendInt(dst, value.z);
+    return McfStrRef_AppendInt(dst, value.z);
 }
 
 static inline int
-_Command_AppendVec3d(McfString dst, Vec3d value)
+_Command_AppendVec3d(McfStrRef dst, Vec3d value)
 {
     if (dst == NULL) {
         return -1;
     }
-    if (McfString_AppendDouble(dst, value.x) != 0) {
+    if (McfStrRef_AppendDouble(dst, value.x) != 0) {
         return -1;
     }
-    if (McfString_AppendLiteral(dst, " ") != 0) {
+    if (McfStrRef_AppendLiteral(dst, " ") != 0) {
         return -1;
     }
-    if (McfString_AppendDouble(dst, value.y) != 0) {
+    if (McfStrRef_AppendDouble(dst, value.y) != 0) {
         return -1;
     }
-    if (McfString_AppendLiteral(dst, " ") != 0) {
+    if (McfStrRef_AppendLiteral(dst, " ") != 0) {
         return -1;
     }
-    return McfString_AppendDouble(dst, value.z);
+    return McfStrRef_AppendDouble(dst, value.z);
 }
 
 static inline int
-_Command_AppendVec2f(McfString dst, Vec2f value)
+_Command_AppendVec2f(McfStrRef dst, Vec2f value)
 {
     if (dst == NULL) {
         return -1;
     }
-    if (McfString_AppendFloat(dst, value.x) != 0) {
+    if (McfStrRef_AppendFloat(dst, value.x) != 0) {
         return -1;
     }
-    if (McfString_AppendLiteral(dst, " ") != 0) {
+    if (McfStrRef_AppendLiteral(dst, " ") != 0) {
         return -1;
     }
-    return McfString_AppendFloat(dst, value.y);
+    return McfStrRef_AppendFloat(dst, value.y);
 }
 
 static inline int
-_Command_ExecAndRelease(McfString cmd)
+_Command_ExecAndRelease(McfStrRef cmd)
 {
     int ret;
 
     if (cmd == NULL) {
         return -1;
     }
-    ret = McfString_Exec(cmd);
-    McfString_Release(cmd);
+    ret = McfStrRef_Exec(cmd);
+    McfStrRef_Release(cmd);
     return ret;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "McfString.h"
+#include "McfStrRef.h"
 
 typedef struct _String _String;
 typedef _String *String;
@@ -11,7 +11,7 @@ struct _String {
     size_t      cap;
     char       *data;
     int         flags;
-    McfString mcf;
+    McfStrRef mcf;
 };
 
 #define STRING_FLAG_BORROWED_DATA 1
@@ -81,7 +81,7 @@ static inline void
 _String_InvalidateMcf(String s)
 {
     if (s != NULL && s->mcf != NULL) {
-        McfString_Release(s->mcf);
+        McfStrRef_Release(s->mcf);
         s->mcf = NULL;
     }
 }
@@ -142,7 +142,7 @@ String_FromLiteral(const char *src)
 {
     String s;
     size_t len;
-    McfString mcf;
+    McfStrRef mcf;
 
     s = (String)malloc(sizeof(_String));
     if (s == NULL) {
@@ -155,7 +155,7 @@ String_FromLiteral(const char *src)
     s->cap = 0u;
     s->data = (char *)(src ? src : "");
     s->flags = STRING_FLAG_BORROWED_DATA;
-    mcf = McfString_FromLiteral(src);
+    mcf = McfStrRef_FromLiteral(src);
     if (mcf == NULL && src != NULL) {
         free(s);
         return NULL;
@@ -193,6 +193,12 @@ static inline const char *
 String_CStr(String s)
 {
     return s ? s->data : NULL;
+}
+
+static inline McfStrRef
+McfStrRef_FromString(String src)
+{
+    return McfStrRef_FromCString(String_CStr(src));
 }
 
 static inline size_t
@@ -271,26 +277,26 @@ String_AppendLiteral(String s, const char *suffix)
 }
 
 static inline int
-String_EnsureMcf(String s)
+String_EnsureMcfStrRef(String s)
 {
     if (s == NULL) {
         return -1;
     }
     if (s->mcf == NULL) {
         if ((s->flags & STRING_FLAG_BORROWED_DATA) != 0) {
-            s->mcf = McfString_FromLiteral(s->data);
+            s->mcf = McfStrRef_FromLiteral(s->data);
         } else {
-            s->mcf = McfString_FromCString(s->data);
+            s->mcf = McfStrRef_FromCString(s->data);
         }
         if (s->mcf == NULL) {
             return -1;
         }
     }
-    return _McfString_EnsureSlot(s->mcf);
+    return McfStrRef_SlotId(s->mcf) < 0 ? -1 : 0;
 }
 
-static inline McfString
-_String_GetMcf(String s)
+static inline McfStrRef
+String_GetMcfStrRef(String s)
 {
     return s ? s->mcf : NULL;
 }

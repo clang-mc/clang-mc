@@ -3,7 +3,7 @@
 
 int main(void) {
     Target player;
-    McfString name;
+    McfStrRef name;
     char buf[64];
     int before;
     int after;
@@ -11,15 +11,15 @@ int main(void) {
     player = Target_FromLiteral("CodexBot");
     if (player == 0)
         return 100;
-    name = Target_GetMcf(player);
-    before = _McfString_GetSlotId(name);
+    name = Target_GetMcfStrRef(player);
+    before = McfStrRef_SlotId(name);
 
     snprintf(buf, sizeof(buf), "%.17g", 2.5);
     snprintf(buf, sizeof(buf), "%.17g", 82.0);
     snprintf(buf, sizeof(buf), "%.17g", 2.5);
 
-    name = Target_GetMcf(player);
-    after = _McfString_GetSlotId(name);
+    name = Target_GetMcfStrRef(player);
+    after = McfStrRef_SlotId(name);
     Target_Release(player);
 
     if (before != 0)

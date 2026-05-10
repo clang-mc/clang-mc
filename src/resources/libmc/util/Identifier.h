@@ -367,55 +367,6 @@ Identifier_WithSuffixedPath(const Identifier *id, const char *suffix, Identifier
     return status;
 }
 
-static inline McfString
-McfString_FromIdentifier(const Identifier *id)
-{
-    const char *ns;
-    const char *path;
-    size_t ns_len;
-    size_t path_len;
-    McfString s;
-    int slot_id;
-
-    if (!Identifier_IsInitialized(id)) {
-        return NULL;
-    }
-    ns = id->ns;
-    path = id->path;
-    s = McfString_New();
-    if (s == NULL) {
-        return NULL;
-    }
-    ns_len = strlen(ns);
-    path_len = strlen(path);
-    if (_McfString_EnsureCapacity(s, ns_len + 1u + path_len + 1u) != 0) {
-        McfString_Release(s);
-        return NULL;
-    }
-
-    memcpy(s->data, ns, ns_len);
-    s->data[ns_len] = IDENTIFIER_NAMESPACE_SEPARATOR;
-    memcpy(s->data + ns_len + 1u, path, path_len);
-    s->data[ns_len + 1u + path_len] = '\0';
-    s->len = ns_len + 1u + path_len;
-    if (_McfString_GetOrAllocSlotId(s, &slot_id) != 0) {
-        McfString_Release(s);
-        return NULL;
-    }
-    if (_McfString_PrepareSlotUpdateById(slot_id) != 0) {
-        McfString_Release(s);
-        return NULL;
-    }
-    _McfString_BeginScratchValueFromCString(ns, ns_len);
-    _McfString_AppendScratchValueFromCString(":", 1u);
-    _McfString_AppendScratchValueFromCString(path, path_len);
-    if (_McfString_CommitScratchToSlotById(slot_id, 1) != 0) {
-        McfString_Release(s);
-        return NULL;
-    }
-    return s;
-}
-
 static inline String
 String_FromIdentifier(const Identifier *id)
 {
@@ -446,18 +397,37 @@ String_FromIdentifier(const Identifier *id)
 }
 
 static inline int
-McfString_AppendIdentifier(McfString s, const Identifier *id)
+McfStrRef_AppendIdentifier(McfStrRef ref, const Identifier *id)
 {
     if (!Identifier_IsInitialized(id)) {
         return -1;
     }
-    if (McfString_AppendCString(s, id->ns) != 0) {
+    if (McfStrRef_AppendCString(ref, id->ns) != 0) {
         return -1;
     }
-    if (McfString_AppendCString(s, ":") != 0) {
+    if (McfStrRef_AppendCString(ref, ":") != 0) {
         return -1;
     }
-    return McfString_AppendCString(s, id->path);
+    return McfStrRef_AppendCString(ref, id->path);
+}
+
+static inline McfStrRef
+McfStrRef_FromIdentifier(const Identifier *id)
+{
+    McfStrRef ref;
+
+    if (!Identifier_IsInitialized(id)) {
+        return NULL;
+    }
+    ref = McfStrRef_New();
+    if (ref == NULL) {
+        return NULL;
+    }
+    if (McfStrRef_AppendIdentifier(ref, id) != 0) {
+        McfStrRef_Release(ref);
+        return NULL;
+    }
+    return ref;
 }
 
 static inline int

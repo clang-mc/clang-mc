@@ -16,10 +16,18 @@ __asm__(
 );
 
 static inline int
-summon_unsafe(int entity_type_slot, int x_slot, int y_slot, int z_slot)
+summon_unsafe(McfStrRef entity_type_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
 {
     int ret;
+    int entity_type_slot;
+    int x_slot;
+    int y_slot;
+    int z_slot;
 
+    entity_type_slot = McfStrRef_SlotId(entity_type_ref);
+    x_slot = McfStrRef_SlotId(x_ref);
+    y_slot = McfStrRef_SlotId(y_ref);
+    z_slot = McfStrRef_SlotId(z_ref);
     if (entity_type_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0) {
         return -1;
     }
@@ -42,38 +50,38 @@ static inline int
 summon(EntityType type, Vec3d pos)
 {
     int ret;
-    McfString entity_type_name;
-    McfString x;
-    McfString y;
-    McfString z;
+    McfStrRef entity_type_name;
+    McfStrRef x;
+    McfStrRef y;
+    McfStrRef z;
     int entity_type_slot;
     int x_slot;
     int y_slot;
     int z_slot;
 
     entity_type_name = EntityType_EnsureMcfName(type);
-    entity_type_slot = _McfString_GetSlotId(entity_type_name);
+    entity_type_slot = McfStrRef_SlotId(entity_type_name);
     if (entity_type_slot < 0) {
         return -1;
     }
 
-    x = _Command_FormatDouble(pos.x);
-    x_slot = _McfString_GetSlotId(x);
-    y = _Command_FormatDouble(pos.y);
-    y_slot = _McfString_GetSlotId(y);
-    z = _Command_FormatDouble(pos.z);
-    z_slot = _McfString_GetSlotId(z);
+    x = _Command_FormatDoubleRef(pos.x);
+    x_slot = McfStrRef_SlotId(x);
+    y = _Command_FormatDoubleRef(pos.y);
+    y_slot = McfStrRef_SlotId(y);
+    z = _Command_FormatDoubleRef(pos.z);
+    z_slot = McfStrRef_SlotId(z);
     if (x_slot < 0 || y_slot < 0 || z_slot < 0) {
-        McfString_Release(x);
-        McfString_Release(y);
-        McfString_Release(z);
+        McfStrRef_Release(x);
+        McfStrRef_Release(y);
+        McfStrRef_Release(z);
         return -1;
     }
 
-    ret = summon_unsafe(entity_type_slot, x_slot, y_slot, z_slot);
-    McfString_Release(x);
-    McfString_Release(y);
-    McfString_Release(z);
+    ret = summon_unsafe(entity_type_name, x, y, z);
+    McfStrRef_Release(x);
+    McfStrRef_Release(y);
+    McfStrRef_Release(z);
     return ret;
 }
 

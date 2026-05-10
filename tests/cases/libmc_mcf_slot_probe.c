@@ -8,7 +8,7 @@ int main(void) {
     t = Target_FromLiteral("@a");
     if (s == 0 || t == 0)
         return 100;
-    if (String_EnsureMcf(s) != 0)
+    if (String_EnsureMcfStrRef(s) != 0)
         return 101;
     if (Target_EnsureMcf(t) != 0)
         return 102;

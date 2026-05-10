@@ -12,12 +12,12 @@ static _Entity TEST_ARMOR_STAND = {
 
 int main(void) {
     Target player;
-    McfString player_name;
-    McfString x;
-    McfString y;
-    McfString z;
-    McfString yaw;
-    McfString pitch;
+    McfStrRef player_name;
+    McfStrRef x;
+    McfStrRef y;
+    McfStrRef z;
+    McfStrRef yaw;
+    McfStrRef pitch;
     int player_slot;
     int x_slot;
     int y_slot;
@@ -35,36 +35,36 @@ int main(void) {
     r1 = summon(&TEST_ARMOR_STAND, (Vec3d){2.5, 82.0, 2.5});
     r2 = tp(player, (Vec3d){4.5, 82.0, 4.5});
 
-    player_name = Target_GetMcf(player);
-    player_slot = _McfString_GetSlotId(player_name);
-    x = McfString_FromDouble(6.5);
-    x_slot = _McfString_GetSlotId(x);
-    y = McfString_FromDouble(82.0);
-    y_slot = _McfString_GetSlotId(y);
-    z = McfString_FromDouble(6.5);
-    z_slot = _McfString_GetSlotId(z);
-    yaw = McfString_FromFloat(90.0f);
-    yaw_slot = _McfString_GetSlotId(yaw);
-    pitch = McfString_FromFloat(0.0f);
-    pitch_slot = _McfString_GetSlotId(pitch);
+    player_name = Target_GetMcfStrRef(player);
+    player_slot = McfStrRef_SlotId(player_name);
+    x = McfStrRef_FromDouble(6.5);
+    x_slot = McfStrRef_SlotId(x);
+    y = McfStrRef_FromDouble(82.0);
+    y_slot = McfStrRef_SlotId(y);
+    z = McfStrRef_FromDouble(6.5);
+    z_slot = McfStrRef_SlotId(z);
+    yaw = McfStrRef_FromFloat(90.0f);
+    yaw_slot = McfStrRef_SlotId(yaw);
+    pitch = McfStrRef_FromFloat(0.0f);
+    pitch_slot = McfStrRef_SlotId(pitch);
     if (player_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0 ||
         yaw_slot < 0 || pitch_slot < 0) {
-        McfString_Release(x);
-        McfString_Release(y);
-        McfString_Release(z);
-        McfString_Release(yaw);
-        McfString_Release(pitch);
+        McfStrRef_Release(x);
+        McfStrRef_Release(y);
+        McfStrRef_Release(z);
+        McfStrRef_Release(yaw);
+        McfStrRef_Release(pitch);
         Target_Release(player);
         return 110;
     }
 
-    r3 = tp_rot_unsafe(player_slot, x_slot, y_slot, z_slot, yaw_slot, pitch_slot);
+    r3 = tp_rot_unsafe(player_name, x, y, z, yaw, pitch);
 
-    McfString_Release(x);
-    McfString_Release(y);
-    McfString_Release(z);
-    McfString_Release(yaw);
-    McfString_Release(pitch);
+    McfStrRef_Release(x);
+    McfStrRef_Release(y);
+    McfStrRef_Release(z);
+    McfStrRef_Release(yaw);
+    McfStrRef_Release(pitch);
     Target_Release(player);
 
     if (r1 != 1)

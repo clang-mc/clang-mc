@@ -1,9 +1,9 @@
 #include <minecraft.h>
 
 int main(void) {
-    McfString s;
+    McfStrRef s;
 
-    s = McfString_FromLiteral("{\"text\":\"q\"}");
+    s = McfStrRef_FromLiteral("{\"text\":\"q\"}");
     if (s == 0)
         return 100;
 

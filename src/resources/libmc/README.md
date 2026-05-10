@@ -3,7 +3,7 @@
 `libmc` 是 `clang-mc` 的头文件式 Minecraft 数据包辅助库。这里的资源模型分成两类：
 
 - 值类型：例如 `Identifier`，按值传递，使用 `Identifier_Clear()` 释放内部资源
-- 引用计数对象：例如 `McfString`、`String`、`Target`、`UUID`，统一使用 intrusive HEADER 模式和 `Retain/Release`
+- 引用计数对象：例如 `McfStrRef`、`String`、`Target`、`UUID`，统一使用 intrusive HEADER 模式和 `Retain/Release`
 
 ## 引用计数模型
 
@@ -147,7 +147,7 @@ Target_Release(target); /* 虽然现在是 no-op，但语义上不需要 */
 
 目前采用这套规则的公开类型有：
 
-- `McfString`
+- `McfStrRef`
 - `String`
 - `Target`
 - `UUID`

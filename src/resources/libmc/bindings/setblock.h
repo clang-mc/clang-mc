@@ -15,10 +15,12 @@ extern "C" {
 #endif
 
 static inline int
-setblock_unsafe(int x, int y, int z, int slot_id, SetBlockMode mode)
+setblock_unsafe(int x, int y, int z, McfStrRef block_ref, SetBlockMode mode)
 {
     int ret;
+    int slot_id;
 
+    slot_id = McfStrRef_SlotId(block_ref);
     if (slot_id < 0) {
         return -1;
     }
@@ -71,15 +73,13 @@ setblock_unsafe(int x, int y, int z, int slot_id, SetBlockMode mode)
 static inline int
 setblock(Vec3i pos, Block block, SetBlockMode mode)
 {
-    McfString block_name;
-    int slot_id;
+    McfStrRef block_name;
 
     block_name = Block_EnsureMcfName(block);
-    slot_id = _McfString_GetSlotId(block_name);
-    if (slot_id < 0) {
+    if (McfStrRef_SlotId(block_name) < 0) {
         return -1;
     }
-    return setblock_unsafe(pos.x, pos.y, pos.z, slot_id, mode);
+    return setblock_unsafe(pos.x, pos.y, pos.z, block_name, mode);
 }
 
 #ifdef __cplusplus

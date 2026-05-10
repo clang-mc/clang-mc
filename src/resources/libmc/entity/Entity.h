@@ -16,7 +16,7 @@ typedef enum {
 
 typedef struct _Entity {
     Identifier identifier;
-    McfString mcfName;
+    McfStrRef mcfName;
     const char *translationKey;
     EntitySpawnGroup spawnGroup;
     float width;
@@ -27,7 +27,7 @@ typedef struct _Entity {
 typedef const struct _Entity *Entity;
 typedef Entity EntityType;
 
-static inline McfString
+static inline McfStrRef
 Entity_EnsureMcfName(Entity entity)
 {
     _Entity *mutable_entity;
@@ -38,18 +38,18 @@ Entity_EnsureMcfName(Entity entity)
 
     mutable_entity = (_Entity *)entity;
     if (mutable_entity->mcfName == NULL) {
-        mutable_entity->mcfName = McfString_FromIdentifier(&entity->identifier);
+        mutable_entity->mcfName = McfStrRef_FromIdentifier(&entity->identifier);
         if (mutable_entity->mcfName == NULL) {
             return NULL;
         }
     }
-    if (_McfString_EnsureSlot(mutable_entity->mcfName) != 0) {
+    if (McfStrRef_SlotId(mutable_entity->mcfName) < 0) {
         return NULL;
     }
     return mutable_entity->mcfName;
 }
 
-static inline McfString
+static inline McfStrRef
 EntityType_EnsureMcfName(EntityType type)
 {
     return Entity_EnsureMcfName(type);

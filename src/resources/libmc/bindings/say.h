@@ -16,10 +16,12 @@ __asm__(
 );
 
 static inline int
-say_unsafe(int slot_id)
+say_unsafe(McfStrRef text_ref)
 {
     int ret;
+    int slot_id;
 
+    slot_id = McfStrRef_SlotId(text_ref);
     if (slot_id < 0) {
         return -1;
     }
@@ -38,15 +40,13 @@ say_unsafe(int slot_id)
 static inline int
 say(String text)
 {
-    McfString text_mcf;
-    int slot_id;
+    McfStrRef text_mcf;
 
-    text_mcf = _Command_RequireStringMcf(text);
-    slot_id = _McfString_GetSlotId(text_mcf);
-    if (slot_id < 0) {
+    text_mcf = _Command_RequireStringRef(text);
+    if (McfStrRef_SlotId(text_mcf) < 0) {
         return -1;
     }
-    return say_unsafe(slot_id);
+    return say_unsafe(text_mcf);
 }
 
 #ifdef __cplusplus

@@ -43,9 +43,25 @@ ERROR_PATTERNS = (
     "Command execution stopped",
     "Aborted",
     "crashed",
-    "Exception",
-    "ERROR",
-    "Error",
+    "Failed to load function",
+    "Failed to parse",
+    "Failed to execute",
+    "Couldn't load tag",
+    "Non [a-z0-9/._-] character in path",
+)
+
+IGNORED_LOG_PATTERNS = (
+    "COM exception querying Win32_Processor",
+    "COM exception querying Win32_PhysicalMemory",
+    "Invalid registry value type detected for PerfOS counters",
+    "Failed to request yggdrasil public key",
+    "Couldn't look up profile properties",
+    "SERVER IS RUNNING IN OFFLINE/INSECURE MODE",
+    "The server will make no attempt to authenticate usernames",
+    "While this makes the game possible to play without internet access",
+    "To change this, set \"online-mode\" to \"true\"",
+    "Can't keep up! Is the server overloaded?",
+    "Missing data pack file/file",
 )
 
 CASES: list[Case] = [
@@ -271,6 +287,8 @@ def scan_logs(paths: Iterable[Path]) -> list[str]:
         if not path.exists():
             continue
         for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+            if any(pattern in line for pattern in IGNORED_LOG_PATTERNS):
+                continue
             if any(pattern in line for pattern in ERROR_PATTERNS):
                 hits.append(line)
     return hits

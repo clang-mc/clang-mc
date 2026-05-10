@@ -5,14 +5,14 @@
 
 static inline int exec(String cmd)
 {
-    McfString mcf;
+    McfStrRef ref;
 
     assert(cmd != NULL);
-    if (String_EnsureMcf(cmd) != 0) {
+    if (String_EnsureMcfStrRef(cmd) != 0) {
         return -1;
     }
-    mcf = _String_GetMcf(cmd);
-    return McfString_Exec(mcf);
+    ref = String_GetMcfStrRef(cmd);
+    return McfStrRef_Exec(ref);
 }
 
 static inline int

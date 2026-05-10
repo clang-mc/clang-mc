@@ -12,10 +12,10 @@ static _Entity TEST_ARMOR_STAND = {
 
 int main(void) {
     Target player;
-    McfString player_name;
+    McfStrRef player_name;
     int before_slot;
     int after_summon_slot;
-    McfString x;
+    McfStrRef x;
     int slot;
     int r1;
     int r2;
@@ -24,8 +24,8 @@ int main(void) {
     player = Target_FromLiteral("CodexBot");
     if (player == 0)
         return 100;
-    player_name = Target_GetMcf(player);
-    before_slot = _McfString_GetSlotId(player_name);
+    player_name = Target_GetMcfStrRef(player);
+    before_slot = McfStrRef_SlotId(player_name);
     __asm volatile (
         "inline data modify storage std:vm trace_before_slot set value %0"
         :
@@ -34,8 +34,8 @@ int main(void) {
 
     __asm volatile ("inline data modify storage std:vm trace set value \"b\"");
     r1 = summon(&TEST_ARMOR_STAND, (Vec3d){2.5, 82.0, 2.5});
-    player_name = Target_GetMcf(player);
-    after_summon_slot = _McfString_GetSlotId(player_name);
+    player_name = Target_GetMcfStrRef(player);
+    after_summon_slot = McfStrRef_SlotId(player_name);
     __asm volatile (
         "inline data modify storage std:vm trace_after_summon_slot set value %0"
         :
@@ -53,11 +53,11 @@ int main(void) {
     );
     __asm volatile ("inline data modify storage std:vm trace set value \"d\"");
 
-    x = McfString_FromDouble(6.5);
+    x = McfStrRef_FromDouble(6.5);
     __asm volatile ("inline data modify storage std:vm trace set value \"e\"");
-    slot = _McfString_GetSlotId(x);
+    slot = McfStrRef_SlotId(x);
     __asm volatile ("inline data modify storage std:vm trace set value \"f\"");
-    McfString_Release(x);
+    McfStrRef_Release(x);
     Target_Release(player);
 
     if (r1 != 1)

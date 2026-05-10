@@ -12,7 +12,7 @@ typedef _UUID *UUID;
 struct _UUID {
     McRefHeader rc;
     char      data[37];
-    McfString mcf;
+    McfStrRef mcf;
 };
 
 /* UUID_New/From* return owned objects. Pair them with UUID_Release(). */
@@ -126,7 +126,7 @@ _UUID_Destroy(void *obj)
 
     uuid = (UUID)obj;
     if (uuid->mcf != NULL) {
-        McfString_Release(uuid->mcf);
+        McfStrRef_Release(uuid->mcf);
         uuid->mcf = NULL;
     }
     free(uuid);
@@ -157,16 +157,16 @@ UUID_EnsureMcf(UUID uuid)
         return -1;
     }
     if (uuid->mcf == NULL) {
-        uuid->mcf = McfString_FromLiteral(uuid->data);
+        uuid->mcf = McfStrRef_FromLiteral(uuid->data);
         if (uuid->mcf == NULL) {
             return -1;
         }
     }
-    return _McfString_EnsureSlot(uuid->mcf);
+    return McfStrRef_SlotId(uuid->mcf) < 0 ? -1 : 0;
 }
 
-static inline McfString
-UUID_GetMcf(UUID uuid)
+static inline McfStrRef
+UUID_GetMcfStrRef(UUID uuid)
 {
     if (UUID_EnsureMcf(uuid) != 0) {
         return NULL;

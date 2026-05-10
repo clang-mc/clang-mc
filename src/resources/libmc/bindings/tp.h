@@ -24,10 +24,18 @@ __asm__(
 );
 
 static inline int
-tp_unsafe(int target_slot, int x_slot, int y_slot, int z_slot)
+tp_unsafe(McfStrRef target_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
 {
     int ret;
+    int target_slot;
+    int x_slot;
+    int y_slot;
+    int z_slot;
 
+    target_slot = McfStrRef_SlotId(target_ref);
+    x_slot = McfStrRef_SlotId(x_ref);
+    y_slot = McfStrRef_SlotId(y_ref);
+    z_slot = McfStrRef_SlotId(z_ref);
     if (target_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0) {
         return -1;
     }
@@ -47,11 +55,23 @@ tp_unsafe(int target_slot, int x_slot, int y_slot, int z_slot)
 }
 
 static inline int
-tp_rot_unsafe(int target_slot, int x_slot, int y_slot, int z_slot,
-              int yaw_slot, int pitch_slot)
+tp_rot_unsafe(McfStrRef target_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref,
+              McfStrRef yaw_ref, McfStrRef pitch_ref)
 {
     int ret;
+    int target_slot;
+    int x_slot;
+    int y_slot;
+    int z_slot;
+    int yaw_slot;
+    int pitch_slot;
 
+    target_slot = McfStrRef_SlotId(target_ref);
+    x_slot = McfStrRef_SlotId(x_ref);
+    y_slot = McfStrRef_SlotId(y_ref);
+    z_slot = McfStrRef_SlotId(z_ref);
+    yaw_slot = McfStrRef_SlotId(yaw_ref);
+    pitch_slot = McfStrRef_SlotId(pitch_ref);
     if (target_slot < 0 || x_slot < 0 || y_slot < 0 ||
         z_slot < 0 || yaw_slot < 0 || pitch_slot < 0) {
         return -1;
@@ -74,10 +94,14 @@ tp_rot_unsafe(int target_slot, int x_slot, int y_slot, int z_slot,
 }
 
 static inline int
-tp_entity_unsafe(int target_slot, int destination_slot)
+tp_entity_unsafe(McfStrRef target_ref, McfStrRef destination_ref)
 {
     int ret;
+    int target_slot;
+    int destination_slot;
 
+    target_slot = McfStrRef_SlotId(target_ref);
+    destination_slot = McfStrRef_SlotId(destination_ref);
     if (target_slot < 0 || destination_slot < 0) {
         return -1;
     }
@@ -98,38 +122,38 @@ static inline int
 tp(Target target, Vec3d pos)
 {
     int ret;
-    McfString target_name;
-    McfString x;
-    McfString y;
-    McfString z;
+    McfStrRef target_name;
+    McfStrRef x;
+    McfStrRef y;
+    McfStrRef z;
     int target_slot;
     int x_slot;
     int y_slot;
     int z_slot;
 
-    target_name = _Command_RequireTargetMcf(target);
-    target_slot = _McfString_GetSlotId(target_name);
+    target_name = _Command_RequireTargetRef(target);
+    target_slot = McfStrRef_SlotId(target_name);
     if (target_slot < 0) {
         return -1;
     }
 
-    x = _Command_FormatDouble(pos.x);
-    x_slot = _McfString_GetSlotId(x);
-    y = _Command_FormatDouble(pos.y);
-    y_slot = _McfString_GetSlotId(y);
-    z = _Command_FormatDouble(pos.z);
-    z_slot = _McfString_GetSlotId(z);
+    x = _Command_FormatDoubleRef(pos.x);
+    x_slot = McfStrRef_SlotId(x);
+    y = _Command_FormatDoubleRef(pos.y);
+    y_slot = McfStrRef_SlotId(y);
+    z = _Command_FormatDoubleRef(pos.z);
+    z_slot = McfStrRef_SlotId(z);
     if (x_slot < 0 || y_slot < 0 || z_slot < 0) {
-        McfString_Release(x);
-        McfString_Release(y);
-        McfString_Release(z);
+        McfStrRef_Release(x);
+        McfStrRef_Release(y);
+        McfStrRef_Release(z);
         return -1;
     }
 
-    ret = tp_unsafe(target_slot, x_slot, y_slot, z_slot);
-    McfString_Release(x);
-    McfString_Release(y);
-    McfString_Release(z);
+    ret = tp_unsafe(target_name, x, y, z);
+    McfStrRef_Release(x);
+    McfStrRef_Release(y);
+    McfStrRef_Release(z);
     return ret;
 }
 
@@ -137,12 +161,12 @@ static inline int
 tp_rot(Target target, Vec3d pos, Vec2f rot)
 {
     int ret;
-    McfString target_name;
-    McfString x;
-    McfString y;
-    McfString z;
-    McfString yaw;
-    McfString pitch;
+    McfStrRef target_name;
+    McfStrRef x;
+    McfStrRef y;
+    McfStrRef z;
+    McfStrRef yaw;
+    McfStrRef pitch;
     int target_slot;
     int x_slot;
     int y_slot;
@@ -150,56 +174,56 @@ tp_rot(Target target, Vec3d pos, Vec2f rot)
     int yaw_slot;
     int pitch_slot;
 
-    target_name = _Command_RequireTargetMcf(target);
-    target_slot = _McfString_GetSlotId(target_name);
+    target_name = _Command_RequireTargetRef(target);
+    target_slot = McfStrRef_SlotId(target_name);
     if (target_slot < 0) {
         return -1;
     }
 
-    x = _Command_FormatDouble(pos.x);
-    x_slot = _McfString_GetSlotId(x);
-    y = _Command_FormatDouble(pos.y);
-    y_slot = _McfString_GetSlotId(y);
-    z = _Command_FormatDouble(pos.z);
-    z_slot = _McfString_GetSlotId(z);
-    yaw = _Command_FormatFloat(rot.x);
-    yaw_slot = _McfString_GetSlotId(yaw);
-    pitch = _Command_FormatFloat(rot.y);
-    pitch_slot = _McfString_GetSlotId(pitch);
+    x = _Command_FormatDoubleRef(pos.x);
+    x_slot = McfStrRef_SlotId(x);
+    y = _Command_FormatDoubleRef(pos.y);
+    y_slot = McfStrRef_SlotId(y);
+    z = _Command_FormatDoubleRef(pos.z);
+    z_slot = McfStrRef_SlotId(z);
+    yaw = _Command_FormatFloatRef(rot.x);
+    yaw_slot = McfStrRef_SlotId(yaw);
+    pitch = _Command_FormatFloatRef(rot.y);
+    pitch_slot = McfStrRef_SlotId(pitch);
     if (x_slot < 0 || y_slot < 0 || z_slot < 0 || yaw_slot < 0 || pitch_slot < 0) {
-        McfString_Release(x);
-        McfString_Release(y);
-        McfString_Release(z);
-        McfString_Release(yaw);
-        McfString_Release(pitch);
+        McfStrRef_Release(x);
+        McfStrRef_Release(y);
+        McfStrRef_Release(z);
+        McfStrRef_Release(yaw);
+        McfStrRef_Release(pitch);
         return -1;
     }
 
-    ret = tp_rot_unsafe(target_slot, x_slot, y_slot, z_slot, yaw_slot, pitch_slot);
-    McfString_Release(x);
-    McfString_Release(y);
-    McfString_Release(z);
-    McfString_Release(yaw);
-    McfString_Release(pitch);
+    ret = tp_rot_unsafe(target_name, x, y, z, yaw, pitch);
+    McfStrRef_Release(x);
+    McfStrRef_Release(y);
+    McfStrRef_Release(z);
+    McfStrRef_Release(yaw);
+    McfStrRef_Release(pitch);
     return ret;
 }
 
 static inline int
 tp_entity(Target target, Target destination)
 {
-    McfString target_name;
-    McfString destination_name;
+    McfStrRef target_name;
+    McfStrRef destination_name;
     int target_slot;
     int destination_slot;
 
-    target_name = _Command_RequireTargetMcf(target);
-    target_slot = _McfString_GetSlotId(target_name);
-    destination_name = _Command_RequireTargetMcf(destination);
-    destination_slot = _McfString_GetSlotId(destination_name);
+    target_name = _Command_RequireTargetRef(target);
+    target_slot = McfStrRef_SlotId(target_name);
+    destination_name = _Command_RequireTargetRef(destination);
+    destination_slot = McfStrRef_SlotId(destination_name);
     if (target_slot < 0 || destination_slot < 0) {
         return -1;
     }
-    return tp_entity_unsafe(target_slot, destination_slot);
+    return tp_entity_unsafe(target_name, destination_name);
 }
 
 #ifdef __cplusplus

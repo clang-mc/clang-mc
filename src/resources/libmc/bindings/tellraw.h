@@ -16,10 +16,14 @@ __asm__(
 );
 
 static inline int
-tellraw_unsafe(int target_slot, int json_slot)
+tellraw_unsafe(McfStrRef target_ref, McfStrRef json_ref)
 {
     int ret;
+    int target_slot;
+    int json_slot;
 
+    target_slot = McfStrRef_SlotId(target_ref);
+    json_slot = McfStrRef_SlotId(json_ref);
     if (target_slot < 0 || json_slot < 0) {
         return -1;
     }
@@ -39,19 +43,19 @@ tellraw_unsafe(int target_slot, int json_slot)
 static inline int
 tellraw(Target target, String json)
 {
-    McfString target_name;
-    McfString json_text;
+    McfStrRef target_name;
+    McfStrRef json_text;
     int target_slot;
     int json_slot;
 
-    target_name = _Command_RequireTargetMcf(target);
-    target_slot = _McfString_GetSlotId(target_name);
-    json_text = _Command_RequireStringMcf(json);
-    json_slot = _McfString_GetSlotId(json_text);
+    target_name = _Command_RequireTargetRef(target);
+    target_slot = McfStrRef_SlotId(target_name);
+    json_text = _Command_RequireStringRef(json);
+    json_slot = McfStrRef_SlotId(json_text);
     if (target_slot < 0 || json_slot < 0) {
         return -1;
     }
-    return tellraw_unsafe(target_slot, json_slot);
+    return tellraw_unsafe(target_name, json_text);
 }
 
 #ifdef __cplusplus

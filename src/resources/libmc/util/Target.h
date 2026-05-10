@@ -13,7 +13,7 @@ struct _Target {
     McRefHeader rc;
     const char *expr;
     int       owns_expr;
-    McfString mcf;
+    McfStrRef mcf;
 };
 
 /* Target_From* returns owned targets. TARGET_* constants are borrowed singletons. */
@@ -76,7 +76,7 @@ Target_FromLiteral(const char *expr)
     if (target == NULL) {
         return NULL;
     }
-    target->mcf = McfString_FromLiteral(expr);
+    target->mcf = McfStrRef_FromLiteral(expr);
     if (target->mcf == NULL) {
         free(target);
         return NULL;
@@ -109,7 +109,7 @@ _Target_Destroy(void *obj)
 
     target = (Target)obj;
     if (target->mcf != NULL) {
-        McfString_Release(target->mcf);
+        McfStrRef_Release(target->mcf);
         target->mcf = NULL;
     }
     if (target->owns_expr) {
@@ -132,19 +132,19 @@ Target_EnsureMcf(Target target)
     }
     if (target->mcf == NULL) {
         if (target->owns_expr) {
-            target->mcf = McfString_FromCString(target->expr);
+            target->mcf = McfStrRef_FromCString(target->expr);
         } else {
-            target->mcf = McfString_FromLiteral(target->expr);
+            target->mcf = McfStrRef_FromLiteral(target->expr);
         }
         if (target->mcf == NULL) {
             return -1;
         }
     }
-    return _McfString_EnsureSlot(target->mcf);
+    return McfStrRef_SlotId(target->mcf) < 0 ? -1 : 0;
 }
 
-static inline McfString
-Target_GetMcf(Target target)
+static inline McfStrRef
+Target_GetMcfStrRef(Target target)
 {
     if (Target_EnsureMcf(target) != 0) {
         return NULL;

@@ -27,7 +27,7 @@ python tools/commands/generator/generate.py
 
 生成器读取：
 
-- `tools/commands/schema/stage1_commands.json`
+- `tools/commands/schema/vanilla_commands.json`
 - `src/resources/libmc/entity/Entities.h`
 
 阶段一只覆盖少量核心命令与 `EntityType` 别名层，后续扩展时继续归一化到内部 schema，不直接把外部命令树当最终绑定输入。

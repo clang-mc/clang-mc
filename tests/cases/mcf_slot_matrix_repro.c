@@ -12,22 +12,22 @@ static _Block TEST_BLOCK_STONE = {
 int
 main(void)
 {
-    McfString literal_mcf;
+    McfStrRef literal_mcf;
     String    literal_string;
     Target    literal_target;
-    McfString identifier_mcf;
-    McfString block_mcf;
+    McfStrRef identifier_mcf;
+    McfStrRef block_mcf;
 
-    literal_mcf = McfString_FromLiteral("abc");
+    literal_mcf = McfStrRef_FromLiteral("abc");
     if (literal_mcf == 0)
         return 100;
-    if (_McfString_GetSlotId(literal_mcf) < 0)
+    if (McfStrRef_SlotId(literal_mcf) < 0)
         return 101;
 
     literal_string = String_FromLiteral("abc");
     if (literal_string == 0)
         return 102;
-    if (String_EnsureMcf(literal_string) != 0)
+    if (String_EnsureMcfStrRef(literal_string) != 0)
         return 103;
 
     literal_target = Target_FromLiteral("@a");
@@ -36,16 +36,16 @@ main(void)
     if (Target_EnsureMcf(literal_target) != 0)
         return 105;
 
-    identifier_mcf = McfString_FromIdentifier(&TEST_BLOCK_STONE.identifier);
+    identifier_mcf = McfStrRef_FromIdentifier(&TEST_BLOCK_STONE.identifier);
     if (identifier_mcf == 0)
         return 106;
-    if (_McfString_GetSlotId(identifier_mcf) < 0)
+    if (McfStrRef_SlotId(identifier_mcf) < 0)
         return 107;
 
     block_mcf = Block_EnsureMcfName(&TEST_BLOCK_STONE);
     if (block_mcf == 0)
         return 108;
-    if (_McfString_GetSlotId(block_mcf) < 0)
+    if (McfStrRef_SlotId(block_mcf) < 0)
         return 109;
 
     return 0;

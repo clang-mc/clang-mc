@@ -16,10 +16,12 @@ __asm__(
 );
 
 static inline int
-kill_unsafe(int slot_id)
+kill_unsafe(McfStrRef target_ref)
 {
     int ret;
+    int slot_id;
 
+    slot_id = McfStrRef_SlotId(target_ref);
     if (slot_id < 0) {
         return -1;
     }
@@ -38,15 +40,13 @@ kill_unsafe(int slot_id)
 static inline int
 kill(Target target)
 {
-    McfString target_name;
-    int slot_id;
+    McfStrRef target_name;
 
-    target_name = _Command_RequireTargetMcf(target);
-    slot_id = _McfString_GetSlotId(target_name);
-    if (slot_id < 0) {
+    target_name = _Command_RequireTargetRef(target);
+    if (McfStrRef_SlotId(target_name) < 0) {
         return -1;
     }
-    return kill_unsafe(slot_id);
+    return kill_unsafe(target_name);
 }
 
 #ifdef __cplusplus

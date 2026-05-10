@@ -4,7 +4,7 @@
 
 typedef struct _Block {
     Identifier identifier;
-    McfString mcfName;
+    McfStrRef mcfName;
     const char *translationKey;
     float resistance;
     float slipperiness;
@@ -13,7 +13,7 @@ typedef struct _Block {
 
 typedef const struct _Block *Block;
 
-static inline McfString
+static inline McfStrRef
 Block_EnsureMcfName(Block block)
 {
     _Block *mutable_block;
@@ -24,12 +24,12 @@ Block_EnsureMcfName(Block block)
 
     mutable_block = (_Block *)block;
     if (mutable_block->mcfName == NULL) {
-        mutable_block->mcfName = McfString_FromIdentifier(&block->identifier);
+        mutable_block->mcfName = McfStrRef_FromIdentifier(&block->identifier);
         if (mutable_block->mcfName == NULL) {
             return NULL;
         }
     }
-    if (_McfString_EnsureSlot(mutable_block->mcfName) != 0) {
+    if (McfStrRef_SlotId(mutable_block->mcfName) < 0) {
         return NULL;
     }
     return mutable_block->mcfName;

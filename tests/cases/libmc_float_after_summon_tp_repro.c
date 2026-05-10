@@ -12,8 +12,8 @@ static _Entity TEST_ARMOR_STAND = {
 
 int main(void) {
     Target player;
-    McfString yaw;
-    McfString pitch;
+    McfStrRef yaw;
+    McfStrRef pitch;
     int r1;
     int r2;
     int slot;
@@ -30,34 +30,34 @@ int main(void) {
     r2 = tp(player, (Vec3d){4.5, 82.0, 4.5});
     __asm volatile ("inline data modify storage std:vm trace set value \"d\"");
 
-    yaw = McfString_FromFloat(90.0f);
+    yaw = McfStrRef_FromFloat(90.0f);
     __asm volatile ("inline data modify storage std:vm trace set value \"e\"");
     if (yaw == 0) {
         Target_Release(player);
         return 101;
     }
-    slot = _McfString_GetSlotId(yaw);
+    slot = McfStrRef_SlotId(yaw);
     __asm volatile (
         "inline data modify storage std:vm trace_yaw_slot set value %0"
         :
         : "r"(slot)
     );
     __asm volatile ("inline data modify storage std:vm trace set value \"f\"");
-    pitch = McfString_FromFloat(0.0f);
+    pitch = McfStrRef_FromFloat(0.0f);
     __asm volatile ("inline data modify storage std:vm trace set value \"g\"");
     if (pitch == 0) {
-        McfString_Release(yaw);
+        McfStrRef_Release(yaw);
         Target_Release(player);
         return 102;
     }
-    pitch_slot = _McfString_GetSlotId(pitch);
+    pitch_slot = McfStrRef_SlotId(pitch);
     __asm volatile (
         "inline data modify storage std:vm trace_pitch_slot set value %0"
         :
         : "r"(pitch_slot)
     );
-    McfString_Release(yaw);
-    McfString_Release(pitch);
+    McfStrRef_Release(yaw);
+    McfStrRef_Release(pitch);
     Target_Release(player);
 
     if (r1 != 1)
