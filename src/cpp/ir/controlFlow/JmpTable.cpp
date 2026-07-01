@@ -66,8 +66,10 @@ void JmpTable::make() {
         } while (i > 0);
     } catch (...) {
         free(labels);
+        free(dataView);
+        dataView = nullptr;  // 避免析构函数二次释放
         free(terminateData);
-        throw std::runtime_error("failed to create jmp table.");
+        throw;
     }
     free(labels);
     free(terminateData);

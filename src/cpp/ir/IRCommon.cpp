@@ -147,6 +147,11 @@ static OpPtr createConRetZ(const LineState &line, const std::string_view &args) 
 
 static OpPtr createStatic(const LineState &line, const std::string_view &args) {
     auto parts = string::split(args, ' ', 2);
+    // 兼容 "static counter,0"（逗号后无空格）：此时整个args只会被split(' ')切成1段，
+    // 在这一段中按第一个逗号再切一次来分离name与data。
+    if (parts.size() == 1 && string::contains(parts[0], ',')) {
+        parts = string::split(parts[0], ',', 2);
+    }
     if (UNLIKELY(parts.size() != 2)) {
         throw ParseException(i18nFormat("ir.invalid_op", args));
     }
@@ -158,16 +163,25 @@ static OpPtr createStatic(const LineState &line, const std::string_view &args) {
     auto dataStr = string::trim(parts[1]);
 
     std::vector<i32> data;
-    if (dataStr.size() > 2 && dataStr.front() == '[' && dataStr.back() == ']') {
-        data = stream::map(stream::map(string::split(
-                dataStr.substr(1, dataStr.length() - 2), ','
-                ),FUNC_WITH(string::trim)
-        ),FUNC_WITH(parseToNumber));
+    if (dataStr.size() >= 2 && dataStr.front() == '[' && dataStr.back() == ']') {
+        auto innerStr = string::trim(dataStr.substr(1, dataStr.length() - 2));
+        if (innerStr.empty()) {
+            // 空数组："static x []" / "static x [ ]"
+            data = {};
+        } else {
+            data = stream::map(stream::map(string::split(
+                    innerStr, ','
+                    ),FUNC_WITH(string::trim)
+            ),FUNC_WITH(parseToNumber));
+        }
     } else if (dataStr.size() > 2 && dataStr.front() == '"' && dataStr.back() == '"') {
         assert(data.empty());
         data.insert(data.begin(), dataStr.begin() + 1, dataStr.end() - 1);
         data.emplace_back(0);  // c string
     } else {
+        if (dataStr.empty()) {
+            throw ParseException(i18nFormat("ir.invalid_op", args));
+        }
         data = { parseToNumber(dataStr) };
     }
 

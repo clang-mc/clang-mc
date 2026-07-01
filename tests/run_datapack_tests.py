@@ -113,6 +113,8 @@ CASES: list[Case] = [
     Case("preprocessor_macro_args_o0", "preprocessor_macro_args_probe.c"),
     Case("preprocessor_objmacro_boundary_o0", "preprocessor_objmacro_boundary_probe.c"),
     Case("preprocessor_once_o0", "preprocessor_once_probe.c"),
+    Case("movd_preserve_rax_probe_o0", "movd_preserve_rax_probe.c"),
+    Case("static_parse_edge_probe_o0", "static_parse_edge_probe.c"),
 ]
 
 
