@@ -350,7 +350,8 @@ std::string mergeAsSelectorWithSelfCondition(std::string_view line) {
     const auto between = line.substr(asSelector->end, condPos - asSelector->end);
     auto betweenTokens = tokenizeCommand(between);
     for (const auto &token: betweenTokens) {
-        if (token.text == "run" || token.text == "on" || token.text == "positioned" || token.text == "at" || token.text == "in") {
+        if (token.text == "run" || token.text == "on" || token.text == "positioned" || token.text == "at"
+            || token.text == "in" || token.text == "summon" || token.text == "as") {
             return std::string(line);
         }
     }
@@ -370,6 +371,22 @@ std::string mergeAsSelectorWithSelfCondition(std::string_view line) {
     const auto status = analyzeMerge(asArgs, selfArgs);
     if (status == MergeStatus::Conflict) {
         return std::string(line);
+    }
+
+    // `unless entity @s[...]` means NOT(arg0 AND arg1 AND ...). Negating each arg
+    // individually yields NOT(arg0) AND NOT(arg1) AND ..., which is only equivalent
+    // to the original semantics when @s carries exactly one argument (De Morgan).
+    // For >=2 args we would change the selected entity set, so refuse to merge.
+    // Complex keys (scores/advancements) cannot be expressed as a negated whole via
+    // per-arg negation and would also produce illegal selector syntax, so refuse
+    // those under `unless` as well.
+    if (isUnless) {
+        if (selfArgs.size() != 1) {
+            return std::string(line);
+        }
+        if (containsKey(COMPLEX_KEYS, selfArgs.front().key)) {
+            return std::string(line);
+        }
     }
 
     auto result = std::string(line);
