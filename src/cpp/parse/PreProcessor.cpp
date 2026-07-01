@@ -21,6 +21,54 @@ static bool containsWhitespace(const std::string &s) {
     return std::any_of(s.begin(), s.end(), [](unsigned char c) { return std::isspace(c); });
 }
 
+// 标识符字符：宏名/参数名由 [A-Za-z0-9_] 组成。用于词边界判定。
+static bool isIdentChar(unsigned char c) {
+    return std::isalnum(c) || c == '_';
+}
+
+// 带括号深度与字符串感知的逗号切分。用于函数宏实参/参数列表，
+// 避免 f(g(1,2), "a,b") 中嵌套括号与字符串内逗号被错误拆分。
+static std::vector<std::string> splitArgs(const std::string &s) {
+    std::vector<std::string> out;
+    if (s.find_first_not_of(" \t\n\r") == std::string::npos) {
+        return out; // 空参数列表
+    }
+    size_t depth = 0;
+    char quote = '\0';     // 当前所处字符串引号（' 或 "），'\0' 表示不在字符串内
+    bool escaped = false;  // 上一个字符是否为反斜杠转义
+    std::string cur;
+    for (const char ch : s) {
+        if (quote != '\0') {
+            cur += ch;
+            if (escaped) {
+                escaped = false;
+            } else if (ch == '\\') {
+                escaped = true;
+            } else if (ch == quote) {
+                quote = '\0';
+            }
+            continue;
+        }
+        if (ch == '"' || ch == '\'') {
+            quote = ch;
+            cur += ch;
+        } else if (ch == '(' || ch == '[' || ch == '{') {
+            depth++;
+            cur += ch;
+        } else if (ch == ')' || ch == ']' || ch == '}') {
+            if (depth > 0) depth--;
+            cur += ch;
+        } else if (ch == ',' && depth == 0) {
+            out.push_back(trimStr(cur));
+            cur.clear();
+        } else {
+            cur += ch;
+        }
+    }
+    out.push_back(trimStr(cur));
+    return out;
+}
+
 /* ───────────────── SourceLineBuilder（内部用）────────────── */
 
 struct SourceLineBuilder {
@@ -157,14 +205,8 @@ std::optional<std::string> PreProcessor::tryExpandFuncMacro(const Path &tgt, con
 
     const std::string argsRaw = line.substr(openPos + 1, line.size() - openPos - 2);
 
-    std::vector<std::string> args;
-    if (!trimStr(argsRaw).empty()) {
-        std::istringstream ss(argsRaw);
-        std::string token;
-        while (std::getline(ss, token, ',')) {
-            args.push_back(trimStr(token));
-        }
-    }
+    // 带括号深度 + 字符串感知的实参切分（见 splitArgs）
+    const std::vector<std::string> args = splitArgs(argsRaw);
 
     const auto itTgt = funcMacros.find(tgt);
     if (itTgt == funcMacros.end()) return std::nullopt;
@@ -174,13 +216,33 @@ std::optional<std::string> PreProcessor::tryExpandFuncMacro(const Path &tgt, con
     const auto &[params, body] = itName->second;
     if (params.size() != args.size()) return std::nullopt;
 
+    // 按词边界替换参数名，避免短参数名（如 a）被替换进更长标识符（如 ab/max）内部
     std::string expanded = body;
     for (size_t i = 0; i < params.size(); ++i) {
+        const std::string &param = params[i];
+        if (param.empty()) continue;
+        const std::string &arg = args[i];
+        std::string result;
+        result.reserve(expanded.size());
+        const size_t paramLen = param.size();
+        const size_t len = expanded.size();
         size_t pos = 0;
-        while ((pos = expanded.find(params[i], pos)) != std::string::npos) {
-            expanded.replace(pos, params[i].size(), args[i]);
-            pos += args[i].size();
+        while (pos < len) {
+            if (pos + paramLen <= len && expanded.compare(pos, paramLen, param) == 0) {
+                const bool prevOk = (pos == 0) ||
+                    !isIdentChar((unsigned char) expanded[pos - 1]);
+                const bool nextOk = (pos + paramLen == len) ||
+                    !isIdentChar((unsigned char) expanded[pos + paramLen]);
+                if (prevOk && nextOk) {
+                    result += arg;
+                    pos += paramLen;
+                    continue;
+                }
+            }
+            result += expanded[pos];
+            ++pos;
         }
+        expanded = std::move(result);
     }
     return expanded;
 }
@@ -201,10 +263,12 @@ std::string PreProcessor::tryExpandObjMacros(const Path &tgt, const std::string 
         size_t i = 0;
         while (i < outLen) {
             if (i + keyLen <= outLen && out.compare(i, keyLen, key) == 0) {
+                // 完整标识符边界：前后为非标识符字符即视为词边界
+                // （涵盖空白、逗号、括号、冒号、方括号等：(MACRO)、MACRO:、[MACRO]）
                 const bool prevOk = (i == 0) ||
-                    std::isspace((unsigned char)out[i - 1]) || out[i - 1] == ',';
+                    !isIdentChar((unsigned char)out[i - 1]);
                 const bool nextOk = (i + keyLen == outLen) ||
-                    std::isspace((unsigned char)out[i + keyLen]) || out[i + keyLen] == ',';
+                    !isIdentChar((unsigned char)out[i + keyLen]);
                 if (prevOk && nextOk) {
                     result += value;
                     i += keyLen;
@@ -323,14 +387,15 @@ std::string PreProcessor::handleTarget(const Path &tgt, const Path &cur, const s
                 auto &[file, fileCode] = *result;
 
                 // include_once / bypass 检查
+                // getInclude 已经把 file 展开成 fileCode；展开过程中若 file 含 #once，
+                // 则 includeOnce 此刻已包含 file。语义：标记为 #once 的头在同一目标内
+                // 仅输出一次，第二次起即真正跳过（不再追加内容）。
                 if (includeOnce.count(file) > 0) {
-                    auto itBypass = bypassInclude.find(tgt);
-                    if (itBypass != bypassInclude.end() && itBypass->second.count(file) > 0) {
-                        return false; // 已经 bypass，跳过（不追加 \n）
+                    auto &bypass = bypassInclude[tgt];
+                    if (bypass.count(file) > 0) {
+                        return false; // 本目标已输出过该 #once 头，跳过（不追加 \n）
                     }
-                    if (itBypass != bypassInclude.end()) {
-                        itBypass->second.insert(file);
-                    }
+                    bypass.insert(file); // 首次输出：记录之，后续包含将被跳过
                 }
 
                 out.pushStr("#push line\n");
@@ -381,14 +446,7 @@ std::string PreProcessor::handleTarget(const Path &tgt, const Path &cur, const s
                     std::string name = key.substr(0, openPos);
                     while (!name.empty() && (name.back() == ' ' || name.back() == '\t')) name.pop_back();
                     const std::string paramsStr = key.substr(openPos + 1, key.size() - openPos - 2);
-                    std::vector<std::string> plist;
-                    if (!trimStr(paramsStr).empty()) {
-                        std::istringstream ps(paramsStr);
-                        std::string token;
-                        while (std::getline(ps, token, ',')) {
-                            plist.push_back(trimStr(token));
-                        }
-                    }
+                    std::vector<std::string> plist = splitArgs(paramsStr);
                     funcMacros[tgt][name] = {std::move(plist), std::move(val)};
                 } else {
                     // 对象宏：值必须是单个 token（不含空白）
