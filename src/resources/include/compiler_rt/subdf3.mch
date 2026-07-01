@@ -17,9 +17,10 @@ sub	rsp, 12
 	mov	r1, x0
 	mov	r2, x1
 	mov	r3, rax
+	call	__adddf3
 	mov	x2, [rsp]
 	mov	x1, [rsp+4]
 	mov	x0, [rsp+8]
 add	rsp, 12
-	jmp	__adddf3
+	ret
 // -- End function

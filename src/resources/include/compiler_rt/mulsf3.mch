@@ -43,21 +43,18 @@ sub	rsp, 36
 	mov	r0, x6
 	call	__bit_and
 	mov	r0, x1
-add	r0, -255
-	mov	r1, -2147483648
+add	r0, 2147483393
+	mov	r1, 2147483394
 	mov	x4, rax
-	call	__bit_xor
-	mov	r0, 2147483394
-	jl	rax, r0, .LBB0_2
+	jl	r0, r1, .LBB0_2
 	jmp	.LBB0_1
 .LBB0_1:
 	mov	r0, x2
 add	r0, -255
-	mov	r1, -2147483648
+add	r0, -2147483648
+	mov	r1, 2147483393
 	mov	x5, 0
-	call	__bit_xor
-	mov	r0, 2147483393
-	jg	rax, r0, .LBB0_20
+	jg	r0, r1, .LBB0_20
 	jmp	.LBB0_2
 .LBB0_2:
 	mov	r1, 2147483647
@@ -75,7 +72,7 @@ add	r0, -255
 	mov	r1, 4194304
 	mov	r0, x7
 	call	__bit_or
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_4:
 	jl	r2, r0, .LBB0_6
 	jmp	.LBB0_5
@@ -83,44 +80,44 @@ add	r0, -255
 	mov	r1, 4194304
 	mov	r0, x6
 	call	__bit_or
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_6:
 	mov	r0, 2139095040
 	jne	x8, r0, .LBB0_9
 	jmp	.LBB0_7
 .LBB0_7:
 	mov	rax, 2143289344
-	jz	r2, .LBB0_35
+	jz	r2, .LBB0_37
 	jmp	.LBB0_8
 .LBB0_8:
 	mov	r1, 2139095040
 	mov	r0, x0
 	call	__bit_or
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_9:
 	jne	r2, r0, .LBB0_12
 	jmp	.LBB0_10
 .LBB0_10:
 	mov	rax, 2143289344
-	jz	x8, .LBB0_35
+	jz	x8, .LBB0_37
 	jmp	.LBB0_11
 .LBB0_11:
 	mov	r1, 2139095040
 	mov	r0, x0
 	call	__bit_or
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_12:
 	jnz	x8, .LBB0_14
 	jmp	.LBB0_13
 .LBB0_13:
 	mov	rax, x0
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_14:
 	jnz	r2, .LBB0_16
 	jmp	.LBB0_15
 .LBB0_15:
 	mov	rax, x0
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_16:
 	mov	x7, 8388607
 	mov	x5, 0
@@ -331,33 +328,28 @@ add	x1, 1
 	mov	r1, 2139095040
 	mov	r0, x0
 	call	__bit_or
-	jmp	.LBB0_35
+	jmp	.LBB0_37
 .LBB0_25:
 	mov	r0, 0
-	jg	x1, r0, .LBB0_29
+	jg	x1, r0, .LBB0_31
 	jmp	.LBB0_26
 .LBB0_26:
 	mov	x2, 1
 	sub	x2, x1
 	mov	r0, 31
-	jg	x2, r0, .LBB0_28
+	mov	x5, 1
+	jg	x2, r0, .LBB0_30
 	jmp	.LBB0_27
 .LBB0_27:
 add	x1, 31
 	mov	r0, x3
 	mov	r1, x1
 	call	__bit_shl
-	mov	x5, rax
-	mov	r0, x5
-	call	__bit_not
-add	rax, 1
-	mov	r0, x5
-	mov	r1, rax
-	call	__bit_or
-	mov	r1, 31
-	mov	r0, rax
-	call	__bit_shr
-	mov	x5, rax
+	mov	r0, 0
+	jne	rax, r0, .LBB0_29
+// %bb.28:
+	mov	x5, 0
+.LBB0_29:
 	mov	r0, x4
 	mov	r1, x1
 	call	__bit_shl
@@ -377,11 +369,11 @@ add	rax, 1
 	mov	r1, x2
 	call	__bit_shr
 	mov	x1, rax
-	jmp	.LBB0_30
-.LBB0_28:
+	jmp	.LBB0_32
+.LBB0_30:
 	mov	rax, x0
-	jmp	.LBB0_35
-.LBB0_29:
+	jmp	.LBB0_37
+.LBB0_31:
 	mov	r1, 8388607
 	mov	r0, x4
 	call	__bit_and
@@ -393,35 +385,31 @@ add	rax, 1
 	mov	r1, x2
 	call	__bit_or
 	mov	x1, rax
-.LBB0_30:
+.LBB0_32:
 	mov	r0, x1
 	mov	r1, x0
 	call	__bit_or
-	mov	x0, rax
-	mov	r1, -2147483648
-	mov	x2, -2147483648
 	mov	r0, x3
-	call	__bit_xor
-	mov	r0, 1
-	jl	rax, r0, .LBB0_32
-	jmp	.LBB0_31
-.LBB0_31:
-	mov	rax, x0
-add	rax, 1
-	jmp	.LBB0_34
-.LBB0_32:
-	mov	rax, x0
-	jne	x3, x2, .LBB0_34
+add	r0, -2147483648
+	mov	r1, 1
+	jl	r0, r1, .LBB0_34
 	jmp	.LBB0_33
 .LBB0_33:
-	mov	r1, 1
+add	rax, 1
+	jmp	.LBB0_36
+.LBB0_34:
+	mov	r0, -2147483648
+	jne	x3, r0, .LBB0_36
+	jmp	.LBB0_35
+.LBB0_35:
 	mov	r0, x1
+	mov	x0, rax
 	call	__bit_and
 	mov	r0, rax
 	mov	rax, x0
 	add	rax, r0
-.LBB0_34:
-.LBB0_35:
+.LBB0_36:
+.LBB0_37:
 	mov	x8, [rsp]
 	mov	x7, [rsp+4]
 	mov	x6, [rsp+8]

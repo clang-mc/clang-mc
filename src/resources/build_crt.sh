@@ -1,9 +1,9 @@
 #!/bin/sh
 
-CLANG='D:\llvm-project\build\bin\clang.exe'
-LLVMLINK='D:\llvm-project\build\bin\llvm-link.exe'
-OPT='D:\llvm-project\build\bin\opt.exe'
-LLC='D:\llvm-project\build\bin\llc.exe'
+CLANG='..\..\build\bin\clang.exe'
+LLVMLINK='..\..\build\bin\llvm-link.exe'
+OPT='..\..\build\bin\opt.exe'
+LLC='..\..\build\bin\llc.exe'
 
 rm -rf out_lto_bc
 mkdir -p out_lto_bc

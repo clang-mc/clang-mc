@@ -2,7 +2,7 @@
 
 set -eu
 
-CLANG='D:\llvm-project\build\bin\clang.exe'
+CLANG='..\..\build\bin\clang.exe'
 
 SRC_DIR=compiler-rt
 OUT_DIR=include/compiler_rt

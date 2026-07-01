@@ -12,7 +12,8 @@ sub	rsp, 4
 	call	__bit_xor
 	mov	r0, x0
 	mov	r1, rax
+	call	__addsf3
 	mov	x0, [rsp]
 add	rsp, 4
-	jmp	__addsf3
+	ret
 // -- End function
