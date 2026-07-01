@@ -158,7 +158,7 @@ extern "C" {
     X(ENTITY_FISHING_BOBBER, "minecraft", "fishing_bobber", "entity.minecraft.fishing_bobber", ENTITY_SPAWN_GROUP_MISC, 0.25F, 0.25F, 0.2125F)
 
 #define X(id, ns, path, translationKey, spawnGroup, width, height, eyeHeight) \
-    extern const _Entity id##_IMPL;
+    extern _Entity id##_IMPL;
 ENTITY_LIST(X)
 #undef X
 
@@ -170,3 +170,17 @@ ENTITY_LIST(X)
     static const Entity id = &id##_IMPL;
 ENTITY_LIST(X)
 #undef X
+
+static inline int
+Entity_IsSummonable(Entity entity)
+{
+    return entity != NULL &&
+           entity != ENTITY_PLAYER &&
+           entity != ENTITY_FISHING_BOBBER;
+}
+
+static inline int
+EntityType_IsSummonable(EntityType type)
+{
+    return Entity_IsSummonable(type);
+}
