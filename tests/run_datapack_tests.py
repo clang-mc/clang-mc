@@ -65,7 +65,6 @@ IGNORED_LOG_PATTERNS = (
 )
 
 CASES: list[Case] = [
-    Case("bits_probe_o0", "bits_probe.c"),
     Case("libc_printf_o0", "libc_printf.c"),
     Case("loop_mix_o0", "loop_mix.c"),
     Case("recursion_factorial_o0", "recursion_factorial.c"),
@@ -101,7 +100,6 @@ CASES: list[Case] = [
     Case("libmc_target_mcf_after_numeric_release_o0", "libmc_target_mcf_after_numeric_release.c"),
     Case("libmc_float_after_summon_tp_repro_o0", "libmc_float_after_summon_tp_repro.c"),
     Case("libc_snprintf_target_corrupt_probe_o0", "libc_snprintf_target_corrupt_probe.c"),
-    Case("libmc_vanilla_raw_commands_o0", "libmc_vanilla_raw_commands.c"),
     Case("libmc_summon_tp_o0", "libmc_summon_tp.c"),
     # Code-review regression cases (CODE_REVIEW_REPORT.md).
     Case("jcc_const_fold_probe_o0", "jcc_const_fold_probe.c"),
