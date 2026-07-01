@@ -80,8 +80,11 @@ public:
             }
             if (const auto &right = INSTANCEOF_SHARED(this->right, Immediate)) {
                 // 两个立即数比较直接编译时计算掉。因为mcfunction原生不支持比较两个立即数。多一条存储到寄存器就因噎废食了。
-                if (left->getValue() != right->getValue()) return "";
-                return string::join(jmpMap.at(labelHash), '\n');
+                // jne 语义：left != right 时跳转。
+                if (static_cast<i32>(left->getValue()) != static_cast<i32>(right->getValue())) {
+                    return string::join(jmpMap.at(labelHash), '\n');
+                }
+                return "";
             }
             assert(INSTANCEOF_SHARED(this->right, Ptr));
             return cmp(jmpMap, left.get(), CAST_FAST(this->right, Ptr));

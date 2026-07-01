@@ -33,9 +33,19 @@ private:
                            cmp(command, left, Registers::S1.get()));
     }
 
+    // 立即数在左、寄存器在右：语义为 imm < reg，即 reg > imm，对应 reg matches {imm+1}..。
+    static inline std::string cmp(const std::string_view &command, Immediate *left, Register *right) {
+        if (!left->getValue().checkAdd(1)) {
+            return "";
+        }
+        return fmt::format("execute if score {} vm_regs matches {}.. run return run {}",
+                           right->getName(), left->getValue() + 1, command);
+    }
+
     static inline std::string cmp(const std::string_view &command, Immediate *left, Ptr *right) {
-        return fmt::format("{}\nexecute if score s1 vm_regs matches {}.. run return run {}",
-                           right->loadTo(*Registers::S1), static_cast<i32>(left->getValue()), command);
+        return fmt::format("{}\n{}",
+                           right->loadTo(*Registers::S1),
+                           cmp(command, left, Registers::S1.get()));
     }
 
     template<typename T>
@@ -86,12 +96,15 @@ public:
         }
         if (const auto &left = INSTANCEOF_SHARED(this->left, Immediate)) {
             if (const auto &right = INSTANCEOF_SHARED(this->right, Register)) {
-                return cmp(jmpMap, right.get(), left.get());
+                return cmp(jmpMap, left.get(), right.get());
             }
             if (const auto &right = INSTANCEOF_SHARED(this->right, Immediate)) {
                 // 两个立即数比较直接编译时计算掉。因为mcfunction原生不支持比较两个立即数。多一条存储到寄存器就因噎废食了。
-                if (left->getValue() != right->getValue()) return "";
-                return string::join(jmpMap.at(labelHash), '\n');
+                // jl 语义：left < right 时跳转。
+                if (static_cast<i32>(left->getValue()) < static_cast<i32>(right->getValue())) {
+                    return string::join(jmpMap.at(labelHash), '\n');
+                }
+                return "";
             }
             assert(INSTANCEOF_SHARED(this->right, Ptr));
             return cmp(jmpMap, left.get(), CAST_FAST(this->right, Ptr));
