@@ -19,13 +19,6 @@ public:
         }
     }
 
-    void withIR(IR *context) override {
-        CmpLike::withIR(context);
-        if (INSTANCEOF_SHARED(this->left, Ptr) && INSTANCEOF_SHARED(this->right, Ptr)) {
-            throw ParseException(i18n("ir.op.memory_operands"));
-        }
-    }
-
     [[nodiscard]] std::string toString() const noexcept override {
         return fmt::format("add {}, {}", left->toString(), right->toString());
     }
@@ -81,12 +74,22 @@ public:
         }
 
         assert(INSTANCEOF_SHARED(right, Ptr));
-        assert(INSTANCEOF_SHARED(left, Register));
 
+        if (const auto &result = INSTANCEOF_SHARED(left, Register)) {
+            // 与x86不同，mc不支持直接对storage（内存）中的值做计算
+            return fmt::format("{}\nscoreboard players operation {} vm_regs += s1 vm_regs",
+                               CAST_FAST(right, Ptr)->loadTo(*Registers::S1),
+                               result->getName());
+        }
+
+        assert(INSTANCEOF_SHARED(left, Ptr));
+
+        // 双内存操作数：*left = *left + *right
         // 与x86不同，mc不支持直接对storage（内存）中的值做计算
-        return fmt::format("{}\nscoreboard players operation {} vm_regs += s1 vm_regs",
-                           CAST_FAST(right, Ptr)->loadTo(*Registers::S1),
-                           CAST_FAST(left, Register)->getName());
+        return fmt::format("{}\n{}\nscoreboard players operation s1 vm_regs += s2 vm_regs\n{}",
+                           CAST_FAST(left, Ptr)->loadTo(*Registers::S1),
+                           CAST_FAST(right, Ptr)->loadTo(*Registers::S2),
+                           CAST_FAST(left, Ptr)->storeFrom(*Registers::S1));
     }
 };
 
