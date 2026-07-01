@@ -160,6 +160,22 @@ static PtrData parsePtrData(const std::string_view &string) {
             } catch (const ParseException &) {
             }
         }
+
+        // index * scale + displacement (无 base)
+        auto splits3 = string::split(splits[0], '*');
+        std::transform(splits3.begin(), splits3.end(), splits3.begin(), string::trim);
+        if (splits3.size() == 2) {
+            try {
+                auto scale = parseToNumber(splits3[1]);
+                if (scale < 0) {
+                    throw ParseException(i18n("ir.op.scale_out_of_range"));
+                }
+
+                return PtrData(nullptr, Registers::fromName(splits3[0]).get(),
+                               scale, parseToNumber(splits[1]));
+            } catch (const ParseException &) {
+            }
+        }
     } else if (splits.size() == 3) {
         // base + index + displacement
         try {

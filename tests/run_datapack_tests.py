@@ -108,6 +108,7 @@ CASES: list[Case] = [
     Case("jcc_imm_reg_probe_o0", "jcc_imm_reg_probe.c"),
     Case("jcc_imm_mem_probe_o0", "jcc_imm_mem_probe.c"),
     Case("arith_mem_mem_probe_o0", "arith_mem_mem_probe.c"),
+    Case("ptr_index_scale_disp_probe_o0", "ptr_index_scale_disp_probe.c"),
 ]
 
 

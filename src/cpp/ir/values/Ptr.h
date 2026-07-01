@@ -29,11 +29,21 @@ private:
         if (base == nullptr) {
             assert(scale != 1);
 
-            result << fmt::format("scoreboard players operation s0 vm_regs = {} vm_regs\n", index->getName());
-            addDisplacementToS0();
-            result << fmt::format(
-                    "execute store result storage std:vm s2.{} int {} run scoreboard players get s0 vm_regs\n",
-                    fieldName, scale);
+            // s0 = index * scale，随后再加 displacement（位移在缩放之后相加）
+            if (displacement == 0) {
+                result << fmt::format("scoreboard players operation s0 vm_regs = {} vm_regs\n", index->getName());
+                result << fmt::format(
+                        "execute store result storage std:vm s2.{} int {} run scoreboard players get s0 vm_regs\n",
+                        fieldName, scale);
+            } else {
+                result << fmt::format("scoreboard players set s0 vm_regs {}\n", scale);
+                result << fmt::format(
+                        "scoreboard players operation s0 vm_regs *= {} vm_regs\n", index->getName());
+                addDisplacementToS0();
+                result << fmt::format(
+                        "execute store result storage std:vm s2.{} int 1 run scoreboard players get s0 vm_regs\n",
+                        fieldName);
+            }
         } else if (index == nullptr) {
             assert(base != nullptr);
             assert(scale == 1);
