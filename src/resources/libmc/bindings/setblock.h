@@ -5,9 +5,9 @@
 #include "bindings/CommandSupport.h"
 
 typedef enum {
-    DESTROY,
-    KEEP,
-    REPLACE
+    SETBLOCK_DESTROY,
+    SETBLOCK_KEEP,
+    SETBLOCK_REPLACE
 } SetBlockMode;
 
 #ifdef __cplusplus
@@ -18,19 +18,19 @@ static inline int
 setblock_unsafe(int x, int y, int z, McfStrRef block_ref, SetBlockMode mode)
 {
     int ret;
-    int slot_id;
+    int block_slot;
 
-    slot_id = McfStrRef_SlotId(block_ref);
-    if (slot_id < 0) {
+    block_slot = McfStrRef_SlotId(block_ref);
+    if (block_slot < 0) {
         return -1;
     }
 
     switch (mode) {
-        case DESTROY:
+        case SETBLOCK_DESTROY:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
@@ -39,11 +39,11 @@ setblock_unsafe(int x, int y, int z, McfStrRef block_ref, SetBlockMode mode)
                 : "r"(x), "r"(y), "r"(z)
             );
             return ret;
-        case KEEP:
+        case SETBLOCK_KEEP:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
@@ -52,11 +52,11 @@ setblock_unsafe(int x, int y, int z, McfStrRef block_ref, SetBlockMode mode)
                 : "r"(x), "r"(y), "r"(z)
             );
             return ret;
-        case REPLACE:
+        case SETBLOCK_REPLACE:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
@@ -73,13 +73,15 @@ setblock_unsafe(int x, int y, int z, McfStrRef block_ref, SetBlockMode mode)
 static inline int
 setblock(Vec3i pos, Block block, SetBlockMode mode)
 {
-    McfStrRef block_name;
+    McfStrRef block_ref;
+    int block_slot;
 
-    block_name = Block_EnsureMcfName(block);
-    if (McfStrRef_SlotId(block_name) < 0) {
+    block_ref = Block_EnsureMcfName(block);
+    block_slot = McfStrRef_SlotId(block_ref);
+    if (block_slot < 0) {
         return -1;
     }
-    return setblock_unsafe(pos.x, pos.y, pos.z, block_name, mode);
+    return setblock_unsafe(pos.x, pos.y, pos.z, block_ref, mode);
 }
 
 #ifdef __cplusplus

@@ -19,10 +19,10 @@ static inline int
 say_unsafe(McfStrRef text_ref)
 {
     int ret;
-    int slot_id;
+    int text_slot;
 
-    slot_id = McfStrRef_SlotId(text_ref);
-    if (slot_id < 0) {
+    text_slot = McfStrRef_SlotId(text_ref);
+    if (text_slot < 0) {
         return -1;
     }
 
@@ -32,7 +32,7 @@ say_unsafe(McfStrRef text_ref)
         "inline function _ll_shared:z/libmc_cmd_say with storage std:vm s6.cmd\n"
         "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
         : "=r"(ret)
-        : "r"(slot_id)
+        : "r"(text_slot)
     );
     return ret;
 }
@@ -40,13 +40,15 @@ say_unsafe(McfStrRef text_ref)
 static inline int
 say(String text)
 {
-    McfStrRef text_mcf;
+    McfStrRef text_ref;
+    int text_slot;
 
-    text_mcf = _Command_RequireStringRef(text);
-    if (McfStrRef_SlotId(text_mcf) < 0) {
+    text_ref = _Command_RequireStringRef(text);
+    text_slot = McfStrRef_SlotId(text_ref);
+    if (text_slot < 0) {
         return -1;
     }
-    return say_unsafe(text_mcf);
+    return say_unsafe(text_ref);
 }
 
 #ifdef __cplusplus

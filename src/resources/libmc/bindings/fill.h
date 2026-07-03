@@ -17,15 +17,13 @@ extern "C" {
 #endif
 
 static inline int
-fill_unsafe(int from_x, int from_y, int from_z,
-            int to_x, int to_y, int to_z,
-            McfStrRef block_ref, FillMode mode)
+fill_unsafe(int from_x, int from_y, int from_z, int to_x, int to_y, int to_z, McfStrRef block_ref, FillMode mode)
 {
     int ret;
-    int slot_id;
+    int block_slot;
 
-    slot_id = McfStrRef_SlotId(block_ref);
-    if (slot_id < 0) {
+    block_slot = McfStrRef_SlotId(block_ref);
+    if (block_slot < 0) {
         return -1;
     }
 
@@ -34,70 +32,65 @@ fill_unsafe(int from_x, int from_y, int from_z,
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
                 "inline $execute store result score %0 vm_regs run fill %1 %2 %3 %4 %5 %6 $(block) destroy"
                 : "=r"(ret)
-                : "r"(from_x), "r"(from_y), "r"(from_z),
-                  "r"(to_x), "r"(to_y), "r"(to_z)
+                : "r"(from_x), "r"(from_y), "r"(from_z), "r"(to_x), "r"(to_y), "r"(to_z)
             );
             return ret;
         case FILL_HOLLOW:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
                 "inline $execute store result score %0 vm_regs run fill %1 %2 %3 %4 %5 %6 $(block) hollow"
                 : "=r"(ret)
-                : "r"(from_x), "r"(from_y), "r"(from_z),
-                  "r"(to_x), "r"(to_y), "r"(to_z)
+                : "r"(from_x), "r"(from_y), "r"(from_z), "r"(to_x), "r"(to_y), "r"(to_z)
             );
             return ret;
         case FILL_KEEP:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
                 "inline $execute store result score %0 vm_regs run fill %1 %2 %3 %4 %5 %6 $(block) keep"
                 : "=r"(ret)
-                : "r"(from_x), "r"(from_y), "r"(from_z),
-                  "r"(to_x), "r"(to_y), "r"(to_z)
+                : "r"(from_x), "r"(from_y), "r"(from_z), "r"(to_x), "r"(to_y), "r"(to_z)
             );
             return ret;
         case FILL_OUTLINE:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
                 "inline $execute store result score %0 vm_regs run fill %1 %2 %3 %4 %5 %6 $(block) outline"
                 : "=r"(ret)
-                : "r"(from_x), "r"(from_y), "r"(from_z),
-                  "r"(to_x), "r"(to_y), "r"(to_z)
+                : "r"(from_x), "r"(from_y), "r"(from_z), "r"(to_x), "r"(to_y), "r"(to_z)
             );
             return ret;
         case FILL_REPLACE:
             __asm volatile (
                 "inline $data modify storage std:vm ls0.block set from storage std:vm mcstr.slots[%0].value"
                 :
-                : "r"(slot_id)
+                : "r"(block_slot)
             );
             __asm volatile (
                 "$$direct_args\n"
                 "inline $execute store result score %0 vm_regs run fill %1 %2 %3 %4 %5 %6 $(block)"
                 : "=r"(ret)
-                : "r"(from_x), "r"(from_y), "r"(from_z),
-                  "r"(to_x), "r"(to_y), "r"(to_z)
+                : "r"(from_x), "r"(from_y), "r"(from_z), "r"(to_x), "r"(to_y), "r"(to_z)
             );
             return ret;
         default:
@@ -108,13 +101,15 @@ fill_unsafe(int from_x, int from_y, int from_z,
 static inline int
 fill(Vec3i from, Vec3i to, Block block, FillMode mode)
 {
-    McfStrRef block_name;
+    McfStrRef block_ref;
+    int block_slot;
 
-    block_name = Block_EnsureMcfName(block);
-    if (McfStrRef_SlotId(block_name) < 0) {
+    block_ref = Block_EnsureMcfName(block);
+    block_slot = McfStrRef_SlotId(block_ref);
+    if (block_slot < 0) {
         return -1;
     }
-    return fill_unsafe(from.x, from.y, from.z, to.x, to.y, to.z, block_name, mode);
+    return fill_unsafe(from.x, from.y, from.z, to.x, to.y, to.z, block_ref, mode);
 }
 
 #ifdef __cplusplus

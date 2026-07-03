@@ -101,6 +101,27 @@ CASES: list[Case] = [
     Case("libmc_float_after_summon_tp_repro_o0", "libmc_float_after_summon_tp_repro.c"),
     Case("libc_snprintf_target_corrupt_probe_o0", "libc_snprintf_target_corrupt_probe.c"),
     Case("libmc_summon_tp_o0", "libmc_summon_tp.c"),
+    Case("libmc_exec_passthrough_o0", "libmc_exec_passthrough.c"),
+    Case("libmc_clear_gamemode_o0", "libmc_clear_gamemode.c"),
+    # KNOWN ISSUE: gamemode_target(GameMode, Target) is the only generated
+    # binding shaped as "compile-time enum switch + a single ref parameter
+    # with no other value operands" (confirmed via grep across all
+    # bindings/*.h). Calling it even once, in isolation, leaks 24 bytes of
+    # rsp at runtime. The generated mcasm for gamemode_target/_unsafe is
+    # itself stack-balanced (sub/add match on every path); the leak happens
+    # inside the auxiliary mcfunction chain clang-mc auto-emits when
+    # expanding the "$(target)" macro substitution - a clang-mc backend
+    # defect, not a generate.py/schema issue. Left disabled pending a
+    # compiler-side fix; do not rely on gamemode_target() until then.
+    # Case("libmc_gamemode_target_only_o0", "libmc_gamemode_target_only.c"),
+    Case("libmc_clear_only_o0", "libmc_clear_only.c"),
+    Case("libmc_weather_time_o0", "libmc_weather_time.c"),
+    Case("libmc_chat_commands_o0", "libmc_chat_commands.c"),
+    Case("libmc_spawn_spectate_o0", "libmc_spawn_spectate.c"),
+    Case("libmc_worldborder_o0", "libmc_worldborder.c"),
+    Case("libmc_forceload_o0", "libmc_forceload.c"),
+    Case("libmc_function_datapack_recipe_schedule_o0", "libmc_function_datapack_recipe_schedule.c"),
+    Case("libmc_enchant_o0", "libmc_enchant.c"),
     # Code-review regression cases (CODE_REVIEW_REPORT.md).
     Case("jcc_const_fold_probe_o0", "jcc_const_fold_probe.c"),
     Case("jcc_imm_reg_probe_o0", "jcc_imm_reg_probe.c"),

@@ -42,8 +42,8 @@ int main(void) {
     int r3;
     int r4;
 
-    r1 = setblock((Vec3i){0, 80, 0}, &TEST_BLOCK_STONE, REPLACE);
-    r2 = setblock_unsafe(0, 80, 0, Block_EnsureMcfName(&TEST_BLOCK_DIRT), REPLACE);
+    r1 = setblock((Vec3i){0, 80, 0}, &TEST_BLOCK_STONE, SETBLOCK_REPLACE);
+    r2 = setblock_unsafe(0, 80, 0, Block_EnsureMcfName(&TEST_BLOCK_DIRT), SETBLOCK_REPLACE);
     r3 = fill((Vec3i){0, 81, 0}, (Vec3i){0, 81, 0}, &TEST_BLOCK_OAK_PLANKS, FILL_REPLACE);
     r4 = fill_unsafe(0, 81, 0, 0, 81, 0, Block_EnsureMcfName(&TEST_BLOCK_GLASS), FILL_REPLACE);
 

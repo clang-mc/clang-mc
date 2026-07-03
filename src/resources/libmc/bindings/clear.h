@@ -10,13 +10,13 @@ extern "C" {
 #endif
 
 __asm__(
-"export _ll_shared:z/libmc_cmd_kill:\n"
-"    inline $execute store result score r0 vm_regs run kill $(target)\n"
+"export _ll_shared:z/libmc_cmd_clear:\n"
+"    inline $execute store result score r0 vm_regs run clear $(target)\n"
 "    ret\n"
 );
 
 static inline int
-kill_unsafe(McfStrRef target_ref)
+clear_unsafe(McfStrRef target_ref)
 {
     int ret;
     int target_slot;
@@ -29,7 +29,7 @@ kill_unsafe(McfStrRef target_ref)
     __asm volatile (
         "inline data modify storage std:vm s6.cmd set value %{target: \"\"%}\n"
         "inline $data modify storage std:vm s6.cmd.target set from storage std:vm mcstr.slots[%1].value\n"
-        "inline function _ll_shared:z/libmc_cmd_kill with storage std:vm s6.cmd\n"
+        "inline function _ll_shared:z/libmc_cmd_clear with storage std:vm s6.cmd\n"
         "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
         : "=r"(ret)
         : "r"(target_slot)
@@ -38,7 +38,7 @@ kill_unsafe(McfStrRef target_ref)
 }
 
 static inline int
-kill(Target target)
+clear(Target target)
 {
     McfStrRef target_ref;
     int target_slot;
@@ -48,7 +48,7 @@ kill(Target target)
     if (target_slot < 0) {
         return -1;
     }
-    return kill_unsafe(target_ref);
+    return clear_unsafe(target_ref);
 }
 
 #ifdef __cplusplus

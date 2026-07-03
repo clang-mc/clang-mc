@@ -2,6 +2,7 @@
 
 #include "block/Block.h"
 #include "entity/EntityTypes.h"
+#include "util/Identifier.h"
 #include "util/Target.h"
 #include "util/math/vec.h"
 
@@ -24,6 +25,12 @@ static inline McfStrRef
 _Command_RequireTargetRef(Target target)
 {
     return Target_GetMcfStrRef(target);
+}
+
+static inline McfStrRef
+_Command_RequireIdentifierRef(const Identifier *id)
+{
+    return McfStrRef_FromIdentifier(id);
 }
 
 static inline McfStrRef

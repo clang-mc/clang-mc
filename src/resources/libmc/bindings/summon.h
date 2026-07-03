@@ -11,37 +11,37 @@ extern "C" {
 
 __asm__(
 "export _ll_shared:z/libmc_cmd_summon:\n"
-"    inline $execute store result score r0 vm_regs run summon $(entity_type) $(x) $(y) $(z)\n"
+"    inline $execute store result score r0 vm_regs run summon $(type) $(x) $(y) $(z)\n"
 "    ret\n"
 );
 
 static inline int
-summon_unsafe(McfStrRef entity_type_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
+summon_unsafe(McfStrRef type_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
 {
     int ret;
-    int entity_type_slot;
+    int type_slot;
     int x_slot;
     int y_slot;
     int z_slot;
 
-    entity_type_slot = McfStrRef_SlotId(entity_type_ref);
+    type_slot = McfStrRef_SlotId(type_ref);
     x_slot = McfStrRef_SlotId(x_ref);
     y_slot = McfStrRef_SlotId(y_ref);
     z_slot = McfStrRef_SlotId(z_ref);
-    if (entity_type_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0) {
+    if (type_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0) {
         return -1;
     }
 
     __asm volatile (
-        "inline data modify storage std:vm s6.cmd set value %{entity_type: \"\", x: \"\", y: \"\", z: \"\"%}\n"
-        "inline $data modify storage std:vm s6.cmd.entity_type set from storage std:vm mcstr.slots[%1].value\n"
+        "inline data modify storage std:vm s6.cmd set value %{type: \"\", x: \"\", y: \"\", z: \"\"%}\n"
+        "inline $data modify storage std:vm s6.cmd.type set from storage std:vm mcstr.slots[%1].value\n"
         "inline $data modify storage std:vm s6.cmd.x set from storage std:vm mcstr.slots[%2].value\n"
         "inline $data modify storage std:vm s6.cmd.y set from storage std:vm mcstr.slots[%3].value\n"
         "inline $data modify storage std:vm s6.cmd.z set from storage std:vm mcstr.slots[%4].value\n"
         "inline function _ll_shared:z/libmc_cmd_summon with storage std:vm s6.cmd\n"
         "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
         : "=r"(ret)
-        : "r"(entity_type_slot), "r"(x_slot), "r"(y_slot), "r"(z_slot)
+        : "r"(type_slot), "r"(x_slot), "r"(y_slot), "r"(z_slot)
     );
     return ret;
 }
@@ -50,38 +50,34 @@ static inline int
 summon(EntityType type, Vec3d pos)
 {
     int ret;
-    McfStrRef entity_type_name;
-    McfStrRef x;
-    McfStrRef y;
-    McfStrRef z;
-    int entity_type_slot;
+    McfStrRef type_ref;
+    McfStrRef x_ref;
+    McfStrRef y_ref;
+    McfStrRef z_ref;
+    int type_slot;
     int x_slot;
     int y_slot;
     int z_slot;
 
-    entity_type_name = EntityType_EnsureMcfName(type);
-    entity_type_slot = McfStrRef_SlotId(entity_type_name);
-    if (entity_type_slot < 0) {
+    type_ref = EntityType_EnsureMcfName(type);
+    x_ref = _Command_FormatDoubleRef(pos.x);
+    y_ref = _Command_FormatDoubleRef(pos.y);
+    z_ref = _Command_FormatDoubleRef(pos.z);
+    type_slot = McfStrRef_SlotId(type_ref);
+    x_slot = McfStrRef_SlotId(x_ref);
+    y_slot = McfStrRef_SlotId(y_ref);
+    z_slot = McfStrRef_SlotId(z_ref);
+    if (type_slot < 0 || x_slot < 0 || y_slot < 0 || z_slot < 0) {
+        McfStrRef_Release(x_ref);
+        McfStrRef_Release(y_ref);
+        McfStrRef_Release(z_ref);
         return -1;
     }
 
-    x = _Command_FormatDoubleRef(pos.x);
-    x_slot = McfStrRef_SlotId(x);
-    y = _Command_FormatDoubleRef(pos.y);
-    y_slot = McfStrRef_SlotId(y);
-    z = _Command_FormatDoubleRef(pos.z);
-    z_slot = McfStrRef_SlotId(z);
-    if (x_slot < 0 || y_slot < 0 || z_slot < 0) {
-        McfStrRef_Release(x);
-        McfStrRef_Release(y);
-        McfStrRef_Release(z);
-        return -1;
-    }
-
-    ret = summon_unsafe(entity_type_name, x, y, z);
-    McfStrRef_Release(x);
-    McfStrRef_Release(y);
-    McfStrRef_Release(z);
+    ret = summon_unsafe(type_ref, x_ref, y_ref, z_ref);
+    McfStrRef_Release(x_ref);
+    McfStrRef_Release(y_ref);
+    McfStrRef_Release(z_ref);
     return ret;
 }
 

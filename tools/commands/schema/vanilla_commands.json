@@ -1,51 +1,735 @@
 {
   "commands": [
     {
-      "name": "setblock",
-      "header": "setblock.h",
-      "kind": "setblock",
-      "enums": [
+      "name": "advancement",
+      "header": "advancement.h"
+    },
+    {
+      "name": "attribute",
+      "header": "attribute.h"
+    },
+    {
+      "name": "bossbar",
+      "header": "bossbar.h"
+    },
+    {
+      "name": "clear",
+      "header": "clear.h",
+      "variants": [
         {
-          "name": "SetBlockMode",
-          "values": ["DESTROY", "KEEP", "REPLACE"]
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
         }
       ]
+    },
+    {
+      "name": "clone",
+      "header": "clone.h"
+    },
+    {
+      "name": "damage",
+      "header": "damage.h"
+    },
+    {
+      "name": "data",
+      "header": "data.h"
+    },
+    {
+      "name": "datapack",
+      "header": "datapack.h",
+      "variants": [
+        {
+          "c_suffix": "_enable",
+          "literal_path": ["enable"],
+          "params": [
+            {"name": "name", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_disable",
+          "literal_path": ["disable"],
+          "params": [
+            {"name": "name", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_list",
+          "literal_path": ["list"],
+          "params": []
+        }
+      ]
+    },
+    {
+      "name": "defaultgamemode",
+      "header": "defaultgamemode.h",
+      "enums": [
+        {
+          "name": "DefaultGameMode",
+          "values": [
+            {"const": "DEFAULTGAMEMODE_SURVIVAL", "literal": "survival"},
+            {"const": "DEFAULTGAMEMODE_CREATIVE", "literal": "creative"},
+            {"const": "DEFAULTGAMEMODE_ADVENTURE", "literal": "adventure"},
+            {"const": "DEFAULTGAMEMODE_SPECTATOR", "literal": "spectator"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "mode", "type": "enum", "enum_ref": "DefaultGameMode"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "difficulty",
+      "header": "difficulty.h",
+      "enums": [
+        {
+          "name": "DifficultyLevel",
+          "values": [
+            {"const": "DIFFICULTY_PEACEFUL", "literal": "peaceful"},
+            {"const": "DIFFICULTY_EASY", "literal": "easy"},
+            {"const": "DIFFICULTY_NORMAL", "literal": "normal"},
+            {"const": "DIFFICULTY_HARD", "literal": "hard"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "level", "type": "enum", "enum_ref": "DifficultyLevel"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "header": "effect.h"
+    },
+    {
+      "name": "enchant",
+      "header": "enchant.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "enchantment", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_level",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "enchantment", "type": "identifier"},
+            {"name": "level", "type": "int"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "execute",
+      "header": "execute.h"
+    },
+    {
+      "name": "experience",
+      "header": "experience.h"
+    },
+    {
+      "name": "xp",
+      "header": "xp.h"
     },
     {
       "name": "fill",
       "header": "fill.h",
-      "kind": "fill",
       "enums": [
         {
           "name": "FillMode",
-          "values": ["FILL_DESTROY", "FILL_HOLLOW", "FILL_KEEP", "FILL_OUTLINE", "FILL_REPLACE"]
+          "values": [
+            {"const": "FILL_DESTROY", "literal": "destroy"},
+            {"const": "FILL_HOLLOW", "literal": "hollow"},
+            {"const": "FILL_KEEP", "literal": "keep"},
+            {"const": "FILL_OUTLINE", "literal": "outline"},
+            {"const": "FILL_REPLACE", "literal": ""}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "from", "type": "vec3i", "asm_fields": ["from_x", "from_y", "from_z"]},
+            {"name": "to", "type": "vec3i", "asm_fields": ["to_x", "to_y", "to_z"]},
+            {"name": "block", "type": "block"},
+            {"name": "mode", "type": "enum", "enum_ref": "FillMode"}
+          ]
         }
       ]
     },
     {
-      "name": "summon",
-      "header": "summon.h",
-      "kind": "summon"
+      "name": "fillbiome",
+      "header": "fillbiome.h"
+    },
+    {
+      "name": "forceload",
+      "header": "forceload.h",
+      "variants": [
+        {
+          "c_suffix": "_add",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "x", "type": "int"},
+            {"name": "z", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_remove",
+          "literal_path": ["remove"],
+          "params": [
+            {"name": "x", "type": "int"},
+            {"name": "z", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_remove_all",
+          "literal_path": ["remove", "all"],
+          "params": []
+        }
+      ]
+    },
+    {
+      "name": "function",
+      "header": "function.h",
+      "variants": [
+        {
+          "c_suffix": "_call",
+          "params": [
+            {"name": "name", "type": "identifier"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gamemode",
+      "header": "gamemode.h",
+      "enums": [
+        {
+          "name": "GameMode",
+          "values": [
+            {"const": "GAMEMODE_SURVIVAL", "literal": "survival"},
+            {"const": "GAMEMODE_CREATIVE", "literal": "creative"},
+            {"const": "GAMEMODE_ADVENTURE", "literal": "adventure"},
+            {"const": "GAMEMODE_SPECTATOR", "literal": "spectator"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "mode", "type": "enum", "enum_ref": "GameMode"}
+          ]
+        },
+        {
+          "c_suffix": "_target",
+          "params": [
+            {"name": "mode", "type": "enum", "enum_ref": "GameMode"},
+            {"name": "target", "type": "target"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gamerule",
+      "header": "gamerule.h"
+    },
+    {
+      "name": "give",
+      "header": "give.h"
+    },
+    {
+      "name": "help",
+      "header": "help.h"
+    },
+    {
+      "name": "item",
+      "header": "item.h"
     },
     {
       "name": "kill",
       "header": "kill.h",
-      "kind": "kill"
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
+        }
+      ]
     },
     {
-      "name": "tp",
-      "header": "tp.h",
-      "kind": "tp"
+      "name": "list",
+      "header": "list.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        },
+        {
+          "c_suffix": "_uuids",
+          "literal_path": ["uuids"],
+          "params": []
+        }
+      ]
+    },
+    {
+      "name": "locate",
+      "header": "locate.h"
+    },
+    {
+      "name": "loot",
+      "header": "loot.h"
+    },
+    {
+      "name": "me",
+      "header": "me.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "action", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "msg",
+      "header": "msg.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "message", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tell",
+      "header": "tell.h",
+      "alias_of": "msg"
+    },
+    {
+      "name": "w",
+      "header": "w.h",
+      "alias_of": "msg"
+    },
+    {
+      "name": "particle",
+      "header": "particle.h"
+    },
+    {
+      "name": "place",
+      "header": "place.h"
+    },
+    {
+      "name": "playsound",
+      "header": "playsound.h"
+    },
+    {
+      "name": "random",
+      "header": "random.h"
+    },
+    {
+      "name": "recipe",
+      "header": "recipe.h",
+      "variants": [
+        {
+          "c_suffix": "_give",
+          "literal_path": ["give"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "recipe", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_take",
+          "literal_path": ["take"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "recipe", "type": "identifier"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reload",
+      "header": "reload.h"
+    },
+    {
+      "name": "ride",
+      "header": "ride.h"
+    },
+    {
+      "name": "rotate",
+      "header": "rotate.h"
     },
     {
       "name": "say",
       "header": "say.h",
-      "kind": "say"
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "text", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "schedule",
+      "header": "schedule.h",
+      "variants": [
+        {
+          "c_suffix": "_function",
+          "literal_path": ["function"],
+          "params": [
+            {"name": "name", "type": "identifier"},
+            {"name": "delay", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_clear",
+          "literal_path": ["clear"],
+          "params": [
+            {"name": "name", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scoreboard",
+      "header": "scoreboard.h"
+    },
+    {
+      "name": "seed",
+      "header": "seed.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        }
+      ]
+    },
+    {
+      "name": "setblock",
+      "header": "setblock.h",
+      "enums": [
+        {
+          "name": "SetBlockMode",
+          "values": [
+            {"const": "SETBLOCK_DESTROY", "literal": "destroy"},
+            {"const": "SETBLOCK_KEEP", "literal": "keep"},
+            {"const": "SETBLOCK_REPLACE", "literal": ""}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]},
+            {"name": "block", "type": "block"},
+            {"name": "mode", "type": "enum", "enum_ref": "SetBlockMode"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spawnpoint",
+      "header": "spawnpoint.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        },
+        {
+          "c_suffix": "_target",
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_at",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "setworldspawn",
+      "header": "setworldspawn.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        },
+        {
+          "c_suffix": "_at",
+          "params": [
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spectate",
+      "header": "spectate.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        },
+        {
+          "c_suffix": "_target",
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_as",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "player", "type": "target"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spreadplayers",
+      "header": "spreadplayers.h"
+    },
+    {
+      "name": "stopsound",
+      "header": "stopsound.h"
+    },
+    {
+      "name": "summon",
+      "header": "summon.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "type", "type": "entity_type"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "header": "tag.h"
+    },
+    {
+      "name": "team",
+      "header": "team.h"
+    },
+    {
+      "name": "teammsg",
+      "header": "teammsg.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "message", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tm",
+      "header": "tm.h",
+      "alias_of": "teammsg"
+    },
+    {
+      "name": "teleport",
+      "header": "teleport.h",
+      "alias_of": "tp"
+    },
+    {
+      "name": "tp",
+      "header": "tp.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]}
+          ]
+        },
+        {
+          "c_suffix": "_rot",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]},
+            {"name": "rot", "type": "vec2f", "asm_fields": ["yaw", "pitch"]}
+          ]
+        },
+        {
+          "c_suffix": "_entity",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "destination", "type": "target"}
+          ]
+        }
+      ]
     },
     {
       "name": "tellraw",
       "header": "tellraw.h",
-      "kind": "tellraw"
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "json", "type": "string"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "time",
+      "header": "time.h",
+      "enums": [
+        {
+          "name": "TimePreset",
+          "values": [
+            {"const": "TIME_PRESET_DAY", "literal": "day"},
+            {"const": "TIME_PRESET_NOON", "literal": "noon"},
+            {"const": "TIME_PRESET_NIGHT", "literal": "night"},
+            {"const": "TIME_PRESET_MIDNIGHT", "literal": "midnight"}
+          ]
+        },
+        {
+          "name": "TimeQueryKind",
+          "values": [
+            {"const": "TIME_QUERY_DAYTIME", "literal": "daytime"},
+            {"const": "TIME_QUERY_GAMETIME", "literal": "gametime"},
+            {"const": "TIME_QUERY_DAY", "literal": "day"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "_set",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "amount", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_set_preset",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "preset", "type": "enum", "enum_ref": "TimePreset"}
+          ]
+        },
+        {
+          "c_suffix": "_add",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "amount", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_query",
+          "literal_path": ["query"],
+          "params": [
+            {"name": "query", "type": "enum", "enum_ref": "TimeQueryKind"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "title",
+      "header": "title.h"
+    },
+    {
+      "name": "trigger",
+      "header": "trigger.h"
+    },
+    {
+      "name": "weather",
+      "header": "weather.h",
+      "enums": [
+        {
+          "name": "WeatherType",
+          "values": [
+            {"const": "WEATHER_CLEAR", "literal": "clear"},
+            {"const": "WEATHER_RAIN", "literal": "rain"},
+            {"const": "WEATHER_THUNDER", "literal": "thunder"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "type", "type": "enum", "enum_ref": "WeatherType"}
+          ]
+        },
+        {
+          "c_suffix": "_duration",
+          "params": [
+            {"name": "type", "type": "enum", "enum_ref": "WeatherType"},
+            {"name": "duration", "type": "int"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "worldborder",
+      "header": "worldborder.h",
+      "variants": [
+        {
+          "c_suffix": "_set",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "distance", "type": "double"}
+          ]
+        },
+        {
+          "c_suffix": "_add",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "distance", "type": "double"}
+          ]
+        },
+        {
+          "c_suffix": "_set_time",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "distance", "type": "double"},
+            {"name": "seconds", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_center",
+          "literal_path": ["center"],
+          "params": [
+            {"name": "x", "type": "double"},
+            {"name": "z", "type": "double"}
+          ]
+        }
+      ]
     }
   ]
 }
