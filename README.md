@@ -2,15 +2,15 @@
 
 English | [简体中文](./README_CN.md)
 
-<img width="300" src="https://github.com/xia-mc/clang-mc/blob/main/logo.png?raw=true" alt="logo">
+<img width="300" src="https://github.com/clang-mc/clang-mc/blob/main/logo.png?raw=true" alt="logo">
 
 # clang-mc
 
 ## A Development Toolchain for Minecraft Datapacks
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/xia-mc/clang-mc)](https://github.com/xia-mc/clang-mc/issues)
-![Total lines](https://img.shields.io/endpoint?url=https://tokei.kojix2.net/badge/github/xia-mc/clang-mc/lines)
+[![Issues](https://img.shields.io/github/issues/clang-mc/clang-mc)](https://github.com/clang-mc/clang-mc/issues)
+![Total lines](https://img.shields.io/endpoint?url=https://tokei.kojix2.net/badge/github/clang-mc/clang-mc/lines)
 ![Version](https://img.shields.io/badge/Minecraft-1.21_and_later-blue)
 
 </div>
@@ -28,7 +28,7 @@ Minecraft datapack development has long suffered from **poor readability, mainte
 
 This project seeks to address these issues to some extent.
 
-Check out [Wiki](https://github.com/xia-mc/clang-mc/wiki) to learn more.
+Check out [Wiki](https://github.com/clang-mc/clang-mc/wiki) to learn more.
 
 ---
 
@@ -48,6 +48,8 @@ Check out [Wiki](https://github.com/xia-mc/clang-mc/wiki) to learn more.
 
 Contributions are welcome! Feel free to submit issues or pull requests.  
 Please note that this project is still in its early stages, and we greatly appreciate any feedback or suggestions.
+
+New to the codebase? See [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) for a quick tour of the compilation pipeline.
 
 ---
 
