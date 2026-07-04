@@ -70,3 +70,9 @@ __pycache__
 .xmake/
 compile_commands.json
 CMakeLists.txt
+
+# clangd index cache
+.cache/
+
+# benchmark run logs
+benchmark/*.log
