@@ -15,6 +15,24 @@ typedef enum {
 extern "C" {
 #endif
 
+__asm__(
+"export _ll_shared:z/gamemode_target_unsafe_exec_0:\n"
+"    inline $execute store result score r0 vm_regs run gamemode survival $(target)\n"
+"    ret\n"
+"\n"
+"export _ll_shared:z/gamemode_target_unsafe_exec_1:\n"
+"    inline $execute store result score r0 vm_regs run gamemode creative $(target)\n"
+"    ret\n"
+"\n"
+"export _ll_shared:z/gamemode_target_unsafe_exec_2:\n"
+"    inline $execute store result score r0 vm_regs run gamemode adventure $(target)\n"
+"    ret\n"
+"\n"
+"export _ll_shared:z/gamemode_target_unsafe_exec_3:\n"
+"    inline $execute store result score r0 vm_regs run gamemode spectator $(target)\n"
+"    ret\n"
+);
+
 static inline int
 gamemode(GameMode mode)
 {
@@ -69,7 +87,8 @@ gamemode_target_unsafe(GameMode mode, McfStrRef target_ref)
                 : "r"(target_slot)
             );
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run gamemode survival $(target)"
+                "inline function _ll_shared:z/gamemode_target_unsafe_exec_0 with storage std:vm ls0\n"
+                "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
                 : "=r"(ret)
             );
             return ret;
@@ -80,7 +99,8 @@ gamemode_target_unsafe(GameMode mode, McfStrRef target_ref)
                 : "r"(target_slot)
             );
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run gamemode creative $(target)"
+                "inline function _ll_shared:z/gamemode_target_unsafe_exec_1 with storage std:vm ls0\n"
+                "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
                 : "=r"(ret)
             );
             return ret;
@@ -91,7 +111,8 @@ gamemode_target_unsafe(GameMode mode, McfStrRef target_ref)
                 : "r"(target_slot)
             );
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run gamemode adventure $(target)"
+                "inline function _ll_shared:z/gamemode_target_unsafe_exec_2 with storage std:vm ls0\n"
+                "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
                 : "=r"(ret)
             );
             return ret;
@@ -102,7 +123,8 @@ gamemode_target_unsafe(GameMode mode, McfStrRef target_ref)
                 : "r"(target_slot)
             );
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run gamemode spectator $(target)"
+                "inline function _ll_shared:z/gamemode_target_unsafe_exec_3 with storage std:vm ls0\n"
+                "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
                 : "=r"(ret)
             );
             return ret;

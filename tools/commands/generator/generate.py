@@ -394,7 +394,7 @@ def render_template_a(cmd_name: str, suffix: str, variant: dict, slots: list[dic
 
 def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: list[dict],
                         value_slots: list[dict], enum_value: dict | None, indent: str,
-                        in_unsafe: bool) -> str:
+                        in_unsafe: bool, fname: str, branch_key: str) -> tuple[str, list[str]]:
     # Inside an _unsafe() function, value slots are real declared parameters
     # named after their flat_name (e.g. setblock_unsafe(int x, int y, int z, ...)).
     # Without an _unsafe layer (has_ref == False), this asm is embedded
@@ -402,12 +402,17 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
     # *un-expanded* schema params (e.g. setworldspawn_at(Vec3i pos)) — so a
     # grouped value field must be read via its source_expr (pos.x), not the
     # flat_name (x), which was never declared as a local in that scope.
+    #
+    # Returns (branch_c_code, export_snippets). export_snippets are file-scope
+    # `export ...:` mcfunction helpers that must be emitted outside the C
+    # function (see the "explicit hoist" note below).
     def value_expr(slot: dict) -> str:
         return slot["flat_name"] if in_unsafe else slot["source_expr"]
 
     cmd_text = render_command_text(tokens, enum_value)
     inner = indent + "    "
     lines = []
+    exports: list[str] = []
 
     if ref_slots:
         write_lines = []
@@ -425,6 +430,34 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
         lines.append(f"{inner}: {operand_list}")
         lines.append(f"{indent});")
 
+    # A ref field contributes a `$(name)` macro to the command text, which
+    # stays a runtime macro line. Such a line MUST run inside a mcfunction
+    # invoked `with storage`, or Minecraft aborts the whole function on the
+    # missing macro argument — skipping the caller's stack epilogue and
+    # leaking rsp (see GAMEMODE_TARGET_CODEGEN_BUG.md).
+    #
+    # When there are value operands, `$$direct_args` already forces the mcasm
+    # backend to hoist the whole `$execute ...` line into a `with storage`
+    # helper (setblock/fill), carrying the `$(name)` macro along. But with no
+    # value operands there is nothing for the backend to hoist on, so we hoist
+    # the macro command ourselves into an explicit file-scope helper (the same
+    # shape Template A uses) and invoke it `with storage std:vm ls0`.
+    needs_explicit_hoist = bool(ref_slots) and not value_slots
+    if needs_explicit_hoist:
+        label = f"_ll_shared:z/{fname}_unsafe_exec{branch_key}"
+        exports.append(
+            f'"export {label}:\\n"\n'
+            f'"    inline $execute store result score r0 vm_regs run {cmd_text}\\n"\n'
+            f'"    ret\\n"'
+        )
+        lines.append(f"{indent}__asm volatile (")
+        lines.append(f'{inner}"inline function {label} with storage std:vm ls0\\n"')
+        lines.append(f'{inner}"inline scoreboard players operation %0 vm_regs = r0 vm_regs"')
+        lines.append(f'{inner}: "=r"(ret)')
+        lines.append(f"{indent});")
+        lines.append(f"{indent}return ret;")
+        return "\n".join(lines), exports
+
     exec_lines = []
     if value_slots:
         exec_lines.append('"$$direct_args\\n"')
@@ -440,7 +473,7 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
     lines.append(f"{indent});")
     lines.append(f"{indent}return ret;")
 
-    return "\n".join(lines)
+    return "\n".join(lines), exports
 
 
 def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dict], enums_by_name: dict):
@@ -455,14 +488,16 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
     tokens = build_command_tokens(cmd_name, variant, slots)
     in_unsafe = len(ref_slots) > 0
 
+    exports: list[str] = []
     if enum_slot is not None:
         enum_spec = enums_by_name[enum_slot["enum_ref"]]
         switch_cases = []
-        for value in enum_spec["values"]:
-            branch = _render_asm_branch(
+        for i, value in enumerate(enum_spec["values"]):
+            branch, branch_exports = _render_asm_branch(
                 cmd_name, variant, tokens, ref_slots, value_slots, value,
-                indent="            ", in_unsafe=in_unsafe
+                indent="            ", in_unsafe=in_unsafe, fname=fname, branch_key=f"_{i}"
             )
+            exports.extend(branch_exports)
             switch_cases.append(f"""        case {value["const"]}:
 {branch}""")
         switch_body = "\n".join(switch_cases)
@@ -472,9 +507,9 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
             return -1;
     }}"""
     else:
-        asm_and_return = _render_asm_branch(
+        asm_and_return, exports = _render_asm_branch(
             cmd_name, variant, tokens, ref_slots, value_slots, None,
-            indent="    ", in_unsafe=in_unsafe
+            indent="    ", in_unsafe=in_unsafe, fname=fname, branch_key=""
         )
 
     def slot_unsafe_param(slot: dict) -> str:
@@ -577,7 +612,8 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
 }}
 """)
 
-    return None, "\n".join(parts)
+    export_snippet = '\n"\\n"\n'.join(exports) if exports else None
+    return export_snippet, "\n".join(parts)
 
 
 def render_variant(cmd_name: str, variant: dict, enums_by_name: dict):
