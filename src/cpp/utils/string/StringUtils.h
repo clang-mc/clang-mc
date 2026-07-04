@@ -255,6 +255,24 @@ namespace string {
         });
     }
 
+    // 把任意标签名修饰为合法的 mcfunction 资源路径片段：小写化，保留 [a-z0-9_.-] 与 '/'，
+    // 其余字符替换为 '_'。仅做字符合法化，不负责唯一性（唯一性由调用方保证）。
+    PURE static inline std::string legalizeMCPath(const std::string_view &str) {
+        auto result = std::string(str.size(), '\0');
+        for (size_t i = 0; i < str.size(); ++i) {
+            const char c = str[i];
+            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
+                || c == '_' || c == '.' || c == '-' || c == '/') {
+                result[i] = c;
+            } else if (c >= 'A' && c <= 'Z') {
+                result[i] = static_cast<char>(c - 'A' + 'a');
+            } else {
+                result[i] = '_';
+            }
+        }
+        return result;
+    }
+
     PURE static inline constexpr std::string toLowerCase(std::string str) noexcept {
         for (auto &c: str) {
             c = (char) tolower(c);

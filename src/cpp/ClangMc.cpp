@@ -8,6 +8,7 @@
 #include "objects/LogFormatter.h"
 #include "builder/Builder.h"
 #include "builder/PostOptimizer.h"
+#include "builder/Obfuscator.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
 #include "uuidWrapper.h"
@@ -99,10 +100,16 @@ void ClangMc::start() {
         }
         parseManager.freeIR();
 
-        // post optimize
-        if (!config.getDebugInfo()) {
+        // post optimize（仅 -O2 启用）
+        if (config.getOptLevel() >= 2) {
             auto postOptimizer = PostOptimizer(mcFunctions);
             postOptimizer.optimize();
+        }
+
+        // obfuscate（仅 -O1/-O2 启用；-g 抑制混淆以保留可读名便于调试）
+        if (config.getOptLevel() >= 1 && !config.getDebugInfo()) {
+            auto obfuscator = Obfuscator(mcFunctions, context, config);
+            obfuscator.obfuscate();
         }
 
 #ifndef NDEBUG

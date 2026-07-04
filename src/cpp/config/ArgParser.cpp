@@ -102,6 +102,19 @@ void ArgParser::next(const std::string &arg) {
             // 抑制所有警告
             config.setNoWarn(true);
             return;
+        CASE_STR("-O0"):
+            // 优化等级 0（默认）：可读名，不混淆、不后优化
+            config.setOptLevel(0);
+            return;
+        CASE_STR("-O"):
+        CASE_STR("-O1"):
+            // 优化等级 1：启用重命名混淆
+            config.setOptLevel(1);
+            return;
+        CASE_STR("-O2"):
+            // 优化等级 2：在 -O1 基础上叠加 PostOptimizer 后优化
+            config.setOptLevel(2);
+            return;
         default:
             break;
     }
