@@ -8,7 +8,6 @@
 #include "objects/LogFormatter.h"
 #include "builder/Builder.h"
 #include "builder/PostOptimizer.h"
-#include "builder/Obfuscator.h"
 #include "ir/opt/Optimizer.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
@@ -107,16 +106,11 @@ void ClangMc::start() {
         }
         parseManager.freeIR();
 
-        // post optimize（仅 -O2 启用）
-        if (config.getOptLevel() >= 2) {
-            auto postOptimizer = PostOptimizer(mcFunctions);
+        // 后优化流水线（含并入的名称混淆 pass）。optimize() 内部按等级门控：
+        // 行/函数级 pass 仅 -O2；名称混淆 pass 为 optLevel>=1 且非 -g（历史行为不变）。
+        if (config.getOptLevel() >= 1) {
+            auto postOptimizer = PostOptimizer(mcFunctions, context, config);
             postOptimizer.optimize();
-        }
-
-        // obfuscate（仅 -O1/-O2 启用；-g 抑制混淆以保留可读名便于调试）
-        if (config.getOptLevel() >= 1 && !config.getDebugInfo()) {
-            auto obfuscator = Obfuscator(mcFunctions, context, config);
-            obfuscator.obfuscate();
         }
 
 #ifndef NDEBUG
