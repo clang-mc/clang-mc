@@ -21,6 +21,8 @@ public:
         }
     }
 
+    GETTER(Id, id);
+
     [[nodiscard]] std::string toString() const noexcept override {
         return fmt::format("calld {}", id->toString());
     }

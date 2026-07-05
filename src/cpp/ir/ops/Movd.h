@@ -21,6 +21,8 @@ public:
         }
     }
 
+    GETTER(Target, target);
+
     [[nodiscard]] std::string toString() const noexcept override {
         return fmt::format("movd {}, {}", target->toString(), label);
     }

@@ -20,6 +20,9 @@ class Case:
     expected_rax: int = 0
     expected_rsp: int = 16384
     wait_seconds: int = 20
+    # 传给 clang-mc 的额外参数（如 mcasm 级优化/混淆等级 "-O1"/"-O2"/"--enable-obf"）。
+    # 缺省为空，即 clang-mc 以 -O0 运行（与历史行为一致）。
+    mc_opt: tuple[str, ...] = ()
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -130,6 +133,15 @@ CASES: list[Case] = [
     Case("preprocessor_once_o0", "preprocessor_once_probe.c"),
     Case("movd_preserve_rax_probe_o0", "movd_preserve_rax_probe.c"),
     Case("static_parse_edge_probe_o0", "static_parse_edge_probe.c"),
+    # mcasm(IR)级优化的语义等价用例：同一程序在 clang-mc -O1/-O2 下应与 -O0 得到
+    # 完全一致的 rax/rsp。覆盖直接/间接调用、互递归、循环等对优化 pass 敏感的场景。
+    Case("function_pointer_direct_mcO1", "function_pointer_direct.c", mc_opt=("-O1",)),
+    Case("function_pointer_direct_mcO2", "function_pointer_direct.c", mc_opt=("-O2",)),
+    Case("function_pointer_basic_mcO1", "function_pointer_basic.c", mc_opt=("-O1",)),
+    Case("mutual_recursion_mcO1", "mutual_recursion.c", mc_opt=("-O1",)),
+    Case("mutual_recursion_mcO2", "mutual_recursion.c", mc_opt=("-O2",)),
+    Case("loop_mix_mcO1", "loop_mix.c", mc_opt=("-O1",)),
+    Case("recursion_factorial_mcO2", "recursion_factorial.c", mc_opt=("-O2",)),
 ]
 
 
@@ -354,7 +366,8 @@ def compile_case(case: Case) -> Path:
         ROOT,
     )
     run_logged(
-        [str(ASM), str(mcasm_path), "-N", "a", "-B", str(pack_build), "-o", str(case_dir / "pack.zip")],
+        [str(ASM), str(mcasm_path), "-N", "a", "-B", str(pack_build), "-o", str(case_dir / "pack.zip"),
+         *case.mc_opt],
         asm_log,
         ROOT,
     )

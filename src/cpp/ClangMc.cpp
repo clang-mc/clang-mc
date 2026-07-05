@@ -9,6 +9,7 @@
 #include "builder/Builder.h"
 #include "builder/PostOptimizer.h"
 #include "builder/Obfuscator.h"
+#include "ir/opt/Optimizer.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
 #include "uuidWrapper.h"
@@ -68,6 +69,12 @@ void ClangMc::start() {
         Verifier(logger, config, irs).verify();
         if (!config.getDebugInfo()) {
             parseManager.freeSource();
+        }
+
+        // mcasm(IR)级优化阶段（仅 optLevel>=1 启用；运行在校验之后、编译之前）
+        if (config.getOptLevel() >= 1) {
+            auto optimizer = Optimizer(irs);
+            optimizer.optimize();
         }
 
         if (config.getPreprocessOnly()) {

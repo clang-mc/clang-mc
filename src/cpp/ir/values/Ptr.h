@@ -78,6 +78,14 @@ public:
         assert(!(base == nullptr && index != nullptr && scale == 1));
     }
 
+    GETTER_POD(Base, base);
+
+    GETTER_POD(Index, index);
+
+    GETTER_POD(Scale, scale);
+
+    GETTER_POD(Displacement, displacement);
+
     [[nodiscard]] std::string toString() const noexcept override {
         auto builder = StringBuilder();
         if (base != nullptr) {
