@@ -70,6 +70,8 @@ target("clang-mc")
         "src/cpp/builder/postopt/passes/function/ExecuteGroupPass.cpp",
         "src/cpp/builder/postopt/passes/generated/SpecialFunctionPass.cpp",
         "src/cpp/builder/postopt/passes/generated/RenameInternalFunctionsPass.cpp",
+        "src/cpp/builder/postopt/passes/generated/InlineFunctionsPass.cpp",
+        "src/cpp/builder/postopt/passes/generated/DeadFunctionEliminationPass.cpp",
         "src/cpp/builder/postopt/passes/line/LineCleanupPass.cpp",
         "src/cpp/builder/postopt/passes/line/SafeLineTransforms.cpp",
         "src/cpp/parse/ParseManager.cpp",
