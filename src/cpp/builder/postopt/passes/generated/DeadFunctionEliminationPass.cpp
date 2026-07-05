@@ -13,7 +13,7 @@ static FORCEINLINE bool isNameChar(const char c) {
 }
 
 // data/<ns>/function/<path>.mcfunction -> "<ns>:<path>"；非函数路径返回空串。
-static std::string refFromPath(const Path &path) {
+std::string refFromMcPath(const Path &path) {
     auto rel = path.generic_string();
     static const std::string prefix = "data/";
     static const std::string mid = "/function/";
@@ -34,7 +34,7 @@ static std::string refFromPath(const Path &path) {
 }
 
 // 把 body 中出现的、且属于 names 的函数名 token 收集到 out（去重）。
-static void collectMentions(const std::string &body, const HashSet<std::string> &names, HashSet<std::string> &out) {
+void collectFunctionMentions(const std::string &body, const HashSet<std::string> &names, HashSet<std::string> &out) {
     const size_t n = body.size();
     size_t i = 0;
     while (i < n) {
@@ -74,7 +74,7 @@ void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext 
         auto nameToPath = HashMap<std::string, Path>();
         names.reserve(map.size());
         for (const auto &entry: map) {
-            auto name = refFromPath(entry.first);
+            auto name = refFromMcPath(entry.first);
             if (name.empty()) {
                 continue;
             }
@@ -108,7 +108,7 @@ void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext 
                 continue;
             }
             auto mentions = HashSet<std::string>();
-            collectMentions(found->second, names, mentions);
+            collectFunctionMentions(found->second, names, mentions);
             for (const auto &m: mentions) {
                 if (reachable.emplace(m).second) {
                     worklist.push_back(m);

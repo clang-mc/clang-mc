@@ -156,6 +156,22 @@ CASES: list[Case] = [
     Case("mutual_recursion_enable_obf", "mutual_recursion.c", mc_opt=("--enable-obf",)),
     Case("loop_mix_enable_obf", "loop_mix.c", mc_opt=("--enable-obf",)),
     Case("loop_mix_enable_obf_O2", "loop_mix.c", mc_opt=("--enable-obf", "-O2")),
+    # ------------------------------------------------------------------
+    # 重量级、需服务器、Task5 新增：整程序优化（WPO / 链接期 stdlib 死函数消除）语义
+    # 等价用例。Builder::link() 在 optLevel>=1 时以“全程序非 stdlib 函数（含 onLoad
+    # 调度的 std:init_vm）”为根做可达性分析，剪掉本程序用不到的手写库函数（如无函数指针
+    # 时删 std:_internal/calld、无字符串时删 std:_internal/mcstr_*）。这些用例断言剪枝后
+    # 的数据包在真实服务器上的 rax/rsp 与 -O0 基线完全一致——即 DCE 只删死函数、WPO 严格
+    # 保持运行时语义（不同 fixture 有不同 stdlib 足迹，覆盖“删对/留对”两侧）：
+    #   - recursion_factorial：纯整数直接递归，无字符串/函数指针，触发最强剪枝；
+    #   - libc_printf：使用字符串/堆，WPO 须保留其实际用到的字符串/堆库函数，仅剪其余；
+    #   - loop_mix：循环 + 混合运算，验证栈自旋相关库函数在剪枝后仍完好。
+    # 结构层面的“确有剪枝 + 零悬空 + 入口链完好”已由无服务器的 tests/run_wpo_tests.py 覆盖；
+    # 此处补运行时等价的最终确认。
+    # 【只写不跑】——服务器很慢，请用户自行择时运行 run_datapack_tests.py。
+    Case("recursion_factorial_wpo_O1", "recursion_factorial.c", mc_opt=("-O1",)),
+    Case("libc_printf_wpo_O2", "libc_printf.c", mc_opt=("-O2",)),
+    Case("loop_mix_wpo_O2", "loop_mix.c", mc_opt=("-O2",)),
 ]
 
 
