@@ -102,6 +102,10 @@ void ArgParser::next(const std::string &arg) {
             // 抑制所有警告
             config.setNoWarn(true);
             return;
+        CASE_STR("--enable-obf"):
+            // 启用 mcasm(IR)级混淆（常量隐藏 + 冷代码间接调用），与 -O 等级独立
+            config.setEnableObf(true);
+            return;
         CASE_STR("-O0"):
             // 优化等级 0（默认）：可读名，不混淆、不后优化
             config.setOptLevel(0);

@@ -142,6 +142,20 @@ CASES: list[Case] = [
     Case("mutual_recursion_mcO2", "mutual_recursion.c", mc_opt=("-O2",)),
     Case("loop_mix_mcO1", "loop_mix.c", mc_opt=("-O1",)),
     Case("recursion_factorial_mcO2", "recursion_factorial.c", mc_opt=("-O2",)),
+    # ------------------------------------------------------------------
+    # 重量级、需服务器、Task4 新增：mcasm(IR)级混淆（--enable-obf）语义等价用例。
+    # 断言同一程序在 `--enable-obf`（以及叠加 -O2）下的运行时 rax/rsp 与 -O0 基线一致，
+    # 即两种混淆（常量隐藏 + 冷代码间接调用）严格保持语义。混淆开关经现有 mc_opt 通道
+    # 转发给 clang-mc（与 -O1/-O2 同理），故无需新增字段。
+    # 【只写不跑】——服务器很慢，请用户自行择时运行 run_datapack_tests.py。
+    Case("obf_probe_enable_obf", "obf_probe.c", mc_opt=("--enable-obf",)),
+    Case("obf_probe_enable_obf_O2", "obf_probe.c", mc_opt=("--enable-obf", "-O2")),
+    Case("function_pointer_direct_enable_obf", "function_pointer_direct.c", mc_opt=("--enable-obf",)),
+    Case("recursion_factorial_enable_obf", "recursion_factorial.c", mc_opt=("--enable-obf",)),
+    Case("recursion_factorial_enable_obf_O2", "recursion_factorial.c", mc_opt=("--enable-obf", "-O2")),
+    Case("mutual_recursion_enable_obf", "mutual_recursion.c", mc_opt=("--enable-obf",)),
+    Case("loop_mix_enable_obf", "loop_mix.c", mc_opt=("--enable-obf",)),
+    Case("loop_mix_enable_obf_O2", "loop_mix.c", mc_opt=("--enable-obf", "-O2")),
 ]
 
 

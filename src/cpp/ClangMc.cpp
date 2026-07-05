@@ -9,6 +9,7 @@
 #include "builder/Builder.h"
 #include "builder/PostOptimizer.h"
 #include "ir/opt/Optimizer.h"
+#include "ir/obf/Obfuscator.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
 #include "uuidWrapper.h"
@@ -74,6 +75,14 @@ void ClangMc::start() {
         if (config.getOptLevel() >= 1) {
             auto optimizer = Optimizer(irs);
             optimizer.optimize();
+        }
+
+        // mcasm(IR)级混淆阶段（由 --enable-obf 门控，与 -O 等级独立，opt-in）。
+        // 置于 IR 优化之后：其一，间接调用混淆是去虚拟化的逆操作，必须晚于去虚拟化
+        // 才不会被撤销；其二，-E 转储会反映混淆后的 IR，可做无服务器结构测试。
+        if (config.getEnableObf()) {
+            auto obfuscator = Obfuscator(irs);
+            obfuscator.obfuscate();
         }
 
         if (config.getPreprocessOnly()) {
