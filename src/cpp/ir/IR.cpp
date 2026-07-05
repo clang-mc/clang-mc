@@ -115,7 +115,10 @@ void IR::parse(std::string &&code) {
 
                 if (Label *ptr = INSTANCEOF(op, Label)) {
                     if (!labelStack.isEmpty() && !ptr->getExtern() && !ptr->getExport()) {
-                        auto newLabel = fmt::format("__label_{}", labelRenamer.generate());
+                        // 保留可读基名 + 唯一后缀（用于宏多次展开时的 hash 去重），
+                        // 使 -g 调试注释仍能对照源码；不做不透明化混淆。
+                        auto newLabel = fmt::format("{}.{}", string::legalizeMCPath(ptr->getLabel()),
+                                                    labelRenamer.generate());
                         labelState.renameLabelMap.emplace(ptr->getLabelHash(), newLabel);
                         ptr->setLabel(std::move(newLabel));
                     }
@@ -158,7 +161,12 @@ FORCEINLINE std::string IR::createForCall(const Label *labelOp) {
         return labelOp->getLabel();
     }
 
-    return config.getNameSpace() + generateName();
+    // 内部（非导出/extern）函数：产出“可读且合法”的名字，而非不透明短名。
+    // 以源文件名（stem，不含目录与扩展名）作前缀，兼顾可读性与路径长度；
+    // 跨文件/同文件的唯一性由 initLabels 中针对全局内部名集合的去重保证。
+    // 真正的不透明化混淆延后到 -O1/-O2 的 Obfuscator 阶段处理。
+    return config.getNameSpace() + string::legalizeMCPath(this->file.stem().string())
+           + "/" + string::legalizeMCPath(labelOp->getLabel());
 }
 
 static inline Path toPath(const std::string &mcPath) {
@@ -185,6 +193,24 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
         assert(!labelMap.contains(label));
 
         auto labelNameForCall = createForCall(labelOp);
+
+        // 内部函数名（stem/label 形式）在 legalize 后可能撞名——同 IR 内（如 Loop/loop、
+        // a.b/a_b），或跨 IR 同名文件同名标签（如两个 main.mcasm 各有 loop）。用全局内部名
+        // 集合去重、追加计数后缀兜底，保证跨编译单元的函数路径唯一；同时登记内部名供
+        // Obfuscator 识别可混淆目标。
+        if (!labelOp->getExport() && !labelOp->getExtern()) {
+            auto &internalNames = context.getInternalFunctions();
+            if (internalNames.contains(labelNameForCall)) {
+                size_t counter = 1;
+                std::string candidate;
+                do {
+                    candidate = fmt::format("{}_{}", labelNameForCall, counter++);
+                } while (internalNames.contains(candidate));
+                labelNameForCall = std::move(candidate);
+            }
+            internalNames.emplace(labelNameForCall);
+        }
+
         labelMap.emplace(label, labelNameForCall);
 
         if (label == hash("_start")) {

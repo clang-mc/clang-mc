@@ -1,0 +1,23 @@
+// mcasm(IR)级优化回归 fixture。通过 `clang-mc -E` 在 -O0 与 -O1 下对比 IR。
+// 覆盖：常量折叠、拷贝传播化简、单次调用内联、间接调用去虚拟化、死代码消除。
+export _start:
+    mov r0, 10
+    add r0, 5           // 常量折叠 -> mov r0, 15
+    mov r1, r0          // 拷贝/常量传播 -> mov r1, 15
+    call single_use     // 单次调用 -> 内联并删除 single_use
+    mul r2, 0           // 代数化简 -> mov r2, 0
+    add r3, 0           // 代数化简 -> 删除(nop)
+    mov r4, r4          // 自赋值 -> 删除(nop)
+    movd r5, helper
+    calld r5            // 去虚拟化 -> call helper
+    mov rax, r1
+    ret
+
+single_use:
+    mov r6, 7
+    add r6, 1           // -> mov r6, 8，随后整体内联进 _start
+    ret
+
+helper:
+    mov r7, 99
+    ret

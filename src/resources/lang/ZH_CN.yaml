@@ -13,6 +13,8 @@ cli.help_message_template: |
      -Werror                 \t将所有警告视为错误
      -E                      \t仅运行预处理器
      -w                      \t抑制所有警告
+     -O0/-O1/-O2             \t设置优化等级（默认 -O0；-O1 启用重命名混淆，-O2 额外启用后优化）
+     --enable-obf            \t启用 mcasm(IR)级混淆（常量隐藏 + 冷代码间接调用），与 -O 等级独立
 cli.version_message_template: |
   {} 版本 {}
   目标: {}

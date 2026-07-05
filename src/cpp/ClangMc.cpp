@@ -8,6 +8,8 @@
 #include "objects/LogFormatter.h"
 #include "builder/Builder.h"
 #include "builder/PostOptimizer.h"
+#include "ir/opt/Optimizer.h"
+#include "ir/obf/Obfuscator.h"
 #include "extern/ResourceManager.h"
 #include "parse/ParseManager.h"
 #include "uuidWrapper.h"
@@ -69,6 +71,20 @@ void ClangMc::start() {
             parseManager.freeSource();
         }
 
+        // mcasm(IR)级优化阶段（仅 optLevel>=1 启用；运行在校验之后、编译之前）
+        if (config.getOptLevel() >= 1) {
+            auto optimizer = Optimizer(irs);
+            optimizer.optimize();
+        }
+
+        // mcasm(IR)级混淆阶段（由 --enable-obf 门控，与 -O 等级独立，opt-in）。
+        // 置于 IR 优化之后：其一，间接调用混淆是去虚拟化的逆操作，必须晚于去虚拟化
+        // 才不会被撤销；其二，-E 转储会反映混淆后的 IR，可做无服务器结构测试。
+        if (config.getEnableObf()) {
+            auto obfuscator = Obfuscator(irs);
+            obfuscator.obfuscate();
+        }
+
         if (config.getPreprocessOnly()) {
             for (auto &ir: irs) {
                 ir.preCompile();
@@ -99,9 +115,10 @@ void ClangMc::start() {
         }
         parseManager.freeIR();
 
-        // post optimize
-        if (!config.getDebugInfo()) {
-            auto postOptimizer = PostOptimizer(mcFunctions);
+        // 后优化流水线（含并入的名称混淆 pass）。optimize() 内部按等级门控：
+        // 行/函数级 pass 仅 -O2；名称混淆 pass 为 optLevel>=1 且非 -g（历史行为不变）。
+        if (config.getOptLevel() >= 1) {
+            auto postOptimizer = PostOptimizer(mcFunctions, context, config);
             postOptimizer.optimize();
         }
 

@@ -5,6 +5,7 @@
 #include "Builder.h"
 #include "extern/ResourceManager.h"
 #include "PostOptimizer.h"
+#include "builder/postopt/passes/generated/DeadFunctionEliminationPass.h"
 #include "ir/IR.h"
 
 #include <stdexcept>
@@ -101,46 +102,140 @@ void Builder::build() {
     writeFile(loadJsonPath, string::replace(LOAD_JSON, "%FUNCTION_ON_LOAD%", onLoadFunc.toString()));
 }
 
+// 链接期读入的单个 stdlib 函数（已做行级优化，尚未写盘）。
+struct StdlibFn {
+    Path target;          // 目标写盘路径（config.getBuildDir() / 相对路径）
+    std::string mcName;   // mc 名（ns:path），用于整程序可达性
+    std::string content;  // 行级优化后的函数体
+};
+
 void Builder::link() const {
     writeFileIfNotExist(config.getBuildDir() / "pack.mcmeta", PACK_MCMETA);
 
-    // static link stdlib
-    auto entries = std::vector<Path>();
-    for (const auto& entry : std::filesystem::recursive_directory_iterator(STDLIB_PATH)) {
-        entries.push_back(entry.path());
+    // 整程序死函数消除（stdlib 剪枝）：仅 optLevel>=1 启用；-O0 保持全量链接（历史行为）。
+    // 该 pass 运行在“链接期、全部函数已汇集”的位置：Builder::build() 已把用户产物、
+    // 生成的 onLoad/dataFunc 及 load.json 写盘，此处即将并入全部 stdlib，故这里能看到
+    // 全程序视图，DCE 得以真正剪掉某具体程序用不到的手写库函数。
+    const bool wholeProgramDce = config.getOptLevel() >= 1;
+
+    // ---- 1) 把 stdlib 读入内存（行级优化），暂不写盘 ----
+    // .mcfunction 是可剪枝候选；其它文件（当前仅 pack.mcmeta 已被排除，留此分支稳健）直接拷贝。
+    auto stdlibFns = std::vector<StdlibFn>();
+    auto stdlibRaw = std::vector<std::pair<Path, std::string>>();
+    for (const auto &entry : std::filesystem::recursive_directory_iterator(STDLIB_PATH)) {
+        const Path &path = entry.path();
+        if (!is_regular_file(path) || path.extension() == ".mcmeta") {
+            continue;
+        }
+        const auto rel = relative(path, STDLIB_PATH);
+        auto target = config.getBuildDir() / rel;
+        auto content = readFile(path);
+
+        if (target.extension() == ".mcfunction") {
+            PostOptimizer::doSingleOptimize(content);
+            // 用户在同路径下自建了同名函数（build() 已写盘）时视为其覆盖，不纳入剪枝候选、
+            // 不覆盖（保持 writeFileIfNotExist 语义）；它已作为根被下面的 build 目录扫描覆盖。
+            if (exists(target)) {
+                continue;
+            }
+            stdlibFns.push_back({std::move(target), postopt::refFromMcPath(rel), std::move(content)});
+        } else {
+            stdlibRaw.emplace_back(std::move(target), std::move(content));
+        }
     }
-//#pragma omp parallel for default(none) shared(entries, STDLIB_PATH)
-    for (size_t i = 0; i < entries.size(); ++i) {  // NOLINT(modernize-loop-convert)
-        const Path& path = entries[i];
-        if (is_regular_file(path) && path.extension() != ".mcmeta") {
-            auto target = config.getBuildDir() / relative(path, STDLIB_PATH);
-            ensureParentDir(target);
 
+    // ---- 2) 读取 dataDir（用户附加数据包），缓存函数体作为根；稍后统一写盘 ----
+    auto dataDirFiles = std::vector<std::pair<Path, std::string>>();  // (target, content)
+    if (!config.getDataDir().empty()) {
+        for (const auto &entry : std::filesystem::recursive_directory_iterator(config.getDataDir())) {
+            const Path &path = entry.path();
+            if (!is_regular_file(path)) {
+                continue;
+            }
+            auto target = config.getBuildDir() / relative(path, config.getDataDir());
             auto content = readFile(path);
-
             if (target.extension() == ".mcfunction") {
                 PostOptimizer::doSingleOptimize(content);
             }
-
-            writeFileIfNotExist(target, content);
+            dataDirFiles.emplace_back(std::move(target), std::move(content));
         }
     }
 
-    if (!config.getDataDir().empty()) {
-        for (const auto& path : std::filesystem::recursive_directory_iterator(config.getDataDir())) {
-            if (is_regular_file(path)) {
-                auto target = config.getBuildDir() / relative(path, config.getDataDir());
-                ensureParentDir(target);
+    if (wholeProgramDce && !stdlibFns.empty()) {
+        // stdlib 名字集合与索引。
+        auto stdlibNames = HashSet<std::string>();
+        auto nameToIdx = HashMap<std::string, size_t>();
+        stdlibNames.reserve(stdlibFns.size());
+        for (size_t i = 0; i < stdlibFns.size(); ++i) {
+            stdlibNames.emplace(stdlibFns[i].mcName);
+            nameToIdx.emplace(stdlibFns[i].mcName, i);
+        }
 
-                auto content = readFile(path);
-
-                if (target.extension() == ".mcfunction") {
-                    PostOptimizer::doSingleOptimize(content);
+        auto reachable = HashSet<std::string>();
+        auto worklist = std::vector<std::string>();
+        const auto seed = [&](const std::string &body) {
+            auto mentions = HashSet<std::string>();
+            postopt::collectFunctionMentions(body, stdlibNames, mentions);
+            for (auto &m : mentions) {
+                if (reachable.emplace(m).second) {
+                    worklist.push_back(m);
                 }
+            }
+        };
 
-                writeFile(target, content);
+        // 根集合 = 全部非 stdlib 程序函数。它们均已由 build() 写入 build 目录
+        // （用户产物 + onLoad + dataFunc；load.json 以函数名锚定 onLoad，onLoad 内含
+        //  字面 `schedule function std:init_vm 1t` 及 dataFunc/startFunc 的 schedule），
+        // 加上尚未写盘的 dataDir 函数。扫描其文本即得对 stdlib 的全部一手引用。
+        for (const auto &entry : std::filesystem::recursive_directory_iterator(config.getBuildDir())) {
+            const Path &path = entry.path();
+            if (is_regular_file(path) && path.extension() == ".mcfunction") {
+                seed(readFile(path));
             }
         }
+        for (const auto &file : dataDirFiles) {
+            if (file.first.extension() == ".mcfunction") {
+                seed(file.second);
+            }
+        }
+
+        // 可达性传播：沿已可达 stdlib 函数体中提及的其它 stdlib 名扩散。
+        while (!worklist.empty()) {
+            const auto current = worklist.back();
+            worklist.pop_back();
+            const auto it = nameToIdx.find(current);
+            if (it == nameToIdx.end()) {
+                continue;
+            }
+            seed(stdlibFns[it->second].content);
+        }
+
+        // 写盘：仅保留可达 stdlib；不可达者被剪枝。
+        for (const auto &fn : stdlibFns) {
+            if (!reachable.contains(fn.mcName)) {
+                continue;  // 剪掉本程序用不到的手写库函数
+            }
+            ensureParentDir(fn.target);
+            writeFileIfNotExist(fn.target, fn.content);
+        }
+    } else {
+        // -O0（或无候选）：全量链接 stdlib。
+        for (const auto &fn : stdlibFns) {
+            ensureParentDir(fn.target);
+            writeFileIfNotExist(fn.target, fn.content);
+        }
+    }
+
+    // stdlib 中的非 .mcfunction 文件（稳健分支，当前为空）。
+    for (const auto &raw : stdlibRaw) {
+        ensureParentDir(raw.first);
+        writeFileIfNotExist(raw.first, raw.second);
+    }
+
+    // 写入 dataDir 文件（根，恒保留）。
+    for (const auto &file : dataDirFiles) {
+        ensureParentDir(file.first);
+        writeFile(file.first, file.second);
     }
 
     auto output = config.getOutput();

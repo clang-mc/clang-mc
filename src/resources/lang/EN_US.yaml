@@ -13,6 +13,8 @@ cli.help_message_template: |
      -Werror                 \tMake all warnings into errors
      -E                      \tOnly run the preprocessor
      -w                      \tSuppress all warnings
+     -O0/-O1/-O2             \tSet optimization level (default -O0; -O1 enables rename obfuscation, -O2 also enables post-optimization)
+     --enable-obf            \tEnable mcasm(IR)-level obfuscation (constant hiding + cold-path indirect calls); independent of -O level
 cli.version_message_template: |
   {} version {}
   Target: {}

@@ -23,6 +23,8 @@ private:
     bool debugInfo = false;
     bool werror = false;
     bool noWarn = false;
+    bool enableObf = false;
+    u8 optLevel = 0;
 public:
     explicit Config() = default;
 
@@ -49,6 +51,10 @@ public:
     DATA_POD(Werror, werror);
 
     DATA_POD(NoWarn, noWarn);
+
+    DATA_POD(EnableObf, enableObf);
+
+    DATA_POD(OptLevel, optLevel);
 };
 
 

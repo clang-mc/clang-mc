@@ -21,6 +21,8 @@ public:
         }
     }
 
+    GETTER_POD(Reg, reg);
+
     [[nodiscard]] std::string toString() const noexcept override {
         return fmt::format("push {}", reg->toString());
     }
