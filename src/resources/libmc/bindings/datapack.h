@@ -19,7 +19,7 @@ __asm__(
 "    ret\n"
 "\n"
 "export _ll_shared:z/libmc_cmd_datapack_list:\n"
-"    inline $execute store result score r0 vm_regs run datapack list\n"
+"    inline execute store result score r0 vm_regs run datapack list\n"
 "    ret\n"
 );
 

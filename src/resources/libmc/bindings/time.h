@@ -43,25 +43,25 @@ time_set_preset(TimePreset preset)
     switch (preset) {
         case TIME_PRESET_DAY:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time set day"
+                "inline execute store result score %0 vm_regs run time set day"
                 : "=r"(ret)
             );
             return ret;
         case TIME_PRESET_NOON:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time set noon"
+                "inline execute store result score %0 vm_regs run time set noon"
                 : "=r"(ret)
             );
             return ret;
         case TIME_PRESET_NIGHT:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time set night"
+                "inline execute store result score %0 vm_regs run time set night"
                 : "=r"(ret)
             );
             return ret;
         case TIME_PRESET_MIDNIGHT:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time set midnight"
+                "inline execute store result score %0 vm_regs run time set midnight"
                 : "=r"(ret)
             );
             return ret;
@@ -92,19 +92,19 @@ time_query(TimeQueryKind query)
     switch (query) {
         case TIME_QUERY_DAYTIME:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time query daytime"
+                "inline execute store result score %0 vm_regs run time query daytime"
                 : "=r"(ret)
             );
             return ret;
         case TIME_QUERY_GAMETIME:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time query gametime"
+                "inline execute store result score %0 vm_regs run time query gametime"
                 : "=r"(ret)
             );
             return ret;
         case TIME_QUERY_DAY:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run time query day"
+                "inline execute store result score %0 vm_regs run time query day"
                 : "=r"(ret)
             );
             return ret;

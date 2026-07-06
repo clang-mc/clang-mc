@@ -23,25 +23,25 @@ defaultgamemode(DefaultGameMode mode)
     switch (mode) {
         case DEFAULTGAMEMODE_SURVIVAL:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run defaultgamemode survival"
+                "inline execute store result score %0 vm_regs run defaultgamemode survival"
                 : "=r"(ret)
             );
             return ret;
         case DEFAULTGAMEMODE_CREATIVE:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run defaultgamemode creative"
+                "inline execute store result score %0 vm_regs run defaultgamemode creative"
                 : "=r"(ret)
             );
             return ret;
         case DEFAULTGAMEMODE_ADVENTURE:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run defaultgamemode adventure"
+                "inline execute store result score %0 vm_regs run defaultgamemode adventure"
                 : "=r"(ret)
             );
             return ret;
         case DEFAULTGAMEMODE_SPECTATOR:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run defaultgamemode spectator"
+                "inline execute store result score %0 vm_regs run defaultgamemode spectator"
                 : "=r"(ret)
             );
             return ret;
