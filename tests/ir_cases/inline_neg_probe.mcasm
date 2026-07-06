@@ -1,0 +1,23 @@
+// InlinePass 负向 fixture（-O1 -E）。见 run_ir_opt_tests.py 的 inline_neg 检查。
+// 三类不可内联形态，各自被内联 pass 的一个守卫拦下：
+//
+//   (A) twice：被直接调用两次（callCount=2）-> 非单次调用点，不内联。
+//   (B) nonleaf：单次调用，但函数体含 `call twice`（非叶子/非直线-ret）-> 不内联。
+//   (C) fallthru：单次调用、体为直线-ret，但其标签前一条实义指令是 `mov r4,1`（非终结指令），
+//       会被顺序落入 -> fall-through 守卫拒绝内联。
+export _start:
+    call twice
+    call twice
+    call nonleaf
+    call fallthru
+    mov r4, 1
+fallthru:
+    mov r5, 9
+    ret
+
+twice:
+    mov r7, 7
+    ret
+nonleaf:
+    call twice
+    ret

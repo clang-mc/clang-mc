@@ -1,0 +1,24 @@
+// DeadCodePass 正向+负向 fixture（-O1 -E）。见 run_ir_opt_tests.py 的 dce_* 检查。
+// 每个区域以 `call sink` 屏障隔开，sink 被多次调用故不会被内联（屏障持久存在）。
+//
+// (A) 正向：直线区死存储被删——mov r0,111 无中间读、随后被 mov r0,222 完全覆写 -> 首条删。
+// (B) 负向：rax 存储豁免——isRax(def) 使 DCE 跳过，mov rax,33/44 两条都保留。
+// (C) 负向：算术读旧值——add r1,r2 读 r1 旧值（r2 未定义故常量折叠无法收拢），mov r1,77 保留。
+// (D) 负向：movd 副作用——movd 写 int2str 池有 sideEffect，即便随后被 mov r3,5 覆写也保留。
+export _start:
+    mov r0, 111
+    mov r0, 222
+    call sink
+    mov rax, 33
+    mov rax, 44
+    call sink
+    mov r1, 77
+    add r1, r2
+    call sink
+    movd r3, sink
+    mov r3, 5
+    call sink
+    ret
+
+sink:
+    ret
