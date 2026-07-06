@@ -30,6 +30,12 @@ bool eliminateDeadCode(IR &ir) {
             const Effects ej = analyze(values[j].get());
             if (usesReg(ej, D)) break;          // 被读 -> 活跃
             if (ej.barrier || ej.boundary) break;  // 跨界 -> 保守活跃
+            // 条件分支：它有一条通往目标 label 的外向边，D 可能在目标块被读到。
+            // 只沿落空路径向前扫描无法证明 D 在分支后必被重写，故保守止步（视为活跃）。
+            // 否则会把 `set D,1; je ...; set D,0`（setcc 惯用法）里分支前的写误删，
+            // 使分支命中路径上 D 取到过期值——典型后果是清栈分支走错、epilogue 的
+            // `add rsp` 被跳过而泄漏栈。
+            if (ej.branch) break;
             if (ej.def == D && !ej.defReadsOld) {   // 被覆写且未读旧值 -> 死
                 dead = true;
                 break;
