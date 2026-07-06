@@ -23,25 +23,25 @@ difficulty(DifficultyLevel level)
     switch (level) {
         case DIFFICULTY_PEACEFUL:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run difficulty peaceful"
+                "inline execute store result score %0 vm_regs run difficulty peaceful"
                 : "=r"(ret)
             );
             return ret;
         case DIFFICULTY_EASY:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run difficulty easy"
+                "inline execute store result score %0 vm_regs run difficulty easy"
                 : "=r"(ret)
             );
             return ret;
         case DIFFICULTY_NORMAL:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run difficulty normal"
+                "inline execute store result score %0 vm_regs run difficulty normal"
                 : "=r"(ret)
             );
             return ret;
         case DIFFICULTY_HARD:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run difficulty hard"
+                "inline execute store result score %0 vm_regs run difficulty hard"
                 : "=r"(ret)
             );
             return ret;

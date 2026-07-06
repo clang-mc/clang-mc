@@ -22,19 +22,19 @@ weather(WeatherType type)
     switch (type) {
         case WEATHER_CLEAR:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run weather clear"
+                "inline execute store result score %0 vm_regs run weather clear"
                 : "=r"(ret)
             );
             return ret;
         case WEATHER_RAIN:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run weather rain"
+                "inline execute store result score %0 vm_regs run weather rain"
                 : "=r"(ret)
             );
             return ret;
         case WEATHER_THUNDER:
             __asm volatile (
-                "inline $execute store result score %0 vm_regs run weather thunder"
+                "inline execute store result score %0 vm_regs run weather thunder"
                 : "=r"(ret)
             );
             return ret;

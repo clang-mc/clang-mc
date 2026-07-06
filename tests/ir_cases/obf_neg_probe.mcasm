@@ -1,0 +1,32 @@
+// 混淆负向 fixture（--enable-obf -E）。见 run_ir_opt_tests.py 的 obf_neg 检查。
+// 覆盖 ConstantHidingPass 与 IndirectCallPass 各自的保守边界（不该改写的形态）。
+//
+// ConstantHidingPass：
+//   (A) 负向：mov rsp,16384 —— rsp 不可跟踪(pushable=false)，栈指针不被拆成 mov+add 序列，保留原样。
+//   (B) 正控：mov r0,4242 —— 可跟踪寄存器立即数被隐藏，裸 `mov r0, 4242` 消失（拆成随机 mov+add）。
+//
+// IndirectCallPass（cold = 非热根 且 非循环体 且 fanIn==1 才改写）：
+//   (C) 正控：call solo —— cold 函数内、单 fan-in、非循环 -> 改写为 movd+calld，`call solo` 消失。
+//   (D) 负向：call multi ×2 —— fanIn=2（高 fan-in）-> 保持直接 `call multi`。
+//   (E) 负向：call loopfn —— 位于回边循环体 [loopstart..jmp] 内 -> 保持直接 `call loopfn`。
+//   另：_start 是热根，其 `call cold` 属热路径，保持直接调用。
+export _start:
+    mov rsp, 16384
+    mov r0, 4242
+    call cold
+    ret
+
+cold:
+    call solo
+    call multi
+    call multi
+loopstart:
+    call loopfn
+    jmp loopstart
+
+solo:
+    ret
+multi:
+    ret
+loopfn:
+    ret

@@ -1,0 +1,19 @@
+// DevirtualizePass 负向 fixture（-O1 -E）。见 run_ir_opt_tests.py 的 devirt_neg 检查。
+//
+// (A) 裸 calld r5：其前无任何 `movd r5, <label>` 追踪 -> 无法去虚拟化，保持 calld。
+// (B) movd r5,helper; call keep; calld r5：中间的 call 是屏障，去虚拟化在屏障处清空追踪，
+//     故 calld r5 保持 calld、绝不产生 `call helper`。
+//     keep 被调用两次（fanIn=2），故内联 pass 不会把 `call keep` 内联掉——屏障持久存在，
+//     不会出现“屏障被内联移除后去虚拟化误触发”的假象。
+export _start:
+    calld r5
+    movd r5, helper
+    call keep
+    calld r5
+    call keep
+    ret
+
+helper:
+    ret
+keep:
+    ret

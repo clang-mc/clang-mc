@@ -245,6 +245,22 @@ def build_command_tokens(cmd_name: str, variant: dict, slots: list[dict]) -> lis
     return tokens
 
 
+# A mcfunction line may be prefixed with `$` (a "macro line") if and only if it
+# actually contains at least one `$(...)` macro placeholder; Minecraft refuses to
+# load a function whose `$`-line has no placeholder. In these bindings a line ends
+# up carrying a `$(...)` from one of two sources: a `$(name)` token baked into the
+# command text (ref params), or a `%N` asm operand that the mcasm backend rewrites
+# into `$(...)` during generation. The standalone `export ...:` helpers use a
+# literal `r0` register (no `%N` operands), so their only possible macro source is
+# a `$(...)` in the command text.
+_MACRO_PLACEHOLDER_RE = re.compile(r"\$\(|%\d")
+
+
+def _macro_prefix(text: str) -> str:
+    """Return '$' if `text` contains a macro placeholder, else '' (see note above)."""
+    return "$" if _MACRO_PLACEHOLDER_RE.search(text) else ""
+
+
 def render_command_text(tokens: list, enum_value: dict | None) -> str:
     final_tokens = []
     for token in tokens:
@@ -274,9 +290,10 @@ def render_template_a(cmd_name: str, suffix: str, variant: dict, slots: list[dic
     ref_slots = [s for s in slots if s["kind"] == "ref"]
 
     cmd_text = render_command_text(build_command_tokens(cmd_name, variant, slots), None)
+    macro = _macro_prefix(cmd_text)
     export_snippet = (
         f'"export {label}:\\n"\n'
-        f'"    inline $execute store result score r0 vm_regs run {cmd_text}\\n"\n'
+        f'"    inline {macro}execute store result score r0 vm_regs run {cmd_text}\\n"\n'
         f'"    ret\\n"'
     )
 
@@ -445,9 +462,10 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
     needs_explicit_hoist = bool(ref_slots) and not value_slots
     if needs_explicit_hoist:
         label = f"_ll_shared:z/{fname}_unsafe_exec{branch_key}"
+        macro = _macro_prefix(cmd_text)
         exports.append(
             f'"export {label}:\\n"\n'
-            f'"    inline $execute store result score r0 vm_regs run {cmd_text}\\n"\n'
+            f'"    inline {macro}execute store result score r0 vm_regs run {cmd_text}\\n"\n'
             f'"    ret\\n"'
         )
         lines.append(f"{indent}__asm volatile (")
@@ -461,7 +479,14 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
     exec_lines = []
     if value_slots:
         exec_lines.append('"$$direct_args\\n"')
-    exec_lines.append(f'"inline $execute store result score %0 vm_regs run {cmd_text}"')
+    # Only prefix `$` when the command text actually carries a macro placeholder
+    # (`$(...)` from a ref field, or a `%N` value operand that `$$direct_args`
+    # rewrites into `$(...)`). The `%0` output operand becomes a plain register,
+    # not a macro, so a pure-enum command like `difficulty peaceful` must stay a
+    # non-macro line -- Minecraft refuses to load a `$`-line with no variables
+    # ("Macro without variables"), which would abort the function and leak rsp.
+    exec_macro = _macro_prefix(cmd_text)
+    exec_lines.append(f'"inline {exec_macro}execute store result score %0 vm_regs run {cmd_text}"')
     value_operand_list = ", ".join(f'"r"({value_expr(s)})' for s in value_slots)
 
     lines.append(f"{indent}__asm volatile (")

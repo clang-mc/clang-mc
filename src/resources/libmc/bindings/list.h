@@ -11,11 +11,11 @@ extern "C" {
 
 __asm__(
 "export _ll_shared:z/libmc_cmd_list:\n"
-"    inline $execute store result score r0 vm_regs run list\n"
+"    inline execute store result score r0 vm_regs run list\n"
 "    ret\n"
 "\n"
 "export _ll_shared:z/libmc_cmd_list_uuids:\n"
-"    inline $execute store result score r0 vm_regs run list uuids\n"
+"    inline execute store result score r0 vm_regs run list uuids\n"
 "    ret\n"
 );
 

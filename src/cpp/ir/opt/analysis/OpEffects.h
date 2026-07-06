@@ -57,6 +57,7 @@ FORCEINLINE bool isRax(const Register *r) {
 
 struct Effects {
     bool boundary = false;      // 区域边界：label / jmp / ret，跨越后需重置区域内状态
+    bool branch = false;        // 条件分支（Je/Jne/Jl/...）：有一条通往目标 label 的外向边，落空才继续
     bool barrier = false;       // 破坏所有可跟踪寄存器：call/calld/syscall/inline
     bool sideEffect = false;    // 除写 def 外还有副作用（内存/栈/池/系统调用等），不可被 DCE 删除
     bool clobbersScratch = false; // 可能顺带破坏 rax（内存类指令）
@@ -134,7 +135,11 @@ FORCEINLINE Effects analyze(const Op *op) {
     if (dynamic_cast<const Call *>(op) != nullptr) { e.barrier = true; e.sideEffect = true; return e; }
 
     // 条件跳转/条件返回（Je/Jne/Jl/Jg/Jge/Jle）：读 left+right，落空可继续。
+    // 标记 branch：它有一条通往目标 label 的外向边——落空路径之外的那条边上，
+    // 分支前对某寄存器的写仍可能活跃（在目标块被读）。死存储消除必须据此止步，
+    // 不能把“落空路径后的重写”当作杀死了分支前的写。
     if (dynamic_cast<const JmpLike *>(op) != nullptr) {
+        e.branch = true;
         if (const auto *cmp = dynamic_cast<const CmpLike *>(op)) {
             bool mem = false;
             collectValueReads(cmp->getLeft(), e.uses, mem);
