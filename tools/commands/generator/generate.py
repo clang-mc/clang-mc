@@ -53,6 +53,10 @@ TYPES = {
         "category": "ref", "c_type": "const Identifier *",
         "to_ref": "_Command_RequireIdentifierRef", "needs_release": True,
     },
+    "bool": {
+        "category": "ref", "c_type": "int",
+        "to_ref": "_Command_BoolRef", "needs_release": False,
+    },
 }
 
 # Grouped (multi-field) parameter types. Each expands into several scalar
@@ -73,6 +77,11 @@ GROUPS = {
         "category": "ref", "c_type": "Vec2f",
         "fields": ["x", "y"], "scalar_type": "float",
         "to_ref": "_Command_FormatFloatRef", "needs_release": True,
+    },
+    "vec2d": {
+        "category": "ref", "c_type": "Vec2d",
+        "fields": ["x", "z"], "scalar_type": "double",
+        "to_ref": "_Command_FormatDoubleRef", "needs_release": True,
     },
 }
 
@@ -151,6 +160,12 @@ def expand_param(param: dict) -> list[dict]:
     """Expand one schema param into an ordered list of code-generation slots."""
     ptype = param["type"]
 
+    if ptype == "literal":
+        # A fixed keyword that must appear at this position in the command
+        # (e.g. the trailing `points`/`levels`/`everything` after a selector).
+        # Contributes a bare token to the command text but NO C parameter.
+        return [{"kind": "literal", "text": param["text"]}]
+
     if ptype == "enum":
         return [{"kind": "enum", "param_name": param["name"], "enum_ref": param["enum_ref"]}]
 
@@ -195,7 +210,7 @@ def expand_variant(variant: dict) -> list[dict]:
 def check_no_asm_field_collisions(cmd_name: str, variant: dict, slots: list[dict]) -> None:
     seen: dict[str, str] = {}
     for slot in slots:
-        if slot["kind"] == "enum":
+        if slot["kind"] in ("enum", "literal"):
             continue
         flat_name = slot["flat_name"]
         if flat_name in seen:
@@ -210,6 +225,8 @@ def public_param_list(variant: dict) -> str:
     parts = []
     for param in variant.get("params", []):
         ptype = param["type"]
+        if ptype == "literal":
+            continue
         if ptype == "enum":
             c_type = param["enum_ref"]
         elif ptype in GROUPS:
@@ -221,7 +238,7 @@ def public_param_list(variant: dict) -> str:
 
 
 def public_arg_names(variant: dict) -> list[str]:
-    return [param["name"] for param in variant.get("params", [])]
+    return [param["name"] for param in variant.get("params", []) if param["type"] != "literal"]
 
 
 class _EnumToken:
@@ -237,6 +254,8 @@ def build_command_tokens(cmd_name: str, variant: dict, slots: list[dict]) -> lis
     for slot in slots:
         if slot["kind"] == "enum":
             tokens.append(_EnumToken(slot["enum_ref"]))
+        elif slot["kind"] == "literal":
+            tokens.append(slot["text"])
         elif slot["kind"] == "ref":
             tokens.append(f"$({slot['flat_name']})")
         else:
@@ -553,12 +572,15 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
 
     parts = []
     has_ref = len(ref_slots) > 0
+    # Literal slots carry no C parameter/argument; keep them out of the
+    # public _unsafe() signature and call-site argument list.
+    param_slots = [s for s in slots if s["kind"] != "literal"]
 
     if has_ref:
         # Preserve the schema-declared parameter order in the public
         # _unsafe() signature and call-site argument list, even though the
         # asm plumbing below groups slots by category (ref vs. value).
-        unsafe_params = ", ".join(slot_unsafe_param(s) for s in slots)
+        unsafe_params = ", ".join(slot_unsafe_param(s) for s in param_slots)
 
         slot_decls = "\n".join(f"    int {s['flat_name']}_slot;" for s in ref_slots)
         slot_assigns = "\n".join(
@@ -590,7 +612,7 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
         release_lines_nested = "\n".join(f"        McfStrRef_Release({s['flat_name']}_ref);" for s in release_needed)
         release_lines_flat = "\n".join(f"    McfStrRef_Release({s['flat_name']}_ref);" for s in release_needed)
 
-        call_args = ", ".join(slot_call_arg(s) for s in slots)
+        call_args = ", ".join(slot_call_arg(s) for s in param_slots)
 
         if release_needed:
             body = f"""    int ret;
@@ -684,9 +706,27 @@ def render_alias_header(command: dict, target: dict) -> str:
     return {target_fn}{suffix}({args});
 }}""")
         if any(s["kind"] == "ref" for s in slots):
-            ref_slots = [s for s in slots if s["kind"] == "ref"]
-            unsafe_params = ", ".join(f"McfStrRef {s['flat_name']}_ref" for s in ref_slots)
-            unsafe_args = ", ".join(f"{s['flat_name']}_ref" for s in ref_slots)
+            # The target's _unsafe() takes ALL non-literal slots in schema
+            # order (ref -> McfStrRef, value -> scalar, enum -> enum type),
+            # not just the ref slots -- mirror render_template_b's signature
+            # so the forwarder passes every argument through.
+            def _alias_unsafe_param(slot: dict) -> str:
+                if slot["kind"] == "ref":
+                    return f"McfStrRef {slot['flat_name']}_ref"
+                if slot["kind"] == "value":
+                    return f"{slot['c_type']} {slot['flat_name']}"
+                return f"{slot['enum_ref']} {slot['param_name']}"
+
+            def _alias_unsafe_arg(slot: dict) -> str:
+                if slot["kind"] == "ref":
+                    return f"{slot['flat_name']}_ref"
+                if slot["kind"] == "value":
+                    return slot["flat_name"]
+                return slot["param_name"]
+
+            unsafe_slots = [s for s in slots if s["kind"] != "literal"]
+            unsafe_params = ", ".join(_alias_unsafe_param(s) for s in unsafe_slots)
+            unsafe_args = ", ".join(_alias_unsafe_arg(s) for s in unsafe_slots)
             forwards.append(f"""static inline int
 {alias_fn}{suffix}_unsafe({unsafe_params})
 {{

@@ -121,6 +121,7 @@ CASES: list[Case] = [
     Case("libmc_forceload_o0", "libmc_forceload.c"),
     Case("libmc_function_datapack_recipe_schedule_o0", "libmc_function_datapack_recipe_schedule.c"),
     Case("libmc_enchant_o0", "libmc_enchant.c"),
+    Case("libmc_new_commands_o0", "libmc_new_commands.c"),
     # Code-review regression cases (CODE_REVIEW_REPORT.md).
     Case("jcc_const_fold_probe_o0", "jcc_const_fold_probe.c"),
     Case("jcc_imm_reg_probe_o0", "jcc_imm_reg_probe.c"),

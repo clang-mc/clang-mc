@@ -2,7 +2,72 @@
   "commands": [
     {
       "name": "advancement",
-      "header": "advancement.h"
+      "header": "advancement.h",
+      "enums": [
+        {
+          "name": "AdvancementAction",
+          "values": [
+            {"const": "ADVANCEMENT_GRANT", "literal": "grant"},
+            {"const": "ADVANCEMENT_REVOKE", "literal": "revoke"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "_everything",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "everything"}
+          ]
+        },
+        {
+          "c_suffix": "_only",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "only"},
+            {"name": "advancement", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_only_criterion",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "only"},
+            {"name": "advancement", "type": "identifier"},
+            {"name": "criterion", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_from",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "from"},
+            {"name": "advancement", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_through",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "through"},
+            {"name": "advancement", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_until",
+          "params": [
+            {"name": "action", "type": "enum", "enum_ref": "AdvancementAction"},
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "until"},
+            {"name": "advancement", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "attribute",
@@ -26,11 +91,98 @@
     },
     {
       "name": "clone",
-      "header": "clone.h"
+      "header": "clone.h",
+      "enums": [
+        {
+          "name": "CloneMaskMode",
+          "values": [
+            {"const": "CLONE_MASK_REPLACE", "literal": "replace"},
+            {"const": "CLONE_MASK_MASKED", "literal": "masked"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "begin", "type": "vec3i", "asm_fields": ["begin_x", "begin_y", "begin_z"]},
+            {"name": "end", "type": "vec3i", "asm_fields": ["end_x", "end_y", "end_z"]},
+            {"name": "destination", "type": "vec3i", "asm_fields": ["dest_x", "dest_y", "dest_z"]}
+          ]
+        },
+        {
+          "c_suffix": "_mode",
+          "params": [
+            {"name": "begin", "type": "vec3i", "asm_fields": ["begin_x", "begin_y", "begin_z"]},
+            {"name": "end", "type": "vec3i", "asm_fields": ["end_x", "end_y", "end_z"]},
+            {"name": "destination", "type": "vec3i", "asm_fields": ["dest_x", "dest_y", "dest_z"]},
+            {"name": "mode", "type": "enum", "enum_ref": "CloneMaskMode"}
+          ]
+        },
+        {
+          "c_suffix": "_filtered",
+          "params": [
+            {"name": "begin", "type": "vec3i", "asm_fields": ["begin_x", "begin_y", "begin_z"]},
+            {"name": "end", "type": "vec3i", "asm_fields": ["end_x", "end_y", "end_z"]},
+            {"name": "destination", "type": "vec3i", "asm_fields": ["dest_x", "dest_y", "dest_z"]},
+            {"type": "literal", "text": "filtered"},
+            {"name": "filter", "type": "block"}
+          ]
+        }
+      ]
     },
     {
       "name": "damage",
-      "header": "damage.h"
+      "header": "damage.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "float"}
+          ]
+        },
+        {
+          "c_suffix": "_type",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "float"},
+            {"name": "damage_type", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_at",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "float"},
+            {"name": "damage_type", "type": "identifier"},
+            {"type": "literal", "text": "at"},
+            {"name": "location", "type": "vec3d", "asm_fields": ["loc_x", "loc_y", "loc_z"]}
+          ]
+        },
+        {
+          "c_suffix": "_by",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "float"},
+            {"name": "damage_type", "type": "identifier"},
+            {"type": "literal", "text": "by"},
+            {"name": "entity", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_by_from",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "float"},
+            {"name": "damage_type", "type": "identifier"},
+            {"type": "literal", "text": "by"},
+            {"name": "entity", "type": "target"},
+            {"type": "literal", "text": "from"},
+            {"name": "cause", "type": "target"}
+          ]
+        }
+      ]
     },
     {
       "name": "data",
@@ -109,7 +261,62 @@
     },
     {
       "name": "effect",
-      "header": "effect.h"
+      "header": "effect.h",
+      "variants": [
+        {
+          "c_suffix": "_give",
+          "literal_path": ["give"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "effect", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_give_seconds",
+          "literal_path": ["give"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "effect", "type": "identifier"},
+            {"name": "seconds", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_give_amplified",
+          "literal_path": ["give"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "effect", "type": "identifier"},
+            {"name": "seconds", "type": "int"},
+            {"name": "amplifier", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_give_hidden",
+          "literal_path": ["give"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "effect", "type": "identifier"},
+            {"name": "seconds", "type": "int"},
+            {"name": "amplifier", "type": "int"},
+            {"name": "hide_particles", "type": "bool"}
+          ]
+        },
+        {
+          "c_suffix": "_clear_all",
+          "literal_path": ["clear"],
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_clear",
+          "literal_path": ["clear"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "effect", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "enchant",
@@ -138,11 +345,66 @@
     },
     {
       "name": "experience",
-      "header": "experience.h"
+      "header": "experience.h",
+      "variants": [
+        {
+          "c_suffix": "_add_points",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "int"},
+            {"type": "literal", "text": "points"}
+          ]
+        },
+        {
+          "c_suffix": "_add_levels",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "int"},
+            {"type": "literal", "text": "levels"}
+          ]
+        },
+        {
+          "c_suffix": "_set_points",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "int"},
+            {"type": "literal", "text": "points"}
+          ]
+        },
+        {
+          "c_suffix": "_set_levels",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "amount", "type": "int"},
+            {"type": "literal", "text": "levels"}
+          ]
+        },
+        {
+          "c_suffix": "_query_points",
+          "literal_path": ["query"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "points"}
+          ]
+        },
+        {
+          "c_suffix": "_query_levels",
+          "literal_path": ["query"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "levels"}
+          ]
+        }
+      ]
     },
     {
       "name": "xp",
-      "header": "xp.h"
+      "header": "xp.h",
+      "alias_of": "experience"
     },
     {
       "name": "fill",
@@ -173,7 +435,27 @@
     },
     {
       "name": "fillbiome",
-      "header": "fillbiome.h"
+      "header": "fillbiome.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "from", "type": "vec3i", "asm_fields": ["from_x", "from_y", "from_z"]},
+            {"name": "to", "type": "vec3i", "asm_fields": ["to_x", "to_y", "to_z"]},
+            {"name": "biome", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_replace",
+          "params": [
+            {"name": "from", "type": "vec3i", "asm_fields": ["from_x", "from_y", "from_z"]},
+            {"name": "to", "type": "vec3i", "asm_fields": ["to_x", "to_y", "to_z"]},
+            {"name": "biome", "type": "identifier"},
+            {"type": "literal", "text": "replace"},
+            {"name": "filter", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "forceload",
@@ -246,15 +528,66 @@
     },
     {
       "name": "gamerule",
-      "header": "gamerule.h"
+      "header": "gamerule.h",
+      "variants": [
+        {
+          "c_suffix": "_query",
+          "params": [
+            {"name": "rule", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_set_bool",
+          "params": [
+            {"name": "rule", "type": "string"},
+            {"name": "value", "type": "bool"}
+          ]
+        },
+        {
+          "c_suffix": "_set_int",
+          "params": [
+            {"name": "rule", "type": "string"},
+            {"name": "value", "type": "int"}
+          ]
+        }
+      ]
     },
     {
       "name": "give",
-      "header": "give.h"
+      "header": "give.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "item", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_count",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "item", "type": "identifier"},
+            {"name": "count", "type": "int"}
+          ]
+        }
+      ]
     },
     {
       "name": "help",
-      "header": "help.h"
+      "header": "help.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        },
+        {
+          "c_suffix": "_command",
+          "params": [
+            {"name": "command", "type": "string"}
+          ]
+        }
+      ]
     },
     {
       "name": "item",
@@ -289,7 +622,30 @@
     },
     {
       "name": "locate",
-      "header": "locate.h"
+      "header": "locate.h",
+      "variants": [
+        {
+          "c_suffix": "_structure",
+          "literal_path": ["structure"],
+          "params": [
+            {"name": "structure", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_biome",
+          "literal_path": ["biome"],
+          "params": [
+            {"name": "biome", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_poi",
+          "literal_path": ["poi"],
+          "params": [
+            {"name": "poi", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "loot",
@@ -332,19 +688,179 @@
     },
     {
       "name": "particle",
-      "header": "particle.h"
+      "header": "particle.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "name", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_at",
+          "params": [
+            {"name": "name", "type": "identifier"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
     },
     {
       "name": "place",
-      "header": "place.h"
+      "header": "place.h",
+      "variants": [
+        {
+          "c_suffix": "_feature",
+          "literal_path": ["feature"],
+          "params": [
+            {"name": "feature", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_feature_at",
+          "literal_path": ["feature"],
+          "params": [
+            {"name": "feature", "type": "identifier"},
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        },
+        {
+          "c_suffix": "_structure",
+          "literal_path": ["structure"],
+          "params": [
+            {"name": "structure", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_structure_at",
+          "literal_path": ["structure"],
+          "params": [
+            {"name": "structure", "type": "identifier"},
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        },
+        {
+          "c_suffix": "_jigsaw",
+          "literal_path": ["jigsaw"],
+          "params": [
+            {"name": "pool", "type": "identifier"},
+            {"name": "target", "type": "identifier"},
+            {"name": "max_depth", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_jigsaw_at",
+          "literal_path": ["jigsaw"],
+          "params": [
+            {"name": "pool", "type": "identifier"},
+            {"name": "target", "type": "identifier"},
+            {"name": "max_depth", "type": "int"},
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        },
+        {
+          "c_suffix": "_template",
+          "literal_path": ["template"],
+          "params": [
+            {"name": "template", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_template_at",
+          "literal_path": ["template"],
+          "params": [
+            {"name": "template", "type": "identifier"},
+            {"name": "pos", "type": "vec3i", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
     },
     {
       "name": "playsound",
-      "header": "playsound.h"
+      "header": "playsound.h",
+      "enums": [
+        {
+          "name": "SoundSource",
+          "values": [
+            {"const": "SOUND_SOURCE_MASTER", "literal": "master"},
+            {"const": "SOUND_SOURCE_MUSIC", "literal": "music"},
+            {"const": "SOUND_SOURCE_RECORD", "literal": "record"},
+            {"const": "SOUND_SOURCE_WEATHER", "literal": "weather"},
+            {"const": "SOUND_SOURCE_BLOCK", "literal": "block"},
+            {"const": "SOUND_SOURCE_HOSTILE", "literal": "hostile"},
+            {"const": "SOUND_SOURCE_NEUTRAL", "literal": "neutral"},
+            {"const": "SOUND_SOURCE_PLAYER", "literal": "player"},
+            {"const": "SOUND_SOURCE_AMBIENT", "literal": "ambient"},
+            {"const": "SOUND_SOURCE_VOICE", "literal": "voice"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "sound", "type": "identifier"},
+            {"name": "source", "type": "enum", "enum_ref": "SoundSource"},
+            {"name": "target", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_at",
+          "params": [
+            {"name": "sound", "type": "identifier"},
+            {"name": "source", "type": "enum", "enum_ref": "SoundSource"},
+            {"name": "target", "type": "target"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]}
+          ]
+        },
+        {
+          "c_suffix": "_full",
+          "params": [
+            {"name": "sound", "type": "identifier"},
+            {"name": "source", "type": "enum", "enum_ref": "SoundSource"},
+            {"name": "target", "type": "target"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]},
+            {"name": "volume", "type": "float"},
+            {"name": "pitch", "type": "float"}
+          ]
+        }
+      ]
     },
     {
       "name": "random",
-      "header": "random.h"
+      "header": "random.h",
+      "variants": [
+        {
+          "c_suffix": "_value",
+          "literal_path": ["value"],
+          "params": [
+            {"name": "range", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_value_seq",
+          "literal_path": ["value"],
+          "params": [
+            {"name": "range", "type": "string"},
+            {"name": "sequence", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_roll",
+          "literal_path": ["roll"],
+          "params": [
+            {"name": "range", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_roll_seq",
+          "literal_path": ["roll"],
+          "params": [
+            {"name": "range", "type": "string"},
+            {"name": "sequence", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "recipe",
@@ -370,15 +886,64 @@
     },
     {
       "name": "reload",
-      "header": "reload.h"
+      "header": "reload.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": []
+        }
+      ]
     },
     {
       "name": "ride",
-      "header": "ride.h"
+      "header": "ride.h",
+      "variants": [
+        {
+          "c_suffix": "_mount",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "mount"},
+            {"name": "vehicle", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_dismount",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "dismount"}
+          ]
+        }
+      ]
     },
     {
       "name": "rotate",
-      "header": "rotate.h"
+      "header": "rotate.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "rotation", "type": "vec2f", "asm_fields": ["yaw", "pitch"]}
+          ]
+        },
+        {
+          "c_suffix": "_facing_entity",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "facing"},
+            {"type": "literal", "text": "entity"},
+            {"name": "entity", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_facing_pos",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "facing"},
+            {"name": "pos", "type": "vec3d", "asm_fields": ["x", "y", "z"]}
+          ]
+        }
+      ]
     },
     {
       "name": "say",
@@ -515,11 +1080,75 @@
     },
     {
       "name": "spreadplayers",
-      "header": "spreadplayers.h"
+      "header": "spreadplayers.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "center", "type": "vec2d", "asm_fields": ["center_x", "center_z"]},
+            {"name": "spread_distance", "type": "float"},
+            {"name": "max_range", "type": "float"},
+            {"name": "respect_teams", "type": "bool"},
+            {"name": "targets", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_under",
+          "params": [
+            {"name": "center", "type": "vec2d", "asm_fields": ["center_x", "center_z"]},
+            {"name": "spread_distance", "type": "float"},
+            {"name": "max_range", "type": "float"},
+            {"type": "literal", "text": "under"},
+            {"name": "max_height", "type": "int"},
+            {"name": "respect_teams", "type": "bool"},
+            {"name": "targets", "type": "target"}
+          ]
+        }
+      ]
     },
     {
       "name": "stopsound",
-      "header": "stopsound.h"
+      "header": "stopsound.h",
+      "enums": [
+        {
+          "name": "StopSoundSource",
+          "values": [
+            {"const": "STOPSOUND_SOURCE_MASTER", "literal": "master"},
+            {"const": "STOPSOUND_SOURCE_MUSIC", "literal": "music"},
+            {"const": "STOPSOUND_SOURCE_RECORD", "literal": "record"},
+            {"const": "STOPSOUND_SOURCE_WEATHER", "literal": "weather"},
+            {"const": "STOPSOUND_SOURCE_BLOCK", "literal": "block"},
+            {"const": "STOPSOUND_SOURCE_HOSTILE", "literal": "hostile"},
+            {"const": "STOPSOUND_SOURCE_NEUTRAL", "literal": "neutral"},
+            {"const": "STOPSOUND_SOURCE_PLAYER", "literal": "player"},
+            {"const": "STOPSOUND_SOURCE_AMBIENT", "literal": "ambient"},
+            {"const": "STOPSOUND_SOURCE_VOICE", "literal": "voice"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "target", "type": "target"}
+          ]
+        },
+        {
+          "c_suffix": "_source",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "source", "type": "enum", "enum_ref": "StopSoundSource"}
+          ]
+        },
+        {
+          "c_suffix": "_sound",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "source", "type": "enum", "enum_ref": "StopSoundSource"},
+            {"name": "sound", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "summon",
@@ -536,7 +1165,32 @@
     },
     {
       "name": "tag",
-      "header": "tag.h"
+      "header": "tag.h",
+      "variants": [
+        {
+          "c_suffix": "_add",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "add"},
+            {"name": "name", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_remove",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "remove"},
+            {"name": "name", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_list",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "list"}
+          ]
+        }
+      ]
     },
     {
       "name": "team",
@@ -660,11 +1314,85 @@
     },
     {
       "name": "title",
-      "header": "title.h"
+      "header": "title.h",
+      "variants": [
+        {
+          "c_suffix": "_clear",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "clear"}
+          ]
+        },
+        {
+          "c_suffix": "_reset",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "reset"}
+          ]
+        },
+        {
+          "c_suffix": "_title",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "title"},
+            {"name": "json", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_subtitle",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "subtitle"},
+            {"name": "json", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_actionbar",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "actionbar"},
+            {"name": "json", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_times",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"type": "literal", "text": "times"},
+            {"name": "fade_in", "type": "int"},
+            {"name": "stay", "type": "int"},
+            {"name": "fade_out", "type": "int"}
+          ]
+        }
+      ]
     },
     {
       "name": "trigger",
-      "header": "trigger.h"
+      "header": "trigger.h",
+      "variants": [
+        {
+          "c_suffix": "",
+          "params": [
+            {"name": "objective", "type": "string"}
+          ]
+        },
+        {
+          "c_suffix": "_add",
+          "params": [
+            {"name": "objective", "type": "string"},
+            {"type": "literal", "text": "add"},
+            {"name": "value", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_set",
+          "params": [
+            {"name": "objective", "type": "string"},
+            {"type": "literal", "text": "set"},
+            {"name": "value", "type": "int"}
+          ]
+        }
+      ]
     },
     {
       "name": "weather",
