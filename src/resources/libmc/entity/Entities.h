@@ -178,9 +178,3 @@ Entity_IsSummonable(Entity entity)
            entity != ENTITY_PLAYER &&
            entity != ENTITY_FISHING_BOBBER;
 }
-
-static inline int
-EntityType_IsSummonable(EntityType type)
-{
-    return Entity_IsSummonable(type);
-}

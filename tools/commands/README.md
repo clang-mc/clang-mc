@@ -17,11 +17,10 @@ python tools/commands/generator/generate.py
 生成器读取：
 
 - `tools/commands/schema/vanilla_commands.json`
-- `src/resources/libmc/entity/Entities.h`
 
-并生成 `src/resources/libmc/entity/EntityTypes.h`、`src/resources/libmc/bindings/*.h`
-与聚合头 `bindings/vanilla.h`。生成产物为 `Do not edit` 文件，改动 schema 后必须
-重新运行本脚本并提交生成结果（`tests/test_generated_bindings.py` 会校验二者一致）。
+并生成 `src/resources/libmc/bindings/*.h` 与聚合头 `bindings/vanilla.h`。生成产物为
+`Do not edit` 文件，改动 schema 后必须重新运行本脚本并提交生成结果
+（`tests/test_generated_bindings.py` 会校验二者一致）。
 
 ## schema 结构
 
@@ -55,7 +54,7 @@ python tools/commands/generator/generate.py
 | `target` | `Target` | 实体选择器 |
 | `string` | `String` | 任意字符串实参 |
 | `block` | `Block` | 方块注册项 |
-| `entity_type` | `EntityType` | 实体类型注册项 |
+| `entity_type` | `Entity` | 实体类型注册项 |
 | `identifier` | `const Identifier *` | 任意命名空间 ID（advancement/effect/biome/sound/item/... 均走此类）|
 
 分组（展开为多个标量槽，需提供 `asm_fields` 命名各分量）：

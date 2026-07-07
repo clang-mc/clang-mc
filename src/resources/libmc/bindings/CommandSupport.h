@@ -1,7 +1,7 @@
 #pragma once
 
 #include "block/Block.h"
-#include "entity/EntityTypes.h"
+#include "entity/Entities.h"
 #include "util/Identifier.h"
 #include "util/Target.h"
 #include "util/math/vec.h"
@@ -104,14 +104,14 @@ _Command_AppendBlock(McfStrRef dst, Block block)
 }
 
 static inline int
-_Command_AppendEntityType(McfStrRef dst, EntityType type)
+_Command_AppendEntity(McfStrRef dst, Entity type)
 {
     const Identifier *id;
 
     if (dst == NULL) {
         return -1;
     }
-    id = EntityType_GetIdentifier(type);
+    id = Entity_GetIdentifier(type);
     if (id == NULL) {
         return -1;
     }

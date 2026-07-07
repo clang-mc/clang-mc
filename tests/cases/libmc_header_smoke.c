@@ -62,7 +62,7 @@ int main(void) {
     block_name = Block_EnsureMcfName(&TEST_BLOCK_STONE);
     if (block_name == 0 || McfStrRef_SlotId(block_name) < 0)
         return 110;
-    entity_name = EntityType_EnsureMcfName(&TEST_ARMOR_STAND);
+    entity_name = Entity_EnsureMcfName(&TEST_ARMOR_STAND);
     if (entity_name == 0 || McfStrRef_SlotId(entity_name) < 0)
         return 111;
 

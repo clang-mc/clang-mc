@@ -8,7 +8,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GEN_PATH = ROOT / "tools" / "commands" / "generator" / "generate.py"
 BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "bindings"
-ENTITY_TYPES_PATH = ROOT / "src" / "resources" / "libmc" / "entity" / "EntityTypes.h"
 VANILLA_PATH = BINDINGS_DIR / "vanilla.h"
 
 
@@ -56,11 +55,6 @@ class GeneratedBindingsTests(unittest.TestCase):
             self.assertEqual(
                 actual, expected, f"{command['header']} is stale; rerun generate.py"
             )
-
-    def test_regeneration_matches_committed_entity_types(self) -> None:
-        expected = gen.render_entity_types(gen.parse_entity_ids())
-        actual = ENTITY_TYPES_PATH.read_text(encoding="utf-8")
-        self.assertEqual(actual, expected, "EntityTypes.h is stale; rerun generate.py")
 
     def test_regeneration_matches_committed_vanilla_header(self) -> None:
         expected = gen.render_vanilla_bindings(self.commands)

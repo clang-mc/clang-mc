@@ -1,7 +1,7 @@
 #pragma once
 
 #include "block/Blocks.h"
-#include "entity/EntityTypes.h"
+#include "entity/Entities.h"
 #include "util/Target.h"
 #include "util/UUID.h"
 #include "bindings/exec.h"

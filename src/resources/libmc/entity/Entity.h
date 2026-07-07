@@ -25,7 +25,6 @@ typedef struct _Entity {
 } _Entity;
 
 typedef const struct _Entity *Entity;
-typedef Entity EntityType;
 
 static inline McfStrRef
 Entity_EnsureMcfName(Entity entity)
@@ -49,34 +48,16 @@ Entity_EnsureMcfName(Entity entity)
     return mutable_entity->mcfName;
 }
 
-static inline McfStrRef
-EntityType_EnsureMcfName(EntityType type)
-{
-    return Entity_EnsureMcfName(type);
-}
-
 static inline const Identifier *
 Entity_GetIdentifier(Entity entity)
 {
     return entity ? &entity->identifier : NULL;
 }
 
-static inline const Identifier *
-EntityType_GetIdentifier(EntityType type)
-{
-    return Entity_GetIdentifier(type);
-}
-
 static inline String
 Entity_GetRegistryName(Entity entity)
 {
     return entity ? Identifier_Str(&entity->identifier) : NULL;
-}
-
-static inline String
-EntityType_GetRegistryName(EntityType type)
-{
-    return Entity_GetRegistryName(type);
 }
 
 static inline const char *

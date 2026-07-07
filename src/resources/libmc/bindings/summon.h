@@ -47,7 +47,7 @@ summon_unsafe(McfStrRef type_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_
 }
 
 static inline int
-summon(EntityType type, Vec3d pos)
+summon(Entity type, Vec3d pos)
 {
     int ret;
     McfStrRef type_ref;
@@ -59,7 +59,7 @@ summon(EntityType type, Vec3d pos)
     int y_slot;
     int z_slot;
 
-    type_ref = EntityType_EnsureMcfName(type);
+    type_ref = Entity_EnsureMcfName(type);
     x_ref = _Command_FormatDoubleRef(pos.x);
     y_ref = _Command_FormatDoubleRef(pos.y);
     z_ref = _Command_FormatDoubleRef(pos.z);
