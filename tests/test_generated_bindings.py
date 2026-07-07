@@ -108,15 +108,21 @@ class GeneratedBindingsTests(unittest.TestCase):
 
     def test_bool_param_type(self) -> None:
         header = (BINDINGS_DIR / "gamerule.h").read_text(encoding="utf-8")
+        # Public signature is unchanged: bool is a plain `int value`.
         self.assertIn("gamerule_set_bool(String rule, int value)", header)
-        # bool converts via the shared never-released singletons ...
-        self.assertIn("_Command_BoolRef(value)", header)
-        # ... so it is a borrowed ref: no McfStrRef_Release for the value arg.
-        self.assertNotIn("McfStrRef_Release(value_ref)", header)
+        # bool is a compile-time branch: an if/else on the int, each arm baking
+        # the literal true/false straight into the command text. No McfStrRef,
+        # no slot, no Release for the bool.
+        self.assertIn("if (value) {", header)
+        self.assertIn("gamerule_set_bool_unsafe(McfStrRef rule_ref, int value)", header)
+        self.assertIn("gamerule $(rule) true", header)
+        self.assertIn("gamerule $(rule) false", header)
+        self.assertNotIn("value_ref", header)
+        self.assertNotIn("_Command_BoolRef", header)
+        # The old singleton helper is gone from the support header entirely.
         support = (BINDINGS_DIR / "CommandSupport.h").read_text(encoding="utf-8")
-        self.assertIn("_Command_BoolRef", support)
-        self.assertIn("_COMMAND_BOOL_TRUE", support)
-        self.assertIn('value ? "true" : "false"', support)
+        self.assertNotIn("_Command_BoolRef", support)
+        self.assertNotIn("_COMMAND_BOOL_TRUE", support)
 
     def test_vec2d_group_type(self) -> None:
         header = (BINDINGS_DIR / "spreadplayers.h").read_text(encoding="utf-8")

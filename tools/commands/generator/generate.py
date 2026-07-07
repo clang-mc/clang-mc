@@ -53,10 +53,11 @@ TYPES = {
         "category": "ref", "c_type": "const Identifier *",
         "to_ref": "_Command_RequireIdentifierRef", "needs_release": True,
     },
-    "bool": {
-        "category": "ref", "c_type": "int",
-        "to_ref": "_Command_BoolRef", "needs_release": False,
-    },
+    # bool is not a ref: it expands to a compile-time branch (if/else) that
+    # bakes the literal `true`/`false` straight into the command text, the
+    # same way an enum bakes its per-case literal. Only c_type (the public
+    # signature type) is consulted; see expand_param's dedicated bool arm.
+    "bool": {"c_type": "int"},
 }
 
 # Grouped (multi-field) parameter types. Each expands into several scalar
@@ -169,6 +170,12 @@ def expand_param(param: dict) -> list[dict]:
     if ptype == "enum":
         return [{"kind": "enum", "param_name": param["name"], "enum_ref": param["enum_ref"]}]
 
+    if ptype == "bool":
+        # A two-valued compile-time branch: `int value` in the public
+        # signature, dispatched via if/else, each arm baking the fixed
+        # literal true/false into the command. No McfStrRef, no slot.
+        return [{"kind": "bool", "param_name": param["name"]}]
+
     if ptype in GROUPS:
         group = GROUPS[ptype]
         asm_fields = param["asm_fields"]
@@ -210,7 +217,7 @@ def expand_variant(variant: dict) -> list[dict]:
 def check_no_asm_field_collisions(cmd_name: str, variant: dict, slots: list[dict]) -> None:
     seen: dict[str, str] = {}
     for slot in slots:
-        if slot["kind"] in ("enum", "literal"):
+        if slot["kind"] in ("enum", "literal", "bool"):
             continue
         flat_name = slot["flat_name"]
         if flat_name in seen:
@@ -241,19 +248,21 @@ def public_arg_names(variant: dict) -> list[str]:
     return [param["name"] for param in variant.get("params", []) if param["type"] != "literal"]
 
 
-class _EnumToken:
-    __slots__ = ("enum_ref",)
-
-    def __init__(self, enum_ref: str) -> None:
-        self.enum_ref = enum_ref
+# Placeholder for the one compile-time "choice" token a variant may carry: the
+# per-case literal of an enum, or the true/false literal of a bool. A variant
+# has at most one branch param (see render_template_b), so at most one of these
+# appears in a command's token stream; render_command_text substitutes the
+# chosen literal at render time.
+class _ChoiceToken:
+    __slots__ = ()
 
 
 def build_command_tokens(cmd_name: str, variant: dict, slots: list[dict]) -> list:
     tokens: list = [cmd_name, *variant.get("literal_path", [])]
     value_index = 0
     for slot in slots:
-        if slot["kind"] == "enum":
-            tokens.append(_EnumToken(slot["enum_ref"]))
+        if slot["kind"] in ("enum", "bool"):
+            tokens.append(_ChoiceToken())
         elif slot["kind"] == "literal":
             tokens.append(slot["text"])
         elif slot["kind"] == "ref":
@@ -280,14 +289,14 @@ def _macro_prefix(text: str) -> str:
     return "$" if _MACRO_PLACEHOLDER_RE.search(text) else ""
 
 
-def render_command_text(tokens: list, enum_value: dict | None) -> str:
+def render_command_text(tokens: list, branch_literal: str | None) -> str:
     final_tokens = []
     for token in tokens:
-        if isinstance(token, _EnumToken):
-            if enum_value is None:
-                raise ValueError("command text has an enum placeholder but no enum_value given")
-            if enum_value["literal"]:
-                final_tokens.append(enum_value["literal"])
+        if isinstance(token, _ChoiceToken):
+            if branch_literal is None:
+                raise ValueError("command text has a choice placeholder but no branch_literal given")
+            if branch_literal:
+                final_tokens.append(branch_literal)
             # empty literal -> omit token entirely
         else:
             final_tokens.append(token)
@@ -429,7 +438,7 @@ def render_template_a(cmd_name: str, suffix: str, variant: dict, slots: list[dic
 
 
 def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: list[dict],
-                        value_slots: list[dict], enum_value: dict | None, indent: str,
+                        value_slots: list[dict], branch_literal: str | None, indent: str,
                         in_unsafe: bool, fname: str, branch_key: str) -> tuple[str, list[str]]:
     # Inside an _unsafe() function, value slots are real declared parameters
     # named after their flat_name (e.g. setblock_unsafe(int x, int y, int z, ...)).
@@ -445,7 +454,7 @@ def _render_asm_branch(cmd_name: str, variant: dict, tokens: list, ref_slots: li
     def value_expr(slot: dict) -> str:
         return slot["flat_name"] if in_unsafe else slot["source_expr"]
 
-    cmd_text = render_command_text(tokens, enum_value)
+    cmd_text = render_command_text(tokens, branch_literal)
     inner = indent + "    "
     lines = []
     exports: list[str] = []
@@ -525,9 +534,19 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
     ref_slots = [s for s in slots if s["kind"] == "ref"]
     value_slots = [s for s in slots if s["kind"] == "value"]
     enum_slots = [s for s in slots if s["kind"] == "enum"]
-    if len(enum_slots) > 1:
-        raise ValueError(f"command {cmd_name!r} variant {suffix!r} has more than one enum param")
+    bool_slots = [s for s in slots if s["kind"] == "bool"]
+    # enum and bool are both compile-time branch dimensions. The generator
+    # currently emits a single flat switch/if per variant, so it supports at
+    # most one branch dimension; a variant needing several (an enum crossed
+    # with a bool) would require generalizing this to a cartesian product of
+    # nested branches. No vanilla command mixes them, so we reject it loudly.
+    if len(enum_slots) + len(bool_slots) > 1:
+        raise ValueError(
+            f"command {cmd_name!r} variant {suffix!r} has more than one branch "
+            f"(enum/bool) param; generalize render_template_b to a branch product"
+        )
     enum_slot = enum_slots[0] if enum_slots else None
+    bool_slot = bool_slots[0] if bool_slots else None
 
     tokens = build_command_tokens(cmd_name, variant, slots)
     in_unsafe = len(ref_slots) > 0
@@ -538,7 +557,7 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
         switch_cases = []
         for i, value in enumerate(enum_spec["values"]):
             branch, branch_exports = _render_asm_branch(
-                cmd_name, variant, tokens, ref_slots, value_slots, value,
+                cmd_name, variant, tokens, ref_slots, value_slots, value["literal"],
                 indent="            ", in_unsafe=in_unsafe, fname=fname, branch_key=f"_{i}"
             )
             exports.extend(branch_exports)
@@ -549,6 +568,25 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
 {switch_body}
         default:
             return -1;
+    }}"""
+    elif bool_slot is not None:
+        # Two compile-time arms, each baking the fixed literal true/false into
+        # the command. Mirrors the enum switch, dispatched on the plain int.
+        param_name = bool_slot["param_name"]
+        true_branch, true_exports = _render_asm_branch(
+            cmd_name, variant, tokens, ref_slots, value_slots, "true",
+            indent="        ", in_unsafe=in_unsafe, fname=fname, branch_key="_true"
+        )
+        false_branch, false_exports = _render_asm_branch(
+            cmd_name, variant, tokens, ref_slots, value_slots, "false",
+            indent="        ", in_unsafe=in_unsafe, fname=fname, branch_key="_false"
+        )
+        exports.extend(true_exports)
+        exports.extend(false_exports)
+        asm_and_return = f"""    if ({param_name}) {{
+{true_branch}
+    }} else {{
+{false_branch}
     }}"""
     else:
         asm_and_return, exports = _render_asm_branch(
@@ -561,6 +599,8 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
             return f"McfStrRef {slot['flat_name']}_ref"
         if slot["kind"] == "value":
             return f"{slot['c_type']} {slot['flat_name']}"
+        if slot["kind"] == "bool":
+            return f"int {slot['param_name']}"
         return f"{slot['enum_ref']} {slot['param_name']}"
 
     def slot_call_arg(slot: dict) -> str:
@@ -568,6 +608,8 @@ def render_template_b(cmd_name: str, suffix: str, variant: dict, slots: list[dic
             return f"{slot['flat_name']}_ref"
         if slot["kind"] == "value":
             return slot["source_expr"]
+        if slot["kind"] == "bool":
+            return slot["param_name"]
         return slot["param_name"]
 
     parts = []
@@ -668,7 +710,7 @@ def render_variant(cmd_name: str, variant: dict, enums_by_name: dict):
     slots = expand_variant(variant)
     check_no_asm_field_collisions(cmd_name, variant, slots)
 
-    needs_template_b = any(s["kind"] in ("value", "enum") for s in slots)
+    needs_template_b = any(s["kind"] in ("value", "enum", "bool") for s in slots)
     if needs_template_b:
         return render_template_b(cmd_name, suffix, variant, slots, enums_by_name)
     return render_template_a(cmd_name, suffix, variant, slots)
@@ -715,6 +757,8 @@ def render_alias_header(command: dict, target: dict) -> str:
                     return f"McfStrRef {slot['flat_name']}_ref"
                 if slot["kind"] == "value":
                     return f"{slot['c_type']} {slot['flat_name']}"
+                if slot["kind"] == "bool":
+                    return f"int {slot['param_name']}"
                 return f"{slot['enum_ref']} {slot['param_name']}"
 
             def _alias_unsafe_arg(slot: dict) -> str:
@@ -722,6 +766,8 @@ def render_alias_header(command: dict, target: dict) -> str:
                     return f"{slot['flat_name']}_ref"
                 if slot["kind"] == "value":
                     return slot["flat_name"]
+                if slot["kind"] == "bool":
+                    return slot["param_name"]
                 return slot["param_name"]
 
             unsafe_slots = [s for s in slots if s["kind"] != "literal"]

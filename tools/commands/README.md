@@ -51,7 +51,7 @@ python tools/commands/generator/generate.py
 |---|---|---|
 | `int` | `int` | 直接内联为数字（value 类）|
 | `double` / `float` | `double` / `float` | 格式化为字符串（ref 类）|
-| `bool` | `int` | 渲染为 `true`/`false`；复用两个永不释放的借用单例，无 per-call 分配 |
+| `bool` | `int` | 编译期 `if/else` 分支，把字面量 `true`/`false` 直接焊进命令文本；不经 McfStrRef/slot（本质是二值 enum）|
 | `target` | `Target` | 实体选择器 |
 | `string` | `String` | 任意字符串实参 |
 | `block` | `Block` | 方块注册项 |

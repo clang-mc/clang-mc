@@ -46,32 +46,11 @@ _Command_FormatFloatRef(float value)
 }
 
 /*
- * The two boolean literals are permanent, never-released singletons: one
- * McfStrRef each for "true" and "false", shared by every bool command
- * argument. They mirror the registry caching used by Block/Entity
- * (file-scope mutable storage populated lazily on first use). Because they
- * are borrowed (owned by this module, not the caller), bool params are
- * generated with needs_release = False.
- *
- * The cached ref is (re)built when it has never been materialized, or when
- * a VM reset invalidated its mcstr slot (McfStrRef_SlotId < 0) -- the same
- * slot-validity guard McfStrRef uses everywhere.
+ * bool command arguments do not go through McfStrRef at all: the generator
+ * expands them into a compile-time if/else that bakes the literal
+ * `true`/`false` straight into the command text (see generate.py's bool arm).
+ * So no boolean conversion helper is needed here.
  */
-static McfStrRef _COMMAND_BOOL_TRUE = NULL;
-static McfStrRef _COMMAND_BOOL_FALSE = NULL;
-
-static inline McfStrRef
-_Command_BoolRef(int value)
-{
-    McfStrRef *cache;
-
-    cache = value ? &_COMMAND_BOOL_TRUE : &_COMMAND_BOOL_FALSE;
-    if (*cache != NULL && McfStrRef_SlotId(*cache) >= 0) {
-        return *cache;
-    }
-    *cache = McfStrRef_FromLiteral(value ? "true" : "false");
-    return *cache;
-}
 
 static inline int
 _Command_AppendStringLiteral(McfStrRef dst, const char *literal)

@@ -174,34 +174,47 @@ effect_give_amplified(Target target, const Identifier * effect, int seconds, int
 }
 
 static inline int
-effect_give_hidden_unsafe(McfStrRef target_ref, McfStrRef effect_ref, int seconds, int amplifier, McfStrRef hide_particles_ref)
+effect_give_hidden_unsafe(McfStrRef target_ref, McfStrRef effect_ref, int seconds, int amplifier, int hide_particles)
 {
     int ret;
     int target_slot;
     int effect_slot;
-    int hide_particles_slot;
 
     target_slot = McfStrRef_SlotId(target_ref);
     effect_slot = McfStrRef_SlotId(effect_ref);
-    hide_particles_slot = McfStrRef_SlotId(hide_particles_ref);
-    if (target_slot < 0 || effect_slot < 0 || hide_particles_slot < 0) {
+    if (target_slot < 0 || effect_slot < 0) {
         return -1;
     }
 
-    __asm volatile (
-        "inline $data modify storage std:vm ls0.target set from storage std:vm mcstr.slots[%0].value\n"
-        "inline $data modify storage std:vm ls0.effect set from storage std:vm mcstr.slots[%1].value\n"
-        "inline $data modify storage std:vm ls0.hide_particles set from storage std:vm mcstr.slots[%2].value"
-        :
-        : "r"(target_slot), "r"(effect_slot), "r"(hide_particles_slot)
-    );
-    __asm volatile (
-        "$$direct_args\n"
-        "inline $execute store result score %0 vm_regs run effect give $(target) $(effect) %1 %2 $(hide_particles)"
-        : "=r"(ret)
-        : "r"(seconds), "r"(amplifier)
-    );
-    return ret;
+    if (hide_particles) {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.target set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.effect set from storage std:vm mcstr.slots[%1].value"
+            :
+            : "r"(target_slot), "r"(effect_slot)
+        );
+        __asm volatile (
+            "$$direct_args\n"
+            "inline $execute store result score %0 vm_regs run effect give $(target) $(effect) %1 %2 true"
+            : "=r"(ret)
+            : "r"(seconds), "r"(amplifier)
+        );
+        return ret;
+    } else {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.target set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.effect set from storage std:vm mcstr.slots[%1].value"
+            :
+            : "r"(target_slot), "r"(effect_slot)
+        );
+        __asm volatile (
+            "$$direct_args\n"
+            "inline $execute store result score %0 vm_regs run effect give $(target) $(effect) %1 %2 false"
+            : "=r"(ret)
+            : "r"(seconds), "r"(amplifier)
+        );
+        return ret;
+    }
 }
 
 static inline int
@@ -210,23 +223,19 @@ effect_give_hidden(Target target, const Identifier * effect, int seconds, int am
     int ret;
     McfStrRef target_ref;
     McfStrRef effect_ref;
-    McfStrRef hide_particles_ref;
     int target_slot;
     int effect_slot;
-    int hide_particles_slot;
 
     target_ref = _Command_RequireTargetRef(target);
     effect_ref = _Command_RequireIdentifierRef(effect);
-    hide_particles_ref = _Command_BoolRef(hide_particles);
     target_slot = McfStrRef_SlotId(target_ref);
     effect_slot = McfStrRef_SlotId(effect_ref);
-    hide_particles_slot = McfStrRef_SlotId(hide_particles_ref);
-    if (target_slot < 0 || effect_slot < 0 || hide_particles_slot < 0) {
+    if (target_slot < 0 || effect_slot < 0) {
         McfStrRef_Release(effect_ref);
         return -1;
     }
 
-    ret = effect_give_hidden_unsafe(target_ref, effect_ref, seconds, amplifier, hide_particles_ref);
+    ret = effect_give_hidden_unsafe(target_ref, effect_ref, seconds, amplifier, hide_particles);
     McfStrRef_Release(effect_ref);
     return ret;
 }

@@ -14,8 +14,12 @@ __asm__(
 "    inline $execute store result score r0 vm_regs run gamerule $(rule)\n"
 "    ret\n"
 "\n"
-"export _ll_shared:z/libmc_cmd_gamerule_set_bool:\n"
-"    inline $execute store result score r0 vm_regs run gamerule $(rule) $(value)\n"
+"export _ll_shared:z/gamerule_set_bool_unsafe_exec_true:\n"
+"    inline $execute store result score r0 vm_regs run gamerule $(rule) true\n"
+"    ret\n"
+"\n"
+"export _ll_shared:z/gamerule_set_bool_unsafe_exec_false:\n"
+"    inline $execute store result score r0 vm_regs run gamerule $(rule) false\n"
 "    ret\n"
 );
 
@@ -56,46 +60,55 @@ gamerule_query(String rule)
 }
 
 static inline int
-gamerule_set_bool_unsafe(McfStrRef rule_ref, McfStrRef value_ref)
+gamerule_set_bool_unsafe(McfStrRef rule_ref, int value)
 {
     int ret;
     int rule_slot;
-    int value_slot;
 
     rule_slot = McfStrRef_SlotId(rule_ref);
-    value_slot = McfStrRef_SlotId(value_ref);
-    if (rule_slot < 0 || value_slot < 0) {
+    if (rule_slot < 0) {
         return -1;
     }
 
-    __asm volatile (
-        "inline data modify storage std:vm s6.cmd set value %{rule: \"\", value: \"\"%}\n"
-        "inline $data modify storage std:vm s6.cmd.rule set from storage std:vm mcstr.slots[%1].value\n"
-        "inline $data modify storage std:vm s6.cmd.value set from storage std:vm mcstr.slots[%2].value\n"
-        "inline function _ll_shared:z/libmc_cmd_gamerule_set_bool with storage std:vm s6.cmd\n"
-        "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
-        : "=r"(ret)
-        : "r"(rule_slot), "r"(value_slot)
-    );
-    return ret;
+    if (value) {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.rule set from storage std:vm mcstr.slots[%0].value"
+            :
+            : "r"(rule_slot)
+        );
+        __asm volatile (
+            "inline function _ll_shared:z/gamerule_set_bool_unsafe_exec_true with storage std:vm ls0\n"
+            "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
+            : "=r"(ret)
+        );
+        return ret;
+    } else {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.rule set from storage std:vm mcstr.slots[%0].value"
+            :
+            : "r"(rule_slot)
+        );
+        __asm volatile (
+            "inline function _ll_shared:z/gamerule_set_bool_unsafe_exec_false with storage std:vm ls0\n"
+            "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
+            : "=r"(ret)
+        );
+        return ret;
+    }
 }
 
 static inline int
 gamerule_set_bool(String rule, int value)
 {
     McfStrRef rule_ref;
-    McfStrRef value_ref;
     int rule_slot;
-    int value_slot;
 
     rule_ref = _Command_RequireStringRef(rule);
-    value_ref = _Command_BoolRef(value);
     rule_slot = McfStrRef_SlotId(rule_ref);
-    value_slot = McfStrRef_SlotId(value_ref);
-    if (rule_slot < 0 || value_slot < 0) {
+    if (rule_slot < 0) {
         return -1;
     }
-    return gamerule_set_bool_unsafe(rule_ref, value_ref);
+    return gamerule_set_bool_unsafe(rule_ref, value);
 }
 
 static inline int

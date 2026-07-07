@@ -10,46 +10,67 @@ extern "C" {
 #endif
 
 __asm__(
-"export _ll_shared:z/libmc_cmd_spreadplayers:\n"
-"    inline $execute store result score r0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) $(respect_teams) $(targets)\n"
+"export _ll_shared:z/spreadplayers_unsafe_exec_true:\n"
+"    inline $execute store result score r0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) true $(targets)\n"
+"    ret\n"
+"\n"
+"export _ll_shared:z/spreadplayers_unsafe_exec_false:\n"
+"    inline $execute store result score r0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) false $(targets)\n"
 "    ret\n"
 );
 
 static inline int
-spreadplayers_unsafe(McfStrRef center_x_ref, McfStrRef center_z_ref, McfStrRef spread_distance_ref, McfStrRef max_range_ref, McfStrRef respect_teams_ref, McfStrRef targets_ref)
+spreadplayers_unsafe(McfStrRef center_x_ref, McfStrRef center_z_ref, McfStrRef spread_distance_ref, McfStrRef max_range_ref, int respect_teams, McfStrRef targets_ref)
 {
     int ret;
     int center_x_slot;
     int center_z_slot;
     int spread_distance_slot;
     int max_range_slot;
-    int respect_teams_slot;
     int targets_slot;
 
     center_x_slot = McfStrRef_SlotId(center_x_ref);
     center_z_slot = McfStrRef_SlotId(center_z_ref);
     spread_distance_slot = McfStrRef_SlotId(spread_distance_ref);
     max_range_slot = McfStrRef_SlotId(max_range_ref);
-    respect_teams_slot = McfStrRef_SlotId(respect_teams_ref);
     targets_slot = McfStrRef_SlotId(targets_ref);
-    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || respect_teams_slot < 0 || targets_slot < 0) {
+    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || targets_slot < 0) {
         return -1;
     }
 
-    __asm volatile (
-        "inline data modify storage std:vm s6.cmd set value %{center_x: \"\", center_z: \"\", spread_distance: \"\", max_range: \"\", respect_teams: \"\", targets: \"\"%}\n"
-        "inline $data modify storage std:vm s6.cmd.center_x set from storage std:vm mcstr.slots[%1].value\n"
-        "inline $data modify storage std:vm s6.cmd.center_z set from storage std:vm mcstr.slots[%2].value\n"
-        "inline $data modify storage std:vm s6.cmd.spread_distance set from storage std:vm mcstr.slots[%3].value\n"
-        "inline $data modify storage std:vm s6.cmd.max_range set from storage std:vm mcstr.slots[%4].value\n"
-        "inline $data modify storage std:vm s6.cmd.respect_teams set from storage std:vm mcstr.slots[%5].value\n"
-        "inline $data modify storage std:vm s6.cmd.targets set from storage std:vm mcstr.slots[%6].value\n"
-        "inline function _ll_shared:z/libmc_cmd_spreadplayers with storage std:vm s6.cmd\n"
-        "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
-        : "=r"(ret)
-        : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(respect_teams_slot), "r"(targets_slot)
-    );
-    return ret;
+    if (respect_teams) {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.center_x set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.center_z set from storage std:vm mcstr.slots[%1].value\n"
+            "inline $data modify storage std:vm ls0.spread_distance set from storage std:vm mcstr.slots[%2].value\n"
+            "inline $data modify storage std:vm ls0.max_range set from storage std:vm mcstr.slots[%3].value\n"
+            "inline $data modify storage std:vm ls0.targets set from storage std:vm mcstr.slots[%4].value"
+            :
+            : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(targets_slot)
+        );
+        __asm volatile (
+            "inline function _ll_shared:z/spreadplayers_unsafe_exec_true with storage std:vm ls0\n"
+            "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
+            : "=r"(ret)
+        );
+        return ret;
+    } else {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.center_x set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.center_z set from storage std:vm mcstr.slots[%1].value\n"
+            "inline $data modify storage std:vm ls0.spread_distance set from storage std:vm mcstr.slots[%2].value\n"
+            "inline $data modify storage std:vm ls0.max_range set from storage std:vm mcstr.slots[%3].value\n"
+            "inline $data modify storage std:vm ls0.targets set from storage std:vm mcstr.slots[%4].value"
+            :
+            : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(targets_slot)
+        );
+        __asm volatile (
+            "inline function _ll_shared:z/spreadplayers_unsafe_exec_false with storage std:vm ls0\n"
+            "inline scoreboard players operation %0 vm_regs = r0 vm_regs"
+            : "=r"(ret)
+        );
+        return ret;
+    }
 }
 
 static inline int
@@ -60,28 +81,24 @@ spreadplayers(Vec2d center, float spread_distance, float max_range, int respect_
     McfStrRef center_z_ref;
     McfStrRef spread_distance_ref;
     McfStrRef max_range_ref;
-    McfStrRef respect_teams_ref;
     McfStrRef targets_ref;
     int center_x_slot;
     int center_z_slot;
     int spread_distance_slot;
     int max_range_slot;
-    int respect_teams_slot;
     int targets_slot;
 
     center_x_ref = _Command_FormatDoubleRef(center.x);
     center_z_ref = _Command_FormatDoubleRef(center.z);
     spread_distance_ref = _Command_FormatFloatRef(spread_distance);
     max_range_ref = _Command_FormatFloatRef(max_range);
-    respect_teams_ref = _Command_BoolRef(respect_teams);
     targets_ref = _Command_RequireTargetRef(targets);
     center_x_slot = McfStrRef_SlotId(center_x_ref);
     center_z_slot = McfStrRef_SlotId(center_z_ref);
     spread_distance_slot = McfStrRef_SlotId(spread_distance_ref);
     max_range_slot = McfStrRef_SlotId(max_range_ref);
-    respect_teams_slot = McfStrRef_SlotId(respect_teams_ref);
     targets_slot = McfStrRef_SlotId(targets_ref);
-    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || respect_teams_slot < 0 || targets_slot < 0) {
+    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || targets_slot < 0) {
         McfStrRef_Release(center_x_ref);
         McfStrRef_Release(center_z_ref);
         McfStrRef_Release(spread_distance_ref);
@@ -89,7 +106,7 @@ spreadplayers(Vec2d center, float spread_distance, float max_range, int respect_
         return -1;
     }
 
-    ret = spreadplayers_unsafe(center_x_ref, center_z_ref, spread_distance_ref, max_range_ref, respect_teams_ref, targets_ref);
+    ret = spreadplayers_unsafe(center_x_ref, center_z_ref, spread_distance_ref, max_range_ref, respect_teams, targets_ref);
     McfStrRef_Release(center_x_ref);
     McfStrRef_Release(center_z_ref);
     McfStrRef_Release(spread_distance_ref);
@@ -98,43 +115,59 @@ spreadplayers(Vec2d center, float spread_distance, float max_range, int respect_
 }
 
 static inline int
-spreadplayers_under_unsafe(McfStrRef center_x_ref, McfStrRef center_z_ref, McfStrRef spread_distance_ref, McfStrRef max_range_ref, int max_height, McfStrRef respect_teams_ref, McfStrRef targets_ref)
+spreadplayers_under_unsafe(McfStrRef center_x_ref, McfStrRef center_z_ref, McfStrRef spread_distance_ref, McfStrRef max_range_ref, int max_height, int respect_teams, McfStrRef targets_ref)
 {
     int ret;
     int center_x_slot;
     int center_z_slot;
     int spread_distance_slot;
     int max_range_slot;
-    int respect_teams_slot;
     int targets_slot;
 
     center_x_slot = McfStrRef_SlotId(center_x_ref);
     center_z_slot = McfStrRef_SlotId(center_z_ref);
     spread_distance_slot = McfStrRef_SlotId(spread_distance_ref);
     max_range_slot = McfStrRef_SlotId(max_range_ref);
-    respect_teams_slot = McfStrRef_SlotId(respect_teams_ref);
     targets_slot = McfStrRef_SlotId(targets_ref);
-    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || respect_teams_slot < 0 || targets_slot < 0) {
+    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || targets_slot < 0) {
         return -1;
     }
 
-    __asm volatile (
-        "inline $data modify storage std:vm ls0.center_x set from storage std:vm mcstr.slots[%0].value\n"
-        "inline $data modify storage std:vm ls0.center_z set from storage std:vm mcstr.slots[%1].value\n"
-        "inline $data modify storage std:vm ls0.spread_distance set from storage std:vm mcstr.slots[%2].value\n"
-        "inline $data modify storage std:vm ls0.max_range set from storage std:vm mcstr.slots[%3].value\n"
-        "inline $data modify storage std:vm ls0.respect_teams set from storage std:vm mcstr.slots[%4].value\n"
-        "inline $data modify storage std:vm ls0.targets set from storage std:vm mcstr.slots[%5].value"
-        :
-        : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(respect_teams_slot), "r"(targets_slot)
-    );
-    __asm volatile (
-        "$$direct_args\n"
-        "inline $execute store result score %0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) under %1 $(respect_teams) $(targets)"
-        : "=r"(ret)
-        : "r"(max_height)
-    );
-    return ret;
+    if (respect_teams) {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.center_x set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.center_z set from storage std:vm mcstr.slots[%1].value\n"
+            "inline $data modify storage std:vm ls0.spread_distance set from storage std:vm mcstr.slots[%2].value\n"
+            "inline $data modify storage std:vm ls0.max_range set from storage std:vm mcstr.slots[%3].value\n"
+            "inline $data modify storage std:vm ls0.targets set from storage std:vm mcstr.slots[%4].value"
+            :
+            : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(targets_slot)
+        );
+        __asm volatile (
+            "$$direct_args\n"
+            "inline $execute store result score %0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) under %1 true $(targets)"
+            : "=r"(ret)
+            : "r"(max_height)
+        );
+        return ret;
+    } else {
+        __asm volatile (
+            "inline $data modify storage std:vm ls0.center_x set from storage std:vm mcstr.slots[%0].value\n"
+            "inline $data modify storage std:vm ls0.center_z set from storage std:vm mcstr.slots[%1].value\n"
+            "inline $data modify storage std:vm ls0.spread_distance set from storage std:vm mcstr.slots[%2].value\n"
+            "inline $data modify storage std:vm ls0.max_range set from storage std:vm mcstr.slots[%3].value\n"
+            "inline $data modify storage std:vm ls0.targets set from storage std:vm mcstr.slots[%4].value"
+            :
+            : "r"(center_x_slot), "r"(center_z_slot), "r"(spread_distance_slot), "r"(max_range_slot), "r"(targets_slot)
+        );
+        __asm volatile (
+            "$$direct_args\n"
+            "inline $execute store result score %0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) under %1 false $(targets)"
+            : "=r"(ret)
+            : "r"(max_height)
+        );
+        return ret;
+    }
 }
 
 static inline int
@@ -145,28 +178,24 @@ spreadplayers_under(Vec2d center, float spread_distance, float max_range, int ma
     McfStrRef center_z_ref;
     McfStrRef spread_distance_ref;
     McfStrRef max_range_ref;
-    McfStrRef respect_teams_ref;
     McfStrRef targets_ref;
     int center_x_slot;
     int center_z_slot;
     int spread_distance_slot;
     int max_range_slot;
-    int respect_teams_slot;
     int targets_slot;
 
     center_x_ref = _Command_FormatDoubleRef(center.x);
     center_z_ref = _Command_FormatDoubleRef(center.z);
     spread_distance_ref = _Command_FormatFloatRef(spread_distance);
     max_range_ref = _Command_FormatFloatRef(max_range);
-    respect_teams_ref = _Command_BoolRef(respect_teams);
     targets_ref = _Command_RequireTargetRef(targets);
     center_x_slot = McfStrRef_SlotId(center_x_ref);
     center_z_slot = McfStrRef_SlotId(center_z_ref);
     spread_distance_slot = McfStrRef_SlotId(spread_distance_ref);
     max_range_slot = McfStrRef_SlotId(max_range_ref);
-    respect_teams_slot = McfStrRef_SlotId(respect_teams_ref);
     targets_slot = McfStrRef_SlotId(targets_ref);
-    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || respect_teams_slot < 0 || targets_slot < 0) {
+    if (center_x_slot < 0 || center_z_slot < 0 || spread_distance_slot < 0 || max_range_slot < 0 || targets_slot < 0) {
         McfStrRef_Release(center_x_ref);
         McfStrRef_Release(center_z_ref);
         McfStrRef_Release(spread_distance_ref);
@@ -174,7 +203,7 @@ spreadplayers_under(Vec2d center, float spread_distance, float max_range, int ma
         return -1;
     }
 
-    ret = spreadplayers_under_unsafe(center_x_ref, center_z_ref, spread_distance_ref, max_range_ref, max_height, respect_teams_ref, targets_ref);
+    ret = spreadplayers_under_unsafe(center_x_ref, center_z_ref, spread_distance_ref, max_range_ref, max_height, respect_teams, targets_ref);
     McfStrRef_Release(center_x_ref);
     McfStrRef_Release(center_z_ref);
     McfStrRef_Release(spread_distance_ref);
