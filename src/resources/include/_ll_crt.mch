@@ -1,7 +1,6 @@
 #once
 
 #include "_ll_std"
-#include "_ll_libc"
 
 // -- Begin function _start
 _start:                                 // @_start
