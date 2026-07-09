@@ -39,6 +39,10 @@ TYPES = {
         "category": "ref", "c_type": "String",
         "to_ref": "_Command_RequireStringRef", "needs_release": False,
     },
+    "cstring": {
+        "category": "ref", "c_type": "const char *",
+        "to_ref": "_Command_RequireCStringRef", "needs_release": True,
+    },
     "block": {
         "category": "ref", "c_type": "Block",
         "to_ref": "Block_EnsureMcfName", "needs_release": False,
@@ -50,6 +54,10 @@ TYPES = {
     "identifier": {
         "category": "ref", "c_type": "const Identifier *",
         "to_ref": "_Command_RequireIdentifierRef", "needs_release": True,
+    },
+    "text_component": {
+        "category": "ref", "c_type": "TextComponent",
+        "to_ref": "_Command_RequireTextComponentRef", "needs_release": True,
     },
     # bool is not a ref: it expands to a compile-time branch (if/else) that
     # bakes the literal `true`/`false` straight into the command text, the
@@ -775,6 +783,12 @@ def render_header(command: dict, commands_by_name: dict) -> str:
     if "variants" not in command:
         return render_empty_shell(command)
 
+    if command.get("hand_written"):
+        raise ValueError(
+            f"command {command['name']!r} is marked hand_written but also has "
+            "variants; a hand-written command must not carry a schema body"
+        )
+
     enums = "\n".join(render_enum(enum_spec) for enum_spec in command.get("enums", []))
     body = render_structured_body(command)
     return f"""#pragma once
@@ -822,6 +836,11 @@ def main() -> None:
     check_no_c_name_collisions(schema["commands"])
     commands_by_name = {command["name"]: command for command in schema["commands"]}
     for command in schema["commands"]:
+        # hand_written commands own their bindings/<header> file directly; the
+        # generator must not touch it (else the empty-shell / stale body would
+        # clobber the maintained source). vanilla.h still #includes it below.
+        if command.get("hand_written"):
+            continue
         write_if_changed(BINDINGS_DIR / command["header"], render_header(command, commands_by_name))
     write_if_changed(VANILLA_BINDINGS_PATH, render_vanilla_bindings(schema["commands"]))
 

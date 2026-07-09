@@ -4,6 +4,7 @@
 #include "entity/Entities.h"
 #include "util/Identifier.h"
 #include "util/Target.h"
+#include "util/TextComponent.h"
 #include "util/math/vec.h"
 
 static inline McfStrRef
@@ -21,6 +22,15 @@ _Command_RequireStringRef(String src)
     return String_GetMcfStrRef(src);
 }
 
+/* A plain C-string command token (objective/criteria/slot names, etc.). Unlike
+ * `string` (a libmc String object) this takes a const char * directly, which is
+ * far more ergonomic for the many short literal tokens in scoreboard/etc. */
+static inline McfStrRef
+_Command_RequireCStringRef(const char *src)
+{
+    return McfStrRef_FromCString(src);
+}
+
 static inline McfStrRef
 _Command_RequireTargetRef(Target target)
 {
@@ -31,6 +41,12 @@ static inline McfStrRef
 _Command_RequireIdentifierRef(const Identifier *id)
 {
     return McfStrRef_FromIdentifier(id);
+}
+
+static inline McfStrRef
+_Command_RequireTextComponentRef(TextComponent tc)
+{
+    return McfStrRef_FromTextComponent(tc);
 }
 
 static inline McfStrRef
@@ -184,6 +200,51 @@ _Command_ExecAndRelease(McfStrRef cmd)
         return -1;
     }
     ret = McfStrRef_Exec(cmd);
+    McfStrRef_Release(cmd);
+    return ret;
+}
+
+/*
+ * Like _Command_ExecAndRelease, but captures the command's *result value*
+ * (e.g. the integer queried by `data get`, or the node count of
+ * `data modify`/`data remove`) instead of Minecraft's command-success flag.
+ *
+ * McfStrRef_Exec runs the string through std:_internal/exec (`$$(str)`), whose
+ * function-return is the success flag, not the value. _Command_ExecResult runs
+ * it through std:_internal/exec_result (`$return run $(str)`), whose `return run`
+ * propagates the inner command's result as the function return value, captured
+ * directly into the output register. Hand-written bindings that assemble a full
+ * command string and need its numeric result use this.
+ */
+static inline int
+_Command_ExecResult(McfStrRef cmd)
+{
+    int ret;
+    int slot_id;
+
+    slot_id = McfStrRef_SlotId(cmd);
+    if (slot_id < 0) {
+        return -1;
+    }
+    __asm volatile (
+        "inline $data modify storage std:vm s1.str set from storage std:vm mcstr.slots[%1].value\n"
+        "inline data modify storage std:vm s1.next set value \"\"\n"
+        "inline execute store result score %0 vm_regs run function std:_internal/exec_result with storage std:vm s1"
+        : "=r"(ret)
+        : "r"(slot_id)
+    );
+    return ret;
+}
+
+static inline int
+_Command_ExecResultAndRelease(McfStrRef cmd)
+{
+    int ret;
+
+    if (cmd == NULL) {
+        return -1;
+    }
+    ret = _Command_ExecResult(cmd);
     McfStrRef_Release(cmd);
     return ret;
 }

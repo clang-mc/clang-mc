@@ -70,6 +70,8 @@ data modify storage std:vm s6 set value {}
 data modify storage std:vm int2str_pool set value []
 data modify storage std:vm str2int_pool set value {}
 data modify storage std:vm mcstr set value {next_id: 0, free_head: -1, slots: []}
+# NBT 堆 结构化 NBT slot 数组，独立于 mcstr 字符串堆与线性 heap
+data modify storage std:vm nbt set value {next_id: 0, free_head: -1, slots: []}
 
 # 准备内存
 # 总内存 32MB，栈 64KB

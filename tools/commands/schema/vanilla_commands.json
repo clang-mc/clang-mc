@@ -71,11 +71,226 @@
     },
     {
       "name": "attribute",
-      "header": "attribute.h"
+      "header": "attribute.h",
+      "enums": [
+        {
+          "name": "AttributeAddMode",
+          "values": [
+            {"const": "ATTRIBUTE_ADD_VALUE", "literal": "add_value"},
+            {"const": "ATTRIBUTE_ADD_MULTIPLIED_BASE", "literal": "add_multiplied_base"},
+            {"const": "ATTRIBUTE_ADD_MULTIPLIED_TOTAL", "literal": "add_multiplied_total"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "_get",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "get"}
+          ]
+        },
+        {
+          "c_suffix": "_get_scaled",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "get"},
+            {"name": "scale", "type": "double"}
+          ]
+        },
+        {
+          "c_suffix": "_base_get",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "base"},
+            {"type": "literal", "text": "get"}
+          ]
+        },
+        {
+          "c_suffix": "_base_set",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "base"},
+            {"type": "literal", "text": "set"},
+            {"name": "value", "type": "double"}
+          ]
+        },
+        {
+          "c_suffix": "_modifier_add",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "modifier"},
+            {"type": "literal", "text": "add"},
+            {"name": "id", "type": "identifier"},
+            {"name": "value", "type": "double"},
+            {"name": "mode", "type": "enum", "enum_ref": "AttributeAddMode"}
+          ]
+        },
+        {
+          "c_suffix": "_modifier_remove",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "modifier"},
+            {"type": "literal", "text": "remove"},
+            {"name": "id", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_modifier_value_get",
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "attribute", "type": "identifier"},
+            {"type": "literal", "text": "modifier"},
+            {"type": "literal", "text": "value"},
+            {"type": "literal", "text": "get"},
+            {"name": "id", "type": "identifier"}
+          ]
+        }
+      ]
     },
     {
       "name": "bossbar",
-      "header": "bossbar.h"
+      "header": "bossbar.h",
+      "enums": [
+        {
+          "name": "BossbarColor",
+          "values": [
+            {"const": "BOSSBAR_COLOR_BLUE", "literal": "blue"},
+            {"const": "BOSSBAR_COLOR_GREEN", "literal": "green"},
+            {"const": "BOSSBAR_COLOR_PINK", "literal": "pink"},
+            {"const": "BOSSBAR_COLOR_PURPLE", "literal": "purple"},
+            {"const": "BOSSBAR_COLOR_RED", "literal": "red"},
+            {"const": "BOSSBAR_COLOR_WHITE", "literal": "white"},
+            {"const": "BOSSBAR_COLOR_YELLOW", "literal": "yellow"}
+          ]
+        },
+        {
+          "name": "BossbarStyle",
+          "values": [
+            {"const": "BOSSBAR_STYLE_NOTCHED_6", "literal": "notched_6"},
+            {"const": "BOSSBAR_STYLE_NOTCHED_10", "literal": "notched_10"},
+            {"const": "BOSSBAR_STYLE_NOTCHED_12", "literal": "notched_12"},
+            {"const": "BOSSBAR_STYLE_NOTCHED_20", "literal": "notched_20"},
+            {"const": "BOSSBAR_STYLE_PROGRESS", "literal": "progress"}
+          ]
+        },
+        {
+          "name": "BossbarQuery",
+          "values": [
+            {"const": "BOSSBAR_QUERY_MAX", "literal": "max"},
+            {"const": "BOSSBAR_QUERY_PLAYERS", "literal": "players"},
+            {"const": "BOSSBAR_QUERY_VALUE", "literal": "value"},
+            {"const": "BOSSBAR_QUERY_VISIBLE", "literal": "visible"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "_add",
+          "literal_path": ["add"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"name": "name", "type": "text_component"}
+          ]
+        },
+        {
+          "c_suffix": "_get",
+          "literal_path": ["get"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"name": "query", "type": "enum", "enum_ref": "BossbarQuery"}
+          ]
+        },
+        {
+          "c_suffix": "_list",
+          "literal_path": ["list"],
+          "params": []
+        },
+        {
+          "c_suffix": "_remove",
+          "literal_path": ["remove"],
+          "params": [
+            {"name": "id", "type": "identifier"}
+          ]
+        },
+        {
+          "c_suffix": "_set_color",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "color"},
+            {"name": "color", "type": "enum", "enum_ref": "BossbarColor"}
+          ]
+        },
+        {
+          "c_suffix": "_set_style",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "style"},
+            {"name": "style", "type": "enum", "enum_ref": "BossbarStyle"}
+          ]
+        },
+        {
+          "c_suffix": "_set_max",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "max"},
+            {"name": "value", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_set_value",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "value"},
+            {"name": "value", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_set_visible",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "visible"},
+            {"name": "visible", "type": "bool"}
+          ]
+        },
+        {
+          "c_suffix": "_set_name",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "name"},
+            {"name": "name", "type": "text_component"}
+          ]
+        },
+        {
+          "c_suffix": "_set_players_all",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "players"}
+          ]
+        },
+        {
+          "c_suffix": "_set_players",
+          "literal_path": ["set"],
+          "params": [
+            {"name": "id", "type": "identifier"},
+            {"type": "literal", "text": "players"},
+            {"name": "targets", "type": "target"}
+          ]
+        }
+      ]
     },
     {
       "name": "clear",
@@ -186,7 +401,8 @@
     },
     {
       "name": "data",
-      "header": "data.h"
+      "header": "data.h",
+      "hand_written": true
     },
     {
       "name": "datapack",
@@ -341,7 +557,8 @@
     },
     {
       "name": "execute",
-      "header": "execute.h"
+      "header": "execute.h",
+      "hand_written": true
     },
     {
       "name": "experience",
@@ -591,7 +808,8 @@
     },
     {
       "name": "item",
-      "header": "item.h"
+      "header": "item.h",
+      "hand_written": true
     },
     {
       "name": "kill",
@@ -649,7 +867,8 @@
     },
     {
       "name": "loot",
-      "header": "loot.h"
+      "header": "loot.h",
+      "hand_written": true
     },
     {
       "name": "me",
@@ -980,7 +1199,131 @@
     },
     {
       "name": "scoreboard",
-      "header": "scoreboard.h"
+      "header": "scoreboard.h",
+      "enums": [
+        {
+          "name": "ScoreOp",
+          "values": [
+            {"const": "SCORE_OP_ASSIGN", "literal": "="},
+            {"const": "SCORE_OP_ADD", "literal": "+="},
+            {"const": "SCORE_OP_SUB", "literal": "-="},
+            {"const": "SCORE_OP_MUL", "literal": "*="},
+            {"const": "SCORE_OP_DIV", "literal": "/="},
+            {"const": "SCORE_OP_MOD", "literal": "%="},
+            {"const": "SCORE_OP_MIN", "literal": "<"},
+            {"const": "SCORE_OP_MAX", "literal": ">"},
+            {"const": "SCORE_OP_SWAP", "literal": "><"}
+          ]
+        },
+        {
+          "name": "ObjectiveRenderType",
+          "values": [
+            {"const": "OBJECTIVE_RENDER_HEARTS", "literal": "hearts"},
+            {"const": "OBJECTIVE_RENDER_INTEGER", "literal": "integer"}
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "c_suffix": "_objectives_list",
+          "literal_path": ["objectives", "list"],
+          "params": []
+        },
+        {
+          "c_suffix": "_objectives_add",
+          "literal_path": ["objectives", "add"],
+          "params": [
+            {"name": "objective", "type": "cstring"},
+            {"name": "criteria", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_objectives_remove",
+          "literal_path": ["objectives", "remove"],
+          "params": [
+            {"name": "objective", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_objectives_setdisplay",
+          "literal_path": ["objectives", "setdisplay"],
+          "params": [
+            {"name": "slot", "type": "cstring"},
+            {"name": "objective", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_objectives_modify_rendertype",
+          "literal_path": ["objectives", "modify"],
+          "params": [
+            {"name": "objective", "type": "cstring"},
+            {"type": "literal", "text": "rendertype"},
+            {"name": "rendertype", "type": "enum", "enum_ref": "ObjectiveRenderType"}
+          ]
+        },
+        {
+          "c_suffix": "_players_get",
+          "literal_path": ["players", "get"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_players_set",
+          "literal_path": ["players", "set"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"},
+            {"name": "score", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_players_add",
+          "literal_path": ["players", "add"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"},
+            {"name": "count", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_players_remove",
+          "literal_path": ["players", "remove"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"},
+            {"name": "count", "type": "int"}
+          ]
+        },
+        {
+          "c_suffix": "_players_reset",
+          "literal_path": ["players", "reset"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_players_enable",
+          "literal_path": ["players", "enable"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"}
+          ]
+        },
+        {
+          "c_suffix": "_players_operation",
+          "literal_path": ["players", "operation"],
+          "params": [
+            {"name": "target", "type": "target"},
+            {"name": "objective", "type": "cstring"},
+            {"name": "operation", "type": "enum", "enum_ref": "ScoreOp"},
+            {"name": "source", "type": "target"},
+            {"name": "source_objective", "type": "cstring"}
+          ]
+        }
+      ]
     },
     {
       "name": "seed",
@@ -1194,7 +1537,8 @@
     },
     {
       "name": "team",
-      "header": "team.h"
+      "header": "team.h",
+      "hand_written": true
     },
     {
       "name": "teammsg",
