@@ -62,7 +62,7 @@ bool obfuscateColdCalls(IR &ir) {
         }
     }
 
-    // (3) 热区：位于 hot-root 函数（_start / main / 导出 / extern）内的指令。
+    // (3) 热区：位于 hot-root 函数（_start / main / 导出 / api / extern）内的指令。
     //     首个标签之前的前导区(include/static 等)保守视为热。
     auto hotAt = std::vector<char>(n, 1);
     {
@@ -70,7 +70,8 @@ bool obfuscateColdCalls(IR &ir) {
         for (size_t i = 0; i < n; ++i) {
             if (const auto *lbl = dynamic_cast<const Label *>(values[i].get())) {
                 const auto &name = lbl->getLabel();
-                hot = lbl->getExport() || lbl->getExtern() || name == "_start" || name == "main";
+                hot = lbl->getExport() || lbl->getExtern() || lbl->getApi()
+                      || name == "_start" || name == "main";
             }
             hotAt[i] = hot ? 1 : 0;
         }

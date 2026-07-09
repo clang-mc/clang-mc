@@ -75,9 +75,11 @@ static FORCEINLINE OpPtr createLabel(const LineState &line, const std::string_vi
         }
         SWITCH_STR (parts[0]) {
             CASE_STR("export"):
-                return std::make_unique<Label>(INT_MIN, std::string(parts[1]), true, false, false);
+                return std::make_unique<Label>(INT_MIN, std::string(parts[1]), true, false, false, false);
             CASE_STR("extern"):
-                return std::make_unique<Label>(INT_MIN, std::string(parts[1]), false, true, false);
+                return std::make_unique<Label>(INT_MIN, std::string(parts[1]), false, true, false, false);
+            CASE_STR("api"):
+                return std::make_unique<Label>(INT_MIN, std::string(parts[1]), false, false, true, false);
             default:
                 throw ParseException(i18nFormat("ir.invalid_label_identifier", parts[0]));
         }
@@ -85,7 +87,7 @@ static FORCEINLINE OpPtr createLabel(const LineState &line, const std::string_vi
 
     return std::make_unique<Label>(
             INT_MIN, fixLabel(line, rawLabel),
-            false, false, isLocalLabel(rawLabel));
+            false, false, false, isLocalLabel(rawLabel));
 }
 
 template<typename T>

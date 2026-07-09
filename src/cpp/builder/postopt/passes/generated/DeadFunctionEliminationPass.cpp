@@ -62,8 +62,13 @@ void collectFunctionMentions(const std::string &body, const HashSet<std::string>
 
 void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext &buildContext) {
     auto &internal = buildContext.getInternalFunctions();
-    if (internal.empty()) {
-        return;  // 没有可删除的内部函数
+    auto &exported = buildContext.getExportedFunctions();
+    // 可裁剪函数 = 内部函数 ∪ export 函数（export 保留原名但按内部函数处理，允许被裁剪）。
+    const auto prunable = [&](const std::string &name) {
+        return internal.contains(name) || exported.contains(name);
+    };
+    if (internal.empty() && exported.empty()) {
+        return;  // 没有可删除的函数
     }
     const auto &startFunc = buildContext.getStartFunc();
 
@@ -82,7 +87,7 @@ void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext 
             nameToPath.emplace(std::move(name), entry.first);
         }
 
-        // 根集合：startFunc + 所有非内部（导出/extern）函数。
+        // 根集合：startFunc + 所有不可裁剪函数（api/extern：非内部且非 export）。
         auto reachable = HashSet<std::string>();
         auto worklist = std::vector<std::string>();
         const auto addRoot = [&](const std::string &name) {
@@ -94,7 +99,7 @@ void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext 
             addRoot(startFunc);
         }
         for (const auto &name: names) {
-            if (!internal.contains(name)) {
+            if (!prunable(name)) {
                 addRoot(name);
             }
         }
@@ -116,16 +121,18 @@ void eliminateDeadFunctions(std::vector<McFunctions> &mcFunctions, BuildContext 
             }
         }
 
-        // 删除不可达的内部函数。
+        // 删除不可达的可裁剪函数（内部 / export）。
         for (const auto &name: names) {
-            if (reachable.contains(name) || !internal.contains(name)) {
+            if (reachable.contains(name) || !prunable(name)) {
                 continue;
             }
             const auto it = nameToPath.find(name);
             if (it != nameToPath.end()) {
                 map.erase(it->second);
             }
-            internal.erase(name);  // 同步内部集合，避免后续 rename 为已删函数空耗名字槽
+            // 同步集合，避免后续 rename 为已删函数空耗名字槽（erase 对不存在的键为空操作）。
+            internal.erase(name);
+            exported.erase(name);
         }
     }
 }

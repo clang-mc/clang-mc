@@ -146,6 +146,7 @@ VerifyResult Verifier::handleSingle(IR &ir) {
             if (opHash == hash("_start")) {
                 assert(!labelOp->getExport());
                 assert(!labelOp->getExtern());
+                assert(!labelOp->getApi());
                 if (startFuncLabel != nullptr) {
                     error(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
                     note(i18n("ir.verify.previous_definition"), startFuncIR, startFuncLabel);
@@ -162,7 +163,7 @@ VerifyResult Verifier::handleSingle(IR &ir) {
                 definedLabels.emplace(opHash, labelOp);
             }
 
-            if (!undefinedLabels.erase(opHash) && !labelOp->getExport()) {
+            if (!undefinedLabels.erase(opHash) && !labelOp->getExport() && !labelOp->getApi()) {
                 unusedLabels.emplace(opHash);
             }
 
@@ -263,7 +264,8 @@ VerifyResult Verifier::handleSingle(IR &ir) {
 
         auto keepLabels = HashSet<Hash>();
         for (const auto &entry: definedLabels.values()) {
-            if (entry.second->getExport() || entry.second->getLabelHash() == hash("_start")) {
+            if (entry.second->getExport() || entry.second->getApi()
+                || entry.second->getLabelHash() == hash("_start")) {
                 keepLabels.emplace(entry.first);
             }
         }

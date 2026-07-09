@@ -75,7 +75,7 @@ bool inlineCalls(IR &ir) {
             for (size_t k = 0; k < values.size(); ++k) {
                 const auto *lbl = dynamic_cast<const Label *>(values[k].get());
                 if (lbl && lbl->getLabelHash() == h) {
-                    if (lbl->getExport() || lbl->getExtern()) { labelIdx = values.size(); break; }
+                    if (lbl->getExport() || lbl->getExtern() || lbl->getApi()) { labelIdx = values.size(); break; }
                     labelIdx = k;
                     break;
                 }

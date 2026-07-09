@@ -212,7 +212,12 @@ static bool standaloneInlinable(const std::string &calleeBody) {
 
 void inlineFunctions(std::vector<McFunctions> &mcFunctions, BuildContext &buildContext) {
     auto &internal = buildContext.getInternalFunctions();
-    if (internal.empty()) {
+    auto &exported = buildContext.getExportedFunctions();
+    // 可内联函数 = 内部函数 ∪ export 函数（export 保留原名但按内部函数处理，允许被内联）。
+    const auto inlinable = [&](const std::string &name) {
+        return internal.contains(name) || exported.contains(name);
+    };
+    if (internal.empty() && exported.empty()) {
         return;
     }
     const auto &startFunc = buildContext.getStartFunc();
@@ -278,7 +283,7 @@ void inlineFunctions(std::vector<McFunctions> &mcFunctions, BuildContext &buildC
             // 选出本轮候选
             auto candidates = HashMap<std::string, CallSite>();
             for (const auto &[name, site]: sites) {
-                if (!internal.contains(name) || name == startFunc) {
+                if (!inlinable(name) || name == startFunc) {
                     continue;
                 }
                 const auto mc = mentionCount.find(name);
@@ -370,6 +375,7 @@ void inlineFunctions(std::vector<McFunctions> &mcFunctions, BuildContext &buildC
                 map[edit.referrer] = std::move(body);  // 按键写回
                 map.erase(edit.calleePath);            // 按键删除
                 internal.erase(edit.calleeName);
+                exported.erase(edit.calleeName);
                 changed = true;
             }
         }

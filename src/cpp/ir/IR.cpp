@@ -114,7 +114,7 @@ void IR::parse(std::string &&code) {
                 auto op = createOp(lineState, str);
 
                 if (Label *ptr = INSTANCEOF(op, Label)) {
-                    if (!labelStack.isEmpty() && !ptr->getExtern() && !ptr->getExport()) {
+                    if (!labelStack.isEmpty() && !ptr->getExtern() && !ptr->getExport() && !ptr->getApi()) {
                         // 保留可读基名 + 唯一后缀（用于宏多次展开时的 hash 去重），
                         // 使 -g 调试注释仍能对照源码；不做不透明化混淆。
                         auto newLabel = fmt::format("{}.{}", string::legalizeMCPath(ptr->getLabel()),
@@ -136,7 +136,7 @@ void IR::parse(std::string &&code) {
                     if (!ptr->getLocal()) {
                         lineState.lastLabel = ptr;
                     }
-                    if (ptr->getExport()) {
+                    if (ptr->getExport() || ptr->getApi()) {
                         this->values.emplace_back(std::move(op));
                         this->values.emplace_back(std::make_unique<Nop>(INT_MIN));
                         continue;
@@ -156,12 +156,12 @@ void IR::parse(std::string &&code) {
 }
 
 FORCEINLINE std::string IR::createForCall(const Label *labelOp) {
-    if (labelOp->getExport() || labelOp->getExtern()) {
+    if (labelOp->getExport() || labelOp->getExtern() || labelOp->getApi()) {
         assert(string::count(labelOp->getLabel(), ':') == 1);
         return labelOp->getLabel();
     }
 
-    // 内部（非导出/extern）函数：产出“可读且合法”的名字，而非不透明短名。
+    // 内部（非导出/extern/api）函数：产出“可读且合法”的名字，而非不透明短名。
     // 以源文件名（stem，不含目录与扩展名）作前缀，兼顾可读性与路径长度；
     // 跨文件/同文件的唯一性由 initLabels 中针对全局内部名集合的去重保证。
     // 真正的不透明化混淆延后到 -O1/-O2 的 Obfuscator 阶段处理。
@@ -198,7 +198,7 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
         // a.b/a_b），或跨 IR 同名文件同名标签（如两个 main.mcasm 各有 loop）。用全局内部名
         // 集合去重、追加计数后缀兜底，保证跨编译单元的函数路径唯一；同时登记内部名供
         // Obfuscator 识别可混淆目标。
-        if (!labelOp->getExport() && !labelOp->getExtern()) {
+        if (!labelOp->getExport() && !labelOp->getExtern() && !labelOp->getApi()) {
             auto &internalNames = context.getInternalFunctions();
             if (internalNames.contains(labelNameForCall)) {
                 size_t counter = 1;
@@ -209,6 +209,11 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
                 labelNameForCall = std::move(candidate);
             }
             internalNames.emplace(labelNameForCall);
+        } else if (labelOp->getExport()) {
+            // 导出函数保留书写原名（不修饰、不去重、不重命名），但对后优化器而言视为内部函数：
+            // 登记到 exportedFunctions，供 DCE/内联识别为可裁剪、可内联的目标。
+            // api/extern 不登记——它们是永久根，永不被裁剪。
+            context.getExportedFunctions().emplace(labelNameForCall);
         }
 
         labelMap.emplace(label, labelNameForCall);
