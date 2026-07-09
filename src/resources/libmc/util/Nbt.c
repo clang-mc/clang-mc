@@ -215,8 +215,11 @@ Nbt_SetFloat(Nbt ref, float value)
         return -1;
     }
 
-    // convert float to string
+    // convert float to string, suffixed with 'f' so the macro-expanded
+    // `set value $(val)` in nbt_set_int yields a Minecraft float literal
+    // (e.g. 3.14f) instead of a double.
     McfStrRef valueStr = McfStrRef_FromFloat(value);
+    McfStrRef_AppendCString(valueStr, "f");
 
     __asm volatile (
         "inline data modify storage std:vm s6 set value %{id: -1, val: -1%}\n"

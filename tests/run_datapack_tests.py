@@ -83,6 +83,7 @@ CASES: list[Case] = [
     Case("libmc_mcf_numeric_probe_o0", "libmc_mcf_numeric_probe.c"),
     Case("libmc_mcf_release_probe_o0", "libmc_mcf_release_probe.c"),
     Case("libmc_nbt_heap_probe_o0", "libmc_nbt_heap_probe.c"),
+    Case("libmc_nbt_float_probe_o0", "libmc_nbt_float_probe.c"),
     Case("libmc_data_probe_o0", "libmc_data_probe.c"),
     Case("libmc_item_probe_o0", "libmc_item_probe.c"),
     Case("libmc_team_bossbar_probe_o0", "libmc_team_bossbar_probe.c"),
