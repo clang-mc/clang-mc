@@ -383,7 +383,7 @@ String_FromIdentifier(const Identifier *id)
     }
     ns_len = strlen(id->ns);
     path_len = strlen(id->path);
-    if (_String_EnsureCapacity(s, ns_len + 1u + path_len + 1u) != 0) {
+    if (String_EnsureCapacity(s, ns_len + 1u + path_len + 1u) != 0) {
         String_Release(s);
         return NULL;
     }

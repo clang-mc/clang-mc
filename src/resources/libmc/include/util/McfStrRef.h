@@ -15,12 +15,12 @@
  */
 
 typedef struct _String *String;
-static inline const char *String_CStr(String s);        /* defined in String.h */
+const char *String_CStr(String s);                      /* defined in String.c */
 
 typedef struct _McfStrRef _McfStrRef;
 typedef _McfStrRef *McfStrRef;
 
-static inline McfStrRef McfStrRef_FromString(String src); /* defined in String.h */
+McfStrRef McfStrRef_FromString(String src);             /* defined in String.c */
 
 /* McfStrRef_New/From* return owned objects. Pair them with McfStrRef_Release(). */
 McfStrRef McfStrRef_New(void);

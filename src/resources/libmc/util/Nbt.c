@@ -221,7 +221,7 @@ Nbt_SetFloat(Nbt ref, float value)
     __asm volatile (
         "inline data modify storage std:vm s6 set value %{id: -1, val: -1%}\n"
         "inline data modify storage std:vm s6.id set value %0\n"
-        "inline data modify storage std:vm s6.val set from storage mc_str slots[%1]\n"
+        "inline data modify storage std:vm s6.val set from storage std:vm mcstr.slots[%1].value\n"
         "inline function std:_internal/nbt_set_int with storage std:vm s6"
         :
         : "r"(slot_id), "r"(McfStrRef_SlotId(valueStr))
