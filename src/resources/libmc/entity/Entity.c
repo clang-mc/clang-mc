@@ -1,9 +1,9 @@
 #include "entity/Entity.h"
 #include "bindings/vanilla.h"
 
-void Entity_SetHealth(Target target, int health) {
+void Entity_SetHealth(Target target, float health) {
     Nbt nbt = Nbt_New();
-    Nbt_SetInt(nbt, health);
+    Nbt_SetFloat(nbt, health);
     data_modify(
         DataTarget_Entity(target), NbtPath_Lit("Health"), 
         DataMod_Set(), DataSrc_Value(nbt)

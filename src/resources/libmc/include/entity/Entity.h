@@ -92,7 +92,7 @@ Entity_GetEyeHeight(Entity entity)
     return entity ? entity->eyeHeight : 0.0f;
 }
 
-void Entity_SetHealth(Target entity, int health);
+void Entity_SetHealth(Target entity, float health);
 
 void Entity_Kill(Target target);
 

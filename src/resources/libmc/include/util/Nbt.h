@@ -195,8 +195,7 @@ Nbt_SlotId(Nbt ref)
 
 /* --- Value operations (native NBT, no C string building) ------------------ */
 
-/* NOTE: this is not yet a full typed NBT builder. Only whole-value int, native
- * slot->slot copy and get are provided so far; the nbt heap runtime
+/* NOTE: this is not yet a full typed NBT builder. The nbt heap runtime
  * (std:_internal/nbt_merge/append/insert/prepend/remove/set_path) is in place to
  * back a proper compound/list/typed-scalar builder, which is future work. */
 
@@ -220,6 +219,31 @@ Nbt_SetInt(Nbt ref, int value)
         :
         : "r"(slot_id), "r"(value)
     );
+    return 0;
+}
+
+static inline int
+Nbt_SetFloat(Nbt ref, float value)
+{
+    int slot_id;
+
+    slot_id = Nbt_SlotId(ref);
+    if (slot_id < 0) {
+        return -1;
+    }
+
+    // convert float to string
+    McfStrRef valueStr = McfStrRef_FromFloat(value);
+
+    __asm volatile (
+        "inline data modify storage std:vm s6 set value %{id: -1, val: -1%}\n"
+        "inline data modify storage std:vm s6.id set value %0\n"
+        "inline data modify storage std:vm s6.val set from storage mc_str slots[%1]\n"
+        "inline function std:_internal/nbt_set_int with storage std:vm s6"
+        :
+        : "r"(slot_id), "r"(McfStrRef_SlotId(valueStr))
+    );
+    McfStrRef_Release(valueStr);
     return 0;
 }
 
