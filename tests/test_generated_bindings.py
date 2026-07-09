@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GEN_PATH = ROOT / "tools" / "commands" / "generator" / "generate.py"
-BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "bindings"
+BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "include" / "bindings"
 VANILLA_PATH = BINDINGS_DIR / "vanilla.h"
 
 

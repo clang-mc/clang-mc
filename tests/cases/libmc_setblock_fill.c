@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 static _Block TEST_BLOCK_STONE = {
     {"minecraft", "stone"},

@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 __asm__(
 "export test:probe_fn:\n"

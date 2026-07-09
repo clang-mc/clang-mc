@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "tools" / "commands" / "schema" / "vanilla_commands.json"
-BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "bindings"
+BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "include" / "bindings"
 
 
 class VanillaCommandSchemaTests(unittest.TestCase):

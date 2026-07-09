@@ -1,4 +1,4 @@
-#include "Entities.h"
+#include "entity/Entities.h"
 
 #define X(id, ns, path, translationKey, spawnGroup, width, height, eyeHeight) \
     _Entity id##_IMPL = {                                                    \

@@ -1,4 +1,4 @@
-#include "Blocks.h"
+#include "block/Blocks.h"
 
 #define X(id, ns, path, translationKey, resistance, slipperiness, randomTicks) \
     _Block id##_IMPL = {                                                    \

@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * Deterministic /item runtime probe: place a chest, fill two slots via

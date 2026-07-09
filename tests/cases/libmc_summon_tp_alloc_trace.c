@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 static _Entity TEST_ARMOR_STAND = {
     {"minecraft", "armor_stand"},

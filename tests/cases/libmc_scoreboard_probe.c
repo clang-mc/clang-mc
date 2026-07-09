@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * /scoreboard (generated) runtime probe — fully deterministic and headless:

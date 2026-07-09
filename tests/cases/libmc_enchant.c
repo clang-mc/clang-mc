@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 int main(void) {
     Identifier sharpness_id = {"minecraft", "sharpness"};

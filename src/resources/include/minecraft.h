@@ -1,3 +1,3 @@
 #pragma once
 
-#include "../libmc/minecraft.h"
+#include "../libmc/include/minecraft.h"

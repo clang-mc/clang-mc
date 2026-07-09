@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * End-to-end coverage for command bindings added on top of the flat

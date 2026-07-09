@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * Exercises the hand-written /data binding against a storage target (fully

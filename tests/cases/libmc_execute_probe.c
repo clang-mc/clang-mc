@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * /execute fluent-builder runtime probe — headless and deterministic via

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "util/Identifier.h"
+#include "util/Target.h"
+#include "util/math/vec.h"
 
 typedef enum {
     ENTITY_SPAWN_GROUP_MONSTER,
@@ -89,3 +91,11 @@ Entity_GetEyeHeight(Entity entity)
 {
     return entity ? entity->eyeHeight : 0.0f;
 }
+
+void Entity_SetHealth(Target entity, int health);
+
+void Entity_Kill(Target target);
+
+void Entity_Teleport(Target target, Vec3d pos);
+
+void Entity_TeleportWithRot(Target target, Vec3d pos, Vec2f rot);

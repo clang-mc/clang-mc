@@ -35,7 +35,7 @@ WORLD_DATAPACKS = SERVER_DIR / "world" / "datapacks"
 ACTIVE_PACK = WORLD_DATAPACKS / "a.zip"
 ACTIVE_DIR_PACK = WORLD_DATAPACKS / "file"
 BIN_DIR = ROOT / "build" / "bin"
-LIBMC_INCLUDE = ROOT / "build" / "libmc"
+LIBMC_INCLUDE = ROOT / "build" / "libmc" / "include"
 PUBLIC_INCLUDE = ROOT / "build" / "include"
 LIBC_INCLUDE = ROOT / "src" / "resources" / "libc" / "include"
 

@@ -32,7 +32,7 @@ CASE_DIR = ROOT / "tests" / "cases"
 BIN_DIR = ROOT / "build" / "bin"
 CLANG = BIN_DIR / ("clang.exe" if sys.platform == "win32" else "clang")
 ASM = BIN_DIR / ("clang-mc.exe" if sys.platform == "win32" else "clang-mc")
-LIBMC_INCLUDE = ROOT / "build" / "libmc"
+LIBMC_INCLUDE = ROOT / "build" / "libmc" / "include"
 PUBLIC_INCLUDE = ROOT / "build" / "include"
 LIBC_INCLUDE = ROOT / "src" / "resources" / "libc" / "include"
 

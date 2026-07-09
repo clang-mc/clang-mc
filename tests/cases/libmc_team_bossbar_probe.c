@@ -1,4 +1,5 @@
 #include <minecraft.h>
+#include <commands.h>
 
 /*
  * /team (hand-written) + /bossbar (generated) runtime probe. Both are global
