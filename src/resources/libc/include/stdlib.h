@@ -38,6 +38,13 @@ long          atol(const char *s);
 long long     atoll(const char *s);
 char         *gcvt(double value, int ndigit, char *buf);
 char         *gcvt_fast(double value, int ndigit, char *buf);
+/*
+ * Runtime fallback for the clang __builtin_mcf_ftoa builtin: returns the decimal
+ * string of v (no type suffix) in a reusable static buffer, valid until the next
+ * call. Only referenced when the builtin's argument is not a compile-time
+ * constant; constant arguments are folded to a string literal at compile time.
+ */
+const char   *__mcf_ftoa(double v);
 char         *itoa(int value, char *str, int base);
 long          strtol(const char *restrict nptr, char **restrict endptr, int base);
 unsigned long strtoul(const char *restrict nptr, char **restrict endptr, int base);

@@ -92,7 +92,23 @@ Entity_GetEyeHeight(Entity entity)
     return entity ? entity->eyeHeight : 0.0f;
 }
 
-void Entity_SetHealth(Target entity, float health);
+/* Out-of-line worker; see Entity.c. Takes the health as a decimal string. */
+void Entity_SetHealthStr(Target entity, const char *health);
+
+/*
+ * Set an entity's Health. Implemented as a macro so the float->string
+ * conversion (__builtin_mcf_ftoa) is emitted at the *caller's* site: a
+ * compile-time-constant health there folds to a string literal with zero
+ * runtime soft-float, while a runtime value degrades to the __mcf_ftoa helper.
+ * The heavy NBT/data-modify work stays out-of-line in Entity_SetHealthStr.
+ *
+ * A macro (not an inline function) is required: the builtin's constant fold
+ * happens during codegen of the translation unit that lexically contains the
+ * call, so an inline-function body would only ever see `health` as a runtime
+ * parameter and would always degrade to the __mcf_ftoa call.
+ */
+#define Entity_SetHealth(entity, health) \
+    Entity_SetHealthStr((entity), __builtin_mcf_ftoa((double)(health)))
 
 void Entity_Kill(Target target);
 

@@ -131,11 +131,7 @@ Target_EnsureMcf(Target target)
         return -1;
     }
     if (target->mcf == NULL) {
-        if (target->owns_expr) {
-            target->mcf = McfStrRef_FromCString(target->expr);
-        } else {
-            target->mcf = McfStrRef_FromLiteral(target->expr);
-        }
+        target->mcf = McfStrRef_FromCString(target->expr);
         if (target->mcf == NULL) {
             return -1;
         }

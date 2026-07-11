@@ -44,5 +44,12 @@ int  Nbt_SlotId(Nbt ref);
 
 int Nbt_SetInt(Nbt ref, int value);
 int Nbt_SetFloat(Nbt ref, float value);
+/*
+ * Like Nbt_SetFloat, but takes the already-formatted decimal string of the
+ * value (no type suffix); the 'f' suffix is appended here. This lets callers do
+ * the float->string conversion at a site where the value may be a compile-time
+ * constant (via __builtin_mcf_ftoa), keeping the soft-float out of the runtime.
+ */
+int Nbt_SetFloatStr(Nbt ref, const char *numStr);
 int Nbt_SetFromSlot(Nbt dst, Nbt src);
 int Nbt_Get(Nbt ref);

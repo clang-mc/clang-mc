@@ -385,14 +385,14 @@ McfStrRef_FromDouble(double value)
 McfStrRef
 McfStrRef_FromFloat(float value)
 {
-    McfStrRef ref;
-    char buf[32];
-
-    if (gcvt_fast((double)value, 9, buf) == NULL) {
-        return NULL;
-    }
-    ref = McfStrRef_FromCString(buf);
-    return ref;
+    /*
+     * __builtin_mcf_ftoa folds a compile-time-constant float to a string
+     * literal in .rodata (zero runtime soft-float), and only degrades to the
+     * runtime __mcf_ftoa call for genuinely dynamic values. This is what turns
+     * Entity_SetHealth(_, <const>) from ~385k instructions into a cheap string
+     * copy; see tools/foo-benchmark/TASK-builtin-mcf-ftoa.md.
+     */
+    return McfStrRef_FromCString(__builtin_mcf_ftoa((double)value));
 }
 
 int

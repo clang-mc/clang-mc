@@ -206,7 +206,7 @@ Nbt_SetInt(Nbt ref, int value)
 }
 
 int
-Nbt_SetFloat(Nbt ref, float value)
+Nbt_SetFloatStr(Nbt ref, const char *numStr)
 {
     int slot_id;
 
@@ -215,10 +215,10 @@ Nbt_SetFloat(Nbt ref, float value)
         return -1;
     }
 
-    // convert float to string, suffixed with 'f' so the macro-expanded
-    // `set value $(val)` in nbt_set_int yields a Minecraft float literal
-    // (e.g. 3.14f) instead of a double.
-    McfStrRef valueStr = McfStrRef_FromFloat(value);
+    // The value is already a decimal string; suffix it with 'f' so the
+    // macro-expanded `set value $(val)` in nbt_set_int yields a Minecraft float
+    // literal (e.g. 3.14f) instead of a double.
+    McfStrRef valueStr = McfStrRef_FromCString(numStr);
     McfStrRef_AppendCString(valueStr, "f");
 
     __asm volatile (
@@ -231,6 +231,14 @@ Nbt_SetFloat(Nbt ref, float value)
     );
     McfStrRef_Release(valueStr);
     return 0;
+}
+
+int
+Nbt_SetFloat(Nbt ref, float value)
+{
+    // Runtime path: fold constants at the call site, otherwise degrade to the
+    // __mcf_ftoa runtime helper (both routed through __builtin_mcf_ftoa).
+    return Nbt_SetFloatStr(ref, __builtin_mcf_ftoa((double)value));
 }
 
 /* Copy another slot's value into this one (native slot->slot copy). */
