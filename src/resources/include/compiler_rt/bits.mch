@@ -320,290 +320,360 @@ __bit_and:
 
 
 __bit_or:
-	sub rsp, 52
-	mov [rsp+1], x0
-	mov [rsp+2], x1
-	mov [rsp+3], x2
-	mov [rsp+4], x3
-	mov [rsp+5], x4
-	mov [rsp+6], x5
-	mov [rsp+7], x6
-	mov [rsp+8], x7
+	mov t1, r0
+	add t1, r1          // t1 = a + b (survives inline AND; AND body never touches t1/t2)
+	mov t6, r0          // aq = a
+	mov t7, r1          // bq = b
 
-	mov x0, r0
-	mov x1, r1
+	// ---- byte 0 ----
+	mov r0, t6
+	rem r0, 256
+	add r0, 256
+	rem r0, 256         // a0 = 低字节 0..255
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0          // aq = (aq - a0)/256
+	mov r1, t7
+	rem r1, 256
+	add r1, 256
+	rem r1, 256         // b0
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0          // bq = (bq - b0)/256
+	// byte AND (r0,r1) -> rax
+	mov r2, r0
+	rem r2, 16          // lo_a = a0 % 16
+	mov r3, r1
+	rem r3, 16          // lo_b
+	mov r4, r0
+	div r4, 16          // hi_a = a0 / 16
+	mov r5, r1
+	div r5, 16          // hi_b
+	mov r6, r2
+	mul r6, 16
+	add r6, r3          // idx = lo_a*16 + lo_b
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax         // lo = nibble(lo_a,lo_b)
+	mov r6, r4
+	mul r6, 16
+	add r6, r5          // idx = hi_a*16 + hi_b
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7         // byte0 AND = lo + 16*hi
+	mov t3, rax
 
-	mov r0, x0
+	// ---- byte 1 ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	sub r2, rax
-	mov [rsp+9], r2
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7
+	mov t4, rax
 
-	mov r0, x0
+	// ---- byte 2 ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	sub r2, rax
-	mov [rsp+10], r2
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7
+	mov t5, rax
 
-	mov r0, x0
+	// ---- byte 3 (最高字节，无需更新 aq/bq) ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
-	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	rem r0, 256         // a3
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
-	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	sub r2, rax
-	mov [rsp+11], r2
+	rem r1, 256         // b3
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7         // byte3 AND (0..255)，rax
 
-	mov r0, x0
-	rem r0, 256
-	add r0, 256
-	rem r0, 256
-	mov r1, x1
-	rem r1, 256
-	add r1, 256
-	rem r1, 256
-	mov [rsp+12], r0
-	mov [rsp+13], r1
-	call __bit_and8_u8
-	mov r0, [rsp+12]
-	add r0, [rsp+13]
-	sub r0, rax
-	mov r5, r0
+	// sign-correct 最高字节: top = rax - 256*((rax+128)/256)
+	mov r5, rax
 	add r5, 128
 	div r5, 256
 	mul r5, 256
-	sub r0, r5
-	mov rax, r0
+	sub rax, r5
+	// Horner 重组: ((top*256 + t5)*256 + t4)*256 + t3
 	mul rax, 256
-	add rax, [rsp+11]
+	add rax, t5
 	mul rax, 256
-	add rax, [rsp+10]
+	add rax, t4
 	mul rax, 256
-	add rax, [rsp+9]
-
-	mov x7, [rsp+8]
-	mov x6, [rsp+7]
-	mov x5, [rsp+6]
-	mov x4, [rsp+5]
-	mov x3, [rsp+4]
-	mov x2, [rsp+3]
-	mov x1, [rsp+2]
-	mov x0, [rsp+1]
-	add rsp, 52
+	add rax, t3
+	// __bit_or(a,b) = (a+b) - (a&b) ; t1=a+b, rax=a&b
+	mov r2, t1
+	sub r2, rax
+	mov rax, r2
 	ret
 
 
 __bit_xor:
-	sub rsp, 52
-	mov [rsp+1], x0
-	mov [rsp+2], x1
-	mov [rsp+3], x2
-	mov [rsp+4], x3
-	mov [rsp+5], x4
-	mov [rsp+6], x5
-	mov [rsp+7], x6
-	mov [rsp+8], x7
+	mov t1, r0
+	add t1, r1          // t1 = a + b (survives inline AND; AND body never touches t1/t2)
+	mov t6, r0          // aq = a
+	mov t7, r1          // bq = b
 
-	mov x0, r0
-	mov x1, r1
+	// ---- byte 0 ----
+	mov r0, t6
+	rem r0, 256
+	add r0, 256
+	rem r0, 256         // a0 = 低字节 0..255
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0          // aq = (aq - a0)/256
+	mov r1, t7
+	rem r1, 256
+	add r1, 256
+	rem r1, 256         // b0
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0          // bq = (bq - b0)/256
+	// byte AND (r0,r1) -> rax
+	mov r2, r0
+	rem r2, 16          // lo_a = a0 % 16
+	mov r3, r1
+	rem r3, 16          // lo_b
+	mov r4, r0
+	div r4, 16          // hi_a = a0 / 16
+	mov r5, r1
+	div r5, 16          // hi_b
+	mov r6, r2
+	mul r6, 16
+	add r6, r3          // idx = lo_a*16 + lo_b
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax         // lo = nibble(lo_a,lo_b)
+	mov r6, r4
+	mul r6, 16
+	add r6, r5          // idx = hi_a*16 + hi_b
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7         // byte0 AND = lo + 16*hi
+	mov t3, rax
 
-	mov r0, x0
+	// ---- byte 1 ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	mov r3, rax
-	add r3, rax
-	sub r2, r3
-	mov [rsp+9], r2
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7
+	mov t4, rax
 
-	mov r0, x0
+	// ---- byte 2 ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
 	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	mov t0, t6
+	sub t0, r0
+	div t0, 256
+	mov t6, t0
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
 	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	mov r3, rax
-	add r3, rax
-	sub r2, r3
-	mov [rsp+10], r2
+	mov t0, t7
+	sub t0, r1
+	div t0, 256
+	mov t7, t0
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7
+	mov t5, rax
 
-	mov r0, x0
+	// ---- byte 3 (最高字节，无需更新 aq/bq) ----
+	mov r0, t6
 	rem r0, 256
 	add r0, 256
-	rem r0, 256
-	mov r5, x0
-	sub r5, r0
-	div r5, 256
-	mov x0, r5
-	mov x2, r0
-
-	mov r1, x1
+	rem r0, 256         // a3
+	mov r1, t7
 	rem r1, 256
 	add r1, 256
-	rem r1, 256
-	mov r5, x1
-	sub r5, r1
-	div r5, 256
-	mov x1, r5
-	mov x3, r1
-	mov [rsp+12], x2
-	mov [rsp+13], x3
-	mov r0, x2
-	mov r1, x3
-	call __bit_and8_u8
-	mov r2, [rsp+12]
-	add r2, [rsp+13]
-	mov r3, rax
-	add r3, rax
-	sub r2, r3
-	mov [rsp+11], r2
+	rem r1, 256         // b3
+	mov r2, r0
+	rem r2, 16
+	mov r3, r1
+	rem r3, 16
+	mov r4, r0
+	div r4, 16
+	mov r5, r1
+	div r5, 16
+	mov r6, r2
+	mul r6, 16
+	add r6, r3
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mov r7, rax
+	mov r6, r4
+	mul r6, 16
+	add r6, r5
+	inline execute store result storage std:vm bitand.idx int 1 run scoreboard players get r6 vm_regs
+	inline function std:_internal/bit_and_nibble with storage std:vm bitand
+	mul rax, 16
+	add rax, r7         // byte3 AND (0..255)，rax
 
-	mov r0, x0
-	rem r0, 256
-	add r0, 256
-	rem r0, 256
-	mov r1, x1
-	rem r1, 256
-	add r1, 256
-	rem r1, 256
-	mov [rsp+12], r0
-	mov [rsp+13], r1
-	call __bit_and8_u8
-	mov r0, [rsp+12]
-	add r0, [rsp+13]
-	mov r2, rax
-	add r2, rax
-	sub r0, r2
-	mov r5, r0
+	// sign-correct 最高字节: top = rax - 256*((rax+128)/256)
+	mov r5, rax
 	add r5, 128
 	div r5, 256
 	mul r5, 256
-	sub r0, r5
-	mov rax, r0
+	sub rax, r5
+	// Horner 重组: ((top*256 + t5)*256 + t4)*256 + t3
 	mul rax, 256
-	add rax, [rsp+11]
+	add rax, t5
 	mul rax, 256
-	add rax, [rsp+10]
+	add rax, t4
 	mul rax, 256
-	add rax, [rsp+9]
-
-	mov x7, [rsp+8]
-	mov x6, [rsp+7]
-	mov x5, [rsp+6]
-	mov x4, [rsp+5]
-	mov x3, [rsp+4]
-	mov x2, [rsp+3]
-	mov x1, [rsp+2]
-	mov x0, [rsp+1]
-	add rsp, 52
+	add rax, t3
+	// __bit_xor(a,b) = (a+b) - 2*(a&b) ; t1=a+b, rax=a&b
+	mov r2, rax
+	add r2, rax          // r2 = 2*(a&b)
+	mov r3, t1
+	sub r3, r2
+	mov rax, r3
 	ret
 
 
