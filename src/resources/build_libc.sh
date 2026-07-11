@@ -43,6 +43,16 @@ if build_include.parent.exists():
     build_include.write_text(text, encoding="utf-8")
 PY
 
+# Ship the whole-program-LTO stdlib bitcode alongside the compiler so the
+# driver's -flto path can llvm-link it into the user program (see
+# tools/foo-benchmark/TASK-driver-wholeprogram-lto.md). Canonical location is
+# lib/mcasm/ (mirrored into build/lib/mcasm/ = <clang.exe>/../lib/mcasm/).
+mkdir -p lib/mcasm ../../build/lib/mcasm
+cp libc.opt.bc lib/mcasm/libc.opt.bc
+if [ -d ../../build/lib ]; then
+  cp libc.opt.bc ../../build/lib/mcasm/libc.opt.bc
+fi
+
 rm -rf out_lto_bc
 rm -rf libc.merged.bc
 rm -rf libc.opt.bc
