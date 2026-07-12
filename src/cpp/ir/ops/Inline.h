@@ -23,6 +23,8 @@ public:
     [[nodiscard]] std::string compile() const override {
         return code;
     }
+
+    GETTER(Code, code);
 };
 
 #endif //CLANG_MC_INLINE_H

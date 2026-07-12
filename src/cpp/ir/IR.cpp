@@ -15,6 +15,7 @@
 #include "ir/iops/Special.h"
 #include "ir/ops/Static.h"
 #include "ir/ops/Inline.h"
+#include "ir/iops/CmpLike.h"
 #include "parse/PreProcessor.h"
 #include "random"
 #include "uuidWrapper.h"
@@ -228,16 +229,81 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
 static std::mt19937 rng(std::random_device{}());
 static std::uniform_int_distribution<> distrib(INT32_MIN, INT32_MAX);
 
+// mc 静态符号名（C 标识符）允许的字符。
+static FORCEINLINE bool isStaticNameChar(const char c) {
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+        || (c >= '0' && c <= '9') || c == '_';
+}
+
+// 扫描 inline 命令文本，把其中出现的、且属于已定义静态名的标识符收集进 out。
+// 用于死静态消除的“文本引用”兜底（inline 命令逐字发射，不走 requireStaticOffset）。
+static void collectStaticMentions(const std::string &code,
+                                  const HashSet<Hash> &definedStatics,
+                                  HashSet<Hash> &out) {
+    const size_t n = code.size();
+    size_t i = 0;
+    while (i < n) {
+        if (!isStaticNameChar(code[i])) {
+            ++i;
+            continue;
+        }
+        size_t j = i;
+        while (j < n && isStaticNameChar(code[j])) {
+            ++j;
+        }
+        const Hash h = hash(std::string_view(code).substr(i, j - i));
+        if (definedStatics.contains(h)) {
+            out.emplace(h);
+        }
+        i = j;
+    }
+}
+
 void IR::preCompile() {
     staticDataMap.clear();
     auto &staticData = context.getStaticData();
     staticData.clear();
     staticData.reserve(256);
 
+    // 死静态数据消除（optLevel>=1）：一个 `static`，若其符号在本单元里被引用不到
+    // ——既不作为任何 cmp 类 op（mov/比较）的 Symbol/SymbolPtr 操作数，也不在任何
+    // inline 命令文本里出现——则永不会被加载，只会撑大静态数据块并移位其后每个
+    // 静态的偏移。剪掉它。
+    //   CmpLike 引用另受 CmpLike::withIR 的 requireStaticOffset 保护（引用了却被剪
+    //   会抛 undeclared_symbol，而非静默 miscompile）；唯一的静默风险是 inline 文本
+    //   引用，由下面的 token 扫描保守覆盖（过近似——绝不误剪被引用的静态）。
+    const bool pruneDeadStatics = config.getOptLevel() >= 1;
+    HashSet<Hash> referenced = HashSet<Hash>();
+    if (pruneDeadStatics) {
+        auto definedStatics = HashSet<Hash>();
+        for (const auto &op: this->values) {
+            if (const auto staticOp = INSTANCEOF(op, Static)) {
+                definedStatics.emplace(staticOp->getNameHash());
+            }
+        }
+        for (const auto &op: this->values) {
+            if (const auto cmpLike = INSTANCEOF(op, CmpLike)) {
+                for (const auto &value: {cmpLike->getLeft(), cmpLike->getRight()}) {
+                    if (const auto symbol = INSTANCEOF(value, Symbol)) {
+                        referenced.emplace(symbol->getNameHash());
+                    } else if (const auto symbolPtr = INSTANCEOF(value, SymbolPtr)) {
+                        referenced.emplace(symbolPtr->getNameHash());
+                    }
+                }
+            } else if (const auto inlineOp = INSTANCEOF(op, Inline)) {
+                collectStaticMentions(inlineOp->getCode(), definedStatics, referenced);
+            }
+        }
+    }
+
     // collect datas
     for (const auto &op: this->values) {
         if (const auto staticOp = INSTANCEOF(op, Static)) {
             assert(!staticDataMap.contains(staticOp->getNameHash()));
+
+            if (pruneDeadStatics && !referenced.contains(staticOp->getNameHash())) {
+                continue;  // 死静态：无任何引用，剪掉
+            }
 
             const auto &data = staticOp->getData();
             staticDataMap.emplace(staticOp->getNameHash(), staticData.size());

@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <mcstr.h>
+#include <mcstate.h>
 
 /*
  * McfStrRef implementation.
@@ -125,10 +126,12 @@ _McfStrRef_CommitScratchToSlotById(int slot_id, int refcnt)
     if (slot_id < 0) {
         return -1;
     }
+    MC_STATE_BARRIER();
     __asm volatile (
         "inline data modify storage std:vm s6.value set from storage std:vm s1.str\n"
         "inline function std:_internal/mcstr_set_slot_value with storage std:vm s6"
     );
+    MC_STATE_BARRIER();
     return _McfStrRef_SetSlotRefcntById(slot_id, refcnt);
 }
 
@@ -136,9 +139,11 @@ static inline __attribute__((always_inline)) void
 _McfStrRef_BeginScratchValueFromCString(const char *src, size_t len)
 {
     if (src == NULL || len == 0u) {
+        MC_STATE_BARRIER();
         __asm volatile (
             "inline data modify storage std:vm s1 set value {str: \"\", next: \"\"}"
         );
+        MC_STATE_BARRIER();
         return;
     }
     __mc_string_begin(src);
@@ -159,12 +164,14 @@ _McfStrRef_LoadSlotToScratch(int slot_id)
     if (slot_id < 0) {
         return -1;
     }
+    MC_STATE_BARRIER();
     __asm volatile (
         "inline data modify storage std:vm s1 set value {str: \"\", next: \"\"}\n"
         "inline data modify storage std:vm s1.str set from storage std:vm mcstr.slots[%0].value"
         :
         : "r"(slot_id)
     );
+    MC_STATE_BARRIER();
     return 0;
 }
 
