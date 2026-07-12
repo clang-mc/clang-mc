@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_tellraw:\n"
-"    inline $execute store result score r0 vm_regs run tellraw $(target) $(json)\n"
-"    ret\n"
-);
-
 static inline int
 tellraw_unsafe(McfStrRef target_ref, McfStrRef json_ref)
 {

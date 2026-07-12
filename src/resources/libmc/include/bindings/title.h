@@ -9,28 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_title_clear:\n"
-"    inline $execute store result score r0 vm_regs run title $(target) clear\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_title_reset:\n"
-"    inline $execute store result score r0 vm_regs run title $(target) reset\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_title_title:\n"
-"    inline $execute store result score r0 vm_regs run title $(target) title $(json)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_title_subtitle:\n"
-"    inline $execute store result score r0 vm_regs run title $(target) subtitle $(json)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_title_actionbar:\n"
-"    inline $execute store result score r0 vm_regs run title $(target) actionbar $(json)\n"
-"    ret\n"
-);
-
 static inline int
 title_clear_unsafe(McfStrRef target_ref)
 {

@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_particle:\n"
-"    inline $execute store result score r0 vm_regs run particle $(name)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_particle_at:\n"
-"    inline $execute store result score r0 vm_regs run particle $(name) $(x) $(y) $(z)\n"
-"    ret\n"
-);
-
 static inline int
 particle_unsafe(McfStrRef name_ref)
 {

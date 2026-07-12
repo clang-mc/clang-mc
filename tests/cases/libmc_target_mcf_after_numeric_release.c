@@ -17,7 +17,7 @@ int main(void) {
     __asm volatile (
         "inline data modify storage std:vm trace_ptrs_before set value %{player: %0, ref: %1, slot: %2%}"
         :
-        : "r"(player), "r"(name), "r"(name->slot_id)
+        : "r"(player), "r"(name), "r"(McfStrRef_SlotId(name))
     );
 
     x = McfStrRef_FromDouble(2.5);
@@ -27,7 +27,7 @@ int main(void) {
     __asm volatile (
         "inline data modify storage std:vm trace_ptrs_created set value %{player: %0, ref: %1, slot: %2%}"
         :
-        : "r"(player), "r"(name), "r"(name->slot_id)
+        : "r"(player), "r"(name), "r"(McfStrRef_SlotId(name))
     );
     McfStrRef_Release(x);
     McfStrRef_Release(y);
@@ -38,7 +38,7 @@ int main(void) {
     __asm volatile (
         "inline data modify storage std:vm trace_ptrs_after set value %{player: %0, ref: %1, slot: %2%}"
         :
-        : "r"(player), "r"(name), "r"(name->slot_id)
+        : "r"(player), "r"(name), "r"(McfStrRef_SlotId(name))
     );
     Target_Release(player);
 

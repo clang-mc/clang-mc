@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_recipe_give:\n"
-"    inline $execute store result score r0 vm_regs run recipe give $(target) $(recipe)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_recipe_take:\n"
-"    inline $execute store result score r0 vm_regs run recipe take $(target) $(recipe)\n"
-"    ret\n"
-);
-
 static inline int
 recipe_give_unsafe(McfStrRef target_ref, McfStrRef recipe_ref)
 {

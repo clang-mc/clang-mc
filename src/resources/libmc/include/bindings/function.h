@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_function_call:\n"
-"    inline $execute store result score r0 vm_regs run function $(name)\n"
-"    ret\n"
-);
-
 static inline int
 function_call_unsafe(McfStrRef name_ref)
 {

@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_msg:\n"
-"    inline $execute store result score r0 vm_regs run msg $(target) $(message)\n"
-"    ret\n"
-);
-
 static inline int
 msg_unsafe(McfStrRef target_ref, McfStrRef message_ref)
 {

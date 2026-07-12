@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_locate_structure:\n"
-"    inline $execute store result score r0 vm_regs run locate structure $(structure)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_locate_biome:\n"
-"    inline $execute store result score r0 vm_regs run locate biome $(biome)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_locate_poi:\n"
-"    inline $execute store result score r0 vm_regs run locate poi $(poi)\n"
-"    ret\n"
-);
-
 static inline int
 locate_structure_unsafe(McfStrRef structure_ref)
 {

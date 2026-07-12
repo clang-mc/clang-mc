@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_help:\n"
-"    inline execute store result score r0 vm_regs run help\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_help_command:\n"
-"    inline $execute store result score r0 vm_regs run help $(command)\n"
-"    ret\n"
-);
-
 static inline int
 help(void)
 {

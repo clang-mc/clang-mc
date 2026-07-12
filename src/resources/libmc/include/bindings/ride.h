@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_ride_mount:\n"
-"    inline $execute store result score r0 vm_regs run ride $(target) mount $(vehicle)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_ride_dismount:\n"
-"    inline $execute store result score r0 vm_regs run ride $(target) dismount\n"
-"    ret\n"
-);
-
 static inline int
 ride_mount_unsafe(McfStrRef target_ref, McfStrRef vehicle_ref)
 {

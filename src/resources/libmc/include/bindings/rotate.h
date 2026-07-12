@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_rotate:\n"
-"    inline $execute store result score r0 vm_regs run rotate $(target) $(yaw) $(pitch)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_rotate_facing_entity:\n"
-"    inline $execute store result score r0 vm_regs run rotate $(target) facing entity $(entity)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_rotate_facing_pos:\n"
-"    inline $execute store result score r0 vm_regs run rotate $(target) facing $(x) $(y) $(z)\n"
-"    ret\n"
-);
-
 static inline int
 rotate_unsafe(McfStrRef target_ref, McfStrRef yaw_ref, McfStrRef pitch_ref)
 {

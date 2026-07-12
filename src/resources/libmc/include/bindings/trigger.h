@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_trigger:\n"
-"    inline $execute store result score r0 vm_regs run trigger $(objective)\n"
-"    ret\n"
-);
-
 static inline int
 trigger_unsafe(McfStrRef objective_ref)
 {

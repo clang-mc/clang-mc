@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_enchant:\n"
-"    inline $execute store result score r0 vm_regs run enchant $(target) $(enchantment)\n"
-"    ret\n"
-);
-
 static inline int
 enchant_unsafe(McfStrRef target_ref, McfStrRef enchantment_ref)
 {

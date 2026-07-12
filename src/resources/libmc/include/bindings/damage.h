@@ -9,28 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_damage:\n"
-"    inline $execute store result score r0 vm_regs run damage $(target) $(amount)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_damage_type:\n"
-"    inline $execute store result score r0 vm_regs run damage $(target) $(amount) $(damage_type)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_damage_at:\n"
-"    inline $execute store result score r0 vm_regs run damage $(target) $(amount) $(damage_type) at $(loc_x) $(loc_y) $(loc_z)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_damage_by:\n"
-"    inline $execute store result score r0 vm_regs run damage $(target) $(amount) $(damage_type) by $(entity)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_damage_by_from:\n"
-"    inline $execute store result score r0 vm_regs run damage $(target) $(amount) $(damage_type) by $(entity) from $(cause)\n"
-"    ret\n"
-);
-
 static inline int
 damage_unsafe(McfStrRef target_ref, McfStrRef amount_ref)
 {

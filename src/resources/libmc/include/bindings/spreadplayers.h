@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/spreadplayers_unsafe_exec_true:\n"
-"    inline $execute store result score r0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) true $(targets)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/spreadplayers_unsafe_exec_false:\n"
-"    inline $execute store result score r0 vm_regs run spreadplayers $(center_x) $(center_z) $(spread_distance) $(max_range) false $(targets)\n"
-"    ret\n"
-);
-
 static inline int
 spreadplayers_unsafe(McfStrRef center_x_ref, McfStrRef center_z_ref, McfStrRef spread_distance_ref, McfStrRef max_range_ref, int respect_teams, McfStrRef targets_ref)
 {

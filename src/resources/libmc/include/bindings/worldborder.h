@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_worldborder_set:\n"
-"    inline $execute store result score r0 vm_regs run worldborder set $(distance)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_worldborder_add:\n"
-"    inline $execute store result score r0 vm_regs run worldborder add $(distance)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_worldborder_center:\n"
-"    inline $execute store result score r0 vm_regs run worldborder center $(x) $(z)\n"
-"    ret\n"
-);
-
 static inline int
 worldborder_set_unsafe(McfStrRef distance_ref)
 {

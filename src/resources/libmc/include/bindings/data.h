@@ -126,23 +126,18 @@ DataSrc_StringRange(DataTarget target, NbtPath path, int start, int end)
  * the NBT value stays in its heap slot, referenced by nbt.slots[N].value. Only
  * data merge (root, literal-NBT-only grammar) needs a macro helper (below). */
 
-static inline int
-_Data_AppendSlotRef(McfStrRef cmd, Nbt value)
-{
-    int slot_id;
-
-    slot_id = Nbt_SlotId(value);
-    if (slot_id < 0) {
-        return -1;
-    }
-    if (McfStrRef_AppendLiteral(cmd, "from storage std:vm nbt.slots[") != 0) {
-        return -1;
-    }
-    if (McfStrRef_AppendInt(cmd, slot_id) != 0) {
-        return -1;
-    }
-    return McfStrRef_AppendLiteral(cmd, "].value");
-}
+/* _Data_AppendSlotRef is deliberately NOT a `static inline` defined here: at -O3
+ * the stdlib build (Entity.c -> data_modify) keeps it out-of-line, leaving a
+ * `_Data_AppendSlotRef` label in _ll_libmc.mch; a user TU that #includes <data.h>
+ * and uses data_modify at -O0 would then emit its OWN copy of that label and
+ * collide. So the body lives once in the companion bindings/data.c (compiled
+ * into the stdlib bundle) and the header exposes only this prototype -- callers
+ * reference the single .mch copy. (always_inline was rejected: forcing it inline
+ * bloats data_modify/Entity_SetHealthStr enough that the whole-program-LTO
+ * inliner stops folding Entity_SetHealthStr into a constant-health caller,
+ * regressing foo 4032 -> 7910. An out-of-line extern leaves that heuristic
+ * untouched.) */
+int _Data_AppendSlotRef(McfStrRef cmd, Nbt value);
 
 static inline int
 _Data_AppendModify(McfStrRef cmd, NbtPath path, DataMod op, DataSrc src)
@@ -318,12 +313,13 @@ data_modify(DataTarget target, NbtPath path, DataMod op, DataSrc src)
  * `data merge` takes only a *literal* compound (no `from storage`), so the NBT
  * slot value is macro-substituted into the command via a hoisted helper. The
  * target text and the slot value are marshalled into s6.cmd and $(...)-expanded
- * by _ll_shared:z/libmc_data_merge, mirroring the generated Template-A shape. */
-__asm__(
-"export _ll_shared:z/libmc_data_merge:\n"
-"    inline $execute store result score r0 vm_regs run data merge $(target) $(value)\n"
-"    ret\n"
-);
+ * by _ll_shared:z/libmc_data_merge, mirroring the generated Template-A shape.
+ *
+ * The `export _ll_shared:z/libmc_data_merge` label DEFINITION lives in the
+ * companion bindings/data.c (compiled once into the stdlib bundle), NOT here:
+ * emitting it from this header would make every user TU that #includes <data.h>
+ * re-define a label already provided by _ll_libmc.mch. The wrapper below only
+ * *references* it via `inline function`, resolved at link time. */
 
 static inline int
 data_merge(DataTarget target, Nbt nbt)

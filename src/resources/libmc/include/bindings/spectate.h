@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_spectate:\n"
-"    inline execute store result score r0 vm_regs run spectate\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_spectate_target:\n"
-"    inline $execute store result score r0 vm_regs run spectate $(target)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_spectate_as:\n"
-"    inline $execute store result score r0 vm_regs run spectate $(target) $(player)\n"
-"    ret\n"
-);
-
 static inline int
 spectate(void)
 {

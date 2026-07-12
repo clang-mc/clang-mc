@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_place_feature:\n"
-"    inline $execute store result score r0 vm_regs run place feature $(feature)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_place_structure:\n"
-"    inline $execute store result score r0 vm_regs run place structure $(structure)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_place_template:\n"
-"    inline $execute store result score r0 vm_regs run place template $(template)\n"
-"    ret\n"
-);
-
 static inline int
 place_feature_unsafe(McfStrRef feature_ref)
 {

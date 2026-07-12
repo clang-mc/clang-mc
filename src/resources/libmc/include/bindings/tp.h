@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_tp:\n"
-"    inline $execute store result score r0 vm_regs run tp $(target) $(x) $(y) $(z)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_tp_rot:\n"
-"    inline $execute store result score r0 vm_regs run tp $(target) $(x) $(y) $(z) $(yaw) $(pitch)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_tp_entity:\n"
-"    inline $execute store result score r0 vm_regs run tp $(target) $(destination)\n"
-"    ret\n"
-);
-
 static inline int
 tp_unsafe(McfStrRef target_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
 {

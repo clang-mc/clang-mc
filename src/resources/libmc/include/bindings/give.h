@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_give:\n"
-"    inline $execute store result score r0 vm_regs run give $(target) $(item)\n"
-"    ret\n"
-);
-
 static inline int
 give_unsafe(McfStrRef target_ref, McfStrRef item_ref)
 {

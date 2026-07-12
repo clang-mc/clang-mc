@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_datapack_enable:\n"
-"    inline $execute store result score r0 vm_regs run datapack enable $(name)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_datapack_disable:\n"
-"    inline $execute store result score r0 vm_regs run datapack disable $(name)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_datapack_list:\n"
-"    inline execute store result score r0 vm_regs run datapack list\n"
-"    ret\n"
-);
-
 static inline int
 datapack_enable_unsafe(McfStrRef name_ref)
 {

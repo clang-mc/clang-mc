@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_clear:\n"
-"    inline $execute store result score r0 vm_regs run clear $(target)\n"
-"    ret\n"
-);
-
 static inline int
 clear_unsafe(McfStrRef target_ref)
 {

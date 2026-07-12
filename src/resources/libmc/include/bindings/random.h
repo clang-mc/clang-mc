@@ -9,24 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_random_value:\n"
-"    inline $execute store result score r0 vm_regs run random value $(range)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_random_value_seq:\n"
-"    inline $execute store result score r0 vm_regs run random value $(range) $(sequence)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_random_roll:\n"
-"    inline $execute store result score r0 vm_regs run random roll $(range)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_random_roll_seq:\n"
-"    inline $execute store result score r0 vm_regs run random roll $(range) $(sequence)\n"
-"    ret\n"
-);
-
 static inline int
 random_value_unsafe(McfStrRef range_ref)
 {

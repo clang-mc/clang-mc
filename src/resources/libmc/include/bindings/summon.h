@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_summon:\n"
-"    inline $execute store result score r0 vm_regs run summon $(type) $(x) $(y) $(z)\n"
-"    ret\n"
-);
-
 static inline int
 summon_unsafe(McfStrRef type_ref, McfStrRef x_ref, McfStrRef y_ref, McfStrRef z_ref)
 {

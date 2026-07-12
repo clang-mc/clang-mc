@@ -14,44 +14,6 @@ typedef enum {
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_attribute_get:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) get\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_attribute_get_scaled:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) get $(scale)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_attribute_base_get:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) base get\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_attribute_base_set:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) base set $(value)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/attribute_modifier_add_unsafe_exec_0:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) modifier add $(id) $(value) add_value\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/attribute_modifier_add_unsafe_exec_1:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) modifier add $(id) $(value) add_multiplied_base\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/attribute_modifier_add_unsafe_exec_2:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) modifier add $(id) $(value) add_multiplied_total\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_attribute_modifier_remove:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) modifier remove $(id)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_attribute_modifier_value_get:\n"
-"    inline $execute store result score r0 vm_regs run attribute $(target) $(attribute) modifier value get $(id)\n"
-"    ret\n"
-);
-
 static inline int
 attribute_get_unsafe(McfStrRef target_ref, McfStrRef attribute_ref)
 {

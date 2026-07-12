@@ -9,16 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_experience_query_points:\n"
-"    inline $execute store result score r0 vm_regs run experience query $(target) points\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_experience_query_levels:\n"
-"    inline $execute store result score r0 vm_regs run experience query $(target) levels\n"
-"    ret\n"
-);
-
 static inline int
 experience_add_points_unsafe(McfStrRef target_ref, int amount)
 {

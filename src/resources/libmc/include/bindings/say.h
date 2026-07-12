@@ -9,12 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_say:\n"
-"    inline $execute store result score r0 vm_regs run say $(text)\n"
-"    ret\n"
-);
-
 static inline int
 say_unsafe(McfStrRef text_ref)
 {

@@ -9,20 +9,6 @@
 extern "C" {
 #endif
 
-__asm__(
-"export _ll_shared:z/libmc_cmd_effect_give:\n"
-"    inline $execute store result score r0 vm_regs run effect give $(target) $(effect)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_effect_clear_all:\n"
-"    inline $execute store result score r0 vm_regs run effect clear $(target)\n"
-"    ret\n"
-"\n"
-"export _ll_shared:z/libmc_cmd_effect_clear:\n"
-"    inline $execute store result score r0 vm_regs run effect clear $(target) $(effect)\n"
-"    ret\n"
-);
-
 static inline int
 effect_give_unsafe(McfStrRef target_ref, McfStrRef effect_ref)
 {
