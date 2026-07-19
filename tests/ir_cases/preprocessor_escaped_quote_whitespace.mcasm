@@ -1,0 +1,3 @@
+_start:
+    inline tellraw @a {"text":"a\"b  c"}
+ret

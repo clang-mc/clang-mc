@@ -73,12 +73,29 @@ static std::vector<std::string> splitArgs(const std::string &s) {
 
 struct SourceLineBuilder {
     std::string code;
-    bool skip = false;
+    char quote = '\0';
+    bool escaped = false;
     bool lastWhiteSpace = false;
 
     void push(char ch) {
-        if (ch == '"' || ch == '\'') skip = !skip;
-        if (ch != '\n' && !skip && (ch == ' ' || ch == '\t')) {
+        if (quote != '\0') {
+            code += ch;
+            lastWhiteSpace = false;
+            if (escaped) {
+                escaped = false;
+            } else if (ch == '\\') {
+                escaped = true;
+            } else if (ch == quote) {
+                quote = '\0';
+            }
+            return;
+        }
+
+        if (ch == '"' || ch == '\'') {
+            quote = ch;
+            code += ch;
+            lastWhiteSpace = false;
+        } else if (ch != '\n' && (ch == ' ' || ch == '\t')) {
             if (!lastWhiteSpace) {
                 code += ' ';
                 lastWhiteSpace = true;
