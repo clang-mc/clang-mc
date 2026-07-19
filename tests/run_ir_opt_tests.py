@@ -44,6 +44,13 @@ CHECKS: list[Check] = [
         ("-O0",),
         contains=(r'inline tellraw @a {"text":"a\"b  c"}',),
     ),
+    # 字符串内的另一种引号不是结束符，连续空格也必须保留。
+    Check(
+        "preprocessor_mixed_quote_preserves_whitespace",
+        "preprocessor_mixed_quote_whitespace.mcasm",
+        ("-O0",),
+        contains=("inline tellraw @a {\"text\":\"'  \"}",),
+    ),
     # -O1：五个 pass 全部生效。
     Check(
         "opt_probe_o1_optimized",
