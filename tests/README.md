@@ -46,5 +46,12 @@ python D:\clang-mc\tests\run_datapack_tests.py --case float
 python D:\clang-mc\tests\run_datapack_tests.py --keep-tmp
 ```
 
+Parser-only regression tests do not require a Minecraft server. For example,
+the immediate-number parsing regression for GitHub issue #5 can be run with:
+
+```powershell
+python D:\clang-mc\tests\run_number_parse_tests.py
+```
+
 The runner uses `run/server/server.properties` for RCON host, port, and password.
 Temporary build/test artifacts are created under `run/tmp-test-suite/` and are deleted on success unless `--keep-tmp` is used.

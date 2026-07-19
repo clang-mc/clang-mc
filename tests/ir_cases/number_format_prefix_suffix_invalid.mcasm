@@ -1,0 +1,4 @@
+// A prefix and a conflicting suffix must remain invalid.
+_start:
+    mov r0, 0b11o
+    ret
