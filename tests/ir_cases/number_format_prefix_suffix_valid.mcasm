@@ -1,0 +1,10 @@
+// Regression fixture for GitHub issue #5: a hexadecimal digit b must not be
+// mistaken for a binary suffix when a radix prefix is already present.
+_start:
+    mov r0, 0x0b
+    mov r1, 0x1b
+    mov r2, 0x2b
+    mov r3, 0x3b
+    mov r4, 0x4b
+    mov r5, 0x5b
+    ret

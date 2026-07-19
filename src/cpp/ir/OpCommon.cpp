@@ -48,11 +48,12 @@ PURE i32 parseToNumber(std::string_view string) {
         }
     }
 
-    // 处理后缀（如"101b" "173o"）
-    if (string.back() == 'b' && string.size() > 1) {
+    // 处理后缀（如"101b" "173o"）。带进制前缀时，必须按前缀
+    // 指定的进制完整校验，不能再将末尾的 b/o 解释为后缀。
+    if (offset == 0 && string.back() == 'b' && string.size() > 1) {
         base = 2;
         string = string.substr(0, string.size() - 1);
-    } else if (string.back() == 'o' && string.size() > 1) {
+    } else if (offset == 0 && string.back() == 'o' && string.size() > 1) {
         base = 8;
         string = string.substr(0, string.size() - 1);
     }
