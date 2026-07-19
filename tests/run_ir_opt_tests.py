@@ -37,6 +37,13 @@ CHECKS: list[Check] = [
         ("-O0",),
         contains=("add r0, 5", "call single_use", "calld r5", "single_use:", "mul r2, 0"),
     ),
+    # 预处理器：字符串中的转义引号不能提前结束字符串范围；保留其中连续空格。
+    Check(
+        "preprocessor_escaped_quote_preserves_whitespace",
+        "preprocessor_escaped_quote_whitespace.mcasm",
+        ("-O0",),
+        contains=(r'inline tellraw @a {"text":"a\"b  c"}',),
+    ),
     # -O1：五个 pass 全部生效。
     Check(
         "opt_probe_o1_optimized",
