@@ -10,6 +10,7 @@
 #include "ir/ops/Static.h"
 #include "ir/iops/CmpLike.h"
 #include "ir/values/Symbol.h"
+#include "utils/string/StringUtils.h"
 
 void Verifier::verify() {
     currentIR = nullptr;
@@ -143,16 +144,20 @@ VerifyResult Verifier::handleSingle(IR &ir) {
             inLabelBlock = true;
             currentLabel = opHash;
 
+            if ((labelOp->getExport() || labelOp->getExtern() || labelOp->getApi())
+                && !string::parseMCFunctionResourceLocation(labelOp->getLabel())) {
+                error(i18nFormat("ir.invalid_function_location", labelOp->getLabel()));
+            }
+
             if (opHash == hash("_start")) {
-                assert(!labelOp->getExport());
-                assert(!labelOp->getExtern());
-                assert(!labelOp->getApi());
-                if (startFuncLabel != nullptr) {
-                    error(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
-                    note(i18n("ir.verify.previous_definition"), startFuncIR, startFuncLabel);
-                } else {
-                    startFuncIR = &ir;
-                    startFuncLabel = labelOp;
+                if (!labelOp->getExport() && !labelOp->getExtern() && !labelOp->getApi()) {
+                    if (startFuncLabel != nullptr) {
+                        error(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
+                        note(i18n("ir.verify.previous_definition"), startFuncIR, startFuncLabel);
+                    } else {
+                        startFuncIR = &ir;
+                        startFuncLabel = labelOp;
+                    }
                 }
             }
 

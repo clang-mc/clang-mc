@@ -1,0 +1,2 @@
+// extern is also an explicit, user-preserved resource location.
+extern a:

@@ -11,6 +11,7 @@
 #include "string"
 #include "memory"
 #include "algorithm"
+#include <optional>
 #include "StringBuilder.h"
 
 namespace string {
@@ -245,32 +246,187 @@ namespace string {
         return result;
     }
 
-    PURE static inline constexpr bool isValidMCNamespace(const std::string_view &str) {
-        if (UNLIKELY(str.empty() || str == "minecraft")) {
+    PURE static inline constexpr char toAsciiLower(const char c) noexcept {
+        return c >= 'A' && c <= 'Z' ? static_cast<char>(c - 'A' + 'a') : c;
+    }
+
+    PURE static inline constexpr bool isMCNamespaceChar(const char c) noexcept {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
+               || c == '_' || c == '-' || c == '.';
+    }
+
+    PURE static inline constexpr bool isMCFunctionPathChar(const char c) noexcept {
+        return isMCNamespaceChar(c) || c == '/';
+    }
+
+    PURE static inline bool equalsIgnoreCase(const std::string_view left,
+                                              const std::string_view right) noexcept {
+        if (left.size() != right.size()) {
+            return false;
+        }
+        for (size_t i = 0; i < left.size(); ++i) {
+            if (toAsciiLower(left[i]) != toAsciiLower(right[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Windows treats these names (also with an extension) as device files.  They
+    // must not become a component under data/<namespace>/function on any host.
+    PURE static inline bool isWindowsReservedDeviceName(const std::string_view segment) noexcept {
+        const auto base = segment.substr(0, segment.find('.'));
+        if (base.empty()) {
+            return false;
+        }
+        if (equalsIgnoreCase(base, "con") || equalsIgnoreCase(base, "prn")
+            || equalsIgnoreCase(base, "aux") || equalsIgnoreCase(base, "nul")) {
+            return true;
+        }
+        if (base.size() != 4 || base[3] < '1' || base[3] > '9') {
+            return false;
+        }
+        const auto first = toAsciiLower(base[0]);
+        return (first == 'c' && toAsciiLower(base[1]) == 'o' && toAsciiLower(base[2]) == 'm')
+               || (first == 'l' && toAsciiLower(base[1]) == 'p' && toAsciiLower(base[2]) == 't');
+    }
+
+    PURE static inline bool isSafeMCFunctionPathSegment(const std::string_view segment) noexcept {
+        return !segment.empty() && segment != "." && segment != ".."
+               && segment.back() != '.' && !isWindowsReservedDeviceName(segment);
+    }
+
+    PURE static inline bool isValidMCNamespaceName(const std::string_view str) noexcept {
+        return isSafeMCFunctionPathSegment(str)
+               && std::ranges::all_of(str.begin(), str.end(), isMCNamespaceChar);
+    }
+
+    // Namespace values supplied by -N retain the historical minecraft ban.
+    // Explicit resource locations use isValidMCNamespaceName instead.
+    PURE static inline bool isValidMCNamespace(const std::string_view str) noexcept {
+        return str != "minecraft" && isValidMCNamespaceName(str);
+    }
+
+    PURE static inline bool isValidMCFunctionPath(const std::string_view str) noexcept {
+        if (str.empty()
+            || !std::ranges::all_of(str.begin(), str.end(), isMCFunctionPathChar)) {
             return false;
         }
 
-        return std::ranges::all_of(str.begin(), str.end(), [](const char c) -> bool {
-            return LIKELY(LIKELY(c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '_' || c == '-');
-        });
+        size_t start = 0;
+        while (true) {
+            const auto end = str.find('/', start);
+            if (!isSafeMCFunctionPathSegment(str.substr(start, end - start))) {
+                return false;
+            }
+            if (end == std::string_view::npos) {
+                return true;
+            }
+            start = end + 1;
+        }
+    }
+
+    // A namespace prefix may end in '/', because a normal internal function
+    // name is appended after it.  Empty means namespace root.
+    PURE static inline bool isValidMCFunctionPathPrefix(std::string_view str) noexcept {
+        if (str.empty()) {
+            return true;
+        }
+        if (str.back() == '/') {
+            str.remove_suffix(1);
+        }
+        return !str.empty() && isValidMCFunctionPath(str);
+    }
+
+    struct MCFunctionResourceLocation {
+        std::string_view namespaceName;
+        std::string_view functionPath;
+    };
+
+    // Parse a user-visible function resource location.  Minecraft's character
+    // grammar alone permits path spellings that are unsafe to materialize on
+    // Windows, so this is intentionally stricter than ResourceLocation.
+    PURE static inline std::optional<MCFunctionResourceLocation>
+    parseMCFunctionResourceLocation(const std::string_view value) noexcept {
+        const auto separator = value.find(':');
+        if (separator == std::string_view::npos
+            || value.find(':', separator + 1) != std::string_view::npos) {
+            return std::nullopt;
+        }
+
+        const auto namespaceName = value.substr(0, separator);
+        const auto functionPath = value.substr(separator + 1);
+        if (!isValidMCNamespaceName(namespaceName) || !isValidMCFunctionPath(functionPath)) {
+            return std::nullopt;
+        }
+        return MCFunctionResourceLocation{namespaceName, functionPath};
+    }
+
+    PURE static inline std::optional<Path>
+    buildPathFromMCFunctionResourceLocation(const std::string_view value) {
+        const auto location = parseMCFunctionResourceLocation(value);
+        if (!location) {
+            return std::nullopt;
+        }
+
+        auto result = Path("data") / std::string(location->namespaceName) / "function";
+        size_t start = 0;
+        while (true) {
+            const auto end = location->functionPath.find('/', start);
+            result /= std::string(location->functionPath.substr(start, end - start));
+            if (end == std::string_view::npos) {
+                break;
+            }
+            start = end + 1;
+        }
+        result += ".mcfunction";
+        return result;
     }
 
     // 把任意标签名修饰为合法的 mcfunction 资源路径片段：小写化，保留 [a-z0-9_.-] 与 '/'，
     // 其余字符替换为 '_'。仅做字符合法化，不负责唯一性（唯一性由调用方保证）。
-    PURE static inline std::string legalizeMCPath(const std::string_view &str) {
-        auto result = std::string(str.size(), '\0');
-        for (size_t i = 0; i < str.size(); ++i) {
-            const char c = str[i];
-            if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9')
-                || c == '_' || c == '.' || c == '-' || c == '/') {
-                result[i] = c;
+    PURE static inline std::string legalizeMCPathSegment(const std::string_view segment) {
+        std::string result;
+        result.reserve(std::max<size_t>(segment.size(), 1));
+        for (const char c: segment) {
+            if (isMCNamespaceChar(c)) {
+                result += c;
             } else if (c >= 'A' && c <= 'Z') {
-                result[i] = static_cast<char>(c - 'A' + 'a');
+                result += toAsciiLower(c);
             } else {
-                result[i] = '_';
+                result += '_';
             }
         }
+
+        if (result.empty()) {
+            result = "_";
+        }
+        while (result.back() == '.') {
+            result.back() = '_';
+        }
+        if (isWindowsReservedDeviceName(result)) {
+            result.insert(result.begin(), '_');
+        }
         return result;
+    }
+
+    // Ordinary ISA labels are deliberately permissive.  Preserve their slash
+    // hierarchy, but turn every component into a safe resource-path component
+    // instead of rejecting the source label.
+    PURE static inline std::string legalizeMCPath(const std::string_view str) {
+        std::string result;
+        size_t start = 0;
+        while (true) {
+            const auto end = str.find('/', start);
+            if (!result.empty()) {
+                result += '/';
+            }
+            result += legalizeMCPathSegment(str.substr(start, end - start));
+            if (end == std::string_view::npos) {
+                return result;
+            }
+            start = end + 1;
+        }
     }
 
     PURE static inline constexpr std::string toLowerCase(std::string str) noexcept {

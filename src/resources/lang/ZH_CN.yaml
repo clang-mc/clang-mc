@@ -1,3 +1,7 @@
+ir.empty_label: 标签名不能为空
+ir.invalid_function_location: "无效的函数资源位置 '{}'"
+general.internal_error: "编译器内部错误: {}"
+general.unknown_error: 编译器内部错误
 cli.help_message_template: |
   用法: {} [选项] 文件...
 

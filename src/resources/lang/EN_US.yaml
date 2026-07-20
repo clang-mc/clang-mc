@@ -38,6 +38,8 @@ ir.invalid_op: "invalid instruction: '{}'"
 ir.invalid_pre_op: "invalid preprocessed instruction: '{}'"
 ir.invalid_pop: "pop could not pop '{}' no matching push"
 ir.invalid_label: label name cannot contain spaces
+ir.empty_label: label name cannot be empty
+ir.invalid_function_location: "invalid function resource location '{}'"
 ir.invalid_symbol: symbol name cannot contain spaces
 ir.invalid_local_label: invalid local label
 ir.invalid_local_symbol: invalid local symbol
@@ -67,6 +69,8 @@ general.no_input_files: no input files
 general.invalid_input: invalid input file, expected '.mcasm' files
 general.failed_init_build: failed to init build directory
 general.unable_to_build: unable to build input file
+general.internal_error: "internal compiler error: {}"
+general.unknown_error: internal compiler error
 general.environment_error: "failed to verify runtime environment: missing required resources. Ensure all necessary files are present or reinstall the program"
 preprocess.load_error: "failed to read source file: '{}'"
 preprocess.include_read_error: "failed to read include file: '{}'"

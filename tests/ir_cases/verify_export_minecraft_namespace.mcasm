@@ -1,0 +1,3 @@
+// minecraft is valid for explicit resource locations; only -N reserves it.
+export minecraft:foo:
+    ret

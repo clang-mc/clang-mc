@@ -1,0 +1,8 @@
+// Ordinary labels follow the ISA's permissive spelling; the compiler must
+// sanitize this internally instead of treating it as an invalid public path.
+_start:
+    call Danger/../../../../../../CON.
+    ret
+
+Danger/../../../../../../CON.:
+    ret

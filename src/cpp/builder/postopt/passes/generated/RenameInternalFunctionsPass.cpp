@@ -6,20 +6,17 @@
 #include "RenameInternalFunctionsPass.h"
 #include "objects/NameGenerator.h"
 #include "utils/string/StringUtils.h"
+#include "i18n/I18n.h"
 
 namespace postopt {
 
 // 复刻 IR.cpp 的 toPath：ns:path -> data/ns/function/path.mcfunction
 static Path toPath(const std::string &mcName) {
-    static const auto data = Path("data");
-    static const auto function = Path("function");
-    static const auto mcfunction = Path(".mcfunction");
-
-    assert(string::count(mcName, ':') == 1);
-    auto splits = string::split(mcName, ':', 2);
-    auto result = data / splits[0] / function / splits[1];
-    result += mcfunction;
-    return result;
+    const auto result = string::buildPathFromMCFunctionResourceLocation(mcName);
+    if (!result) {
+        throw ParseException(i18nFormat("ir.invalid_function_location", mcName));
+    }
+    return *result;
 }
 
 // mc 名字（资源路径）允许的字符；用于判断某个匹配是否为完整 token，避免

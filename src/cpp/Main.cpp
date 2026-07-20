@@ -68,11 +68,12 @@ extern "C" int init(const int argc, const char *argv[]) {
         return 0;
     } catch (const std::bad_alloc &) {
         onOOM();
-// 让异常termiate，以看到stacktrace
-//    } catch (const std::exception &e) {
-//        printStacktrace(e);
-//    } catch (...) {
-//        printStacktrace();
+    } catch (const std::exception &e) {
+        std::cerr << "error: " << i18nFormat("general.internal_error", e.what()) << std::endl;
+        return 1;
+    } catch (...) {
+        std::cerr << "error: " << i18n("general.unknown_error") << std::endl;
+        return 1;
     }
 }
 

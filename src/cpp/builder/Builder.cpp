@@ -7,6 +7,7 @@
 #include "PostOptimizer.h"
 #include "builder/postopt/passes/generated/DeadFunctionEliminationPass.h"
 #include "ir/IR.h"
+#include "i18n/I18n.h"
 
 #include <stdexcept>
 #include <string_view>
@@ -40,17 +41,38 @@ struct FuncName {
     // Build the filesystem path for this function, mirroring the toPath() logic in IR.cpp.
     // Handles both "test:a" and "std:_internal/a" correctly on Windows (no colon in dir components).
     [[nodiscard]] Path buildPath(const Path &buildDir) const {
-        static const auto data = Path("data");
-        static const auto function = Path("function");
-
         const auto ref = toString();
-        assert(string::count(ref, ':') == 1);
-        const auto splits = string::split(ref, ':', 2);
-        // splits[0] = mc-namespace (e.g. "std"), splits[1] = rest (e.g. "_internal/a")
-        auto result = buildDir / data / std::string(splits[0]) / function / (std::string(splits[1]) + ".mcfunction");
-        return result;
+        const auto relative = string::buildPathFromMCFunctionResourceLocation(ref);
+        if (!relative) {
+            throw ParseException(i18nFormat("ir.invalid_function_location", ref));
+        }
+        return buildDir / *relative;
     }
 };  // 也许我应该用这种方式重写McFunctions对象，splits不优雅
+
+// McFunctions normally receives paths produced by IR::toPath().  Keep a
+// write-side validation boundary as well so a future caller cannot turn a
+// malformed relative Path into a write outside the build directory.
+static bool isSafeGeneratedFunctionPath(const Path &path) {
+    const auto generic = path.generic_string();
+    constexpr std::string_view prefix = "data/";
+    constexpr std::string_view functionMarker = "/function/";
+    constexpr std::string_view suffix = ".mcfunction";
+    const auto genericView = std::string_view(generic);
+    if (!genericView.starts_with(prefix) || !genericView.ends_with(suffix)) {
+        return false;
+    }
+
+    const auto marker = generic.find(functionMarker, prefix.size());
+    if (marker == std::string::npos) {
+        return false;
+    }
+    const auto namespaceName = genericView.substr(prefix.size(), marker - prefix.size());
+    const auto functionStart = marker + functionMarker.size();
+    const auto functionPath = genericView.substr(functionStart, generic.size() - functionStart - suffix.size());
+    return string::parseMCFunctionResourceLocation(
+            fmt::format("{}:{}", namespaceName, functionPath)).has_value();
+}
 
 void buildStaticData(StringBuilder &builder, const std::vector<i32> &data) {
     for (size_t i = 0; i < data.size(); ++i) {
@@ -62,6 +84,14 @@ void buildStaticData(StringBuilder &builder, const std::vector<i32> &data) {
 }
 
 void Builder::build() {
+    for (const auto &mcFunction: mcFunctions) {
+        for (const auto &entry: mcFunction) {
+            if (!isSafeGeneratedFunctionPath(entry.first)) {
+                throw ParseException(i18nFormat("ir.invalid_function_location", entry.first.generic_string()));
+            }
+        }
+    }
+
     for (auto &mcFunction: mcFunctions) {
         for (const auto &entry: mcFunction) {
             const auto &path = config.getBuildDir() / entry.first;

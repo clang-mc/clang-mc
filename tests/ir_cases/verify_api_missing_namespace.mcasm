@@ -1,0 +1,3 @@
+// api is also an explicit, user-preserved resource location.
+api a:
+    ret

@@ -10,7 +10,7 @@
 //   (D) 负向：call multi ×2 —— fanIn=2（高 fan-in）-> 保持直接 `call multi`。
 //   (E) 负向：call loopfn —— 位于回边循环体 [loopstart..jmp] 内 -> 保持直接 `call loopfn`。
 //   另：_start 是热根，其 `call cold` 属热路径，保持直接调用。
-export _start:
+_start:
     mov rsp, 16384
     mov r0, 4242
     call cold

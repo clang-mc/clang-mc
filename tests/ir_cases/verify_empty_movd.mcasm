@@ -1,0 +1,3 @@
+_start:
+    movd r0,
+    ret

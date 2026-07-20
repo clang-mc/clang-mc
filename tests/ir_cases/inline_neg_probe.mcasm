@@ -5,7 +5,7 @@
 //   (B) nonleaf：单次调用，但函数体含 `call twice`（非叶子/非直线-ret）-> 不内联。
 //   (C) fallthru：单次调用、体为直线-ret，但其标签前一条实义指令是 `mov r4,1`（非终结指令），
 //       会被顺序落入 -> fall-through 守卫拒绝内联。
-export _start:
+_start:
     call twice
     call twice
     call nonleaf

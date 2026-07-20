@@ -53,5 +53,14 @@ the immediate-number parsing regression for GitHub issue #5 can be run with:
 python D:\clang-mc\tests\run_number_parse_tests.py
 ```
 
+Function-location and Verify-stage path-safety regressions (GitHub issue #3)
+cover malformed `export` / `api` / `extern` labels, unsafe `-N` prefixes,
+empty call-like targets, and ordinary-label sanitization. They use temporary
+directories and do not need a Minecraft server:
+
+```powershell
+python D:\clang-mc\tests\run_verify_tests.py
+```
+
 The runner uses `run/server/server.properties` for RCON host, port, and password.
 Temporary build/test artifacts are created under `run/tmp-test-suite/` and are deleted on success unless `--keep-tmp` is used.
