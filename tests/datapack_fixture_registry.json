@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "non_runtime": {
+    "bits_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Focused bit-operation probe retained for interactive investigation; no stable server oracle has been recorded."
+    },
+    "gcvt_fast_scientific_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Formatting regression probe needs a chat/storage oracle before it can be automated."
+    },
+    "global_asm_macro_helper_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Global-asm macro helper reproduction is retained outside the runtime suite pending a deterministic output contract."
+    },
+    "libc_mcstr_quote_scratch_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "String scratch-space reproduction has no recorded post-run observable yet."
+    },
+    "libmc_mcf_slot_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Slot probe is retained for targeted libmc debugging; promote it when its storage oracle is documented."
+    },
+    "macro_arg_mutation_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Macro mutation reproduction requires a dedicated expected emitted-command contract."
+    },
+    "macro_inline_storage_probe.c": {
+      "disposition": "manual_repro",
+      "reason": "Inline storage macro reproduction is intentionally not run until its server-visible expectation is defined."
+    },
+    "mcf_slot_matrix_repro.c": {
+      "disposition": "manual_repro",
+      "reason": "Matrix reproduction is exploratory and lacks a single stable oracle."
+    },
+    "mcstr_alloc_ids_repro.c": {
+      "disposition": "manual_repro",
+      "reason": "Allocation-id reproduction needs an explicit storage expectation before automatic execution."
+    },
+    "mcstr_multi_slot_write_repro.c": {
+      "disposition": "manual_repro",
+      "reason": "Multi-slot write reproduction has not yet been converted into a deterministic runtime assertion."
+    },
+    "struct_field_string_puts_repro.c": {
+      "disposition": "manual_repro",
+      "reason": "Struct/string puts reproduction is retained for diagnosis pending a chat or storage oracle."
+    }
+  }
+}

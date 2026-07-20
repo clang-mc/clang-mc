@@ -1,7 +1,16 @@
 name: Build
 
 on:
+  pull_request:
+  push:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -76,7 +85,12 @@ jobs:
       - name: Build
         run: xmake
 
+      - name: Run fast tests
+        if: matrix.filename == 'windows-amd64.exe'
+        run: python tests/run_fast_tests.py
+
       - name: Upload artifact
+        if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@v4
         with:
           name: clang-mc-${{ matrix.filename }}

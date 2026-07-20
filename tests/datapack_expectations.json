@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "cases": {
+    "libc_printf_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "loop_mix_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "recursion_factorial_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "mutual_recursion_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "float_arith_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "float_ieee754_sum_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_direct_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_basic_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "float_format_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "o3_behavior_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "o3_behavior_o3": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_mcf_quote_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_mcf_numeric_probe_o0": {
+      "rax": 0,
+      "rsp": 16384,
+      "storage": [
+        {"id": "std:vm", "path": "trace", "contains": "\"f\""}
+      ]
+    },
+    "libmc_mcf_release_probe_o0": {
+      "rax": 0,
+      "rsp": 16384,
+      "storage": [
+        {"id": "std:vm", "path": "trace", "contains": "\"c\""}
+      ]
+    },
+    "libmc_nbt_heap_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_nbt_float_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_data_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_item_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_team_bossbar_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_scoreboard_probe_o0": {
+      "rax": 0,
+      "rsp": 16384,
+      "scoreboard": [
+        {"player": "#libmc_a", "objective": "libmc_obj", "equals": 3},
+        {"player": "#libmc_b", "objective": "libmc_obj", "equals": 39}
+      ]
+    },
+    "libmc_execute_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_string_release_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libc_free_adjacent_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_say_trace_o0": {
+      "rax": 0,
+      "rsp": 16384,
+      "storage": [
+        {"id": "std:vm", "path": "trace", "contains": "\"d\""}
+      ],
+      "chat": [
+        {"contains": "clang-mc libmc say test"}
+      ]
+    },
+    "libmc_say_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_header_smoke_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_setblock_fill_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tellraw_players_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tellraw_raw_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tellraw_with_prior_msg_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_target_chat_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_unsafe_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tp_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tp_rot_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_tp_rot_only_combo_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_tp_then_tp_rot_combo_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_tp_trace_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_tp_alloc_trace_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_target_mcf_after_numeric_release_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_float_after_summon_tp_repro_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libc_snprintf_target_corrupt_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_summon_tp_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_exec_passthrough_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_clear_gamemode_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_gamemode_target_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_clear_only_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_weather_time_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_chat_commands_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_spawn_spectate_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_worldborder_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_forceload_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_function_datapack_recipe_schedule_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_enchant_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libmc_new_commands_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "jcc_const_fold_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "jcc_imm_reg_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "jcc_imm_mem_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "arith_mem_mem_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "ptr_index_scale_disp_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "opt_selector_merge_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "preprocessor_macro_args_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "preprocessor_objmacro_boundary_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "preprocessor_once_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "movd_preserve_rax_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "static_parse_edge_probe_o0": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_direct_mcO1": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_direct_mcO2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_basic_mcO1": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "mutual_recursion_mcO1": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "mutual_recursion_mcO2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "loop_mix_mcO1": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "recursion_factorial_mcO2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "obf_probe_enable_obf": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "obf_probe_enable_obf_O2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "function_pointer_direct_enable_obf": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "recursion_factorial_enable_obf": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "recursion_factorial_enable_obf_O2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "mutual_recursion_enable_obf": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "loop_mix_enable_obf": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "loop_mix_enable_obf_O2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "recursion_factorial_wpo_O1": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "libc_printf_wpo_O2": {
+      "rax": 0,
+      "rsp": 16384
+    },
+    "loop_mix_wpo_O2": {
+      "rax": 0,
+      "rsp": 16384
+    }
+  }
+}

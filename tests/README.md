@@ -19,6 +19,25 @@ The Python runner at [`tests/run_datapack_tests.py`](D:\clang-mc\tests\run_datap
 - read `rax` / `rsp`
 - scan logs for runtime failures
 
+## Runtime contracts
+
+Every automatically-run case has an explicit `rax` and `rsp` oracle in
+[`datapack_expectations.json`](D:\clang-mc\tests\datapack_expectations.json).
+The same manifest can additionally assert scoreboard values, storage content,
+chat/log output, arbitrary RCON responses, and world-query RCON responses.
+Unsupported or malformed expectation keys fail before a server starts.
+
+Fixtures not in the automatic runtime suite are deliberately listed in
+[`datapack_fixture_registry.json`](D:\clang-mc\tests\datapack_fixture_registry.json),
+with their current disposition. The runner rejects both unregistered and stale
+fixture entries, so adding a C fixture cannot silently leave it orphaned.
+
+Validate these contracts without launching Minecraft:
+
+```powershell
+python D:\clang-mc\tests\run_datapack_tests.py --validate-only
+```
+
 ## Before Running
 
 If you changed generated runtime sources, refresh artifacts first:

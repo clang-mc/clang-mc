@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GEN_PATH = ROOT / "tools" / "commands" / "generator" / "generate.py"
 BINDINGS_DIR = ROOT / "src" / "resources" / "libmc" / "include" / "bindings"
+BINDINGS_SRC_DIR = ROOT / "src" / "resources" / "libmc" / "bindings"
 VANILLA_PATH = BINDINGS_DIR / "vanilla.h"
 
 
@@ -28,13 +29,10 @@ gen = _load_generator()
 # Keeping this set explicit turns "a new stub silently slipped in" into a
 # test failure.
 EXEC_ONLY_COMMANDS = {
-    "attribute",
-    "bossbar",
     "data",
     "execute",
     "item",
     "loot",
-    "scoreboard",
     "team",
 }
 
@@ -50,11 +48,26 @@ class GeneratedBindingsTests(unittest.TestCase):
     def test_regeneration_matches_committed_headers(self) -> None:
         """Every committed header must be byte-identical to a fresh render."""
         for command in self.commands:
-            expected = gen.render_header(command, self.by_name)
+            if command.get("hand_written"):
+                continue
+            expected_header, expected_companion = gen.render_header(command, self.by_name)
             actual = (BINDINGS_DIR / command["header"]).read_text(encoding="utf-8")
             self.assertEqual(
-                actual, expected, f"{command['header']} is stale; rerun generate.py"
+                actual, expected_header, f"{command['header']} is stale; rerun generate.py"
             )
+            companion_path = BINDINGS_SRC_DIR / f"{Path(command['header']).stem}.c"
+            if expected_companion is None:
+                self.assertFalse(
+                    companion_path.exists(),
+                    f"{companion_path.name} is stale; rerun generate.py",
+                )
+            else:
+                actual_companion = companion_path.read_text(encoding="utf-8")
+                self.assertEqual(
+                    actual_companion,
+                    gen.render_command_helpers_c(command, expected_companion),
+                    f"{companion_path.name} is stale; rerun generate.py",
+                )
 
     def test_regeneration_matches_committed_vanilla_header(self) -> None:
         expected = gen.render_vanilla_bindings(self.commands)
@@ -97,11 +110,13 @@ class GeneratedBindingsTests(unittest.TestCase):
 
     def test_literal_only_trailing_keyword_variants(self) -> None:
         header = (BINDINGS_DIR / "tag.h").read_text(encoding="utf-8")
+        companion = (BINDINGS_SRC_DIR / "tag.c").read_text(encoding="utf-8")
         self.assertIn("tag_list(Target target)", header)
-        self.assertIn("$(target) list", header)
+        self.assertIn("$(target) list", companion)
 
     def test_bool_param_type(self) -> None:
         header = (BINDINGS_DIR / "gamerule.h").read_text(encoding="utf-8")
+        companion = (BINDINGS_SRC_DIR / "gamerule.c").read_text(encoding="utf-8")
         # Public signature is unchanged: bool is a plain `int value`.
         self.assertIn("gamerule_set_bool(String rule, int value)", header)
         # bool is a compile-time branch: an if/else on the int, each arm baking
@@ -109,8 +124,8 @@ class GeneratedBindingsTests(unittest.TestCase):
         # no slot, no Release for the bool.
         self.assertIn("if (value) {", header)
         self.assertIn("gamerule_set_bool_unsafe(McfStrRef rule_ref, int value)", header)
-        self.assertIn("gamerule $(rule) true", header)
-        self.assertIn("gamerule $(rule) false", header)
+        self.assertIn("gamerule $(rule) true", companion)
+        self.assertIn("gamerule $(rule) false", companion)
         self.assertNotIn("value_ref", header)
         self.assertNotIn("_Command_BoolRef", header)
         # The old singleton helper is gone from the support header entirely.

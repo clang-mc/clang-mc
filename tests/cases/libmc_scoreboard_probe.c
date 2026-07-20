@@ -42,8 +42,9 @@ int main(void) {
     if (scoreboard_players_get(a, "libmc_obj") != 3)
         return 104;
 
-    scoreboard_players_reset(a, "libmc_obj");
-    scoreboard_players_reset(b, "libmc_obj");
+    /* Keep the final values so the Fabric/RCON harness can assert the actual
+     * command side effect, rather than inferring success from the return code.
+     * Each runtime case starts from a fresh server process. */
     Target_Release(a);
     Target_Release(b);
     return 0;

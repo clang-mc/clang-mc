@@ -159,6 +159,7 @@ namespace string {
                             if (!hasNextChar || line[i + 1] != '/') break;
                             FMT_FALLTHROUGH;
                         case ';':
+                            if (inString || inChar) break;
                             // Found comment, return the substring up to this point
                             return line.substr(0, i);
                         default:

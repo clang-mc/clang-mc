@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import shutil
 import socket
 import struct
@@ -9,7 +11,7 @@ import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable, Mapping
 
 
 @dataclass(frozen=True)
@@ -17,8 +19,6 @@ class Case:
     name: str
     source: str
     opt: str = "-O0"
-    expected_rax: int = 0
-    expected_rsp: int = 16384
     wait_seconds: int = 20
     # 传给 clang-mc 的额外参数（如 mcasm 级优化/混淆等级 "-O1"/"-O2"/"--enable-obf"）。
     # 缺省为空，即 clang-mc 以 -O0 运行（与历史行为一致）。
@@ -28,6 +28,8 @@ class Case:
 ROOT = Path(__file__).resolve().parents[1]
 TEST_DIR = ROOT / "tests"
 CASE_DIR = TEST_DIR / "cases"
+EXPECTATIONS_PATH = TEST_DIR / "datapack_expectations.json"
+FIXTURE_REGISTRY_PATH = TEST_DIR / "datapack_fixture_registry.json"
 RUN_DIR = ROOT / "run"
 TMP_DIR = RUN_DIR / "tmp-test-suite"
 SERVER_DIR = RUN_DIR / "server"
@@ -51,6 +53,20 @@ ERROR_PATTERNS = (
     "Failed to execute",
     "Couldn't load tag",
     "Non [a-z0-9/._-] character in path",
+    "Exception in server tick loop",
+    "Exception in thread",
+    "Error executing task",
+    "Error occurred while enabling",
+    "Error occurred while disabling",
+)
+
+# These catch the common Java/Minecraft forms that are not stable enough to
+# enumerate as literal strings.  Keep them intentionally narrow: a bare
+# "error" also appears in benign mod diagnostics and would make the suite
+# noisy.
+ERROR_PATTERN_REGEXES = (
+    re.compile(r"\b(?:ERROR|FATAL)\b"),
+    re.compile(r"\b(?:[A-Za-z_][\w.]*Exception|[A-Za-z_][\w.]*Error)\b"),
 )
 
 IGNORED_LOG_PATTERNS = (
@@ -354,8 +370,12 @@ def score(client: RconClient, name: str) -> int:
 
 
 def storage_value(client: RconClient, path: str) -> str:
+    return storage_value_from(client, "std:vm", path)
+
+
+def storage_value_from(client: RconClient, storage_id: str, path: str) -> str:
     try:
-        return client.command(f"data get storage std:vm {path}")
+        return client.command(f"data get storage {storage_id} {path}")
     except Exception as exc:
         return f"<unavailable: {exc}>"
 
@@ -368,9 +388,155 @@ def scan_logs(paths: Iterable[Path]) -> list[str]:
         for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
             if any(pattern in line for pattern in IGNORED_LOG_PATTERNS):
                 continue
-            if any(pattern in line for pattern in ERROR_PATTERNS):
-                hits.append(line)
+            if any(pattern in line for pattern in ERROR_PATTERNS) or any(
+                pattern.search(line) for pattern in ERROR_PATTERN_REGEXES
+            ):
+                hits.append(f"{path.name}: {line}")
     return hits
+
+
+def load_json_object(path: Path, description: str) -> dict[str, Any]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise RuntimeError(f"missing {description}: {path}") from exc
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"invalid {description} JSON at {path}: {exc}") from exc
+    if not isinstance(value, dict):
+        raise RuntimeError(f"{description} must be a JSON object: {path}")
+    return value
+
+
+def require_int(value: Any, location: str) -> int:
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise RuntimeError(f"{location} must be an integer")
+    return value
+
+
+def load_expectations() -> dict[str, dict[str, Any]]:
+    manifest = load_json_object(EXPECTATIONS_PATH, "datapack expectation manifest")
+    cases = manifest.get("cases")
+    if not isinstance(cases, dict):
+        raise RuntimeError(f"{EXPECTATIONS_PATH}: 'cases' must be an object")
+    result: dict[str, dict[str, Any]] = {}
+    for name, expectation in cases.items():
+        if not isinstance(name, str) or not isinstance(expectation, dict):
+            raise RuntimeError(f"{EXPECTATIONS_PATH}: case expectations must be objects keyed by case name")
+        for register in ("rax", "rsp"):
+            if register not in expectation:
+                raise RuntimeError(f"{EXPECTATIONS_PATH}: {name} is missing required {register} oracle")
+            require_int(expectation[register], f"{name}.{register}")
+        result[name] = expectation
+    return result
+
+
+def validate_expectation_shape(case_name: str, expectation: Mapping[str, Any]) -> None:
+    """Reject unsupported declarative assertions before a slow server run."""
+    allowed = {"rax", "rsp", "scoreboard", "storage", "chat", "rcon", "world"}
+    unknown = set(expectation) - allowed
+    if unknown:
+        raise RuntimeError(f"{case_name}: unsupported expectation keys: {', '.join(sorted(unknown))}")
+    for key in ("scoreboard", "storage", "chat", "rcon", "world"):
+        assertions = expectation.get(key, [])
+        if not isinstance(assertions, list):
+            raise RuntimeError(f"{case_name}.{key} must be a list")
+        for index, assertion in enumerate(assertions):
+            if not isinstance(assertion, dict):
+                raise RuntimeError(f"{case_name}.{key}[{index}] must be an object")
+            if key == "scoreboard":
+                required = {"player", "objective", "equals"}
+            elif key == "storage":
+                required = {"id", "path", "contains"}
+            elif key == "chat":
+                required = {"contains"}
+            else:
+                required = {"command", "contains"}
+            missing = required - set(assertion)
+            if missing:
+                raise RuntimeError(f"{case_name}.{key}[{index}] missing: {', '.join(sorted(missing))}")
+            extra = set(assertion) - required
+            if extra:
+                raise RuntimeError(f"{case_name}.{key}[{index}] has unsupported keys: {', '.join(sorted(extra))}")
+            if key == "scoreboard":
+                require_int(assertion["equals"], f"{case_name}.{key}[{index}].equals")
+            for field in required - {"equals"}:
+                if not isinstance(assertion[field], str) or not assertion[field]:
+                    raise RuntimeError(f"{case_name}.{key}[{index}].{field} must be a non-empty string")
+
+
+def validate_fixture_registry() -> None:
+    registry = load_json_object(FIXTURE_REGISTRY_PATH, "datapack fixture registry")
+    non_runtime = registry.get("non_runtime")
+    if not isinstance(non_runtime, dict):
+        raise RuntimeError(f"{FIXTURE_REGISTRY_PATH}: 'non_runtime' must be an object")
+    runtime_sources = {case.source for case in CASES}
+    known_sources = {path.name for path in CASE_DIR.glob("*.c")}
+    orphans = known_sources - runtime_sources - set(non_runtime)
+    stale = set(non_runtime) - known_sources
+    overlaps = runtime_sources & set(non_runtime)
+    if orphans or stale or overlaps:
+        parts = []
+        if orphans:
+            parts.append("unregistered fixtures: " + ", ".join(sorted(orphans)))
+        if stale:
+            parts.append("registry entries without fixtures: " + ", ".join(sorted(stale)))
+        if overlaps:
+            parts.append("runtime fixtures incorrectly also non_runtime: " + ", ".join(sorted(overlaps)))
+        raise RuntimeError("fixture registry invalid: " + "; ".join(parts))
+    for source, entry in non_runtime.items():
+        if not isinstance(entry, dict) or not isinstance(entry.get("disposition"), str) or not isinstance(entry.get("reason"), str):
+            raise RuntimeError(f"{FIXTURE_REGISTRY_PATH}: {source} requires string disposition and reason")
+
+
+def validate_test_contracts(expectations: Mapping[str, Mapping[str, Any]]) -> None:
+    case_names = {case.name for case in CASES}
+    missing = case_names - set(expectations)
+    stale = set(expectations) - case_names
+    if missing or stale:
+        parts = []
+        if missing:
+            parts.append("cases missing expectations: " + ", ".join(sorted(missing)))
+        if stale:
+            parts.append("expectations without cases: " + ", ".join(sorted(stale)))
+        raise RuntimeError("datapack expectation manifest invalid: " + "; ".join(parts))
+    for case in CASES:
+        validate_expectation_shape(case.name, expectations[case.name])
+    validate_fixture_registry()
+
+
+def evaluate_declarative_expectations(
+    client: RconClient, expectation: Mapping[str, Any], log_paths: Iterable[Path]
+) -> list[str]:
+    failures: list[str] = []
+    for assertion in expectation.get("scoreboard", []):
+        # The VM registers use vm_regs, but external scoreboard probes can name
+        # any objective.  Query it directly instead of pretending it is a VM register.
+        if assertion["objective"] == "vm_regs":
+            actual = score(client, assertion["player"])
+        else:
+            output = client.command(f"scoreboard players get {assertion['player']} {assertion['objective']}")
+            marker = " has "
+            tail = f" [{assertion['objective']}]"
+            if marker not in output or tail not in output:
+                failures.append(f"scoreboard unexpected output: {output!r}")
+                continue
+            actual = int(output[output.index(marker) + len(marker):output.index(tail)].strip())
+        if actual != assertion["equals"]:
+            failures.append(f"scoreboard {assertion['player']} {assertion['objective']}={actual}, expected={assertion['equals']}")
+    for assertion in expectation.get("storage", []):
+        actual = storage_value_from(client, assertion["id"], assertion["path"])
+        if assertion["contains"] not in actual:
+            failures.append(f"storage {assertion['id']} {assertion['path']} missing {assertion['contains']!r}: {actual!r}")
+    log_text = "\n".join(path.read_text(encoding="utf-8", errors="replace") for path in log_paths if path.exists())
+    for assertion in expectation.get("chat", []):
+        if assertion["contains"] not in log_text:
+            failures.append(f"chat/log output missing {assertion['contains']!r}")
+    for key in ("rcon", "world"):
+        for assertion in expectation.get(key, []):
+            output = client.command(assertion["command"])
+            if assertion["contains"] not in output:
+                failures.append(f"{key} command {assertion['command']!r} missing {assertion['contains']!r}: {output!r}")
+    return failures
 
 
 def compile_case(case: Case) -> Path:
@@ -412,7 +578,7 @@ def compile_case(case: Case) -> Path:
     return pack_zip
 
 
-def run_case(case: Case, pack_zip: Path, client: RconClient) -> tuple[bool, str]:
+def run_case(case: Case, expectation: Mapping[str, Any], pack_zip: Path, client: RconClient) -> tuple[bool, str]:
     cleanup_active_pack()
     case_dir = TMP_DIR / case.name
     stdout_log = TMP_DIR / f"{case.name}.server.log"
@@ -450,12 +616,16 @@ def run_case(case: Case, pack_zip: Path, client: RconClient) -> tuple[bool, str]
         trace_ptrs_before = storage_value(client, "trace_ptrs_before")
         trace_ptrs_after = storage_value(client, "trace_ptrs_after")
         trace_ptrs_created = storage_value(client, "trace_ptrs_created")
-        if rax != case.expected_rax:
-            return False, f"rax={rax}, expected={case.expected_rax}, trace={trace}, ls0={ls0}, trace_r2={trace_r2}, trace_tp_ls0={trace_tp_ls0}, trace_tp_cmd={trace_tp_cmd}, trace_tp_ret={trace_tp_ret}, trace_cmd={trace_cmd}, trace_tp_slots={trace_tp_slots}, before_slot={trace_before_slot}, after_summon_slot={trace_after_summon_slot}, ptrs_before={trace_ptrs_before}, ptrs_created={trace_ptrs_created}, ptrs_after={trace_ptrs_after}, mcstr={mcstr_state}"
-        if rsp != case.expected_rsp:
-            return False, f"rsp={rsp}, expected={case.expected_rsp}, trace={trace}, ls0={ls0}, trace_r2={trace_r2}, trace_tp_ls0={trace_tp_ls0}, trace_tp_cmd={trace_tp_cmd}, trace_tp_ret={trace_tp_ret}, trace_cmd={trace_cmd}, trace_tp_slots={trace_tp_slots}, before_slot={trace_before_slot}, after_summon_slot={trace_after_summon_slot}, ptrs_before={trace_ptrs_before}, ptrs_created={trace_ptrs_created}, ptrs_after={trace_ptrs_after}, mcstr={mcstr_state}"
+        diagnostics = f"trace={trace}, ls0={ls0}, trace_r2={trace_r2}, trace_tp_ls0={trace_tp_ls0}, trace_tp_cmd={trace_tp_cmd}, trace_tp_ret={trace_tp_ret}, trace_cmd={trace_cmd}, trace_tp_slots={trace_tp_slots}, before_slot={trace_before_slot}, after_summon_slot={trace_after_summon_slot}, ptrs_before={trace_ptrs_before}, ptrs_created={trace_ptrs_created}, ptrs_after={trace_ptrs_after}, mcstr={mcstr_state}"
+        if rax != expectation["rax"]:
+            return False, f"rax={rax}, expected={expectation['rax']}, {diagnostics}"
+        if rsp != expectation["rsp"]:
+            return False, f"rsp={rsp}, expected={expectation['rsp']}, {diagnostics}"
         if log_hits:
             return False, "log errors: " + " | ".join(log_hits[:3])
+        assertion_failures = evaluate_declarative_expectations(client, expectation, (stdout_log, stderr_log))
+        if assertion_failures:
+            return False, "; ".join(assertion_failures) + f", {diagnostics}"
         return True, f"rax={rax} rsp={rsp}"
     finally:
         stop_server(server_proc, client)
@@ -466,7 +636,18 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Run clang-mc datapack runtime regression cases.")
     parser.add_argument("--case", dest="case_filter", help="Run only cases whose name contains this substring.")
     parser.add_argument("--keep-tmp", action="store_true", help="Keep run/tmp-test-suite after completion.")
+    parser.add_argument("--validate-only", action="store_true", help="Validate manifests and fixture registration without starting Minecraft.")
     args = parser.parse_args()
+
+    try:
+        expectations = load_expectations()
+        validate_test_contracts(expectations)
+    except RuntimeError as exc:
+        print(f"test contract error: {exc}", file=sys.stderr)
+        return 2
+    if args.validate_only:
+        print(f"validated {len(CASES)} runtime case contracts and fixture registration")
+        return 0
 
     props = parse_server_properties(SERVER_DIR / "server.properties")
     client = RconClient(
@@ -495,7 +676,7 @@ def main() -> int:
         failures: list[tuple[str, str]] = []
         for case in selected:
             print(f"[run] {case.name}")
-            ok, detail = run_case(case, compiled[case.name], client)
+            ok, detail = run_case(case, expectations[case.name], compiled[case.name], client)
             status = "PASS" if ok else "FAIL"
             print(f"{status} {case.name}: {detail}")
             if not ok:

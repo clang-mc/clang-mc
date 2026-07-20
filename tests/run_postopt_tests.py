@@ -126,11 +126,15 @@ def main() -> int:
     if dp:
         problems.append(f"-O2 出现悬空池化(calld)引用: {dp}")
 
-    # 4) 导出/外部函数保留：非本命名空间(a)的库函数集合在 -O1/-O2 一致（内联/死码消除不触及）。
+    # 4) WPO 契约：-O2 可以裁剪未使用的外部库函数，但不得新增 -O1
+    # 未链接的外部函数；前面的悬空引用检查保证被保留的调用仍有目标。
     ext1 = {f for f in o1 if not f.startswith(NAMESPACE + ":")}
     ext2 = {f for f in o2 if not f.startswith(NAMESPACE + ":")}
-    if ext1 != ext2:
-        problems.append(f"外部/库函数集合改变: 仅O1={sorted(ext1 - ext2)} 仅O2={sorted(ext2 - ext1)}")
+    unexpected_external = sorted(ext2 - ext1)
+    if unexpected_external:
+        problems.append(f"-O2 引入了 -O1 中不存在的外部/库函数: {unexpected_external}")
+    if not ext1 - ext2:
+        problems.append("-O2 未裁剪任何未使用的外部/库函数；WPO fixture 或链接契约已变化")
 
     if problems:
         print("FAIL postopt_inline_dce:")

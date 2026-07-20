@@ -34,16 +34,14 @@ add_requires("spdlog", { configs = { header_only = true, fmt_external_ho = true 
 add_requires("nlohmann_json")
 add_requires("yaml-cpp", { configs = { shared = false } })
 add_requires("libzip", { configs = { shared = false } })
+add_requires("catch2 v3.7.1")
 
 -- 编译目标
-target("clang-mc")
-    set_kind("binary")
-    set_targetdir("$(projectdir)/build/bin")
+target("clang-mc-core")
+    set_kind("static")
 
     add_files(
-        "src/cpp/Main.cpp",
         "src/cpp/ClangMc.cpp",
-        "src/cpp/Start.c",
         "src/cpp/config/ArgParser.cpp",
         "src/cpp/utils/CLIUtils.cpp",
         "src/cpp/utils/Native.c",
@@ -82,7 +80,7 @@ target("clang-mc")
         "src/cpp/parse/PreProcessor.cpp"
     )
 
-    add_includedirs("src/cpp", "src/cpp/patches")
+    add_includedirs("src/cpp", "src/cpp/patches", { public = true })
     add_includedirs("include", { system = true })
 
     add_defines(
@@ -147,10 +145,6 @@ target("clang-mc")
         end
     end
 
-    if is_plat("windows") then
-        add_syslinks("dbghelp", "Userenv", "ntdll", "user32", "kernel32")
-    end
-
     -- 库
     add_packages("fmt", "spdlog", "nlohmann_json", "yaml-cpp", "libzip")
 
@@ -197,6 +191,22 @@ target("clang-mc")
         target:add("includedirs", outdir, { public = false })
     end)
 
+target_end()
+
+target("clang-mc")
+    set_kind("binary")
+    set_targetdir("$(projectdir)/build/bin")
+    add_files("src/cpp/Main.cpp", "src/cpp/Start.c")
+    add_includedirs("src/cpp", "src/cpp/patches")
+    add_includedirs("include", { system = true })
+    add_defines("_CRT_SECURE_NO_WARNINGS", "FMT_HEADER_ONLY", "GENERATED_SETUP")
+    add_deps("clang-mc-core")
+    add_packages("fmt", "spdlog", "nlohmann_json", "yaml-cpp", "libzip")
+
+    if is_plat("windows") then
+        add_syslinks("dbghelp", "Userenv", "ntdll", "user32", "kernel32")
+    end
+
     -- 生成 assets（交叉编译时跳过：宿主机无法执行目标平台二进制）
     after_build(function(target)
         local host_to_plat = { windows = "windows", linux = "linux", macosx = "macosx" }
@@ -206,4 +216,18 @@ target("clang-mc")
         local script = path.join(os.projectdir(), "./src/python/build_assets.py")
         os.exec("python " .. script)
     end)
+target_end()
+
+target("clang-mc-unit")
+    set_kind("binary")
+    set_default(false)
+    add_files("tests/unit/*.cpp")
+    add_includedirs("src/cpp", "src/cpp/patches")
+    add_includedirs("include", { system = true })
+    add_defines("_CRT_SECURE_NO_WARNINGS", "FMT_HEADER_ONLY", "GENERATED_SETUP")
+    add_deps("clang-mc-core")
+    add_packages("catch2", "fmt", "spdlog", "nlohmann_json", "yaml-cpp", "libzip")
+    if is_plat("windows") then
+        add_syslinks("dbghelp", "Userenv", "ntdll", "user32", "kernel32")
+    end
 target_end()

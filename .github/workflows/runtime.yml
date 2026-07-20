@@ -1,0 +1,158 @@
+name: Runtime Tests
+
+on:
+  schedule:
+    # 00:10 Asia/Shanghai: evaluate the full local calendar day that just ended.
+    - cron: '10 16 * * *'
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: runtime-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  runtime:
+    name: Windows runtime regression
+    runs-on: windows-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check whether nightly runtime tests are needed
+        id: changes
+        shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+
+          if ($env:EVENT_NAME -ne 'schedule') {
+            'run=true' >> $env:GITHUB_OUTPUT
+            "Runtime regressions enabled for $env:EVENT_NAME." >> $env:GITHUB_STEP_SUMMARY
+            exit 0
+          }
+
+          # GitHub schedules are UTC.  The nightly run is 00:10 in the
+          # repository's Asia/Shanghai time zone, so test only if the just
+          # completed local calendar day had a commit.
+          $china = [System.TimeZoneInfo]::FindSystemTimeZoneById('China Standard Time')
+          $nowChina = [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $china)
+          $dayEndChina = $nowChina.Date
+          $dayStartChina = $dayEndChina.AddDays(-1)
+          $since = $dayStartChina.AddHours(-8).ToString('yyyy-MM-ddTHH:mm:ssZ')
+          $until = $dayEndChina.AddHours(-8).ToString('yyyy-MM-ddTHH:mm:ssZ')
+          $uri = "https://api.github.com/repos/$env:REPOSITORY/commits?since=$since&until=$until&per_page=1"
+          $headers = @{
+            Authorization = "Bearer $env:GITHUB_TOKEN"
+            Accept = 'application/vnd.github+json'
+            'X-GitHub-Api-Version' = '2022-11-28'
+          }
+          $commits = @(Invoke-RestMethod -Headers $headers -Uri $uri)
+
+          if ($commits.Count -gt 0) {
+            'run=true' >> $env:GITHUB_OUTPUT
+            "Found commit(s) on $($dayStartChina.ToString('yyyy-MM-dd')) Asia/Shanghai; running runtime regressions." >> $env:GITHUB_STEP_SUMMARY
+          }
+          else {
+            'run=false' >> $env:GITHUB_OUTPUT
+            "No commits on $($dayStartChina.ToString('yyyy-MM-dd')) Asia/Shanghai; runtime regressions skipped." >> $env:GITHUB_STEP_SUMMARY
+          }
+
+      - uses: actions/checkout@v4
+        if: steps.changes.outputs.run == 'true'
+
+      - name: Set up Temurin JDK 21
+        if: steps.changes.outputs.run == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # Keep only immutable downloads.  The world, logs and generated server
+      # configuration are deliberately excluded so runtime cases cannot leak
+      # state across hosted jobs.
+      - name: Cache Fabric server dependencies
+        if: steps.changes.outputs.run == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            run/server/.fabric
+            run/server/libraries
+            run/server/mods
+            run/server/server.jar
+            run/server/server-vanilla-1.21.4.jar
+            run/server/versions
+          key: fabric-runtime-1.21.4-loader-0.19.2-api-0.119.4-carpet-1.4.161-v1
+
+      - name: Prepare clean Fabric and RCON server
+        if: steps.changes.outputs.run == 'true'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $server = Join-Path $env:GITHUB_WORKSPACE 'run/server'
+          $mods = Join-Path $server 'mods'
+          New-Item -ItemType Directory -Force -Path $server, $mods | Out-Null
+
+          if (-not (Test-Path (Join-Path $server 'server.jar'))) {
+            $installer = Join-Path $env:RUNNER_TEMP 'fabric-installer.jar'
+            Invoke-WebRequest `
+              -Uri 'https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.0.1/fabric-installer-1.0.1.jar' `
+              -OutFile $installer
+            & java -jar $installer server -dir $server -mcversion 1.21.4 -loader 0.19.2 -downloadMinecraft
+            if ($LASTEXITCODE -ne 0) { throw "Fabric installer failed with exit code $LASTEXITCODE" }
+          }
+
+          $downloads = @{
+            'fabric-api-0.119.4+1.21.4.jar' = 'https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4/fabric-api-0.119.4+1.21.4.jar'
+            'fabric-carpet-1.21.4-1.4.161+v241203.jar' = 'https://maven.fabricmc.net/carpet/fabric-carpet/1.21.4-1.4.161+v241203/fabric-carpet-1.21.4-1.4.161+v241203.jar'
+          }
+          foreach ($entry in $downloads.GetEnumerator()) {
+            $destination = Join-Path $mods $entry.Key
+            if (-not (Test-Path $destination)) {
+              Invoke-WebRequest -Uri $entry.Value -OutFile $destination
+            }
+          }
+
+          Remove-Item -LiteralPath (Join-Path $server 'world') -Recurse -Force -ErrorAction SilentlyContinue
+          Remove-Item -LiteralPath (Join-Path $server 'logs') -Recurse -Force -ErrorAction SilentlyContinue
+          Remove-Item -LiteralPath (Join-Path $server 'crash-reports') -Recurse -Force -ErrorAction SilentlyContinue
+          Set-Content -LiteralPath (Join-Path $server 'eula.txt') -Value 'eula=true' -NoNewline
+          @'
+          enable-rcon=true
+          rcon.port=25575
+          rcon.password=clang-mc-ci
+          server-ip=127.0.0.1
+          server-port=25566
+          online-mode=false
+          gamemode=creative
+          difficulty=peaceful
+          enable-command-block=true
+          spawn-protection=0
+          max-tick-time=-1
+          level-name=world
+          '@ | Set-Content -LiteralPath (Join-Path $server 'server.properties') -NoNewline
+
+      - name: Setup xmake
+        if: steps.changes.outputs.run == 'true'
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: latest
+
+      - name: Configure
+        if: steps.changes.outputs.run == 'true'
+        run: xmake f -p windows -m release --toolchain=clang-cl -a x64 -y
+
+      - name: Build
+        if: steps.changes.outputs.run == 'true'
+        run: xmake
+
+      - name: Run datapack runtime regressions
+        if: steps.changes.outputs.run == 'true'
+        run: python tests/run_datapack_tests.py
