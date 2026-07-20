@@ -3,7 +3,7 @@
 //   mul r1,1 -> 代数化简为 nop（删除）。
 //   div r2,2 -> 不折叠（MC 为向下取整除法，语义不同），保留 `div r2, 2`。
 //   add r3,1 于 INT_MAX 上 -> 32 位环绕，折叠为 mov r3, -2147483648。
-export _start:
+_start:
     mov r0, 50
     sub r0, 0
     mov r1, 60

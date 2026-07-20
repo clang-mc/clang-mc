@@ -1,0 +1,2 @@
+export verify_ns:dir//entry:
+    ret

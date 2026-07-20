@@ -1,0 +1,3 @@
+// Dots are part of the Minecraft namespace grammar.
+export verify.ns:foo:
+    ret

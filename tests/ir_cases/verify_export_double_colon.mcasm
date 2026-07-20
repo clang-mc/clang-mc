@@ -1,0 +1,3 @@
+// GitHub issue #3 method 1: two namespace separators must be rejected.
+export ::a:
+    ret

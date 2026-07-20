@@ -43,6 +43,9 @@ static OpPtr createWith2Arg(const LineState &line, const std::string_view &args)
 }
 
 static inline bool isLocalLabel(const std::string_view &rawLabel) {
+    if (rawLabel.empty()) {
+        throw ParseException(i18n("ir.empty_label"));
+    }
     if (string::contains(rawLabel, ' ')) {
         throw ParseException(i18n("ir.invalid_label"));
     }

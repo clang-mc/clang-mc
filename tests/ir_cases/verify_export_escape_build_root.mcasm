@@ -1,0 +1,3 @@
+// A legacy data/ns/function/<path> join would write this outside -B.
+export verify_ns:../../../../escape:
+    ret

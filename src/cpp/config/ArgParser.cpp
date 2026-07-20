@@ -10,26 +10,26 @@ ArgParser::ArgParser(Config &config) : config(config) {
 }
 
 void ArgParser::setNameSpace(const std::string &arg) {
-    switch (string::count(arg, ':')) {
-        case 0:
-            if (!string::isValidMCNamespace(arg)) {
-                throw ParseException(i18n("cli.arg.invalid_namespace"));
-            }
-            config.setNameSpace(arg + ':');
-            break;
-        case 1:
-            if (!string::isValidMCNamespace(string::removeFromFirst(arg, ":"))) {
-                throw ParseException(i18n("cli.arg.invalid_namespace"));
-            }
-            assert(arg.length() > 1);
-            if (arg[arg.length() - 1] != '/' && arg[arg.length() - 1] != ':') {
-                config.setNameSpace(arg + '/');
-            } else {
-                config.setNameSpace(arg);
-            }
-            break;
-        default:
-            throw ParseException(i18n("cli.arg.invalid_namespace"));
+    const auto separator = arg.find(':');
+    if (separator != std::string::npos && arg.find(':', separator + 1) != std::string::npos) {
+        throw ParseException(i18n("cli.arg.invalid_namespace"));
+    }
+
+    const auto namespaceName = std::string_view(arg).substr(0, separator);
+    const auto pathPrefix = separator == std::string::npos
+                                ? std::string_view()
+                                : std::string_view(arg).substr(separator + 1);
+    if (!string::isValidMCNamespace(namespaceName)
+        || !string::isValidMCFunctionPathPrefix(pathPrefix)) {
+        throw ParseException(i18n("cli.arg.invalid_namespace"));
+    }
+
+    if (separator == std::string::npos) {
+        config.setNameSpace(arg + ':');
+    } else if (pathPrefix.empty() || pathPrefix.back() == '/') {
+        config.setNameSpace(arg);
+    } else {
+        config.setNameSpace(arg + '/');
     }
 }
 

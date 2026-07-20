@@ -1,0 +1,3 @@
+// Valid explicit location: nested paths and dots are part of the Minecraft syntax.
+export verify_ns:dir/sub.func:
+    ret

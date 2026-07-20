@@ -1,0 +1,3 @@
+// Windows reserves COM1 even when it has an extension.
+export verify_ns:com1.txt:
+    ret

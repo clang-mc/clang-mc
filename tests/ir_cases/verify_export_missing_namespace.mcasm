@@ -1,0 +1,3 @@
+// GitHub issue #3 method 3: exported labels must have namespace:path form.
+export a:
+    ret

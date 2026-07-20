@@ -157,29 +157,30 @@ void IR::parse(std::string &&code) {
 }
 
 FORCEINLINE std::string IR::createForCall(const Label *labelOp) {
+    std::string result;
     if (labelOp->getExport() || labelOp->getExtern() || labelOp->getApi()) {
-        assert(string::count(labelOp->getLabel(), ':') == 1);
-        return labelOp->getLabel();
+        result = labelOp->getLabel();
+    } else {
+        // 内部（非导出/extern/api）函数：产出“可读且合法”的名字，而非不透明短名。
+        // 以源文件名（stem，不含目录与扩展名）作前缀，兼顾可读性与路径长度；
+        // 跨文件/同文件的唯一性由 initLabels 中针对全局内部名集合的去重保证。
+        // 真正的不透明化混淆延后到 -O1/-O2 的 Obfuscator 阶段处理。
+        result = config.getNameSpace() + string::legalizeMCPath(this->file.stem().string())
+                 + "/" + string::legalizeMCPath(labelOp->getLabel());
     }
 
-    // 内部（非导出/extern/api）函数：产出“可读且合法”的名字，而非不透明短名。
-    // 以源文件名（stem，不含目录与扩展名）作前缀，兼顾可读性与路径长度；
-    // 跨文件/同文件的唯一性由 initLabels 中针对全局内部名集合的去重保证。
-    // 真正的不透明化混淆延后到 -O1/-O2 的 Obfuscator 阶段处理。
-    return config.getNameSpace() + string::legalizeMCPath(this->file.stem().string())
-           + "/" + string::legalizeMCPath(labelOp->getLabel());
+    if (!string::parseMCFunctionResourceLocation(result)) {
+        throw ParseException(i18nFormat("ir.invalid_function_location", result));
+    }
+    return result;
 }
 
-static inline Path toPath(const std::string &mcPath) {
-    static const auto data = Path("data");
-    static const auto function = Path("function");
-    static const auto mcfunction = Path(".mcfunction");
-
-    assert(string::count(mcPath, ':') == 1);
-    auto splits = string::split(mcPath, ':', 2);
-    auto result = data / splits[0] / function / splits[1];
-    result += mcfunction;
-    return result;
+static inline Path toPath(const std::string_view mcPath) {
+    auto result = string::buildPathFromMCFunctionResourceLocation(mcPath);
+    if (!result) {
+        throw ParseException(i18nFormat("ir.invalid_function_location", mcPath));
+    }
+    return std::move(*result);
 }
 
 FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
@@ -191,7 +192,9 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
         auto labelOp = CAST_FAST(op, Label);
         Hash label = labelOp->getLabelHash();
 
-        assert(!labelMap.contains(label));
+        if (labelMap.contains(label)) {
+            throw ParseException(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
+        }
 
         auto labelNameForCall = createForCall(labelOp);
 
@@ -220,7 +223,9 @@ FORCEINLINE void IR::initLabels(LabelMap &labelMap) {
         labelMap.emplace(label, labelNameForCall);
 
         if (label == hash("_start")) {
-            assert(context.getStartFunc().empty());
+            if (!context.getStartFunc().empty()) {
+                throw ParseException(i18nFormat("ir.verify.label_redefinition", labelOp->getLabel()));
+            }
             context.setStartFunc(labelNameForCall);
         }
     }
