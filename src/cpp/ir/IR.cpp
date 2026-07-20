@@ -267,8 +267,6 @@ static void collectStaticMentions(const std::string &code,
 void IR::preCompile() {
     staticDataMap.clear();
     auto &staticData = context.getStaticData();
-    staticData.clear();
-    staticData.reserve(256);
 
     // 死静态数据消除（optLevel>=1）：一个 `static`，若其符号在本单元里被引用不到
     // ——既不作为任何 cmp 类 op（mov/比较）的 Symbol/SymbolPtr 操作数，也不在任何

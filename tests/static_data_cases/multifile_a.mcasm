@@ -1,0 +1,8 @@
+extern static_multifile:read_b:
+
+_start:
+    mov r0, [my_data_a]
+    call static_multifile:read_b
+    ret
+
+static my_data_a [111]

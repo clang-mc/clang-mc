@@ -1,0 +1,5 @@
+_start:
+    mov r0, [only_data]
+    ret
+
+static only_data [333]

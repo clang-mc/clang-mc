@@ -53,6 +53,11 @@ void ClangMc::start() {
         auto staticBaseUuid = uuids::to_string(uuids::uuid_random_generator(uuidEngine)());
         staticBaseUuid.erase(std::remove(staticBaseUuid.begin(), staticBaseUuid.end(), '-'), staticBaseUuid.end());
         context.setStaticBaseReg(Registers::createCustom(fmt::format("sb_{}", staticBaseUuid), false));
+        // Static data belongs to the whole compilation, while each IR keeps its
+        // own symbol-to-offset map.  Initialize the shared layout once here so
+        // later IRs append their data instead of overwriting earlier units.
+        context.getStaticData().clear();
+        context.getStaticData().reserve(256);
 #ifndef NDEBUG
         logger->debug("pre parse");
 #endif

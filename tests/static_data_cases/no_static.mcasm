@@ -1,0 +1,2 @@
+export static_data_no_static:noop:
+    ret

@@ -1,0 +1,5 @@
+export static_multifile:read_b:
+    mov r0, [my_data_b]
+    ret
+
+static my_data_b [222]
